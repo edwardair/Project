@@ -51,16 +51,18 @@ enum{
 }
 - (void)createNewMeeting{
     CreateNewMeetingViewController *ctrl = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
-    UINavigationController *cl = [[UINavigationController alloc]init];
+    
+    cl = [[UINavigationController alloc]init];
     cl.navigationBarHidden = NO;
-    cl.title = @"新建会议 标题";
-    
-    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@""] style:<#(UIBarButtonItemStyle)#> target:<#(id)#> action:<#(SEL)#>]
-    
-    cl.navigationItem.leftBarButtonItem
+    cl.title = @"新建会议B";
+    back = [[UIBarButtonItem alloc]initWithTitle:@"Go Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToMenu)];
+    cl.navigationItem.backBarButtonItem = back;
+
     [cl pushViewController:ctrl animated:YES];
-//    [cl.view addSubview:ctrl];
+
     [self.view addSubview:cl.view];
 }
-
+- (void)backToMenu{
+    [cl removeFromParentViewController];
+}
 @end

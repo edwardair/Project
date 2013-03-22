@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController{
+    UIBarButtonItem *back;
+    UINavigationController *cl;
+}
 //@property (nonatomic,strong) IBOutlet UIButton *createNewMeeting;
 - (IBAction)menuPressed:(id)sender;
 @end
