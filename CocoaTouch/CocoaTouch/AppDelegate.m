@@ -21,8 +21,15 @@
 //    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    MainMenuViewController *viewController = [[MainMenuViewController alloc]initWithNibName:@"MainMenuViewController" bundle:nil];
-    self.window.rootViewController = viewController;
+//    MainMenuViewController *viewController = [[MainMenuViewController alloc]initWithNibName:@"MainMenuViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:[[CreateNewMeetingViewController alloc]init]];
+    nav.title = @"123";
+    nav.navigationBarHidden = NO;
+    nav.navigationBar.tintColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    
+    nav.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Go Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToMenu)];
+
+    self.window.rootViewController = nav;
     
     return YES;
 }

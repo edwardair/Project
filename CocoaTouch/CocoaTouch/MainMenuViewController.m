@@ -52,15 +52,8 @@ enum{
 - (void)createNewMeeting{
     CreateNewMeetingViewController *ctrl = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
     
-    cl = [[UINavigationController alloc]init];
-    cl.navigationBarHidden = NO;
-    cl.title = @"新建会议B";
-    back = [[UIBarButtonItem alloc]initWithTitle:@"Go Back" style:UIBarButtonItemStyleBordered target:self action:@selector(backToMenu)];
-    cl.navigationItem.backBarButtonItem = back;
-
-    [cl pushViewController:ctrl animated:YES];
-
-    [self.view addSubview:cl.view];
+    
+    
 }
 - (void)backToMenu{
     [cl removeFromParentViewController];
