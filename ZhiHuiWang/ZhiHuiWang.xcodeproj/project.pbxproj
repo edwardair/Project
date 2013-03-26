@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F12A569F16FFD7CE00ECDD04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A569E16FFD7CE00ECDD04 /* UIKit.framework */; };
+		F12A56A116FFD7CE00ECDD04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A56A016FFD7CE00ECDD04 /* Foundation.framework */; };
+		F12A56A316FFD7CE00ECDD04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A56A216FFD7CE00ECDD04 /* CoreGraphics.framework */; };
+		F12A56A916FFD7CE00ECDD04 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F12A56A716FFD7CE00ECDD04 /* InfoPlist.strings */; };
+		F12A56AB16FFD7CE00ECDD04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A56AA16FFD7CE00ECDD04 /* main.m */; };
+		F12A56AF16FFD7CE00ECDD04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A56AE16FFD7CE00ECDD04 /* AppDelegate.m */; };
+		F12A56B116FFD7CE00ECDD04 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A56B016FFD7CE00ECDD04 /* Default.png */; };
+		F12A56B316FFD7CE00ECDD04 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A56B216FFD7CE00ECDD04 /* Default@2x.png */; };
+		F12A56B516FFD7CE00ECDD04 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A56B416FFD7CE00ECDD04 /* Default-568h@2x.png */; };
+		F12A56C416FFD89900ECDD04 /* CreateNewMeeting.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A56C316FFD89900ECDD04 /* CreateNewMeeting.png */; };
+		F12A56C816FFDD1000ECDD04 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A56C616FFDD1000ECDD04 /* MainMenuViewController.m */; };
+		F12A56C916FFDD1000ECDD04 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A56C716FFDD1000ECDD04 /* MainMenuViewController.xib */; };
+		F12A570B16FFEBA700ECDD04 /* CreateNewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */; };
+		F12A570C16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A570A16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib */; };
+		F12A574D17000C2B00ECDD04 /* ContentManage.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A574917000C2B00ECDD04 /* ContentManage.png */; };
+		F12A574F17000C2B00ECDD04 /* GroupManage.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A574B17000C2B00ECDD04 /* GroupManage.png */; };
+		F12A575017000C2B00ECDD04 /* MemberManage.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A574C17000C2B00ECDD04 /* MemberManage.png */; };
+		F12A575217000D3200ECDD04 /* Create.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A575117000D3100ECDD04 /* Create.png */; };
+		F12A5754170010EE00ECDD04 /* Cover.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A5753170010EE00ECDD04 /* Cover.png */; };
+		F12A576217001D6E00ECDD04 /* SubMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A576117001D6E00ECDD04 /* SubMenuButton.m */; };
+		F12A576A17002AA200ECDD04 /* CreateNewMeeting_Create.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576717002AA200ECDD04 /* CreateNewMeeting_Create.png */; };
+		F12A576B17002AA200ECDD04 /* CreateNewMeeting_Require.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576817002AA200ECDD04 /* CreateNewMeeting_Require.png */; };
+		F12A576C17002AA200ECDD04 /* CreateNewMeeting_Theme.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576917002AA200ECDD04 /* CreateNewMeeting_Theme.png */; };
+		F1EE998E170036F700253625 /* CreateNewMeeting_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EE998D170036F700253625 /* CreateNewMeeting_Create.m */; };
+		F1EE99921700373B00253625 /* CreateNewMeeting_Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EE99911700373B00253625 /* CreateNewMeeting_Theme.m */; };
+		F1EE99951700374700253625 /* CreateNewMeeting_Require.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EE99941700374700253625 /* CreateNewMeeting_Require.m */; };
+		F1EE99981700377D00253625 /* CreateNewMeeting_Create.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1EE99971700377D00253625 /* CreateNewMeeting_Create.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F12A569A16FFD7CE00ECDD04 /* ZhiHuiWang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuiWang.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12A569E16FFD7CE00ECDD04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F12A56A016FFD7CE00ECDD04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F12A56A216FFD7CE00ECDD04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F12A56A616FFD7CE00ECDD04 /* ZhiHuiWang-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZhiHuiWang-Info.plist"; sourceTree = "<group>"; };
+		F12A56A816FFD7CE00ECDD04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F12A56AA16FFD7CE00ECDD04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F12A56AC16FFD7CE00ECDD04 /* ZhiHuiWang-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZhiHuiWang-Prefix.pch"; sourceTree = "<group>"; };
+		F12A56AD16FFD7CE00ECDD04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F12A56AE16FFD7CE00ECDD04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F12A56B016FFD7CE00ECDD04 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F12A56B216FFD7CE00ECDD04 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F12A56B416FFD7CE00ECDD04 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F12A56C316FFD89900ECDD04 /* CreateNewMeeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting.png; sourceTree = "<group>"; };
+		F12A56C516FFDD1000ECDD04 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuViewController.h; path = Classes/MainMenuViewController.h; sourceTree = "<group>"; };
+		F12A56C616FFDD1000ECDD04 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuViewController.m; path = Classes/MainMenuViewController.m; sourceTree = "<group>"; };
+		F12A56C716FFDD1000ECDD04 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenuViewController.xib; path = ../Classes/MainMenuViewController.xib; sourceTree = "<group>"; };
+		F12A570816FFEBA700ECDD04 /* CreateNewMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeetingViewController.h; path = Classes/CreateNewMeetingViewController.h; sourceTree = "<group>"; };
+		F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeetingViewController.m; path = Classes/CreateNewMeetingViewController.m; sourceTree = "<group>"; };
+		F12A570A16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateNewMeetingViewController.xib; path = ../Classes/CreateNewMeetingViewController.xib; sourceTree = "<group>"; };
+		F12A574917000C2B00ECDD04 /* ContentManage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContentManage.png; sourceTree = "<group>"; };
+		F12A574B17000C2B00ECDD04 /* GroupManage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GroupManage.png; sourceTree = "<group>"; };
+		F12A574C17000C2B00ECDD04 /* MemberManage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MemberManage.png; sourceTree = "<group>"; };
+		F12A575117000D3100ECDD04 /* Create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Create.png; sourceTree = "<group>"; };
+		F12A5753170010EE00ECDD04 /* Cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cover.png; sourceTree = "<group>"; };
+		F12A576017001D6E00ECDD04 /* SubMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubMenuButton.h; path = Classes/SubMenuButton.h; sourceTree = "<group>"; };
+		F12A576117001D6E00ECDD04 /* SubMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubMenuButton.m; path = Classes/SubMenuButton.m; sourceTree = "<group>"; };
+		F12A576717002AA200ECDD04 /* CreateNewMeeting_Create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Create.png; sourceTree = "<group>"; };
+		F12A576817002AA200ECDD04 /* CreateNewMeeting_Require.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Require.png; sourceTree = "<group>"; };
+		F12A576917002AA200ECDD04 /* CreateNewMeeting_Theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Theme.png; sourceTree = "<group>"; };
+		F1EE998C170036F700253625 /* CreateNewMeeting_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeeting_Create.h; path = Classes/CreateNewMeeting_Create.h; sourceTree = "<group>"; };
+		F1EE998D170036F700253625 /* CreateNewMeeting_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeeting_Create.m; path = Classes/CreateNewMeeting_Create.m; sourceTree = "<group>"; };
+		F1EE99901700373B00253625 /* CreateNewMeeting_Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeeting_Theme.h; path = Classes/CreateNewMeeting_Theme.h; sourceTree = "<group>"; };
+		F1EE99911700373B00253625 /* CreateNewMeeting_Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeeting_Theme.m; path = Classes/CreateNewMeeting_Theme.m; sourceTree = "<group>"; };
+		F1EE99931700374700253625 /* CreateNewMeeting_Require.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeeting_Require.h; path = Classes/CreateNewMeeting_Require.h; sourceTree = "<group>"; };
+		F1EE99941700374700253625 /* CreateNewMeeting_Require.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeeting_Require.m; path = Classes/CreateNewMeeting_Require.m; sourceTree = "<group>"; };
+		F1EE99971700377D00253625 /* CreateNewMeeting_Create.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateNewMeeting_Create.xib; path = ../CreateNewMeeting_Create.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F12A569716FFD7CE00ECDD04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12A569F16FFD7CE00ECDD04 /* UIKit.framework in Frameworks */,
+				F12A56A116FFD7CE00ECDD04 /* Foundation.framework in Frameworks */,
+				F12A56A316FFD7CE00ECDD04 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F12A568F16FFD7CE00ECDD04 = {
+			isa = PBXGroup;
+			children = (
+				F12A56A416FFD7CE00ECDD04 /* ZhiHuiWang */,
+				F12A569D16FFD7CE00ECDD04 /* Frameworks */,
+				F12A569B16FFD7CE00ECDD04 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F12A569B16FFD7CE00ECDD04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F12A569A16FFD7CE00ECDD04 /* ZhiHuiWang.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F12A569D16FFD7CE00ECDD04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F12A569E16FFD7CE00ECDD04 /* UIKit.framework */,
+				F12A56A016FFD7CE00ECDD04 /* Foundation.framework */,
+				F12A56A216FFD7CE00ECDD04 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F12A56A416FFD7CE00ECDD04 /* ZhiHuiWang */ = {
+			isa = PBXGroup;
+			children = (
+				F12A56BC16FFD7EC00ECDD04 /* Classes */,
+				F12A56AD16FFD7CE00ECDD04 /* AppDelegate.h */,
+				F12A56AE16FFD7CE00ECDD04 /* AppDelegate.m */,
+				F12A56C216FFD88000ECDD04 /* Resources */,
+				F12A56A516FFD7CE00ECDD04 /* Supporting Files */,
+			);
+			path = ZhiHuiWang;
+			sourceTree = "<group>";
+		};
+		F12A56A516FFD7CE00ECDD04 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F12A56A616FFD7CE00ECDD04 /* ZhiHuiWang-Info.plist */,
+				F12A56A716FFD7CE00ECDD04 /* InfoPlist.strings */,
+				F12A56AA16FFD7CE00ECDD04 /* main.m */,
+				F12A56AC16FFD7CE00ECDD04 /* ZhiHuiWang-Prefix.pch */,
+				F12A56B016FFD7CE00ECDD04 /* Default.png */,
+				F12A56B216FFD7CE00ECDD04 /* Default@2x.png */,
+				F12A56B416FFD7CE00ECDD04 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F12A56BC16FFD7EC00ECDD04 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F12A56C516FFDD1000ECDD04 /* MainMenuViewController.h */,
+				F12A56C616FFDD1000ECDD04 /* MainMenuViewController.m */,
+				F12A570816FFEBA700ECDD04 /* CreateNewMeetingViewController.h */,
+				F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */,
+				F12A576017001D6E00ECDD04 /* SubMenuButton.h */,
+				F12A576117001D6E00ECDD04 /* SubMenuButton.m */,
+				F1EE99961700375800253625 /* Create */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		F12A56C216FFD88000ECDD04 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F1EE999A1700378B00253625 /* XIB */,
+				F1EE99991700378600253625 /* PNG */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F1EE99961700375800253625 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				F1EE998C170036F700253625 /* CreateNewMeeting_Create.h */,
+				F1EE998D170036F700253625 /* CreateNewMeeting_Create.m */,
+				F1EE99901700373B00253625 /* CreateNewMeeting_Theme.h */,
+				F1EE99911700373B00253625 /* CreateNewMeeting_Theme.m */,
+				F1EE99931700374700253625 /* CreateNewMeeting_Require.h */,
+				F1EE99941700374700253625 /* CreateNewMeeting_Require.m */,
+			);
+			name = Create;
+			sourceTree = "<group>";
+		};
+		F1EE99991700378600253625 /* PNG */ = {
+			isa = PBXGroup;
+			children = (
+				F12A56C316FFD89900ECDD04 /* CreateNewMeeting.png */,
+				F12A575117000D3100ECDD04 /* Create.png */,
+				F12A574C17000C2B00ECDD04 /* MemberManage.png */,
+				F12A574B17000C2B00ECDD04 /* GroupManage.png */,
+				F12A574917000C2B00ECDD04 /* ContentManage.png */,
+				F12A5753170010EE00ECDD04 /* Cover.png */,
+				F12A576717002AA200ECDD04 /* CreateNewMeeting_Create.png */,
+				F12A576917002AA200ECDD04 /* CreateNewMeeting_Theme.png */,
+				F12A576817002AA200ECDD04 /* CreateNewMeeting_Require.png */,
+			);
+			name = PNG;
+			sourceTree = "<group>";
+		};
+		F1EE999A1700378B00253625 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				F12A56C716FFDD1000ECDD04 /* MainMenuViewController.xib */,
+				F12A570A16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib */,
+				F1EE99971700377D00253625 /* CreateNewMeeting_Create.xib */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F12A569916FFD7CE00ECDD04 /* ZhiHuiWang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F12A56B816FFD7CE00ECDD04 /* Build configuration list for PBXNativeTarget "ZhiHuiWang" */;
+			buildPhases = (
+				F12A569616FFD7CE00ECDD04 /* Sources */,
+				F12A569716FFD7CE00ECDD04 /* Frameworks */,
+				F12A569816FFD7CE00ECDD04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZhiHuiWang;
+			productName = ZhiHuiWang;
+			productReference = F12A569A16FFD7CE00ECDD04 /* ZhiHuiWang.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F12A569116FFD7CE00ECDD04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = BlackApple;
+			};
+			buildConfigurationList = F12A569416FFD7CE00ECDD04 /* Build configuration list for PBXProject "ZhiHuiWang" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F12A568F16FFD7CE00ECDD04;
+			productRefGroup = F12A569B16FFD7CE00ECDD04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F12A569916FFD7CE00ECDD04 /* ZhiHuiWang */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F12A569816FFD7CE00ECDD04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12A56A916FFD7CE00ECDD04 /* InfoPlist.strings in Resources */,
+				F12A56B116FFD7CE00ECDD04 /* Default.png in Resources */,
+				F12A56B316FFD7CE00ECDD04 /* Default@2x.png in Resources */,
+				F12A56B516FFD7CE00ECDD04 /* Default-568h@2x.png in Resources */,
+				F12A56C416FFD89900ECDD04 /* CreateNewMeeting.png in Resources */,
+				F12A56C916FFDD1000ECDD04 /* MainMenuViewController.xib in Resources */,
+				F12A570C16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib in Resources */,
+				F12A574D17000C2B00ECDD04 /* ContentManage.png in Resources */,
+				F12A574F17000C2B00ECDD04 /* GroupManage.png in Resources */,
+				F12A575017000C2B00ECDD04 /* MemberManage.png in Resources */,
+				F12A575217000D3200ECDD04 /* Create.png in Resources */,
+				F12A5754170010EE00ECDD04 /* Cover.png in Resources */,
+				F12A576A17002AA200ECDD04 /* CreateNewMeeting_Create.png in Resources */,
+				F12A576B17002AA200ECDD04 /* CreateNewMeeting_Require.png in Resources */,
+				F12A576C17002AA200ECDD04 /* CreateNewMeeting_Theme.png in Resources */,
+				F1EE99981700377D00253625 /* CreateNewMeeting_Create.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F12A569616FFD7CE00ECDD04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12A56AB16FFD7CE00ECDD04 /* main.m in Sources */,
+				F12A56AF16FFD7CE00ECDD04 /* AppDelegate.m in Sources */,
+				F12A56C816FFDD1000ECDD04 /* MainMenuViewController.m in Sources */,
+				F12A570B16FFEBA700ECDD04 /* CreateNewMeetingViewController.m in Sources */,
+				F12A576217001D6E00ECDD04 /* SubMenuButton.m in Sources */,
+				F1EE998E170036F700253625 /* CreateNewMeeting_Create.m in Sources */,
+				F1EE99921700373B00253625 /* CreateNewMeeting_Theme.m in Sources */,
+				F1EE99951700374700253625 /* CreateNewMeeting_Require.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F12A56A716FFD7CE00ECDD04 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F12A56A816FFD7CE00ECDD04 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F12A56B616FFD7CE00ECDD04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F12A56B716FFD7CE00ECDD04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F12A56B916FFD7CE00ECDD04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZhiHuiWang/ZhiHuiWang-Prefix.pch";
+				INFOPLIST_FILE = "ZhiHuiWang/ZhiHuiWang-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F12A56BA16FFD7CE00ECDD04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZhiHuiWang/ZhiHuiWang-Prefix.pch";
+				INFOPLIST_FILE = "ZhiHuiWang/ZhiHuiWang-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F12A569416FFD7CE00ECDD04 /* Build configuration list for PBXProject "ZhiHuiWang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F12A56B616FFD7CE00ECDD04 /* Debug */,
+				F12A56B716FFD7CE00ECDD04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F12A56B816FFD7CE00ECDD04 /* Build configuration list for PBXNativeTarget "ZhiHuiWang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F12A56B916FFD7CE00ECDD04 /* Debug */,
+				F12A56BA16FFD7CE00ECDD04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F12A569116FFD7CE00ECDD04 /* Project object */;
+}
