@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F125F20D170194480069BDAE /* ShowDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F125F20C170194480069BDAE /* ShowDownButton.m */; };
 		F12A569F16FFD7CE00ECDD04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A569E16FFD7CE00ECDD04 /* UIKit.framework */; };
 		F12A56A116FFD7CE00ECDD04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A56A016FFD7CE00ECDD04 /* Foundation.framework */; };
 		F12A56A316FFD7CE00ECDD04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A56A216FFD7CE00ECDD04 /* CoreGraphics.framework */; };
@@ -17,8 +18,6 @@
 		F12A56B316FFD7CE00ECDD04 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A56B216FFD7CE00ECDD04 /* Default@2x.png */; };
 		F12A56B516FFD7CE00ECDD04 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A56B416FFD7CE00ECDD04 /* Default-568h@2x.png */; };
 		F12A56C416FFD89900ECDD04 /* CreateNewMeeting.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A56C316FFD89900ECDD04 /* CreateNewMeeting.png */; };
-		F12A56C816FFDD1000ECDD04 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A56C616FFDD1000ECDD04 /* MainMenuViewController.m */; };
-		F12A56C916FFDD1000ECDD04 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A56C716FFDD1000ECDD04 /* MainMenuViewController.xib */; };
 		F12A570B16FFEBA700ECDD04 /* CreateNewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */; };
 		F12A570C16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12A570A16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib */; };
 		F12A574D17000C2B00ECDD04 /* ContentManage.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A574917000C2B00ECDD04 /* ContentManage.png */; };
@@ -26,17 +25,20 @@
 		F12A575017000C2B00ECDD04 /* MemberManage.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A574C17000C2B00ECDD04 /* MemberManage.png */; };
 		F12A575217000D3200ECDD04 /* Create.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A575117000D3100ECDD04 /* Create.png */; };
 		F12A5754170010EE00ECDD04 /* Cover.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A5753170010EE00ECDD04 /* Cover.png */; };
-		F12A576217001D6E00ECDD04 /* SubMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F12A576117001D6E00ECDD04 /* SubMenuButton.m */; };
 		F12A576A17002AA200ECDD04 /* CreateNewMeeting_Create.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576717002AA200ECDD04 /* CreateNewMeeting_Create.png */; };
 		F12A576B17002AA200ECDD04 /* CreateNewMeeting_Require.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576817002AA200ECDD04 /* CreateNewMeeting_Require.png */; };
 		F12A576C17002AA200ECDD04 /* CreateNewMeeting_Theme.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576917002AA200ECDD04 /* CreateNewMeeting_Theme.png */; };
-		F1EE998E170036F700253625 /* CreateNewMeeting_Create.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EE998D170036F700253625 /* CreateNewMeeting_Create.m */; };
-		F1EE99921700373B00253625 /* CreateNewMeeting_Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EE99911700373B00253625 /* CreateNewMeeting_Theme.m */; };
-		F1EE99951700374700253625 /* CreateNewMeeting_Require.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EE99941700374700253625 /* CreateNewMeeting_Require.m */; };
-		F1EE99981700377D00253625 /* CreateNewMeeting_Create.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1EE99971700377D00253625 /* CreateNewMeeting_Create.xib */; };
+		F1868ED817012EF100A44D80 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED417012EF100A44D80 /* GTMBase64.m */; };
+		F1868ED917012EF100A44D80 /* My97DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED717012EF100A44D80 /* My97DatePicker.m */; };
+		F1868EDB17012F2700A44D80 /* My97DatePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1868EDA17012F2700A44D80 /* My97DatePicker.bundle */; };
+		F1868EDF1701307400A44D80 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1868EDE1701307400A44D80 /* CoreFoundation.framework */; };
+		F1868EE11701308100A44D80 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1868EE01701308100A44D80 /* QuartzCore.framework */; };
+		F1868EE3170132AA00A44D80 /* datePicker.png in Resources */ = {isa = PBXBuildFile; fileRef = F1868EE2170132AA00A44D80 /* datePicker.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F125F20B170194480069BDAE /* ShowDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowDownButton.h; path = Classes/ShowDownButton.h; sourceTree = "<group>"; };
+		F125F20C170194480069BDAE /* ShowDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowDownButton.m; path = Classes/ShowDownButton.m; sourceTree = "<group>"; };
 		F12A569A16FFD7CE00ECDD04 /* ZhiHuiWang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuiWang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12A569E16FFD7CE00ECDD04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F12A56A016FFD7CE00ECDD04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,9 +53,6 @@
 		F12A56B216FFD7CE00ECDD04 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F12A56B416FFD7CE00ECDD04 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F12A56C316FFD89900ECDD04 /* CreateNewMeeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting.png; sourceTree = "<group>"; };
-		F12A56C516FFDD1000ECDD04 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuViewController.h; path = Classes/MainMenuViewController.h; sourceTree = "<group>"; };
-		F12A56C616FFDD1000ECDD04 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuViewController.m; path = Classes/MainMenuViewController.m; sourceTree = "<group>"; };
-		F12A56C716FFDD1000ECDD04 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenuViewController.xib; path = ../Classes/MainMenuViewController.xib; sourceTree = "<group>"; };
 		F12A570816FFEBA700ECDD04 /* CreateNewMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeetingViewController.h; path = Classes/CreateNewMeetingViewController.h; sourceTree = "<group>"; };
 		F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeetingViewController.m; path = Classes/CreateNewMeetingViewController.m; sourceTree = "<group>"; };
 		F12A570A16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateNewMeetingViewController.xib; path = ../Classes/CreateNewMeetingViewController.xib; sourceTree = "<group>"; };
@@ -62,18 +61,18 @@
 		F12A574C17000C2B00ECDD04 /* MemberManage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MemberManage.png; sourceTree = "<group>"; };
 		F12A575117000D3100ECDD04 /* Create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Create.png; sourceTree = "<group>"; };
 		F12A5753170010EE00ECDD04 /* Cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cover.png; sourceTree = "<group>"; };
-		F12A576017001D6E00ECDD04 /* SubMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubMenuButton.h; path = Classes/SubMenuButton.h; sourceTree = "<group>"; };
-		F12A576117001D6E00ECDD04 /* SubMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubMenuButton.m; path = Classes/SubMenuButton.m; sourceTree = "<group>"; };
 		F12A576717002AA200ECDD04 /* CreateNewMeeting_Create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Create.png; sourceTree = "<group>"; };
 		F12A576817002AA200ECDD04 /* CreateNewMeeting_Require.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Require.png; sourceTree = "<group>"; };
 		F12A576917002AA200ECDD04 /* CreateNewMeeting_Theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Theme.png; sourceTree = "<group>"; };
-		F1EE998C170036F700253625 /* CreateNewMeeting_Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeeting_Create.h; path = Classes/CreateNewMeeting_Create.h; sourceTree = "<group>"; };
-		F1EE998D170036F700253625 /* CreateNewMeeting_Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeeting_Create.m; path = Classes/CreateNewMeeting_Create.m; sourceTree = "<group>"; };
-		F1EE99901700373B00253625 /* CreateNewMeeting_Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeeting_Theme.h; path = Classes/CreateNewMeeting_Theme.h; sourceTree = "<group>"; };
-		F1EE99911700373B00253625 /* CreateNewMeeting_Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeeting_Theme.m; path = Classes/CreateNewMeeting_Theme.m; sourceTree = "<group>"; };
-		F1EE99931700374700253625 /* CreateNewMeeting_Require.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateNewMeeting_Require.h; path = Classes/CreateNewMeeting_Require.h; sourceTree = "<group>"; };
-		F1EE99941700374700253625 /* CreateNewMeeting_Require.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateNewMeeting_Require.m; path = Classes/CreateNewMeeting_Require.m; sourceTree = "<group>"; };
-		F1EE99971700377D00253625 /* CreateNewMeeting_Create.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateNewMeeting_Create.xib; path = ../CreateNewMeeting_Create.xib; sourceTree = "<group>"; };
+		F1868ED317012EF100A44D80 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		F1868ED417012EF100A44D80 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		F1868ED517012EF100A44D80 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		F1868ED617012EF100A44D80 /* My97DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = My97DatePicker.h; sourceTree = "<group>"; };
+		F1868ED717012EF100A44D80 /* My97DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = My97DatePicker.m; sourceTree = "<group>"; };
+		F1868EDA17012F2700A44D80 /* My97DatePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = My97DatePicker.bundle; sourceTree = "<group>"; };
+		F1868EDE1701307400A44D80 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		F1868EE01701308100A44D80 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F1868EE2170132AA00A44D80 /* datePicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = datePicker.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1868EE11701308100A44D80 /* QuartzCore.framework in Frameworks */,
+				F1868EDF1701307400A44D80 /* CoreFoundation.framework in Frameworks */,
 				F12A569F16FFD7CE00ECDD04 /* UIKit.framework in Frameworks */,
 				F12A56A116FFD7CE00ECDD04 /* Foundation.framework in Frameworks */,
 				F12A56A316FFD7CE00ECDD04 /* CoreGraphics.framework in Frameworks */,
@@ -110,6 +111,8 @@
 		F12A569D16FFD7CE00ECDD04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1868EE01701308100A44D80 /* QuartzCore.framework */,
+				F1868EDE1701307400A44D80 /* CoreFoundation.framework */,
 				F12A569E16FFD7CE00ECDD04 /* UIKit.framework */,
 				F12A56A016FFD7CE00ECDD04 /* Foundation.framework */,
 				F12A56A216FFD7CE00ECDD04 /* CoreGraphics.framework */,
@@ -146,12 +149,10 @@
 		F12A56BC16FFD7EC00ECDD04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F12A56C516FFDD1000ECDD04 /* MainMenuViewController.h */,
-				F12A56C616FFDD1000ECDD04 /* MainMenuViewController.m */,
 				F12A570816FFEBA700ECDD04 /* CreateNewMeetingViewController.h */,
 				F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */,
-				F12A576017001D6E00ECDD04 /* SubMenuButton.h */,
-				F12A576117001D6E00ECDD04 /* SubMenuButton.m */,
+				F125F20B170194480069BDAE /* ShowDownButton.h */,
+				F125F20C170194480069BDAE /* ShowDownButton.m */,
 				F1EE99961700375800253625 /* Create */,
 			);
 			name = Classes;
@@ -166,15 +167,33 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F1868ED117012EC500A44D80 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F1868EE2170132AA00A44D80 /* datePicker.png */,
+				F1868EDA17012F2700A44D80 /* My97DatePicker.bundle */,
+				F1868ED217012EF100A44D80 /* class */,
+			);
+			name = DatePicker;
+			path = Classes/DatePicker;
+			sourceTree = "<group>";
+		};
+		F1868ED217012EF100A44D80 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				F1868ED317012EF100A44D80 /* GTMBase64.h */,
+				F1868ED417012EF100A44D80 /* GTMBase64.m */,
+				F1868ED517012EF100A44D80 /* GTMDefines.h */,
+				F1868ED617012EF100A44D80 /* My97DatePicker.h */,
+				F1868ED717012EF100A44D80 /* My97DatePicker.m */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
 		F1EE99961700375800253625 /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				F1EE998C170036F700253625 /* CreateNewMeeting_Create.h */,
-				F1EE998D170036F700253625 /* CreateNewMeeting_Create.m */,
-				F1EE99901700373B00253625 /* CreateNewMeeting_Theme.h */,
-				F1EE99911700373B00253625 /* CreateNewMeeting_Theme.m */,
-				F1EE99931700374700253625 /* CreateNewMeeting_Require.h */,
-				F1EE99941700374700253625 /* CreateNewMeeting_Require.m */,
+				F1868ED117012EC500A44D80 /* DatePicker */,
 			);
 			name = Create;
 			sourceTree = "<group>";
@@ -198,9 +217,7 @@
 		F1EE999A1700378B00253625 /* XIB */ = {
 			isa = PBXGroup;
 			children = (
-				F12A56C716FFDD1000ECDD04 /* MainMenuViewController.xib */,
 				F12A570A16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib */,
-				F1EE99971700377D00253625 /* CreateNewMeeting_Create.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -261,7 +278,6 @@
 				F12A56B316FFD7CE00ECDD04 /* Default@2x.png in Resources */,
 				F12A56B516FFD7CE00ECDD04 /* Default-568h@2x.png in Resources */,
 				F12A56C416FFD89900ECDD04 /* CreateNewMeeting.png in Resources */,
-				F12A56C916FFDD1000ECDD04 /* MainMenuViewController.xib in Resources */,
 				F12A570C16FFEBA700ECDD04 /* CreateNewMeetingViewController.xib in Resources */,
 				F12A574D17000C2B00ECDD04 /* ContentManage.png in Resources */,
 				F12A574F17000C2B00ECDD04 /* GroupManage.png in Resources */,
@@ -271,7 +287,8 @@
 				F12A576A17002AA200ECDD04 /* CreateNewMeeting_Create.png in Resources */,
 				F12A576B17002AA200ECDD04 /* CreateNewMeeting_Require.png in Resources */,
 				F12A576C17002AA200ECDD04 /* CreateNewMeeting_Theme.png in Resources */,
-				F1EE99981700377D00253625 /* CreateNewMeeting_Create.xib in Resources */,
+				F1868EDB17012F2700A44D80 /* My97DatePicker.bundle in Resources */,
+				F1868EE3170132AA00A44D80 /* datePicker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,12 +301,10 @@
 			files = (
 				F12A56AB16FFD7CE00ECDD04 /* main.m in Sources */,
 				F12A56AF16FFD7CE00ECDD04 /* AppDelegate.m in Sources */,
-				F12A56C816FFDD1000ECDD04 /* MainMenuViewController.m in Sources */,
 				F12A570B16FFEBA700ECDD04 /* CreateNewMeetingViewController.m in Sources */,
-				F12A576217001D6E00ECDD04 /* SubMenuButton.m in Sources */,
-				F1EE998E170036F700253625 /* CreateNewMeeting_Create.m in Sources */,
-				F1EE99921700373B00253625 /* CreateNewMeeting_Theme.m in Sources */,
-				F1EE99951700374700253625 /* CreateNewMeeting_Require.m in Sources */,
+				F1868ED817012EF100A44D80 /* GTMBase64.m in Sources */,
+				F1868ED917012EF100A44D80 /* My97DatePicker.m in Sources */,
+				F125F20D170194480069BDAE /* ShowDownButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +331,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yang Liu (FP67G6W646)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -330,6 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3710F7FB-EA92-4DA2-91AB-974C8C50977F";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -362,7 +378,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZhiHuiWang/ZhiHuiWang-Prefix.pch";
 				INFOPLIST_FILE = "ZhiHuiWang/ZhiHuiWang-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -373,7 +391,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZhiHuiWang/ZhiHuiWang-Prefix.pch";
 				INFOPLIST_FILE = "ZhiHuiWang/ZhiHuiWang-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

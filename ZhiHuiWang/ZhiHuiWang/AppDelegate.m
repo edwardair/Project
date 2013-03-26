@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainMenuViewController.h"
-#import "CreateNewMeeting_Create.h"
+#import "CreateNewMeetingViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,9 +16,17 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    MainMenuViewController *mainMenu = [[MainMenuViewController alloc]initWithNibName:@"MainMenuViewController" bundle:nil];
+//    MainMenuViewController *mainMenu = [[MainMenuViewController alloc]initWithNibName:@"MainMenuViewController" bundle:nil];
+//    
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainMenu];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainMenu];
+    UIViewController *createNewMeeting = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
+    UIViewController *test = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
+
+    UITabBarController *rootController = [[UITabBarController alloc]init];
+    rootController.viewControllers = @[createNewMeeting,test];
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:rootController];
     
     [self.window makeKeyAndVisible];
     

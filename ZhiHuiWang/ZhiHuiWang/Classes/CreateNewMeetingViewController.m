@@ -7,7 +7,8 @@
 //
 
 #import "CreateNewMeetingViewController.h"
-#import "SubMenuButton.h"
+#import "My97DatePicker.h"
+#import "ShowDownButton.h"
 #define Title @"新建会议"
 @interface CreateNewMeetingViewController ()
 
@@ -29,29 +30,64 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = Title;
     
-//    NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"CreateNewMeeting_Create" owner:nil options:nil];
-//    [self.view addSubview:[array objectAtIndex:0]];
+    self.navigationItem.title = Title;
+    
+    _meetingName.delegate = self;
+    _meetingStartDate.delegate = self;
+    _meetingEndDate.delegate = self;
+    _meetingAddress.delegate = self;
+    _meetingSponsor.delegate = self;
+    _meetingJoiner.delegate = self;
+    _meetingTheme.delegate = self;
+    _meetingRequriements.delegate = self;
+    
+    _meetingTheme.editable = YES;
+    _meetingRequriements.editable = YES;
 
-    
-    
-}
-- (void)btnClicked:(SubMenuButton *)btn{
-    NSLog(@"clicked %d",btn.tag);
-    
+    _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, _bottomScrollView.contentSize.height+1000);
+
+    NSArray *nameArray = @[@"A",@"B",@"C",@"D",@"E",];
+    [_meetingType initializeButtonData:nameArray];
+
 }
 
-//- (UIImage *)contextImageWithTitle:(NSString *)title{
-//    UILabel *label = [[UILabel alloc]init];
-//    label.text = title;
-//    label.textColor = [UIColor blueColor];
-//    
-//    CGSize size = CGSizeMake(200, 100);
-//    UIGraphicsBeginImageContext(size);
-//    [label drawRect:label.frame];
-//    
-//}
+#pragma mark 注销键盘
+- (IBAction)resignKeyboard:(id)sender {
+    [sender resignFirstResponder];
+}
+
+#pragma mark UITextField Delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    NSLog(@"ShouldBeginEditing:%@",textField.text);
+
+    if ([textField isEqual:_meetingStartDate] || [textField isEqual:_meetingEndDate]) {
+        [(My97DatePicker *)textField selectDate];
+        return NO;
+    }
+    return YES;
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    NSLog(@"DidBeginEditing:%@",textField.text);
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSLog(@"%@",textField.text);
+    if ([textField isEqual:_meetingStartDate] || [textField isEqual:_meetingEndDate]) {
+        NSLog(@"处理时间格式");
+        
+    }
+    return YES;
+}
+
+#pragma mark UITextView Delegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]) {
+        [self resignKeyboard:textView];
+        return NO;
+    }
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
