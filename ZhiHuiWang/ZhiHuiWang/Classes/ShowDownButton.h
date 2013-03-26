@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ShowDownButton : UIButton
--(void) buttonWithNames: (NSString *) name, ...;
+//-(void) buttonWithNames: (NSString *) name, ...;
 - (void)initializeButtonData:(NSArray *)data;
 @end

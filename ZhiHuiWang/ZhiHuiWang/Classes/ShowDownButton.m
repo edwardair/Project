@@ -21,6 +21,8 @@
         _downView = [[UIView alloc]init];
         [self addSubview:_downView];
         _downView.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, 0);
+        [_downView setBackgroundColor:[UIColor blueColor]];
+//        _downView.hidden = YES;
     }
     return _downView;
 }
@@ -77,36 +79,24 @@
 //    return b;
 //}
 */
-- (void )initWithArray:(NSMutableArray *)array{
-    for (UIButton *b in array) {
-        [self.downView addSubview:b];
-        
-        int index = [array indexOfObject:b];
-        b.frame = CGRectMake(0, self.frame.size.height+BtnWidth*index, self.frame.size.width, BtnWidth);
-        [b addTarget:self action:@selector(subviewsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
-    }
-}
-- (UIButton *)initButton:(NSString *)name{
-    UIButton *b = [[UIButton alloc]init];
-    b.titleLabel.text = name;
-    return b;
-}
-- (UIButton *)initf:(NSString *)x{
-    UIButton *b = [[UIButton alloc]init];
-    return b;
-}
 - (void)initializeButtonData:(NSArray *)data{
     NSMutableArray *array = [NSMutableArray array];
 
     for (NSString *name in data) {
-        UIButton *b = [[UIButton alloc]init];
-        b.titleLabel.text = name;
-        
+        int index = [data indexOfObject:name];
+
+        UIButton *b = [[UIButton alloc]initWithFrame:CGRectMake(0, BtnWidth*index, self.frame.size.width, 0)];
+        [b setBackgroundColor:[UIColor redColor]];
+        [self.downView addSubview:b];
+
+        [b setTitle:name forState:UIControlStateNormal];
+        b.titleLabel.textColor = [UIColor redColor];
+        b.titleLabel.transform = CGAffineTransformMake(1, 1, 1, 1, 1, 0);
+        [b addTarget:self action:@selector(subviewsButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+//        [b setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
         [array addObject:b];
     }
-    
-    [self initWithArray:array];
     
     [self addTarget:self action:@selector(superButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -115,9 +105,8 @@
 - (void)superButtonClicked{
     [self spreadAndStrictionAction:YES];
 }
-- (void)subviewsButtonClicked:(UIButton *)button{
+- (void)subviewsButtonClicked{
     [self spreadAndStrictionAction:NO];
-    
 }
 //获取 _downView的子视图个数
 - (int )subviewsNumber{
@@ -127,9 +116,20 @@
 - (void)spreadAndStrictionAction:(BOOL)ss{
     int i = [self subviewsNumber];
     NSLog(@"%d",i);
+    _downView.frame = CGRectMake(_downView.frame.origin.x, _downView.frame.origin.y, _downView.frame.size.width, 0);
+//    [_downView setTranslatesAutoresizingMaskIntoConstraints:YES];
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1.f];
-    _downView.frame = CGRectMake(_downView.frame.origin.x, _downView.frame.origin.y, _downView.frame.size.width, ss?BtnWidth*[self subviewsNumber]:0);
+    [UIView setAnimationDuration:1];
+    _downView.hidden = NO;
+
+//    _downView.frame = CGRectMake(_downView.frame.origin.x, _downView.frame.origin.y, _downView.frame.size.width, ss?BtnWidth*[self subviewsNumber]:0);
+//    CGAffineTransform tran = CGAffineTransformScale(_downView.transform, 1, 1);
+    [_downView setTransform:CGAffineTransformMake(0, 0, 0, 0, 0, 1)];
     [UIView commitAnimations];
+}
+
+//touches
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesEnded:touches withEvent:event];
 }
 @end
