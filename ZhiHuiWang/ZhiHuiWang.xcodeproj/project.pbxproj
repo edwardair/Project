@@ -28,6 +28,9 @@
 		F12A576A17002AA200ECDD04 /* CreateNewMeeting_Create.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576717002AA200ECDD04 /* CreateNewMeeting_Create.png */; };
 		F12A576B17002AA200ECDD04 /* CreateNewMeeting_Require.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576817002AA200ECDD04 /* CreateNewMeeting_Require.png */; };
 		F12A576C17002AA200ECDD04 /* CreateNewMeeting_Theme.png in Resources */ = {isa = PBXBuildFile; fileRef = F12A576917002AA200ECDD04 /* CreateNewMeeting_Theme.png */; };
+		F1694D0D1702C9B6006E9C51 /* UAndDLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */; };
+		F1694D0F1702CB82006E9C51 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1694D0E1702CB82006E9C51 /* CFNetwork.framework */; };
+		F1694D171702E8D5006E9C51 /* DataOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F1694D161702E8D5006E9C51 /* DataOperation.m */; };
 		F1868ED817012EF100A44D80 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED417012EF100A44D80 /* GTMBase64.m */; };
 		F1868ED917012EF100A44D80 /* My97DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED717012EF100A44D80 /* My97DatePicker.m */; };
 		F1868EDB17012F2700A44D80 /* My97DatePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1868EDA17012F2700A44D80 /* My97DatePicker.bundle */; };
@@ -64,6 +67,11 @@
 		F12A576717002AA200ECDD04 /* CreateNewMeeting_Create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Create.png; sourceTree = "<group>"; };
 		F12A576817002AA200ECDD04 /* CreateNewMeeting_Require.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Require.png; sourceTree = "<group>"; };
 		F12A576917002AA200ECDD04 /* CreateNewMeeting_Theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting_Theme.png; sourceTree = "<group>"; };
+		F1694D0B1702C9B6006E9C51 /* UAndDLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAndDLoad.h; path = Classes/UAndDLoad.h; sourceTree = "<group>"; };
+		F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAndDLoad.m; path = Classes/UAndDLoad.m; sourceTree = "<group>"; };
+		F1694D0E1702CB82006E9C51 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F1694D151702E8D4006E9C51 /* DataOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataOperation.h; path = Classes/DataOperation.h; sourceTree = "<group>"; };
+		F1694D161702E8D5006E9C51 /* DataOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataOperation.m; path = Classes/DataOperation.m; sourceTree = "<group>"; };
 		F1868ED317012EF100A44D80 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		F1868ED417012EF100A44D80 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		F1868ED517012EF100A44D80 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1694D0F1702CB82006E9C51 /* CFNetwork.framework in Frameworks */,
 				F1868EE11701308100A44D80 /* QuartzCore.framework in Frameworks */,
 				F1868EDF1701307400A44D80 /* CoreFoundation.framework in Frameworks */,
 				F12A569F16FFD7CE00ECDD04 /* UIKit.framework in Frameworks */,
@@ -94,6 +103,7 @@
 		F12A568F16FFD7CE00ECDD04 = {
 			isa = PBXGroup;
 			children = (
+				F1694D0E1702CB82006E9C51 /* CFNetwork.framework */,
 				F12A56A416FFD7CE00ECDD04 /* ZhiHuiWang */,
 				F12A569D16FFD7CE00ECDD04 /* Frameworks */,
 				F12A569B16FFD7CE00ECDD04 /* Products */,
@@ -153,6 +163,10 @@
 				F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */,
 				F125F20B170194480069BDAE /* ShowDownButton.h */,
 				F125F20C170194480069BDAE /* ShowDownButton.m */,
+				F1694D0B1702C9B6006E9C51 /* UAndDLoad.h */,
+				F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */,
+				F1694D151702E8D4006E9C51 /* DataOperation.h */,
+				F1694D161702E8D5006E9C51 /* DataOperation.m */,
 				F1EE99961700375800253625 /* Create */,
 			);
 			name = Classes;
@@ -305,6 +319,8 @@
 				F1868ED817012EF100A44D80 /* GTMBase64.m in Sources */,
 				F1868ED917012EF100A44D80 /* My97DatePicker.m in Sources */,
 				F125F20D170194480069BDAE /* ShowDownButton.m in Sources */,
+				F1694D0D1702C9B6006E9C51 /* UAndDLoad.m in Sources */,
+				F1694D171702E8D5006E9C51 /* DataOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

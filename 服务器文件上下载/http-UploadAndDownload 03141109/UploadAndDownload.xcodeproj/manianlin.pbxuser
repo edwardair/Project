@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* UploadAndDownloadAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1412, 552}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 533}";
+		};
+	};
+	1D3623250D0F684500981E51 /* UploadAndDownloadAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {3035.5, 1470}}";
+			sepNavSelRange = "{340, 0}";
+			sepNavVisRange = "{0, 675}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* UploadAndDownload */ = {
+		activeExec = 0;
+		executables = (
+			A9BEEBC813236A6800864B92 /* UploadAndDownload */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* UploadAndDownloadViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {759.747, 756}}";
+			sepNavSelRange = "{946, 0}";
+			sepNavVisRange = "{915, 191}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2016.83, 4893}}";
+			sepNavSelRange = "{3871, 0}";
+			sepNavVisRange = "{5371, 917}";
+			sepNavWindowFrame = "{{284, 198}, {1345, 781}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = A9BEEBC813236A6800864B92 /* UploadAndDownload */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* UploadAndDownload */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* UploadAndDownload */,
+		);
+		breakpoints = (
+			A91133321325D80D004D3FCF /* UploadAndDownloadViewController.m:126 */,
+			A91133341325D80E004D3FCF /* UploadAndDownloadViewController.m:126 */,
+			A91133361325D80F004D3FCF /* UploadAndDownloadViewController.m:126 */,
+			A91134091325E103004D3FCF /* UploadAndDownloadViewController.m:54 */,
+			A946F1E91329F482006BFFB4 /* UploadAndDownloadViewController.m:144 */,
+			A946F234132A024C006BFFB4 /* UploadAndDownloadViewController.m:80 */,
+			A946F250132A0962006BFFB4 /* UploadAndDownloadViewController.m:81 */,
+		);
+		codeSenseManager = A9BEEBD913236A7700864B92 /* Code sense */;
+		executables = (
+			A9BEEBC813236A6800864B92 /* UploadAndDownload */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1021,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 322372009;
+			PBXWorkspaceStateSaveDate = 322372009;
+		};
+		perUserProjectItems = {
+			A904456413260366003DE6A6 /* PBXBookmark */ = A904456413260366003DE6A6 /* PBXBookmark */;
+			A909E99013319B0800AE4A21 /* PBXTextBookmark */ = A909E99013319B0800AE4A21 /* PBXTextBookmark */;
+			A911334F1325D880004D3FCF /* PBXTextBookmark */ = A911334F1325D880004D3FCF /* PBXTextBookmark */;
+			A91133501325D880004D3FCF /* PBXTextBookmark */ = A91133501325D880004D3FCF /* PBXTextBookmark */;
+			A91EFB7F132DBDB900C4CA07 /* PBXTextBookmark */ = A91EFB7F132DBDB900C4CA07 /* PBXTextBookmark */;
+			A956C41B13370217003F5EFB /* PBXTextBookmark */ = A956C41B13370217003F5EFB /* PBXTextBookmark */;
+		};
+		sourceControlManager = A9BEEBD813236A7700864B92 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	32CA4F630368D1EE00C91783 /* UploadAndDownload_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1777, 621}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 203}";
+			sepNavWindowFrame = "{{15, 304}, {1836, 749}}";
+		};
+	};
+	A904456413260366003DE6A6 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = A90445421325FFA0003DE6A6 /* 2.jpg */;
+	};
+	A909E99013319B0800AE4A21 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		name = "UploadAndDownloadViewController.m: 61";
+		rLen = 0;
+		rLoc = 1663;
+		rType = 0;
+		vrLen = 1055;
+		vrLoc = 3172;
+	};
+	A91133321325D80D004D3FCF /* UploadAndDownloadViewController.m:126 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		functionName = "-connection:didFailWithError:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 126;
+		location = UploadAndDownload;
+		modificationTime = 321764465.168278;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91133341325D80E004D3FCF /* UploadAndDownloadViewController.m:126 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		functionName = "-connection:didReceiveData:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 126;
+		location = UploadAndDownload;
+		modificationTime = 321764465.168453;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91133361325D80F004D3FCF /* UploadAndDownloadViewController.m:126 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		functionName = "-connection:didReceiveResponse:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 126;
+		location = UploadAndDownload;
+		modificationTime = 321764465.1685771;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A911334F1325D880004D3FCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* UploadAndDownloadAppDelegate.h */;
+		name = "UploadAndDownloadAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 533;
+		vrLoc = 0;
+	};
+	A91133501325D880004D3FCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* UploadAndDownloadAppDelegate.m */;
+		name = "UploadAndDownloadAppDelegate.m: 16";
+		rLen = 0;
+		rLoc = 340;
+		rType = 0;
+		vrLen = 675;
+		vrLoc = 0;
+	};
+	A91134091325E103004D3FCF /* UploadAndDownloadViewController.m:54 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		functionName = "-loadURL";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 54;
+		location = UploadAndDownload;
+		modificationTime = 321764465.168692;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFB7F132DBDB900C4CA07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* UploadAndDownloadViewController.h */;
+		name = "UploadAndDownloadViewController.h: 36";
+		rLen = 0;
+		rLoc = 1099;
+		rType = 0;
+		vrLen = 854;
+		vrLoc = 252;
+	};
+	A946F1E91329F482006BFFB4 /* UploadAndDownloadViewController.m:144 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		functionName = "-writereceiveDataToFile";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 144;
+		location = UploadAndDownload;
+		modificationTime = 321764465.168808;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A946F234132A024C006BFFB4 /* UploadAndDownloadViewController.m:80 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		functionName = "-loadURLS";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 80;
+		location = UploadAndDownload;
+		modificationTime = 321764465.168924;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A946F250132A0962006BFFB4 /* UploadAndDownloadViewController.m:81 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		functionName = "-loadURLS";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 81;
+		location = UploadAndDownload;
+		modificationTime = 321764465.1690589;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A956C41B13370217003F5EFB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* UploadAndDownloadViewController.m */;
+		name = "UploadAndDownloadViewController.m: 119";
+		rLen = 0;
+		rLoc = 3871;
+		rType = 0;
+		vrLen = 917;
+		vrLoc = 5371;
+	};
+	A9BEEBC813236A6800864B92 /* UploadAndDownload */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = UploadAndDownload;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			$fctrl = 1;
+			$fioff = 1;
+			$fiseg = 1;
+			$fooff = 1;
+			$fop = 1;
+			$foseg = 1;
+			$fstat = 1;
+			$ftag = 1;
+		};
+	};
+	A9BEEBD813236A7700864B92 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	A9BEEBD913236A7700864B92 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}

@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	1D3623250D0F684500981E51 /* FtpUpLoadAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {3035.5, 1491}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 712}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* FtpUpLoad */ = {
+		activeExec = 0;
+		executables = (
+			A94DC218132CBD40005A08E0 /* FtpUpLoad */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* FtpUpLoadViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1266, 1134}}";
+			sepNavSelRange = "{354, 12}";
+			sepNavVisRange = "{172, 1094}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 8841}}";
+			sepNavSelRange = "{2220, 0}";
+			sepNavVisRange = "{1685, 953}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = A94DC218132CBD40005A08E0 /* FtpUpLoad */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* FtpUpLoad */;
+		breakpoints = (
+			A94DC290132CC366005A08E0 /* FtpUpLoadViewController.m:48 */,
+			A91EFE11132DF96A00C4CA07 /* FtpUpLoadViewController.m:37 */,
+			A91EFE13132DF96C00C4CA07 /* FtpUpLoadViewController.m:60 */,
+			A91EFE15132DF97100C4CA07 /* FtpUpLoadViewController.m:147 */,
+			A91EFE17132DF97400C4CA07 /* FtpUpLoadViewController.m:213 */,
+			A91EFE19132DF97600C4CA07 /* FtpUpLoadViewController.m:246 */,
+			A91EFE1B132DF97700C4CA07 /* FtpUpLoadViewController.m:254 */,
+			A91EFE1D132DF97800C4CA07 /* FtpUpLoadViewController.m:260 */,
+			A91EFE1F132DF97B00C4CA07 /* FtpUpLoadViewController.m:319 */,
+			A91EFE21132DF97C00C4CA07 /* FtpUpLoadViewController.m:325 */,
+			A91EFE23132DF97C00C4CA07 /* FtpUpLoadViewController.m:330 */,
+			A91EFE25132DF97E00C4CA07 /* FtpUpLoadViewController.m:345 */,
+			A91EFE27132DF98000C4CA07 /* FtpUpLoadViewController.m:357 */,
+			A91EFE44132DFB0400C4CA07 /* FtpUpLoadViewController.m:86 */,
+		);
+		codeSenseManager = A94DC21D132CBD5F005A08E0 /* Code sense */;
+		executables = (
+			A94DC218132CBD40005A08E0 /* FtpUpLoad */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1473,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 321791483;
+			PBXWorkspaceStateSaveDate = 321791483;
+		};
+		perUserProjectItems = {
+			A91E0050132E26B500C4CA07 /* PBXTextBookmark */ = A91E0050132E26B500C4CA07 /* PBXTextBookmark */;
+			A91EFFCA132E22EA00C4CA07 /* PBXTextBookmark */ = A91EFFCA132E22EA00C4CA07 /* PBXTextBookmark */;
+			A91EFFF8132E242800C4CA07 /* PBXTextBookmark */ = A91EFFF8132E242800C4CA07 /* PBXTextBookmark */;
+			A94DC270132CC27F005A08E0 /* PBXTextBookmark */ = A94DC270132CC27F005A08E0 /* PBXTextBookmark */;
+		};
+		sourceControlManager = A94DC21C132CBD5F005A08E0 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	A91E0050132E26B500C4CA07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		name = "FtpUpLoadViewController.m: 94";
+		rLen = 0;
+		rLoc = 2220;
+		rType = 0;
+		vrLen = 953;
+		vrLoc = 1685;
+	};
+	A91EFE11132DF96A00C4CA07 /* FtpUpLoadViewController.m:37 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-sendAction:";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 37;
+		location = FtpUpLoad;
+		modificationTime = 321790865.733321;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE13132DF96C00C4CA07 /* FtpUpLoadViewController.m:60 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-pathForTestImage:";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 60;
+		location = FtpUpLoad;
+		modificationTime = 321790879.420151;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE15132DF97100C4CA07 /* FtpUpLoadViewController.m:147 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-_startSend:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 147;
+		location = FtpUpLoad;
+		modificationTime = 321790817.989234;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE17132DF97400C4CA07 /* FtpUpLoadViewController.m:213 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-smartURLForString:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 213;
+		location = FtpUpLoad;
+		modificationTime = 321790817.989333;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE19132DF97600C4CA07 /* FtpUpLoadViewController.m:246 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-_sendDidStart";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 246;
+		location = FtpUpLoad;
+		modificationTime = 321790817.9895431;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE1B132DF97700C4CA07 /* FtpUpLoadViewController.m:254 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-didStartNetworking";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 254;
+		location = FtpUpLoad;
+		modificationTime = 321790817.989638;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE1D132DF97800C4CA07 /* FtpUpLoadViewController.m:260 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-stream:handleEvent:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 260;
+		location = FtpUpLoad;
+		modificationTime = 321790817.989754;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE1F132DF97B00C4CA07 /* FtpUpLoadViewController.m:319 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-_updateStatus:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 319;
+		location = FtpUpLoad;
+		modificationTime = 321790817.989916;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE21132DF97C00C4CA07 /* FtpUpLoadViewController.m:325 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-buffer";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 325;
+		location = FtpUpLoad;
+		modificationTime = 321790817.990019;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE23132DF97C00C4CA07 /* FtpUpLoadViewController.m:330 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-_stopSendWithStatus:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 330;
+		location = FtpUpLoad;
+		modificationTime = 321790817.990157;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE25132DF97E00C4CA07 /* FtpUpLoadViewController.m:345 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-_sendDidStopWithStatus:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 345;
+		location = FtpUpLoad;
+		modificationTime = 321790817.990271;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE27132DF98000C4CA07 /* FtpUpLoadViewController.m:357 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-didStopNetworking";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 357;
+		location = FtpUpLoad;
+		modificationTime = 321790817.990398;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFE44132DFB0400C4CA07 /* FtpUpLoadViewController.m:86 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-pathForTestImage:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 86;
+		location = FtpUpLoad;
+		modificationTime = 321790817.99054;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	A91EFFCA132E22EA00C4CA07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* FtpUpLoadViewController.h */;
+		name = "FtpUpLoadViewController.h: 16";
+		rLen = 12;
+		rLoc = 354;
+		rType = 0;
+		vrLen = 1094;
+		vrLoc = 172;
+	};
+	A91EFFF8132E242800C4CA07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		name = "FtpUpLoadViewController.m: 42";
+		rLen = 0;
+		rLoc = 1086;
+		rType = 0;
+		vrLen = 447;
+		vrLoc = 915;
+	};
+	A94DC218132CBD40005A08E0 /* FtpUpLoad */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = FtpUpLoad;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	A94DC21C132CBD5F005A08E0 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	A94DC21D132CBD5F005A08E0 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	A94DC270132CC27F005A08E0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* FtpUpLoadAppDelegate.m */;
+		name = "FtpUpLoadAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 712;
+		vrLoc = 0;
+	};
+	A94DC290132CC366005A08E0 /* FtpUpLoadViewController.m:48 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FtpUpLoadViewController.m */;
+		functionName = "-textFieldShouldReturn:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 48;
+		location = FtpUpLoad;
+		modificationTime = 321790817.988592;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+}

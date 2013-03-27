@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class ShowDownButton;
-@interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>
+@interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate>
 
 @property (strong,nonatomic) IBOutlet UIScrollView *bottomScrollView;
 @property (strong,nonatomic) IBOutlet UIImageView *coverImage;
 
 #pragma mark 新建会议
+- (IBAction)CreateNewMeeting;
+- (IBAction)get:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIView *createNewMeetingView;//新建会议 view
+
 @property (strong,nonatomic) IBOutlet UITextField *meetingName;//会议名称
 @property (strong,nonatomic) IBOutlet UITextField *meetingStartDate;//开始时间
 @property (strong,nonatomic) IBOutlet UITextField *meetingEndDate;//结束时间

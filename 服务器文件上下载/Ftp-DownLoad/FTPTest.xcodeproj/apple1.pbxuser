@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* FTPTestAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1197, 628}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 473}";
+		};
+	};
+	1D3623250D0F684500981E51 /* FTPTestAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2244, 1173}}";
+			sepNavSelRange = "{140, 30}";
+			sepNavVisRange = "{0, 1142}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* FTPTest */ = {
+		activeExec = 0;
+		executables = (
+			2E504FA2132B5CD900EDAB78 /* FTPTest */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* FTPTestViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1197, 714}}";
+			sepNavSelRange = "{330, 0}";
+			sepNavVisRange = "{0, 1087}";
+			sepNavWindowFrame = "{{61, 96}, {1270, 915}}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1197, 5032}}";
+			sepNavSelRange = "{6755, 0}";
+			sepNavVisRange = "{6350, 1099}";
+			sepNavWindowFrame = "{{15, 138}, {1270, 915}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 2E504FA2132B5CD900EDAB78 /* FTPTest */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* FTPTest */;
+		breakpoints = (
+			2E504FEE132B676B00EDAB78 /* FTPTestViewController.m:186 */,
+			2E504FF0132B676F00EDAB78 /* FTPTestViewController.m:217 */,
+			2E504FF5132B677F00EDAB78 /* FTPTestViewController.m:226 */,
+			2E505051132B6DB800EDAB78 /* FTPTestViewController.m:247 */,
+			2E505088132B756D00EDAB78 /* FTPTestViewController.m:263 */,
+			2EAE81D9132C53AC008255C8 /* FTPTestViewController.m:76 */,
+		);
+		codeSenseManager = 2E504FB5132B5CE200EDAB78 /* Code sense */;
+		executables = (
+			2E504FA2132B5CD900EDAB78 /* FTPTest */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1019,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 321677076;
+			PBXWorkspaceStateSaveDate = 321677076;
+		};
+		perUserProjectItems = {
+			2E505085132B74DF00EDAB78 = 2E505085132B74DF00EDAB78 /* PBXTextBookmark */;
+			2EAE81D3132C536A008255C8 = 2EAE81D3132C536A008255C8 /* PBXTextBookmark */;
+			2EAE81D4132C536A008255C8 = 2EAE81D4132C536A008255C8 /* PBXTextBookmark */;
+			2EAE81DD132C53B0008255C8 = 2EAE81DD132C53B0008255C8 /* PBXTextBookmark */;
+			2EAE81FB132C667A008255C8 = 2EAE81FB132C667A008255C8 /* PBXTextBookmark */;
+			2EAE820C132C6718008255C8 /* PBXTextBookmark */ = 2EAE820C132C6718008255C8 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 2E504FB4132B5CE200EDAB78 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	2E504FA2132B5CD900EDAB78 /* FTPTest */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = FTPTest;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	2E504FB4132B5CE200EDAB78 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	2E504FB5132B5CE200EDAB78 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	2E504FEE132B676B00EDAB78 /* FTPTestViewController.m:186 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		functionName = "-connection:didReceiveData:";
+		hitCount = 2;
+		ignoreCount = 0;
+		lineNumber = 186;
+		location = FTPTest;
+		modificationTime = 321672318.387866;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	2E504FF0132B676F00EDAB78 /* FTPTestViewController.m:217 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		functionName = "-connection:didFailWithError:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 217;
+		location = FTPTest;
+		modificationTime = 321672260.074435;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	2E504FF5132B677F00EDAB78 /* FTPTestViewController.m:226 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		functionName = "-connectionDidFinishLoading:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 226;
+		location = FTPTest;
+		modificationTime = 321672260.07452;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	2E505051132B6DB800EDAB78 /* FTPTestViewController.m:247 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		functionName = "-receiveDidStopWithStatus:";
+		hitCount = 2;
+		ignoreCount = 0;
+		lineNumber = 247;
+		location = FTPTest;
+		modificationTime = 321672319.140376;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	2E505085132B74DF00EDAB78 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* FTPTestViewController.h */;
+		name = "FTPTestViewController.h: 16";
+		rLen = 0;
+		rLoc = 330;
+		rType = 0;
+		vrLen = 1087;
+		vrLoc = 0;
+	};
+	2E505088132B756D00EDAB78 /* FTPTestViewController.m:263 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		functionName = "-receiveDidStopWithStatus:";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 263;
+		location = FTPTest;
+		modificationTime = 321672291.018539;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	2EAE81D3132C536A008255C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* FTPTestAppDelegate.h */;
+		name = "FTPTestAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 473;
+		vrLoc = 0;
+	};
+	2EAE81D4132C536A008255C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* FTPTestAppDelegate.m */;
+		name = "FTPTestAppDelegate.m: 9";
+		rLen = 30;
+		rLoc = 140;
+		rType = 0;
+		vrLen = 1142;
+		vrLoc = 0;
+	};
+	2EAE81D9132C53AC008255C8 /* FTPTestViewController.m:76 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		functionName = "-applicationCacheDirectory";
+		hitCount = 2;
+		ignoreCount = 0;
+		lineNumber = 76;
+		location = FTPTest;
+		modificationTime = 321672316.864972;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	2EAE81DD132C53B0008255C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		name = "FTPTestViewController.m: 81";
+		rLen = 0;
+		rLoc = 1870;
+		rType = 0;
+		vrLen = 1059;
+		vrLoc = 1567;
+	};
+	2EAE81FB132C667A008255C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		name = "FTPTestViewController.m: 252";
+		rLen = 0;
+		rLoc = 6755;
+		rType = 0;
+		vrLen = 1005;
+		vrLoc = 6350;
+	};
+	2EAE820C132C6718008255C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* FTPTestViewController.m */;
+		name = "FTPTestViewController.m: 252";
+		rLen = 0;
+		rLoc = 6755;
+		rType = 0;
+		vrLen = 1099;
+		vrLoc = 6350;
+	};
+}
