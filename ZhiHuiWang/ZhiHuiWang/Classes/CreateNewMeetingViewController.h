@@ -15,8 +15,10 @@
 @property (strong,nonatomic) IBOutlet UIImageView *coverImage;
 
 #pragma mark 新建会议
-- (IBAction)CreateNewMeeting;
-- (IBAction)get:(id)sender;
+- (IBAction)CreateNewMeeting:(id )sender;
+- (IBAction)CreateNewMeeting_OK;
+- (IBAction)CreateNewMeeting_ResetAll;
+- (IBAction)resignKeyboard:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *createNewMeetingView;//新建会议 view
 
@@ -32,8 +34,15 @@
 @property (strong,nonatomic) IBOutlet UIButton *finished;
 @property (strong,nonatomic) IBOutlet UIButton *reset;
 
-- (IBAction)resignKeyboard:(id)sender;
 #pragma mark 人员管理
+@property (strong,nonatomic) IBOutlet UIView *memberManageView;//人员管理 view
+
+@property (strong,nonatomic) IBOutlet ShowDownButton *MM_MeetingName;//会议选择按钮
+@property (strong,nonatomic) IBOutlet UITableView *MM_MemberList;//会议名单
+- (IBAction)MM_AddMember:(id)sender;//添加
+- (IBAction)MM_ModifyMember:(id)sender;//编辑
+- (IBAction)MM_DeleteMember:(id)sender;//删除
+
 #pragma mark 群组管理
 #pragma mark 议程管理
 

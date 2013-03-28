@@ -12,7 +12,6 @@
 @interface ShowDownButton(){
     
 }
-@property (strong,nonatomic) UIScrollView *downScrollView;
 @end
 
 @implementation ShowDownButton
@@ -44,6 +43,7 @@
     // Drawing code
 }
 */
+
 - (void)createSubButtonWithIndex:(int )index Name:(NSString *)name{
     UIButton *b = [[UIButton alloc]initWithFrame:CGRectMake(0, BtnWidth*index, self.frame.size.width, BtnWidth)];
     [self.downScrollView addSubview:b];
@@ -55,12 +55,16 @@
     [b addTarget:self action:@selector(subviewsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
 }
-- (void)initializeButtonData:(NSArray *)data{
+- (void)initializeButtonData:(NSMutableArray *)data{
+    [self setTitle:@"--请选择--" forState:UIControlStateNormal];
+    
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
     [self createSubButtonWithIndex:0 Name:self.titleLabel.text];
     
     for (NSString *name in data) {
+        NSLog(@"%@",name);
+//        NSMutableString *s = [NSMutableString stringWithUTF8String:[name UTF8String]];
         int index = [data indexOfObject:name];
         index += 1;
         [self createSubButtonWithIndex:index Name:name];
@@ -77,6 +81,7 @@
     }
 }
 - (void)subviewsButtonClicked:(UIButton *)b{
+    NSLog(@"%@",b.titleLabel.text);
     [self spreadAndStrictionAction:NO];
 
     [self setTitle:b.titleLabel.text forState:UIControlStateNormal];

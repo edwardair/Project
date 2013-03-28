@@ -10,5 +10,7 @@
 
 @interface ShowDownButton : UIButton
 //-(void) buttonWithNames: (NSString *) name, ...;
-- (void)initializeButtonData:(NSArray *)data;
+@property (strong,nonatomic) UIScrollView *downScrollView;
+
+- (void)initializeButtonData:(NSMutableArray *)data;
 @end
