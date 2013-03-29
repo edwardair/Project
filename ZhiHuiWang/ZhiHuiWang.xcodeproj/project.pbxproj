@@ -42,6 +42,13 @@
 		F12EF5C1170437EA007FFECD /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F12EF5B5170437EA007FFECD /* SBJsonWriter.m */; };
 		F1694D0D1702C9B6006E9C51 /* UAndDLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */; };
 		F1694D0F1702CB82006E9C51 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1694D0E1702CB82006E9C51 /* CFNetwork.framework */; };
+		F16AC85A17051C0D00D6308E /* SBJsonResolveData.m in Sources */ = {isa = PBXBuildFile; fileRef = F16AC85917051C0D00D6308E /* SBJsonResolveData.m */; };
+		F16AC8601705342100D6308E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AC85F1705342100D6308E /* AddressBook.framework */; };
+		F16AC8621705343100D6308E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AC8611705343100D6308E /* AddressBookUI.framework */; };
+		F16AC8651705507A00D6308E /* GrayBackGroundColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F16AC8641705507A00D6308E /* GrayBackGroundColorView.m */; };
+		F16AC86817055B9F00D6308E /* MeetingMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F16AC86717055B9E00D6308E /* MeetingMemberCell.m */; };
+		F16AC88317057F8F00D6308E /* CellPushedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16AC88117057F8F00D6308E /* CellPushedViewController.m */; };
+		F16AC88417057F8F00D6308E /* CellPushedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16AC88217057F8F00D6308E /* CellPushedViewController.xib */; };
 		F1868ED817012EF100A44D80 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED417012EF100A44D80 /* GTMBase64.m */; };
 		F1868ED917012EF100A44D80 /* My97DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED717012EF100A44D80 /* My97DatePicker.m */; };
 		F1868EDB17012F2700A44D80 /* My97DatePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1868EDA17012F2700A44D80 /* My97DatePicker.bundle */; };
@@ -106,6 +113,17 @@
 		F1694D0B1702C9B6006E9C51 /* UAndDLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAndDLoad.h; path = Classes/UAndDLoad.h; sourceTree = "<group>"; };
 		F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAndDLoad.m; path = Classes/UAndDLoad.m; sourceTree = "<group>"; };
 		F1694D0E1702CB82006E9C51 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F16AC85817051C0D00D6308E /* SBJsonResolveData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonResolveData.h; path = Classes/SBJsonResolveData.h; sourceTree = "<group>"; };
+		F16AC85917051C0D00D6308E /* SBJsonResolveData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonResolveData.m; path = Classes/SBJsonResolveData.m; sourceTree = "<group>"; };
+		F16AC85F1705342100D6308E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		F16AC8611705343100D6308E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		F16AC8631705507A00D6308E /* GrayBackGroundColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrayBackGroundColorView.h; path = Classes/GrayBackGroundColorView.h; sourceTree = "<group>"; };
+		F16AC8641705507A00D6308E /* GrayBackGroundColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrayBackGroundColorView.m; path = Classes/GrayBackGroundColorView.m; sourceTree = "<group>"; };
+		F16AC86617055B9E00D6308E /* MeetingMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingMemberCell.h; path = Classes/MeetingMemberCell.h; sourceTree = "<group>"; };
+		F16AC86717055B9E00D6308E /* MeetingMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingMemberCell.m; path = Classes/MeetingMemberCell.m; sourceTree = "<group>"; };
+		F16AC88017057F8F00D6308E /* CellPushedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellPushedViewController.h; path = Classes/CellPushedViewController.h; sourceTree = "<group>"; };
+		F16AC88117057F8F00D6308E /* CellPushedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellPushedViewController.m; path = Classes/CellPushedViewController.m; sourceTree = "<group>"; };
+		F16AC88217057F8F00D6308E /* CellPushedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CellPushedViewController.xib; path = Classes/CellPushedViewController.xib; sourceTree = "<group>"; };
 		F1868ED317012EF100A44D80 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		F1868ED417012EF100A44D80 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		F1868ED517012EF100A44D80 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -122,6 +140,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16AC8621705343100D6308E /* AddressBookUI.framework in Frameworks */,
+				F16AC8601705342100D6308E /* AddressBook.framework in Frameworks */,
 				F1694D0F1702CB82006E9C51 /* CFNetwork.framework in Frameworks */,
 				F1868EE11701308100A44D80 /* QuartzCore.framework in Frameworks */,
 				F1868EDF1701307400A44D80 /* CoreFoundation.framework in Frameworks */,
@@ -137,6 +157,8 @@
 		F12A568F16FFD7CE00ECDD04 = {
 			isa = PBXGroup;
 			children = (
+				F16AC8611705343100D6308E /* AddressBookUI.framework */,
+				F16AC85F1705342100D6308E /* AddressBook.framework */,
 				F1694D0E1702CB82006E9C51 /* CFNetwork.framework */,
 				F12A56A416FFD7CE00ECDD04 /* ZhiHuiWang */,
 				F12A569D16FFD7CE00ECDD04 /* Frameworks */,
@@ -200,6 +222,15 @@
 				F125F20C170194480069BDAE /* ShowDownButton.m */,
 				F1694D0B1702C9B6006E9C51 /* UAndDLoad.h */,
 				F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */,
+				F16AC85817051C0D00D6308E /* SBJsonResolveData.h */,
+				F16AC85917051C0D00D6308E /* SBJsonResolveData.m */,
+				F16AC8631705507A00D6308E /* GrayBackGroundColorView.h */,
+				F16AC8641705507A00D6308E /* GrayBackGroundColorView.m */,
+				F16AC86617055B9E00D6308E /* MeetingMemberCell.h */,
+				F16AC86717055B9E00D6308E /* MeetingMemberCell.m */,
+				F16AC88017057F8F00D6308E /* CellPushedViewController.h */,
+				F16AC88117057F8F00D6308E /* CellPushedViewController.m */,
+				F16AC88217057F8F00D6308E /* CellPushedViewController.xib */,
 				F1EE99961700375800253625 /* Create */,
 			);
 			name = Classes;
@@ -368,6 +399,7 @@
 				F12A576C17002AA200ECDD04 /* CreateNewMeeting_Theme.png in Resources */,
 				F1868EDB17012F2700A44D80 /* My97DatePicker.bundle in Resources */,
 				F1868EE3170132AA00A44D80 /* datePicker.png in Resources */,
+				F16AC88417057F8F00D6308E /* CellPushedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +429,10 @@
 				F12EF5BF170437EA007FFECD /* SBJsonTokeniser.m in Sources */,
 				F12EF5C0170437EA007FFECD /* SBJsonUTF8Stream.m in Sources */,
 				F12EF5C1170437EA007FFECD /* SBJsonWriter.m in Sources */,
+				F16AC85A17051C0D00D6308E /* SBJsonResolveData.m in Sources */,
+				F16AC8651705507A00D6308E /* GrayBackGroundColorView.m in Sources */,
+				F16AC86817055B9F00D6308E /* MeetingMemberCell.m in Sources */,
+				F16AC88317057F8F00D6308E /* CellPushedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

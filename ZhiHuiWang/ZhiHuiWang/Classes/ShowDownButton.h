@@ -11,6 +11,9 @@
 @interface ShowDownButton : UIButton
 //-(void) buttonWithNames: (NSString *) name, ...;
 @property (strong,nonatomic) UIScrollView *downScrollView;
-
-- (void)initializeButtonData:(NSMutableArray *)data;
+@property (nonatomic) int meetingId;
+@property (strong,nonatomic) NSMutableArray *downMenus;
+@property (nonatomic) id delegate;
+@property (nonatomic) SEL selector;
+- (void)initializeButton;
 @end

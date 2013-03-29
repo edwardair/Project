@@ -50,8 +50,8 @@
         [params setObject:@"CodeTest3" forKey:@"hy.hyxbf"];
         [params setObject:@"CodeTest4" forKey:@"hy.hyzt"];
         [params setObject:@"CodeTest5" forKey:@"hy.hyxq"];
-        NSData *resultData = [UAndDLoad upLoad:params withURL:ModifyData];
-        NSLog(@"%@",[[NSString alloc]initWithData:resultData encoding:NSUTF8StringEncoding]);
+//        NSData *resultData = [UAndDLoad upLoad:params withURL:ModifyData];
+//        NSLog(@"%@",[[NSString alloc]initWithData:resultData encoding:NSUTF8StringEncoding]);
 }
 
 #pragma mark 下载数据
@@ -71,7 +71,8 @@
 		[alertView show];
 		return nil;
 	}else{
-        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"获取数据成功");
+//        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
     }
     return data;
 }

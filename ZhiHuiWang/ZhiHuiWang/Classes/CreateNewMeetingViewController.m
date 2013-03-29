@@ -10,8 +10,10 @@
 #import "My97DatePicker.h"
 #import "ShowDownButton.h"
 #import "UAndDLoad.h"
-#import "SBJson.h"
+#import "SBJsonResolveData.h"
+#import "MeetingMemberCell.h"
 #define Title @"新建会议"
+
 @interface CreateNewMeetingViewController (){
     UIView *curPresentUIView;
 }
@@ -34,9 +36,10 @@
 {
     
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
-    
-    self.navigationItem.title = Title;
+
+    self.parentViewController.navigationController.title = Title;
     
     //-------------------------新建会议
     _meetingName.delegate = self;
@@ -55,13 +58,23 @@
     
     _bottomScrollView.delegate = self;
 
-    NSData *data = [UAndDLoad downLoadWithUrl:GetMeetingList];
-    NSMutableArray *nameArray = [self getMeetingNameList:data];
-    [_meetingType initializeButtonData:nameArray];
-
+    [_meetingType initializeButton];
+    _meetingType.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
+    
     //-------------------------人员管理
+    [_MM_MeetingName initializeButton];
+    _MM_MeetingName.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
+    _MM_MeetingName.delegate = self;
+    _MM_MeetingName.selector = @selector(MM_MeetingNameButton);
+
+    _MM_MemberList.dataSource = self;
+    _MM_MemberList.delegate = self;
     
+   self.names = [NSMutableArray arrayWithObjects:@"A",@"B",@"C",@"A",@"A",@"A",@"B",@"C",@"A",@"A",@"A",@"B",@"C",@"A",@"A",nil];
     
+    [_MM_MemberList reloadData];
+    
+
     //-------------------------群组管理
     //-------------------------议程管理
 
@@ -75,23 +88,9 @@
     [self CreateNewMeeting:nil];
     
 }
-#pragma mark SBJson解析 会议名称
-- (NSMutableArray *)getMeetingNameList:(NSData *)data{
-    NSMutableArray *nameList = [NSMutableArray array];
-    NSData *downLoadData = [UAndDLoad downLoadWithUrl:GetMeetingList];
-    NSString *str1 = [[NSString alloc]initWithData:downLoadData encoding:NSUTF8StringEncoding];
-    
-    SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
-    NSMutableDictionary *dic = [jsonObject objectWithString:str1];
-    
-    NSArray *listDic = [dic objectForKey:@"hylist"];
-    
-    for (NSDictionary *objDic in listDic) {
-        NSString *s = [objDic objectForKey:@"hyname"];
-        [nameList addObject:s];
-    }
-    NSLog(@"%@",nameList);
-    return nameList;
+- (void)reloadMemberList{
+    self.names = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",nil];
+    [_MM_MemberList reloadData];
 }
 #pragma mark 弹出警告
 - (void)showAlertWithTitle:(NSString *)title
@@ -109,7 +108,9 @@ enum{
     CNM_G,
     CNM_S,
 };
-- (IBAction)CreateNewMeeting:(ShowDownButton *)sender{
+- (IBAction)CreateNewMeeting:(UIButton *)sender{
+    //sender为nil是 tag默认为0
+
     //选中框
     if (sender) {
         _coverImage.center = sender.center;
@@ -132,6 +133,7 @@ enum{
         default:
             break;
     }
+
     if (temp) {
         if (temp.superview) {
             if (temp.hidden) {
@@ -141,7 +143,7 @@ enum{
             [_bottomScrollView addSubview:temp];
             [temp setTransform:CGAffineTransformMakeTranslation(0, 65)];
         }
-        if (curPresentUIView) {
+        if (curPresentUIView && ![curPresentUIView isEqual:temp]) {
             curPresentUIView.hidden = YES;
         }
         curPresentUIView = temp;
@@ -151,12 +153,17 @@ enum{
 #pragma mark --------------------新建会议  子菜单
 #pragma mark 新建会议 中 "确定"按钮
 - (BOOL)checkPostEnable:(UIView *)curPresentView{
+    if (_meetingType.meetingId<=1) {
+        NSLog(@"会议类型 为空");
+        return NO;
+    }
     for (UIView *subView in curPresentView.subviews) {
         if ([subView isKindOfClass:[UITextField class]]) {
             UITextField *temp = (UITextField *)subView;
             //UITextField 当placeholder为“必填”，并且text为空时 无法上传
             if ([[temp placeholder] isEqualToString:@"必填"]) {
                 if (temp.text.length==0) {
+                    NSLog(@"必填项为空 %@",temp.description);
                     return NO;
                 }
             }
@@ -164,6 +171,7 @@ enum{
             UITextView *temp = (UITextView *)subView;
             //UITextView 默认为为“必填”，所以当text为空时 无法上传
             if (temp.text.length==0) {
+                NSLog(@"必填项为空 %@",temp.description);
                 return NO;
             }
         }
@@ -201,18 +209,20 @@ enum{
         }
     }
     [_meetingType setTitle:@"--请选择--" forState:UIControlStateNormal];
+    _meetingType.meetingId = 0;
 }
 
 #pragma mark --------------------人员管理  子菜单
+- (void)MM_MeetingNameButton{
+    NSLog(@"tableView 显示数据");
+    [self reloadMemberList];
+}
 - (IBAction)MM_AddMember:(id)sender{
-    
+    UIView *addView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].applicationFrame];
+    addView.backgroundColor = [UIColor grayColor];
+    [_memberManageView addSubview:addView];
 }//添加
-- (IBAction)MM_ModifyMember:(id)sender{
-    
-}//编辑
-- (IBAction)MM_DeleteMember:(id)sender{
-    
-}//删除
+
 
 #pragma mark --------------------群组管理  子菜单
 #pragma mark --------------------议程管理  子菜单
@@ -231,14 +241,19 @@ enum{
         [self.textKeyBoard resignFirstResponder];
         self.textKeyBoard = nil;
     }
+    [self hideMeetingTypeButton];
+}
+- (void)hideMeetingTypeButton
+{
     if (!_meetingType.downScrollView.hidden) {
         _meetingType.downScrollView.hidden = YES;
     }
 }
-
 #pragma mark UITextField Delegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    [self hideMeetingTypeButton];
+
     NSLog(@"ShouldBeginEditing:%@",textField.text);
     self.textKeyBoard = textField;
     
@@ -250,6 +265,7 @@ enum{
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+
     NSLog(@"%@",textField.text);
     if ([textField isEqual:_meetingStartDate] || [textField isEqual:_meetingEndDate]) {
         NSLog(@"处理时间格式");
@@ -261,6 +277,8 @@ enum{
 
 #pragma mark UITextView Delegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    [self hideMeetingTypeButton];
+
     self.textKeyBoard = textView;
 
     return YES;
@@ -272,7 +290,56 @@ enum{
     }
     return YES;
 }
+#pragma mark UITableView Delegate
+- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _names.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *title = @"Title";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:title];
+    if (!cell) {
+        cell = [[MeetingMemberCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
+        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
+    }
+    
+    NSUInteger row = [indexPath row];
+    cell.textLabel.text = [_names objectAtIndex:row];
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"tableViewCell 选中 %d",[indexPath row]);
+    
+    MeetingMemberCell *cell = (MeetingMemberCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    CellPushedViewController *c = [[CellPushedViewController alloc]initWithNibName:@"CellPushedViewController" bundle:nil];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:c];
+    [self.parentViewController.navigationController pushViewController:c animated:YES];
+    
+    c.field.text = cell.name;
+    c.title = cell.name;
+    
+//    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:nil action:nil];
+//    nav.navigationItem.backBarButtonItem = back;
 
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.names removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        [_MM_MemberList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        [_MM_MemberList insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -15,17 +15,36 @@
 @end
 
 @implementation ShowDownButton
+@synthesize downMenus = _downMenus;
 - (UIScrollView *)downScrollView{
     if (!_downScrollView) {
         _downScrollView = [[UIScrollView alloc]init];
         [self.superview addSubview:_downScrollView];
         _downScrollView.frame = CGRectMake(self.frame.origin.x, self.frame.size.height+self.frame.origin.y, self.frame.size.width, 0);
         [_downScrollView setBackgroundColor:[UIColor blueColor]];
+//        _downScrollView.scrollEnabled = YES;
+//        _downScrollView.bouncesZoom = YES;
+//        _downScrollView.alwaysBounceVertical = YES;
         _downScrollView.hidden = YES;
     }
     return _downScrollView;
 }
+- (NSMutableArray *)downMenus{
+    if (!_downMenus) {
+        _downMenus = [[NSMutableArray alloc]init];
+    }
+    return _downMenus;
+}
+- (void)setDownMenus:(NSMutableArray *)downMenus{
+    int index = 1;
+    for (NSString *name in downMenus) {
+        UIButton *b = [self createSubButtonWithIndex:index++ Name:name];
+        [b addTarget:self action:@selector(subviewsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    self.downScrollView.frame = CGRectMake(self.downScrollView.frame.origin.x, self.downScrollView.frame.origin.y, self.downScrollView.frame.size.width, BtnWidth*(downMenus.count+1));
 
+}
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -44,34 +63,31 @@
 }
 */
 
-- (void)createSubButtonWithIndex:(int )index Name:(NSString *)name{
+- (UIButton *)createSubButtonWithIndex:(int )index Name:(NSString *)name{
     UIButton *b = [[UIButton alloc]initWithFrame:CGRectMake(0, BtnWidth*index, self.frame.size.width, BtnWidth)];
     [self.downScrollView addSubview:b];
     
+    b.tag = index;
     [b setTitle:name forState:UIControlStateNormal];
-
     [b setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [b addTarget:self action:@selector(subviewsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-
+    return b;
 }
-- (void)initializeButtonData:(NSMutableArray *)data{
-    [self setTitle:@"--请选择--" forState:UIControlStateNormal];
+- (void)initializeButton{
+    //如果 self 存在子节点 删掉 重新加载
+    for (UIView *sub in self.downScrollView.subviews) {
+//        if ([sub isKindOfClass:[UIButton class]]) {
+            [sub removeFromSuperview];
+//        }
+    }
+    self.meetingId = 0;
     
+    [self setTitle:@"--请选择--" forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
     [self createSubButtonWithIndex:0 Name:self.titleLabel.text];
     
-    for (NSString *name in data) {
-        NSLog(@"%@",name);
-//        NSMutableString *s = [NSMutableString stringWithUTF8String:[name UTF8String]];
-        int index = [data indexOfObject:name];
-        index += 1;
-        [self createSubButtonWithIndex:index Name:name];
-    }
-    
-    self.downScrollView.frame = CGRectMake(self.downScrollView.frame.origin.x, self.downScrollView.frame.origin.y, self.downScrollView.frame.size.width, BtnWidth*(data.count+1));
     [self addTarget:self action:@selector(superButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 //UIButton 点击方法
@@ -81,10 +97,16 @@
     }
 }
 - (void)subviewsButtonClicked:(UIButton *)b{
-    NSLog(@"%@",b.titleLabel.text);
+    //加入  meetingId 为 0 或 1 时 会议必填项为空 创建不成功
+    self.meetingId = b.tag;
+
     [self spreadAndStrictionAction:NO];
 
     [self setTitle:b.titleLabel.text forState:UIControlStateNormal];
+    
+    if (_delegate && [_delegate respondsToSelector:_selector]) {
+        [_delegate performSelector:_selector];
+    }
 }
 //获取 _downView的子视图个数
 - (int )subviewsNumber{

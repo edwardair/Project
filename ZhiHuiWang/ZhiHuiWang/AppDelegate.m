@@ -26,7 +26,9 @@
     UITabBarController *rootController = [[UITabBarController alloc]init];
     rootController.viewControllers = @[createNewMeeting];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:rootController];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootController];
+    
+    self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
     
