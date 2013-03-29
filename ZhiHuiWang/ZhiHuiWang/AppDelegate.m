@@ -24,7 +24,7 @@
     UIViewController *test = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
 
     UITabBarController *rootController = [[UITabBarController alloc]init];
-    rootController.viewControllers = @[createNewMeeting];
+    rootController.viewControllers = @[createNewMeeting,test];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootController];
     

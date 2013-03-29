@@ -58,9 +58,16 @@
     
     _bottomScrollView.delegate = self;
 
+<<<<<<< HEAD
     [_meetingType initializeButton];
     _meetingType.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
     
+=======
+//    NSData *data = [UAndDLoad downLoadWithUrl:GetMeetingList];
+//    NSMutableArray *nameArray = [self getMeetingNameList:data];
+//    [_meetingType initializeButtonData:nameArray];
+
+>>>>>>> n
     //-------------------------人员管理
     [_MM_MeetingName initializeButton];
     _MM_MeetingName.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
