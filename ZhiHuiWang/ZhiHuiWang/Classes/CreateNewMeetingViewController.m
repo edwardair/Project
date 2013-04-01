@@ -12,6 +12,7 @@
 #import "UAndDLoad.h"
 #import "SBJsonResolveData.h"
 #import "MeetingMemberCell.h"
+#import "StaticManager.h"
 #define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
@@ -39,7 +40,8 @@
 
     // Do any additional setup after loading the view from its nib.
 
-    self.parentViewController.navigationController.title = Title;
+    self.parentViewController.navigationItem.title = Title;
+    
     
     //-------------------------新建会议
     _meetingName.delegate = self;
@@ -58,28 +60,24 @@
     
     _bottomScrollView.delegate = self;
 
-<<<<<<< HEAD
     [_meetingType initializeButton];
     _meetingType.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
     
-=======
 //    NSData *data = [UAndDLoad downLoadWithUrl:GetMeetingList];
 //    NSMutableArray *nameArray = [self getMeetingNameList:data];
 //    [_meetingType initializeButtonData:nameArray];
 
->>>>>>> n
     //-------------------------人员管理
     [_MM_MeetingName initializeButton];
     _MM_MeetingName.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
     _MM_MeetingName.delegate = self;
-    _MM_MeetingName.selector = @selector(MM_MeetingNameButton);
+    _MM_MeetingName.selector = @selector(MM_MeetingNameButton:);
 
     _MM_MemberList.dataSource = self;
     _MM_MemberList.delegate = self;
     
-   self.names = [NSMutableArray arrayWithObjects:@"A",@"B",@"C",@"A",@"A",@"A",@"B",@"C",@"A",@"A",@"A",@"B",@"C",@"A",@"A",nil];
-    
-    [_MM_MemberList reloadData];
+    _MemberListOfAMeeting = [[NSMutableArray alloc]init];
+//    [_MM_MemberList reloadData];
     
 
     //-------------------------群组管理
@@ -95,19 +93,13 @@
     [self CreateNewMeeting:nil];
     
 }
+
 - (void)reloadMemberList{
-    self.names = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",@"1",@"2",@"3",nil];
+    
+//    self.names = [UAndDLoad downLoadWithUrl:<#(NSString *)#>]
     [_MM_MemberList reloadData];
 }
-#pragma mark 弹出警告
-- (void)showAlertWithTitle:(NSString *)title
-                   message:(NSString *)msg
-                  delegate:(id )delegate
-         cancelButtonTitle:(NSString *)cancle
-          otherButtonTitle:(NSString *)other{
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:delegate cancelButtonTitle:cancle otherButtonTitles:other, nil];
-    [alert show];
-}
+
 #pragma mark 新建会议  二级 按钮
 enum{
     CNM_C,
@@ -187,7 +179,7 @@ enum{
 }
 - (IBAction)CreateNewMeeting_OK{
     if (![self checkPostEnable:_createNewMeetingView]) {
-        [self showAlertWithTitle:nil message:@"必填项目不能为空" delegate:self cancelButtonTitle:@"OK" otherButtonTitle:nil];
+        [StaticManager showAlertWithTitle:nil message:@"必填项目不能为空" delegate:self cancelButtonTitle:@"OK" otherButtonTitle:nil];
         return;
     }
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -203,8 +195,7 @@ enum{
     [params setObject:_meetingRequriements.text forKey:HYRequirments];
     
     //上传数据
-    [UAndDLoad upLoad:params withURL:ModifyData];
-    
+   [UAndDLoad upLoad:params withURL:Url_ModifyData];
 }
 #pragma mark 新建会议 中 "全部重置"按钮
 - (IBAction)CreateNewMeeting_ResetAll{
@@ -220,16 +211,94 @@ enum{
 }
 
 #pragma mark --------------------人员管理  子菜单
-- (void)MM_MeetingNameButton{
+- (void)MM_MeetingNameButton:(UIButton *)btn{
     NSLog(@"tableView 显示数据");
-    [self reloadMemberList];
+    [self.MemberListOfAMeeting removeAllObjects];
+
+    if (btn.tag==-1) {
+        
+    }else{
+        int hyId = [[[[SBJsonResolveData shareMeeting] meetingId] objectAtIndex:_MM_MeetingName.meetingId] intValue];
+        NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingMembers(hyId)];
+        _MemberListOfAMeeting = [SBJsonResolveData getMeetingMembers:data];
+    }
+
+    [_MM_MemberList reloadData];
+
+    
+//    [self reloadMemberList];
 }
 - (IBAction)MM_AddMember:(id)sender{
-    UIView *addView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].applicationFrame];
-    addView.backgroundColor = [UIColor grayColor];
-    [_memberManageView addSubview:addView];
+    CellPushedViewController *c = [[CellPushedViewController alloc]initWithNibName:@"CellPushedViewController" bundle:nil];
+    c.navigationItem.title = @"添加参会代表";
+    c.delegate = self;
+    //TODO: 传递cell的各参数
+//    [self.parentViewController.navigationController pushViewController:c animated:YES];
+//    self.parentViewController.navigationController.、
+    [self presentModalViewController:c animated:YES];
+    
 }//添加
+- (void)saveCell:(CellPushedViewController *)cellViewController addType:(int )type{
 
+    //type = 0 为添加数据 //1 为修改数据
+    //TODO: 人员添加或删除操作  同时更新服务器数据
+    
+    NSString *name = cellViewController.name.text;
+    int sex = [cellViewController.sex.titleLabel.text isEqualToString:@"男"]?1:0;
+    NSString *tel = cellViewController.tel.text;
+    NSString *post = cellViewController.post.text;
+
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:name forKey:CHDBName];
+    [dic setObject:[NSNumber numberWithInt:sex] forKey:CHDBXb];
+    [dic setObject:tel forKey:CHDBLxdh];
+    [dic setObject:post forKey:CHDBZw];
+
+    switch (type) {
+        case 0:
+            //add
+        {
+            
+            int index = _MM_MeetingName.meetingId;
+            index = [[[[SBJsonResolveData shareMeeting] meetingId] objectAtIndex:index] intValue];
+
+            NSString *idStr = [NSString stringWithFormat:@"%d",index];
+            
+            
+            [UAndDLoad addMemberWithHyid:idStr
+                                    Name:name
+                                     sex:sex
+                                     tel:tel
+                                    post:post];
+            
+        }
+            break;
+        case 1:
+            //modify
+        {
+            int index = cellViewController.index;
+            
+            NSString *idStr = [[_MemberListOfAMeeting objectAtIndex:index] objectForKey:CHDBId];
+            [UAndDLoad modifyMemberWithId:idStr
+                                     name:name
+                                      sex:sex
+                                      tel:tel
+                                     post:post];
+
+        }
+            break;
+  
+        default:
+            break;
+    }
+    
+    int hyId = [[[[SBJsonResolveData shareMeeting] meetingId] objectAtIndex:_MM_MeetingName.meetingId] intValue];
+    NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingMembers(hyId)];
+    _MemberListOfAMeeting = [SBJsonResolveData getMeetingMembers:data];
+    
+    [_MM_MemberList reloadData];
+
+}
 
 #pragma mark --------------------群组管理  子菜单
 #pragma mark --------------------议程管理  子菜单
@@ -297,9 +366,10 @@ enum{
     }
     return YES;
 }
+
 #pragma mark UITableView Delegate
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _names.count;
+    return _MemberListOfAMeeting.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *title = @"Title";
@@ -311,23 +381,35 @@ enum{
     }
     
     NSUInteger row = [indexPath row];
-    cell.textLabel.text = [_names objectAtIndex:row];
+    cell.textLabel.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"tableViewCell 选中 %d",[indexPath row]);
     
-    MeetingMemberCell *cell = (MeetingMemberCell *)[tableView cellForRowAtIndexPath:indexPath];
+//    MeetingMemberCell *cell = (MeetingMemberCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     CellPushedViewController *c = [[CellPushedViewController alloc]initWithNibName:@"CellPushedViewController" bundle:nil];
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:c];
+    c.navigationItem.title = @"编辑参会代表";
+    c.delegate = self;
+    //TODO: 传递cell的各参数
+    NSUInteger row = [indexPath row];
+
     [self.parentViewController.navigationController pushViewController:c animated:YES];
+
+    int sex = [[[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName] intValue];
+    c.name.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
+    c.tel.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBLxdh];
+    c.index = row;
     
-    c.field.text = cell.name;
-    c.title = cell.name;
+    NSString *post = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBZw];
+    NSLog(@"%@",post);
     
-//    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:nil action:nil];
-//    nav.navigationItem.backBarButtonItem = back;
+    if (![post isEqual:[NSNull null]]) {
+        c.post.text = post;
+    }
+    [c.sex setTitle:sex?@"男":@"女" forState:UIControlStateNormal];
+    [c.sex setTitle:sex?@"男":@"女" forState:UIControlStateHighlighted];
 
 }
 
@@ -335,8 +417,16 @@ enum{
     return YES;
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    int row = [indexPath row];
+    
+    //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.names removeObjectAtIndex:indexPath.row];
+        NSString *idStr = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBId];
+        [UAndDLoad deleteMemberWithId:idStr];
+        
+        [_MemberListOfAMeeting removeObjectAtIndex:indexPath.row];
+        
+        
         // Delete the row from the data source.
         [_MM_MemberList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         

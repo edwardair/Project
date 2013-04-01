@@ -64,7 +64,7 @@
 	[request setHTTPMethod:@"GET"];
 	NSURLResponse *response = nil;
 	NSData *data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-	
+
     //网络失败警告
     if (!data) {
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"联网失败" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -76,4 +76,47 @@
     }
     return data;
 }
+
+#pragma mark 删除会议中成员
++ (void)deleteMemberWithId:(NSString *)idStr{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:idStr forKey:@"chdbString"];
+    
+    [UAndDLoad upLoad:params withURL:Url_DeleteMeetingMember];
+}
++ (void)addMemberWithHyid:(NSString *)idStr
+                     Name:(NSString *)name
+                      sex:(int )man
+                      tel:(NSString *)tel
+                     post:(NSString *)post{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:idStr forKey:@"chdb.hyid"];
+    [params setObject:name forKey:@"chdb.chdbname"];
+    [params setObject:[NSString stringWithFormat:@"%d",man] forKey:@"chdb.chdbxb"];
+    [params setObject:tel forKey:@"chdb.chdblxdh"];
+    if (post.length>0) {
+        [params setObject:post forKey:@"chdb.chdbzw"];
+    }
+   
+    [UAndDLoad upLoad:params withURL:Url_AddMeetingMember];
+    
+}
++ (void)modifyMemberWithId:(NSString *)idStr
+                   name:(NSString *)name
+                      sex:(int )man
+                      tel:(NSString *)tel
+                     post:(NSString *)post{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:idStr forKey:@"chdb.id"];
+    [params setObject:name forKey:@"chdb.chdbname"];
+    [params setObject:[NSString stringWithFormat:@"%d",man] forKey:@"chdb.chdbxb"];
+    [params setObject:tel forKey:@"chdb.chdblxdh"];
+    if (post.length>0) {
+        [params setObject:post forKey:@"chdb.chdbzw"];
+    }
+    
+    [UAndDLoad upLoad:params withURL:Url_ModifyMeetingMember];
+
+}
+
 @end

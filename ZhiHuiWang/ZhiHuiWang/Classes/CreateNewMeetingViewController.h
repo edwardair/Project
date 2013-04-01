@@ -11,7 +11,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "CellPushedViewController.h"
 @class ShowDownButton;
-@interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,CellPushedViewControllerDelegate>
 
 @property (strong,nonatomic) IBOutlet UIScrollView *bottomScrollView;
 @property (strong,nonatomic) IBOutlet UIImageView *coverImage;
@@ -38,12 +38,12 @@
 
 #pragma mark 人员管理
 @property (strong,nonatomic) IBOutlet UIView *memberManageView;//人员管理 view
-@property (strong,nonatomic) IBOutlet CellPushedViewController *cellPushedViewController;
 @property (strong,nonatomic) IBOutlet ShowDownButton *MM_MeetingName;//会议选择按钮
 @property (strong,nonatomic) IBOutlet UITableView *MM_MemberList;//会议名单
-@property (strong,nonatomic) NSMutableArray *names;
+@property (strong,nonatomic) NSMutableArray *MemberListOfAMeeting;
 - (IBAction)MM_AddMember:(id)sender;//添加
 #pragma mark 群组管理
+@property (strong,nonatomic) IBOutlet UITableViewController *groupManager;
 #pragma mark 议程管理
 
 @end

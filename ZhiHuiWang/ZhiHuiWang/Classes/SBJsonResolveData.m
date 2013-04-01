@@ -20,7 +20,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
 }
 //更新数据
 +(void )updateUrlData{
-    NSData *data = [UAndDLoad downLoadWithUrl:GetMeetingList];
+    NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingList];
     [SBJsonResolveData getMeetingData:data];
 }
 - (NSMutableArray *)meetingNameList{
@@ -56,5 +56,34 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
 
     }
 }
+#pragma mark  SBJson解析 会议人员
 
++ (NSMutableArray *)getMeetingMembers:(NSData *)data{
+    NSMutableArray *arrayWithDics = [NSMutableArray array];
+    
+    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+
+    SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
+    NSMutableDictionary *orgDic = [jsonObject objectWithString:str];
+
+    NSArray *firstArray = [orgDic objectForKey:@"chdbList"];
+    NSLog(@"%@",firstArray);
+
+    for (NSDictionary *subDic in firstArray) {
+        NSMutableDictionary *arrayWithDics_SubDic = [NSMutableDictionary dictionary];
+        
+        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBName] forKey:CHDBName];//名称
+        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBLxdh] forKey:CHDBLxdh];//电话
+        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBZw] forKey:CHDBZw];//职位
+        [arrayWithDics_SubDic setObject:[NSNumber numberWithInt:[[subDic objectForKey:CHDBXb] intValue]] forKey:CHDBXb];//性别  1为男  0为女
+        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBId] forKey:CHDBId];//id
+        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBHyid] forKey:CHDBHyid];//hyid
+
+        [arrayWithDics addObject:arrayWithDics_SubDic];
+
+    }
+
+    return arrayWithDics;
+    
+}
 @end

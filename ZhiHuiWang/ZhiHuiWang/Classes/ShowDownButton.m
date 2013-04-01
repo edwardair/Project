@@ -67,7 +67,7 @@
     UIButton *b = [[UIButton alloc]initWithFrame:CGRectMake(0, BtnWidth*index, self.frame.size.width, BtnWidth)];
     [self.downScrollView addSubview:b];
     
-    b.tag = index;
+    b.tag = index-1;
     [b setTitle:name forState:UIControlStateNormal];
     [b setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     return b;
@@ -84,7 +84,8 @@
     [self setTitle:@"--请选择--" forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self createSubButtonWithIndex:0 Name:self.titleLabel.text];
+   UIButton *nonData = [self createSubButtonWithIndex:0 Name:self.titleLabel.text];
+    [nonData addTarget:self action:@selector(subviewsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addTarget:self action:@selector(superButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 
@@ -99,13 +100,14 @@
 - (void)subviewsButtonClicked:(UIButton *)b{
     //加入  meetingId 为 0 或 1 时 会议必填项为空 创建不成功
     self.meetingId = b.tag;
+    NSLog(@"%d",b.tag);
 
     [self spreadAndStrictionAction:NO];
 
     [self setTitle:b.titleLabel.text forState:UIControlStateNormal];
     
     if (_delegate && [_delegate respondsToSelector:_selector]) {
-        [_delegate performSelector:_selector];
+        [_delegate performSelector:_selector withObject:b];
     }
 }
 //获取 _downView的子视图个数

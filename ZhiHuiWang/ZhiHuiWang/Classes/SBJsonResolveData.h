@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#define CHDBName @"chdbname"
+#define CHDBLxdh @"chdblxdh"
+#define CHDBZw @"chdbzw"
+#define CHDBXb @"chdbxb"
+#define CHDBId @"id"
+#define CHDBHyid @"hyid"
 @interface SBJsonResolveData : NSObject
 @property (strong,nonatomic) NSMutableArray *meetingNameList;
 @property (strong,nonatomic) NSMutableArray *meetingId;
 +(SBJsonResolveData *)shareMeeting;
 +(void )updateUrlData;
+
++ (NSMutableArray *)getMeetingMembers:(NSData *)data;
 @end

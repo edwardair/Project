@@ -899,3 +899,210 @@
  }
  )
  */
+
+
+#pragma mark 会议人员
+/*
+ "chdbList":[{"chdbbydh":null,"chdbbysrt1":"image\/people\/default.png","chdbcode":"003","chdbemail":null,"chdbgj":1,"chdbguid":null,"chdbgzdw":null,"chdbimage":"image\/people\/default.png","chdbjt":null,"chdbjtyq":null,"chdblxdh":"13011011000","chdbname":"数据2","chdbpassword":"fujacy","chdbtjhy":null,"chdbtsxq":null,"chdbwwname":null,"chdbxb":1,"chdbxyfj":null,"chdbyc":null,"chdbycyq":null,"chdbzs":null,"chdbzsyq":null,"chdbzw":null,"cityid":0,"cityname":null,"corpid":null,"dbfzid":null,"dbid":null,"dbsfname":null,"dbtid":0,"dbtname":null,"disname":null,"districtid":0,"empid":null,"hyid":631,"id":37902,"isclosed":null,"proname":null,"provinceid":0,"rfidkmcode":null,"rfidnbcode":null,"rytype":1,"sequence":null,"sfid":0,"sybz":null,"tsxqid":null,"upflag":null,"ycid":null,"yybb":null,"yybbyxj":null,"yybbzw":null,"zyzid":null},
+ 
+ 
+ {"chdbbydh":null,"chdbbysrt1":"image\/people\/default.png","chdbcode":"001","chdbemail":null,"chdbgj":1,"chdbguid":null,"chdbgzdw":null,"chdbimage":"image\/people\/default.png","chdbjt":null,"chdbjtyq":null,"chdblxdh":"13811011011","chdbname":"数据1","chdbpassword":"9ffqyz","chdbtjhy":null,"chdbtsxq":null,"chdbwwname":null,"chdbxb":1,"chdbxyfj":null,"chdbyc":null,"chdbycyq":null,"chdbzs":null,"chdbzsyq":null,"chdbzw":null,"cityid":0,"cityname":null,"corpid":null,"dbfzid":null,"dbid":null,"dbsfname":null,"dbtid":0,"dbtname":null,"disname":null,"districtid":0,"empid":null,"hyid":631,"id":37901,"isclosed":null,"proname":null,"provinceid":0,"rfidkmcode":null,"rfidnbcode":null,"rytype":1,"sequence":null,"sfid":0,"sybz":null,"tsxqid":null,"upflag":null,"ycid":null,"yybb":null,"yybbyxj":null,"yybbzw":null,"zyzid":null}]
+*/
+
+
+/*
+ 
+ {
+ chdb =     {
+ chdbbydh = "<null>";
+ chdbbysrt1 = "<null>";
+ chdbcode = "<null>";
+ chdbemail = "<null>";
+ chdbgj = "<null>";
+ chdbguid = "<null>";
+ chdbgzdw = "<null>";
+ chdbimage = "<null>";
+ chdbjt = "<null>";
+ chdbjtyq = "<null>";
+ chdblxdh = "<null>";
+ chdbname = "<null>";
+ chdbpassword = "<null>";
+ chdbtjhy = "<null>";
+ chdbtsxq = "<null>";
+ chdbwwname = "<null>";
+ chdbxb = "<null>";
+ chdbxyfj = "<null>";
+ chdbyc = "<null>";
+ chdbycyq = "<null>";
+ chdbzs = "<null>";
+ chdbzsyq = "<null>";
+ chdbzw = "<null>";
+ cityid = "<null>";
+ cityname = "<null>";
+ corpid = "<null>";
+ dbfzid = "<null>";
+ dbid = "<null>";
+ dbsfname = "<null>";
+ dbtid = "<null>";
+ dbtname = "<null>";
+ disname = "<null>";
+ districtid = "<null>";
+ empid = "<null>";
+ hyid = 631;
+ id = "<null>";
+ isclosed = "<null>";
+ proname = "<null>";
+ provinceid = "<null>";
+ rfidkmcode = "<null>";
+ rfidnbcode = "<null>";
+ rytype = "<null>";
+ sequence = "<null>";
+ sfid = "<null>";
+ sybz = "<null>";
+ tsxqid = "<null>";
+ upflag = "<null>";
+ ycid = "<null>";
+ yybb = "<null>";
+ yybbyxj = "<null>";
+ yybbzw = "<null>";
+ zyzid = "<null>";
+ };
+ chdbList =     (
+ {
+ chdbbydh = "<null>";
+ chdbbysrt1 = "image/people/default.png";
+ chdbcode = 003;
+ chdbemail = "<null>";
+ chdbgj = 1;
+ chdbguid = "<null>";
+ chdbgzdw = "<null>";
+ chdbimage = "image/people/default.png";
+ chdbjt = "<null>";
+ chdbjtyq = "<null>";
+ chdblxdh = 13011011000;
+ chdbname = "\U6570\U636e2";
+ chdbpassword = fujacy;
+ chdbtjhy = "<null>";
+ chdbtsxq = "<null>";
+ chdbwwname = "<null>";
+ chdbxb = 1;
+ chdbxyfj = "<null>";
+ chdbyc = "<null>";
+ chdbycyq = "<null>";
+ chdbzs = "<null>";
+ chdbzsyq = "<null>";
+ chdbzw = "<null>";
+ cityid = 0;
+ cityname = "<null>";
+ corpid = "<null>";
+ dbfzid = "<null>";
+ dbid = "<null>";
+ dbsfname = "<null>";
+ dbtid = 0;
+ dbtname = "<null>";
+ disname = "<null>";
+ districtid = 0;
+ empid = "<null>";
+ hyid = 631;
+ id = 37902;
+ isclosed = "<null>";
+ proname = "<null>";
+ provinceid = 0;
+ rfidkmcode = "<null>";
+ rfidnbcode = "<null>";
+ rytype = 1;
+ sequence = "<null>";
+ sfid = 0;
+ sybz = "<null>";
+ tsxqid = "<null>";
+ upflag = "<null>";
+ ycid = "<null>";
+ yybb = "<null>";
+ yybbyxj = "<null>";
+ yybbzw = "<null>";
+ zyzid = "<null>";
+ },
+ {
+ chdbbydh = "<null>";
+ chdbbysrt1 = "image/people/default.png";
+ chdbcode = 001;
+ chdbemail = "<null>";
+ chdbgj = 1;
+ chdbguid = "<null>";
+ chdbgzdw = "<null>";
+ chdbimage = "image/people/default.png";
+ chdbjt = "<null>";
+ chdbjtyq = "<null>";
+ chdblxdh = 13811011011;
+ chdbname = "\U6570\U636e1";
+ chdbpassword = 9ffqyz;
+ chdbtjhy = "<null>";
+ chdbtsxq = "<null>";
+ chdbwwname = "<null>";
+ chdbxb = 1;
+ chdbxyfj = "<null>";
+ chdbyc = "<null>";
+ chdbycyq = "<null>";
+ chdbzs = "<null>";
+ chdbzsyq = "<null>";
+ chdbzw = "<null>";
+ cityid = 0;
+ cityname = "<null>";
+ corpid = "<null>";
+ dbfzid = "<null>";
+ dbid = "<null>";
+ dbsfname = "<null>";
+ dbtid = 0;
+ dbtname = "<null>";
+ disname = "<null>";
+ districtid = 0;
+ empid = "<null>";
+ hyid = 631;
+ id = 37901;
+ isclosed = "<null>";
+ proname = "<null>";
+ provinceid = 0;
+ rfidkmcode = "<null>";
+ rfidnbcode = "<null>";
+ rytype = 1;
+ sequence = "<null>";
+ sfid = 0;
+ sybz = "<null>";
+ tsxqid = "<null>";
+ upflag = "<null>";
+ ycid = "<null>";
+ yybb = "<null>";
+ yybbyxj = "<null>";
+ yybbzw = "<null>";
+ zyzid = "<null>";
+ }
+ );
+ chdbString = "<null>";
+ context =     {
+ attributeNames =         {
+ };
+ contextPath = "/GZHWV";
+ initParameterNames =         {
+ };
+ majorVersion = 2;
+ minorVersion = 5;
+ serverInfo = "Apache Tomcat/6.0.18";
+ servletContextName = "<null>";
+ servletNames =         {
+ };
+ servlets =         {
+ };
+ };
+ dbsfList = "<null>";
+ dbtList = "<null>";
+ fileName = "<null>";
+ hyList = "<null>";
+ hyid = "<null>";
+ imageIllegal = "<null>";
+ imagePath = "<null>";
+ inputStream = "<null>";
+ returnMsg = "<null>";
+ upload = "<null>";
+ }
+
+ */
