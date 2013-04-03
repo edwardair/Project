@@ -178,7 +178,8 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
 }
 
 #pragma mark 获取指定会议中 分组情况
-+(NSMutableDictionary *)groupWithCode:(NSString *)code
++(NSMutableDictionary *)groupWithId:(NSString *)idStr
+                               Code:(NSString *)code
                                  Name:(NSString *)name
                            CreateTime:(NSString *)time
                                  Mark:(NSString *)mark{
@@ -201,12 +202,25 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSArray *dbfzList = [orgDic objectForKey:DBFZList];
     
     for (NSDictionary *dic in dbfzList) {
-        NSMutableDictionary *mutableDic = [SBJsonResolveData groupWithCode:[dic objectForKey:DBFZCode]
-                                                                      Name:[dic objectForKey:DBFZName]
-                                                                CreateTime:[dic objectForKey:DBFZCreatetime]
-                                                                      Mark:[dic objectForKey:DBFZRemark]];
+        NSMutableDictionary *mutableDic = [SBJsonResolveData groupWithId:[dic objectForKey:@"id"]
+                                                                    Code:[dic objectForKey:DBFZCode]
+                                                                    Name:[dic objectForKey:DBFZName]
+                                                              CreateTime:[dic objectForKey:DBFZCreatetime]
+                                                                    Mark:[dic objectForKey:DBFZRemark]];
         [staticSBJsonResolveData.pointMeetingGroups addObject:mutableDic];
     }
+    
+}
+#pragma mark 在指定会议中添加一个分组
++ (void)addPointMeetingWithIndex:(int)index
+                            Code:(NSString *)code
+                            Name:(NSString *)name
+                            Mark:(NSString *)mark{
+    NSString *idStr = [staticSBJsonResolveData.meetingId objectAtIndex:index];
+    NSData *data = [UAndDLoad addPointMeetingOneGroupWithHyid:idStr
+                                                    GroupCode:code
+                                                    GroupName:name
+                                                    GroupMark:mark];
     
 }
 @end

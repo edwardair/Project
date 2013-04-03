@@ -1,21 +1,20 @@
 //
-//  MeetingMemberCell.m
+//  OneMemberCell.m
 //  ZhiHuiWang
 //
-//  Created by BlackApple on 13-3-29.
+//  Created by BlackApple on 13-4-3.
 //  Copyright (c) 2013年 BlackApple. All rights reserved.
 //
 
-#import "MeetingMemberCell.h"
+#import "OneMemberCell.h"
 
-@implementation MeetingMemberCell
+@implementation OneMemberCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
-        self.selectionStyle = UITableViewCellSelectionStyleGray;
+        // Initialization code
     }
     return self;
 }
@@ -25,7 +24,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-    
 }
 
 @end

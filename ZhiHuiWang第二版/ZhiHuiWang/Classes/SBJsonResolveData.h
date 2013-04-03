@@ -44,4 +44,8 @@
                                Tel:(NSString *)tel
                               Post:(NSString *)post;
 +(void)getPointMeetingOfGroupsWithIndex:(int )index;
++ (void)addPointMeetingWithIndex:(int)index
+                            Code:(NSString *)code
+                            Name:(NSString *)name
+                            Mark:(NSString *)mark;
 @end

@@ -131,4 +131,17 @@
 + (NSData *)getPointMeetingGroupsWithIndex:(NSString *)idStr{
     return [UAndDLoad downLoadWithUrl:Url_GetMeetingGroups(idStr)];
 }
++(NSData *)addPointMeetingOneGroupWithHyid:(NSString *)hyid
+                                 GroupCode:(NSString *)code
+                                 GroupName:(NSString *)name
+                                 GroupMark:(NSString *)mark{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:hyid forKey:@"dbfz.hyid"];
+    [params setObject:code forKey:@"dbfz.dbfzcode"];
+    [params setObject:name forKey:@"dbfz.dbfzname"];
+    [params setObject:mark forKey:@"dbfz.dbfzremark"];
+   NSData *data = [UAndDLoad upLoad:params withURL:Url_AddMeetingGroup];
+    return data;
+}
+
 @end

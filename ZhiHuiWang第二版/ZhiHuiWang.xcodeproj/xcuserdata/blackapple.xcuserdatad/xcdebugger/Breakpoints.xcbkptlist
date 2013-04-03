@@ -7,13 +7,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ZhiHuiWang/Classes/GroupManagerView.m"
-         timestampString = "386657768.430152"
+         filePath = "ZhiHuiWang/Classes/OneMemberCell.m"
+         timestampString = "386669547.149938"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
-         landmarkName = "-addOneGroup"
+         startingLineNumber = "17"
+         endingLineNumber = "17"
+         landmarkName = "-initWithStyle:reuseIdentifier:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

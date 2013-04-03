@@ -33,6 +33,8 @@
 #define Url_AddMeetingMember [NSString stringWithFormat:@"%@%@",HTTP,@"chdb_chdbAdd.action"]
 //获取此会议的分组情况
 #define Url_GetMeetingGroups(idStr) [NSString stringWithFormat:@"%@%@%@",HTTP,@"dbfz_findDbfz?dbfz.hyid=",idStr]
+//添加此会议一个分组
+#define Url_AddMeetingGroup [NSString stringWithFormat:@"%@%@",HTTP,@"dbfz_dbfzAdd"]
 
 @interface UAndDLoad : NSObject
 +(NSData *)upLoad:(NSMutableDictionary *)params withURL:(NSString *)url;
@@ -54,4 +56,8 @@
                        tel:(NSString *)tel
                       post:(NSString *)post;
 + (NSData *)getPointMeetingGroupsWithIndex:(NSString *)idStr;
++(NSData *)addPointMeetingOneGroupWithHyid:(NSString *)hyid
+                                 GroupCode:(NSString *)code
+                                 GroupName:(NSString *)name
+                                 GroupMark:(NSString *)mark;
 @end

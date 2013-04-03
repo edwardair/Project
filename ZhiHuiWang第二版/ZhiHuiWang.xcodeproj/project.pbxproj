@@ -68,6 +68,10 @@
 		F1868EE3170132AA00A44D80 /* datePicker.png in Resources */ = {isa = PBXBuildFile; fileRef = F1868EE2170132AA00A44D80 /* datePicker.png */; };
 		F1B635E3170BEA0800A5B957 /* AddGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B635E1170BEA0800A5B957 /* AddGroupController.m */; };
 		F1B635E4170BEA0800A5B957 /* AddGroupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1B635E2170BEA0800A5B957 /* AddGroupController.xib */; };
+		F1BE6CBD170C076900DDF92E /* ModifyPointGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE6CBB170C076900DDF92E /* ModifyPointGroupViewController.m */; };
+		F1BE6CBE170C076900DDF92E /* ModifyPointGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE6CBC170C076900DDF92E /* ModifyPointGroupViewController.xib */; };
+		F1BE6CC2170C193100DDF92E /* OneMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BE6CC1170C193100DDF92E /* OneMemberCell.m */; };
+		F1BE6CC4170C19FB00DDF92E /* OneMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1BE6CC3170C19FB00DDF92E /* OneMemberCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +166,12 @@
 		F1B635E0170BEA0800A5B957 /* AddGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupController.h; path = Classes/AddGroupController.h; sourceTree = "<group>"; };
 		F1B635E1170BEA0800A5B957 /* AddGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGroupController.m; path = Classes/AddGroupController.m; sourceTree = "<group>"; };
 		F1B635E2170BEA0800A5B957 /* AddGroupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddGroupController.xib; path = ../Classes/AddGroupController.xib; sourceTree = "<group>"; };
+		F1BE6CBA170C076900DDF92E /* ModifyPointGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifyPointGroupViewController.h; path = Classes/ModifyPointGroupViewController.h; sourceTree = "<group>"; };
+		F1BE6CBB170C076900DDF92E /* ModifyPointGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifyPointGroupViewController.m; path = Classes/ModifyPointGroupViewController.m; sourceTree = "<group>"; };
+		F1BE6CBC170C076900DDF92E /* ModifyPointGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ModifyPointGroupViewController.xib; path = ../Classes/ModifyPointGroupViewController.xib; sourceTree = "<group>"; };
+		F1BE6CC0170C193100DDF92E /* OneMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneMemberCell.h; path = Classes/OneMemberCell.h; sourceTree = "<group>"; };
+		F1BE6CC1170C193100DDF92E /* OneMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneMemberCell.m; path = Classes/OneMemberCell.m; sourceTree = "<group>"; };
+		F1BE6CC3170C19FB00DDF92E /* OneMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneMemberCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +292,10 @@
 				F1065979170AD53100C191D0 /* GroupManagerView.m */,
 				F1B635E0170BEA0800A5B957 /* AddGroupController.h */,
 				F1B635E1170BEA0800A5B957 /* AddGroupController.m */,
+				F1BE6CBA170C076900DDF92E /* ModifyPointGroupViewController.h */,
+				F1BE6CBB170C076900DDF92E /* ModifyPointGroupViewController.m */,
+				F1BE6CC0170C193100DDF92E /* OneMemberCell.h */,
+				F1BE6CC1170C193100DDF92E /* OneMemberCell.m */,
 				F1EE99961700375800253625 /* Create */,
 			);
 			name = Classes;
@@ -382,6 +396,8 @@
 				F16AC88217057F8F00D6308E /* CellPushedViewController.xib */,
 				F106597C170AD5CE00C191D0 /* GroupManagerView.xib */,
 				F1B635E2170BEA0800A5B957 /* AddGroupController.xib */,
+				F1BE6CBC170C076900DDF92E /* ModifyPointGroupViewController.xib */,
+				F1BE6CC3170C19FB00DDF92E /* OneMemberCell.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -464,6 +480,8 @@
 				F106596E170AB83E00C191D0 /* MLTableAlertShadowMask@2x.png in Resources */,
 				F106597D170AD5CE00C191D0 /* GroupManagerView.xib in Resources */,
 				F1B635E4170BEA0800A5B957 /* AddGroupController.xib in Resources */,
+				F1BE6CBE170C076900DDF92E /* ModifyPointGroupViewController.xib in Resources */,
+				F1BE6CC4170C19FB00DDF92E /* OneMemberCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +518,8 @@
 				F106596F170AB83E00C191D0 /* TableAlert.m in Sources */,
 				F106597A170AD53100C191D0 /* GroupManagerView.m in Sources */,
 				F1B635E3170BEA0800A5B957 /* AddGroupController.m in Sources */,
+				F1BE6CBD170C076900DDF92E /* ModifyPointGroupViewController.m in Sources */,
+				F1BE6CC2170C193100DDF92E /* OneMemberCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

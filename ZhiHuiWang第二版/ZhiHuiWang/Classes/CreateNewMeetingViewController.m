@@ -13,6 +13,7 @@
 #import "SBJsonResolveData.h"
 #import "MeetingMemberCell.h"
 #import "StaticManager.h"
+#import "GroupManagerView.h"
 #define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
@@ -133,6 +134,7 @@ enum{
             if (!_groupManageView) {
                 NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GroupManagerView" owner:self options:nil];
                 _groupManageView = (GroupManagerView *)[nibs objectAtIndex:0];
+                _groupManageView.superViewController = self;
                 
             }
         }
@@ -383,6 +385,8 @@ enum{
     if (!cell) {
         cell = [[MeetingMemberCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
         NSLog(@"Cell:   %f,%f,%f,%f",cell.frame.origin.x,cell.frame.origin.y,cell.frame.size.width,cell.frame.size.height);
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     }
     
     NSUInteger row = [indexPath row];

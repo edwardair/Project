@@ -11,7 +11,8 @@
 #import "ShowDownButton.h"
 #import "CreateNewMeetingViewController.h"
 #import "AddGroupController.h"
-@class CreateNewMeetingViewController;
+#import "StaticManager.h"
+#import "ModifyPointGroupViewController.h"
 #define TableHeader @"编号     名称    创建时间            备注"
 @implementation GroupManagerView
 
@@ -43,10 +44,11 @@
     _GM_TableView.delegate = self;
     _GM_TableView.dataSource = self;
     
+    
 }
 - (void)GM_MeetingListButtonClicked{
     int tag = _GM_MeetingList.meetingId;
-    
+
     [self.GM_TableData removeAllObjects];
     
     if (tag!=-1) {
@@ -62,14 +64,31 @@
 
 //添加 分组
 - (IBAction)addOneGroup{
+    if (_GM_MeetingList.meetingId==-1) {
+        [StaticManager showAlertWithTitle:nil message:@"请选择一个会议" delegate:self cancelButtonTitle:@"OK" otherButtonTitle:nil];
+        return;
+    }
+
     AddGroupController *addController = [[AddGroupController alloc]initWithNibName:@"AddGroupController" bundle:nil];
-    
-    CreateNewMeetingViewController *c = (CreateNewMeetingViewController *)self.superview.superview;
-    NSLog(@"%@",c.description);
-    [c presentModalViewController:addController animated:YES];
+    addController.delegate = self;
+    [self.superViewController presentModalViewController:addController animated:YES];
     
 }
+//delegate
+- (void)delegateSaveGroup:(AddGroupController *)group{
+    NSString *code = group.Code.text;
+    NSString *name = group.Name.text;
+    NSString *mark = group.Mark.text;
+    [SBJsonResolveData addPointMeetingWithIndex:_GM_MeetingList.meetingId
+                                           Code:code
+                                           Name:name
+                                           Mark:mark];
+    
+    [SBJsonResolveData getPointMeetingOfGroupsWithIndex:_GM_MeetingList.meetingId];
+    _GM_TableData = [[SBJsonResolveData shareMeeting] pointMeetingGroups];
+    [_GM_TableView reloadData];
 
+}
 #pragma mark UITableView Delegate
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -141,6 +160,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:title];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     NSUInteger row = [indexPath row];
@@ -152,7 +173,10 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    int row = indexPath.row;
+    ModifyPointGroupViewController *groupMembers = [[ModifyPointGroupViewController alloc]initWithNibName:@"ModifyPointGroupViewController" bundle:nil];
+    groupMembers.navigationItem.title = [[_GM_TableData objectAtIndex:row] objectForKey:DBFZName];
+    [self.superViewController.parentViewController.navigationController pushViewController:groupMembers animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class ShowDownButton;
-@interface GroupManagerView : UIView<UITableViewDataSource,UITableViewDelegate>
+@class CreateNewMeetingViewController;
+#import "AddGroupController.h"
+@interface GroupManagerView : UIView<UITableViewDataSource,UITableViewDelegate,AddGroupControllerDelegate>
 @property (strong,nonatomic) IBOutlet UITableView *GM_TableView;
 @property (strong,nonatomic) IBOutlet ShowDownButton *GM_MeetingList;
 @property (strong,nonatomic) NSMutableArray *GM_TableData;
+@property (strong,nonatomic) CreateNewMeetingViewController *superViewController;
 - (IBAction)addOneGroup;
 
 @end
