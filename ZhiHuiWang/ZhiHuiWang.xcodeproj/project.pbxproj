@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1065967170AB83E00C191D0 /* MLTableAlertBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F106595D170AB83E00C191D0 /* MLTableAlertBackground.png */; };
+		F1065968170AB83E00C191D0 /* MLTableAlertBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F106595E170AB83E00C191D0 /* MLTableAlertBackground@2x.png */; };
+		F1065969170AB83E00C191D0 /* MLTableAlertButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F106595F170AB83E00C191D0 /* MLTableAlertButton.png */; };
+		F106596A170AB83E00C191D0 /* MLTableAlertButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1065960170AB83E00C191D0 /* MLTableAlertButton@2x.png */; };
+		F106596B170AB83E00C191D0 /* MLTableAlertButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F1065961170AB83E00C191D0 /* MLTableAlertButtonPressed.png */; };
+		F106596C170AB83E00C191D0 /* MLTableAlertButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1065962170AB83E00C191D0 /* MLTableAlertButtonPressed@2x.png */; };
+		F106596D170AB83E00C191D0 /* MLTableAlertShadowMask.png in Resources */ = {isa = PBXBuildFile; fileRef = F1065963170AB83E00C191D0 /* MLTableAlertShadowMask.png */; };
+		F106596E170AB83E00C191D0 /* MLTableAlertShadowMask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1065964170AB83E00C191D0 /* MLTableAlertShadowMask@2x.png */; };
+		F106596F170AB83E00C191D0 /* TableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F1065966170AB83E00C191D0 /* TableAlert.m */; };
 		F125F20D170194480069BDAE /* ShowDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F125F20C170194480069BDAE /* ShowDownButton.m */; };
 		F12A569F16FFD7CE00ECDD04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A569E16FFD7CE00ECDD04 /* UIKit.framework */; };
 		F12A56A116FFD7CE00ECDD04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A56A016FFD7CE00ECDD04 /* Foundation.framework */; };
@@ -59,6 +68,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F106595D170AB83E00C191D0 /* MLTableAlertBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLTableAlertBackground.png; sourceTree = "<group>"; };
+		F106595E170AB83E00C191D0 /* MLTableAlertBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MLTableAlertBackground@2x.png"; sourceTree = "<group>"; };
+		F106595F170AB83E00C191D0 /* MLTableAlertButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLTableAlertButton.png; sourceTree = "<group>"; };
+		F1065960170AB83E00C191D0 /* MLTableAlertButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MLTableAlertButton@2x.png"; sourceTree = "<group>"; };
+		F1065961170AB83E00C191D0 /* MLTableAlertButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLTableAlertButtonPressed.png; sourceTree = "<group>"; };
+		F1065962170AB83E00C191D0 /* MLTableAlertButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MLTableAlertButtonPressed@2x.png"; sourceTree = "<group>"; };
+		F1065963170AB83E00C191D0 /* MLTableAlertShadowMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MLTableAlertShadowMask.png; sourceTree = "<group>"; };
+		F1065964170AB83E00C191D0 /* MLTableAlertShadowMask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MLTableAlertShadowMask@2x.png"; sourceTree = "<group>"; };
+		F1065965170AB83E00C191D0 /* TableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableAlert.h; sourceTree = "<group>"; };
+		F1065966170AB83E00C191D0 /* TableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableAlert.m; sourceTree = "<group>"; };
 		F125F20B170194480069BDAE /* ShowDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowDownButton.h; path = Classes/ShowDownButton.h; sourceTree = "<group>"; };
 		F125F20C170194480069BDAE /* ShowDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowDownButton.m; path = Classes/ShowDownButton.m; sourceTree = "<group>"; };
 		F12A569A16FFD7CE00ECDD04 /* ZhiHuiWang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuiWang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +176,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F106595C170AB83E00C191D0 /* AlertShow */ = {
+			isa = PBXGroup;
+			children = (
+				F1065965170AB83E00C191D0 /* TableAlert.h */,
+				F1065966170AB83E00C191D0 /* TableAlert.m */,
+				F106595D170AB83E00C191D0 /* MLTableAlertBackground.png */,
+				F106595E170AB83E00C191D0 /* MLTableAlertBackground@2x.png */,
+				F106595F170AB83E00C191D0 /* MLTableAlertButton.png */,
+				F1065960170AB83E00C191D0 /* MLTableAlertButton@2x.png */,
+				F1065961170AB83E00C191D0 /* MLTableAlertButtonPressed.png */,
+				F1065962170AB83E00C191D0 /* MLTableAlertButtonPressed@2x.png */,
+				F1065963170AB83E00C191D0 /* MLTableAlertShadowMask.png */,
+				F1065964170AB83E00C191D0 /* MLTableAlertShadowMask@2x.png */,
+			);
+			name = AlertShow;
+			path = Classes/AlertShow;
+			sourceTree = "<group>";
+		};
 		F12A568F16FFD7CE00ECDD04 = {
 			isa = PBXGroup;
 			children = (
@@ -219,16 +256,17 @@
 		F12A56BC16FFD7EC00ECDD04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F106595C170AB83E00C191D0 /* AlertShow */,
 				F13CF17F17092873008ED3F8 /* StaticManager.h */,
 				F13CF18017092873008ED3F8 /* StaticManager.m */,
 				F12A570816FFEBA700ECDD04 /* CreateNewMeetingViewController.h */,
 				F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */,
 				F125F20B170194480069BDAE /* ShowDownButton.h */,
 				F125F20C170194480069BDAE /* ShowDownButton.m */,
-				F1694D0B1702C9B6006E9C51 /* UAndDLoad.h */,
-				F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */,
 				F16AC85817051C0D00D6308E /* SBJsonResolveData.h */,
 				F16AC85917051C0D00D6308E /* SBJsonResolveData.m */,
+				F1694D0B1702C9B6006E9C51 /* UAndDLoad.h */,
+				F1694D0C1702C9B6006E9C51 /* UAndDLoad.m */,
 				F16AC8631705507A00D6308E /* GrayBackGroundColorView.h */,
 				F16AC8641705507A00D6308E /* GrayBackGroundColorView.m */,
 				F16AC86617055B9E00D6308E /* MeetingMemberCell.h */,
@@ -405,6 +443,14 @@
 				F1868EDB17012F2700A44D80 /* My97DatePicker.bundle in Resources */,
 				F1868EE3170132AA00A44D80 /* datePicker.png in Resources */,
 				F16AC88417057F8F00D6308E /* CellPushedViewController.xib in Resources */,
+				F1065967170AB83E00C191D0 /* MLTableAlertBackground.png in Resources */,
+				F1065968170AB83E00C191D0 /* MLTableAlertBackground@2x.png in Resources */,
+				F1065969170AB83E00C191D0 /* MLTableAlertButton.png in Resources */,
+				F106596A170AB83E00C191D0 /* MLTableAlertButton@2x.png in Resources */,
+				F106596B170AB83E00C191D0 /* MLTableAlertButtonPressed.png in Resources */,
+				F106596C170AB83E00C191D0 /* MLTableAlertButtonPressed@2x.png in Resources */,
+				F106596D170AB83E00C191D0 /* MLTableAlertShadowMask.png in Resources */,
+				F106596E170AB83E00C191D0 /* MLTableAlertShadowMask@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +485,7 @@
 				F16AC86817055B9F00D6308E /* MeetingMemberCell.m in Sources */,
 				F16AC88317057F8F00D6308E /* CellPushedViewController.m in Sources */,
 				F13CF18117092873008ED3F8 /* StaticManager.m in Sources */,
+				F106596F170AB83E00C191D0 /* TableAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

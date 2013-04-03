@@ -69,20 +69,32 @@
 
     //-------------------------人员管理
     [_MM_MeetingName initializeButton];
-    _MM_MeetingName.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
     _MM_MeetingName.delegate = self;
     _MM_MeetingName.selector = @selector(MM_MeetingNameButton:);
+
+    [[SBJsonResolveData shareMeeting] setMeetingNameList:nil];
+    _MM_MeetingName.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
 
     _MM_MemberList.dataSource = self;
     _MM_MemberList.delegate = self;
     
     _MemberListOfAMeeting = [[NSMutableArray alloc]init];
-//    [_MM_MemberList reloadData];
     
-
     //-------------------------群组管理
+    _GM_MeetingName.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
+    _GM_MeetingName.delegate = self;
+    _GM_MeetingName.selector = @selector(GM_MeetingNameButton:);
+    
+    _GM_GroupName.dataSource = self;
+    _GM_GroupName.delegate = self;
+    
+    _GM_GroupNameDataArray = [[NSMutableArray alloc]init];
+    
+    
+    
     //-------------------------议程管理
 
+    
     
     
     UIGestureRecognizer *emptyAreaTouched = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignKeyboardInOtherArea)];
@@ -124,7 +136,7 @@ enum{
             temp = _memberManageView;
             break;
         case CNM_G:
-            temp = nil;
+            temp = _groupManageView;
             break;
         case CNM_S:
             temp = nil;
@@ -212,22 +224,19 @@ enum{
 
 #pragma mark --------------------人员管理  子菜单
 - (void)MM_MeetingNameButton:(UIButton *)btn{
-    NSLog(@"tableView 显示数据");
+    NSLog(@"tableView %d 显示数据",btn.tag);
     [self.MemberListOfAMeeting removeAllObjects];
 
-    if (btn.tag==-1) {
+    if (btn.tag!=-1) {
+        [SBJsonResolveData updateThisMeetingMembersWithIndex:btn.tag];
         
-    }else{
-        int hyId = [[[[SBJsonResolveData shareMeeting] meetingId] objectAtIndex:_MM_MeetingName.meetingId] intValue];
-        NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingMembers(hyId)];
-        _MemberListOfAMeeting = [SBJsonResolveData getMeetingMembers:data];
+        _MemberListOfAMeeting = [[SBJsonResolveData shareMeeting] thisMeetingMembers];
     }
 
     [_MM_MemberList reloadData];
 
-    
-//    [self reloadMemberList];
 }
+
 - (IBAction)MM_AddMember:(id)sender{
     CellPushedViewController *c = [[CellPushedViewController alloc]initWithNibName:@"CellPushedViewController" bundle:nil];
     c.navigationItem.title = @"添加参会代表";
@@ -258,19 +267,14 @@ enum{
         case 0:
             //add
         {
-            
             int index = _MM_MeetingName.meetingId;
-            index = [[[[SBJsonResolveData shareMeeting] meetingId] objectAtIndex:index] intValue];
-
-            NSString *idStr = [NSString stringWithFormat:@"%d",index];
             
-            
-            [UAndDLoad addMemberWithHyid:idStr
-                                    Name:name
-                                     sex:sex
-                                     tel:tel
-                                    post:post];
-            
+            [SBJsonResolveData addPointMeetingWithIndex:index
+                                                   Name:name
+                                                    Sex:sex
+                                                    Tel:tel
+                                                   Post:post];
+                        
         }
             break;
         case 1:
@@ -278,13 +282,12 @@ enum{
         {
             int index = cellViewController.index;
             
-            NSString *idStr = [[_MemberListOfAMeeting objectAtIndex:index] objectForKey:CHDBId];
-            [UAndDLoad modifyMemberWithId:idStr
-                                     name:name
-                                      sex:sex
-                                      tel:tel
-                                     post:post];
-
+            [SBJsonResolveData modifyPointMeetingWithIndex:index
+                                                      Name:name
+                                                       Sex:sex
+                                                       Tel:tel
+                                                      Post:post];
+            
         }
             break;
   
@@ -292,15 +295,17 @@ enum{
             break;
     }
     
-    int hyId = [[[[SBJsonResolveData shareMeeting] meetingId] objectAtIndex:_MM_MeetingName.meetingId] intValue];
-    NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingMembers(hyId)];
-    _MemberListOfAMeeting = [SBJsonResolveData getMeetingMembers:data];
+//    NSLog(@"%d,%d",[[SBJsonResolveData shareMeeting] thisMeetingMembers])
     
     [_MM_MemberList reloadData];
 
 }
 
 #pragma mark --------------------群组管理  子菜单
+- (void)GM_MeetingNameButton:(UIButton *)btn{
+    
+}
+
 #pragma mark --------------------议程管理  子菜单
 
 
@@ -397,13 +402,13 @@ enum{
 
     [self.parentViewController.navigationController pushViewController:c animated:YES];
 
-    int sex = [[[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName] intValue];
+    int sex = [[[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBXb] intValue];
     c.name.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
     c.tel.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBLxdh];
     c.index = row;
     
     NSString *post = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBZw];
-    NSLog(@"%@",post);
+//    NSLog(@"%@",post);
     
     if (![post isEqual:[NSNull null]]) {
         c.post.text = post;
@@ -421,20 +426,12 @@ enum{
     
     //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSString *idStr = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBId];
-        [UAndDLoad deleteMemberWithId:idStr];
         
-        [_MemberListOfAMeeting removeObjectAtIndex:indexPath.row];
-        
+        [SBJsonResolveData deletePoitMeetingWithIndex:row];
         
         // Delete the row from the data source.
         [_MM_MemberList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        [_MM_MemberList insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
     }
 }
 - (void)didReceiveMemoryWarning

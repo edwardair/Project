@@ -76,7 +76,16 @@
     }
     return data;
 }
+#pragma mark 获取所有会议名称
++(NSData *)updateAllMeetingNames{
+    NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingList];
+    return data;
+}
++ (NSData *)updateThisMeetingMembers:(int )idIndex{
+    NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingMembers(idIndex)];
 
+    return data;
+}
 #pragma mark 删除会议中成员
 + (void)deleteMemberWithId:(NSString *)idStr{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

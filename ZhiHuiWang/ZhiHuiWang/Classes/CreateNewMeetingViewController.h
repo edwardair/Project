@@ -40,10 +40,16 @@
 @property (strong,nonatomic) IBOutlet UIView *memberManageView;//人员管理 view
 @property (strong,nonatomic) IBOutlet ShowDownButton *MM_MeetingName;//会议选择按钮
 @property (strong,nonatomic) IBOutlet UITableView *MM_MemberList;//会议名单
-@property (strong,nonatomic) NSMutableArray *MemberListOfAMeeting;
+
+@property (strong,nonatomic) NSMutableArray *MemberListOfAMeeting;//选中会议的所有成员及属性
+
 - (IBAction)MM_AddMember:(id)sender;//添加
 #pragma mark 群组管理
-@property (strong,nonatomic) IBOutlet UITableViewController *groupManager;
+@property (strong,nonatomic) IBOutlet UIView *groupManageView;
+@property (strong,nonatomic) IBOutlet ShowDownButton *GM_MeetingName;
+@property (strong,nonatomic) IBOutlet UITableView *GM_GroupName;
+@property (strong,nonatomic) IBOutlet UITableView *GM_GroupNameList;
+@property (strong,nonatomic) IBOutlet NSMutableArray *GM_GroupNameDataArray;
 #pragma mark 议程管理
 
 @end

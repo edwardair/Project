@@ -1,0 +1,20 @@
+<html>
+<meta name="viewport"content="minimum-scale=0.6; maximum-scale=5;  initial-scale=1.4; user-scalable=yes; width=180;" >
+<head>
+<script src="WdatePicker.js" ></script>
+<script src="WebViewJavascriptBridge.js" ></script>
+
+<script>
+function doSelectDate(dateValue)
+{
+	nativePage.executeScript(dateValue);
+}
+
+</script>
+</head>
+<body onload="document.getElementById('dateContainer').focus();" >
+
+<input id="dateContainer" type="text" onFocus="WdatePicker({position:{left:5,top:-30},onpicking:function(dp){doSelectDate(dp.cal.getNewDateStr());return true;},onclearing:function(dp){doSelectDate('');return true;}})" />
+
+</body>
+</html>

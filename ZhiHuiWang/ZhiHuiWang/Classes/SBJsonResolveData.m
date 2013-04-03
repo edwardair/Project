@@ -11,29 +11,48 @@
 #import "UAndDLoad.h"
 static SBJsonResolveData *staticSBJsonResolveData = nil;
 @implementation SBJsonResolveData
+@synthesize meetingNameList = _meetingNameList;
+@synthesize thisMeetingMembers = _thisMeetingMembers;
 +(SBJsonResolveData *)shareMeeting{
     if (!staticSBJsonResolveData) {
         staticSBJsonResolveData = [[SBJsonResolveData alloc]init];
-        [SBJsonResolveData updateUrlData];
     }
+    
     return staticSBJsonResolveData;
 }
-//更新数据
-+(void )updateUrlData{
-    NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingList];
+//更新所有会议名称 及对应的id
++(void )updateAllMeetingNames{
+    NSData *data = [UAndDLoad updateAllMeetingNames];
     [SBJsonResolveData getMeetingData:data];
 }
+
 - (NSMutableArray *)meetingNameList{
     if (!_meetingNameList) {
         _meetingNameList = [[NSMutableArray alloc]init];
     }
     return _meetingNameList;
 }
+- (void)setMeetingNameList:(NSMutableArray *)meetingNameList{
+    [SBJsonResolveData updateAllMeetingNames];
+}
+
 - (NSMutableArray *)meetingId{
     if (!_meetingId) {
         _meetingId = [[NSMutableArray alloc]init];
     }
     return _meetingId;
+}
+
+- (NSMutableArray *)thisMeetingMembers{
+    if (!_thisMeetingMembers) {
+        _thisMeetingMembers = [[NSMutableArray alloc]init];
+    }
+    return _thisMeetingMembers;
+}
+- (void)setThisMeetingMembers:(NSMutableArray *)thisMeetingMembers{
+    [staticSBJsonResolveData.thisMeetingMembers removeAllObjects];
+    int index = [[thisMeetingMembers objectAtIndex:0] intValue];
+    [SBJsonResolveData getMeetingMembers:index];
 }
 
 #pragma mark SBJson解析 会议名称
@@ -57,33 +76,99 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     }
 }
 #pragma mark  SBJson解析 会议人员
++ (void)updateThisMeetingMembersWithIndex:(int )index{
+    [staticSBJsonResolveData setThisMeetingMembers:[NSMutableArray arrayWithObject:[NSNumber numberWithInt:index]]];
 
-+ (NSMutableArray *)getMeetingMembers:(NSData *)data{
-    NSMutableArray *arrayWithDics = [NSMutableArray array];
+}
++ (void )getMeetingMembers:(int )index{
+    [staticSBJsonResolveData.thisMeetingMembers removeAllObjects];
     
+    NSData *data = [UAndDLoad updateThisMeetingMembers:[[staticSBJsonResolveData.meetingId objectAtIndex:index] intValue]];
     NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 
     SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
     NSMutableDictionary *orgDic = [jsonObject objectWithString:str];
 
     NSArray *firstArray = [orgDic objectForKey:@"chdbList"];
-    NSLog(@"%@",firstArray);
+//    NSLog(@"%@",firstArray);
 
     for (NSDictionary *subDic in firstArray) {
-        NSMutableDictionary *arrayWithDics_SubDic = [NSMutableDictionary dictionary];
+        NSMutableDictionary *arrayWithDics_SubDic =
+        [SBJsonResolveData memberWithName:[subDic objectForKey:CHDBName]
+                                      Tel:[subDic objectForKey:CHDBLxdh]
+                                     Post:[subDic objectForKey:CHDBZw]
+                                      Sex:[subDic objectForKey:CHDBXb]
+                                   ChdbId:[subDic objectForKey:CHDBId]
+                                     Hyid:[subDic objectForKey:CHDBHyid]];
         
-        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBName] forKey:CHDBName];//名称
-        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBLxdh] forKey:CHDBLxdh];//电话
-        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBZw] forKey:CHDBZw];//职位
-        [arrayWithDics_SubDic setObject:[NSNumber numberWithInt:[[subDic objectForKey:CHDBXb] intValue]] forKey:CHDBXb];//性别  1为男  0为女
-        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBId] forKey:CHDBId];//id
-        [arrayWithDics_SubDic setObject:[subDic objectForKey:CHDBHyid] forKey:CHDBHyid];//hyid
-
-        [arrayWithDics addObject:arrayWithDics_SubDic];
+        [staticSBJsonResolveData.thisMeetingMembers addObject:arrayWithDics_SubDic];
 
     }
-
-    return arrayWithDics;
     
+}
++ (NSMutableDictionary *)memberWithName:(NSString *)name
+                                    Tel:(NSString *)tel
+                                   Post:(NSString *)post
+                                    Sex:(NSString *)sex
+                                 ChdbId:(NSString *)chdbid
+                                   Hyid:(NSString *)hyid{
+    NSMutableDictionary *arrayWithDics_SubDic = [NSMutableDictionary dictionary];
+    
+    [arrayWithDics_SubDic setObject:name forKey:CHDBName];//名称
+    [arrayWithDics_SubDic setObject:tel forKey:CHDBLxdh];//电话
+    [arrayWithDics_SubDic setObject:post forKey:CHDBZw];//职位
+    [arrayWithDics_SubDic setObject:[NSNumber numberWithInt:[sex intValue]] forKey:CHDBXb];//性别  1为男  0为女
+    [arrayWithDics_SubDic setObject:chdbid forKey:CHDBId];//id
+    [arrayWithDics_SubDic setObject:hyid forKey:CHDBHyid];//hyid
+    return arrayWithDics_SubDic;
+}
+#pragma mark 删除 指定会议中 单个成员
++(void)deletePoitMeetingWithIndex:(int )index{
+    NSString *idStr = [[staticSBJsonResolveData.thisMeetingMembers objectAtIndex:index] objectForKey:CHDBId];
+    [UAndDLoad deleteMemberWithId:idStr];
+
+    [staticSBJsonResolveData.thisMeetingMembers removeObjectAtIndex:index];
+    
+}
+#pragma mark 增加 指定会议中 单个成员
++(void)addPointMeetingWithIndex:(int )index
+                           Name:(NSString *)name
+                            Sex:(int )sex
+                            Tel:(NSString *)tel
+                           Post:(NSString *)post{
+    int hyid = [[staticSBJsonResolveData.meetingId objectAtIndex:index] intValue];
+    
+    NSString *idStr = [NSString stringWithFormat:@"%d",hyid];
+    
+    [UAndDLoad addMemberWithHyid:idStr
+                            Name:name
+                             sex:sex
+                             tel:tel
+                            post:post];
+    
+    [SBJsonResolveData updateThisMeetingMembersWithIndex:index];
+    
+}
+#pragma mark 编辑 指定会议中 单个成员
++(void)modifyPointMeetingWithIndex:(int )index
+                              Name:(NSString *)name
+                               Sex:(int )sex
+                               Tel:(NSString *)tel
+                              Post:(NSString *)post{
+    
+    NSString *idStr = [[staticSBJsonResolveData.thisMeetingMembers objectAtIndex:index] objectForKey:CHDBId];
+    NSString *hyidStr = [[staticSBJsonResolveData.thisMeetingMembers objectAtIndex:index] objectForKey:CHDBHyid];
+
+    
+    [UAndDLoad modifyMemberWithId:idStr
+                             name:name
+                              sex:sex
+                              tel:tel
+                             post:post];
+
+    NSMutableDictionary *member = [SBJsonResolveData memberWithName:name Tel:tel Post:post Sex:[NSString stringWithFormat:@"%d",sex] ChdbId:idStr Hyid:hyidStr];
+    
+    [staticSBJsonResolveData.thisMeetingMembers replaceObjectAtIndex:index withObject:member];
+
 }
 @end

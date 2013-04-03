@@ -38,6 +38,8 @@
 
 + (NSData *)downLoadWithUrl:(NSString *)urlString;
 
++(NSData *)updateAllMeetingNames;
++ (NSData *)updateThisMeetingMembers:(int )index;
 + (void)deleteMemberWithId:(NSString *)idStr;
 + (void)addMemberWithHyid:(NSString *)idStr
                      Name:(NSString *)name

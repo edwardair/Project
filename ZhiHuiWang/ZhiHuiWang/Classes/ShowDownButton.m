@@ -21,7 +21,7 @@
         _downScrollView = [[UIScrollView alloc]init];
         [self.superview addSubview:_downScrollView];
         _downScrollView.frame = CGRectMake(self.frame.origin.x, self.frame.size.height+self.frame.origin.y, self.frame.size.width, 0);
-        [_downScrollView setBackgroundColor:[UIColor blueColor]];
+        [_downScrollView setBackgroundColor:[UIColor grayColor]];
 //        _downScrollView.scrollEnabled = YES;
 //        _downScrollView.bouncesZoom = YES;
 //        _downScrollView.alwaysBounceVertical = YES;
@@ -36,7 +36,13 @@
     return _downMenus;
 }
 - (void)setDownMenus:(NSMutableArray *)downMenus{
-    int index = 1;
+    for (UIView *subView in self.downScrollView.subviews) {
+        [subView removeFromSuperview];
+    }
+    
+    [downMenus insertObject:@"--请选择--" atIndex:0];
+
+    int index = 0;
     for (NSString *name in downMenus) {
         UIButton *b = [self createSubButtonWithIndex:index++ Name:name];
         [b addTarget:self action:@selector(subviewsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -73,19 +79,11 @@
     return b;
 }
 - (void)initializeButton{
-    //如果 self 存在子节点 删掉 重新加载
-    for (UIView *sub in self.downScrollView.subviews) {
-//        if ([sub isKindOfClass:[UIButton class]]) {
-            [sub removeFromSuperview];
-//        }
-    }
+
     self.meetingId = 0;
     
     [self setTitle:@"--请选择--" forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
-    
-   UIButton *nonData = [self createSubButtonWithIndex:0 Name:self.titleLabel.text];
-    [nonData addTarget:self action:@selector(subviewsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addTarget:self action:@selector(superButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 

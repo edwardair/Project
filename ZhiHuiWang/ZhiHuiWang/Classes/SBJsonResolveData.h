@@ -16,8 +16,21 @@
 @interface SBJsonResolveData : NSObject
 @property (strong,nonatomic) NSMutableArray *meetingNameList;
 @property (strong,nonatomic) NSMutableArray *meetingId;
-+(SBJsonResolveData *)shareMeeting;
-+(void )updateUrlData;
 
-+ (NSMutableArray *)getMeetingMembers:(NSData *)data;
+@property (strong,nonatomic) NSMutableArray *thisMeetingMembers;
++(SBJsonResolveData *)shareMeeting;
++(void )updateAllMeetingNames;
++ (void)updateThisMeetingMembersWithIndex:(int )index;
++ (void )getMeetingMembers:(int )index;
++(void)deletePoitMeetingWithIndex:(int )index;
++(void)addPointMeetingWithIndex:(int )index
+                           Name:(NSString *)name
+                            Sex:(int )sex
+                            Tel:(NSString *)tel
+                           Post:(NSString *)post;
++(void)modifyPointMeetingWithIndex:(int )index
+                              Name:(NSString *)name
+                               Sex:(int )sex
+                               Tel:(NSString *)tel
+                              Post:(NSString *)post;
 @end
