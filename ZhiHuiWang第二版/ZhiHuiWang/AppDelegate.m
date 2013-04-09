@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CreateNewMeetingViewController.h"
+#import "SMS_ViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -21,12 +22,15 @@
 //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainMenu];
     
     UIViewController *createNewMeeting = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
-    UIViewController *test = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
+    UIViewController *smsNotification = [[SMS_ViewController alloc]initWithNibName:@"SMS_ViewController" bundle:nil];
 
     UITabBarController *rootController = [[UITabBarController alloc]init];
-    rootController.viewControllers = @[createNewMeeting,test];
-    
+    rootController.viewControllers = @[createNewMeeting,smsNotification];
+    rootController.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootController];
+    
+    createNewMeeting.parentViewController.navigationItem.title = @"新建会议";
+
     
     self.window.rootViewController = nav;
     
@@ -34,7 +38,21 @@
     
     return YES;
 }
-
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    int index = tabBarController.selectedIndex;
+    NSString *title = nil;
+    switch (index) {
+        case 0:
+            title = @"新建会议";
+            break;
+        case 1:
+            title = @"会议通知";
+            break;
+        default:
+            break;
+    }
+    viewController.parentViewController.navigationItem.title = title;
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

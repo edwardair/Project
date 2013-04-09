@@ -18,6 +18,8 @@
 @property (nonatomic) int meetingIndex;
 @property (nonatomic) int agendaIndex;
 
+@property (strong,nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (strong,nonatomic) IBOutlet UINavigationBar *userDefineNavBar;
 
 @property (strong,nonatomic) IBOutlet UITextField *agendaNameField;

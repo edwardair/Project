@@ -128,7 +128,7 @@
         }
 
 	} andCompletionBlock:^{
-        NSLog(@"%@",@"Cancel Button Pressed\nNo Cells Selected");
+//        NSLog(@"%@",@"Cancel Button Pressed\nNo Cells Selected");
 	}];
 	
 	// show the alert

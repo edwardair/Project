@@ -7,12 +7,14 @@
 //
 
 #import "AddAgendaViewController.h"
-#import "My97DatePicker.h"
 #import "ShowDownButton.h"
 #import "SBJsonResolveData.h"
 #import "StaticManager.h"
-#import "CKCalendarView.h"
-@interface AddAgendaViewController ()
+#import "TimeChooseView.h"
+@interface AddAgendaViewController (){
+    TimeChooseView *timeChooseView;
+
+}
 
 @end
 
@@ -35,12 +37,17 @@
     UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(callBack)];
     
     if (self.navigationController) {
+//        CGRect rect = [[UIScreen mainScreen]applicationFrame];
+        self.navigationItem.title = @"修改";
+        _scrollView.transform = CGAffineTransformMakeTranslation(0, -self.navigationController.navigationBar.frame.size.height);
+        
         _userDefineNavBar.hidden = YES;
         self.navigationItem.rightBarButtonItem = done;
         self.navigationItem.leftBarButtonItem = back;
     }else{
         _userDefineNavBar.topItem.leftBarButtonItem = back;
         _userDefineNavBar.topItem.rightBarButtonItem = done;
+        _userDefineNavBar.topItem.title = @"添加";
     }
 
     UIGestureRecognizer *emptyAreaTouched = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignKeyboardInOtherArea)];
@@ -56,6 +63,14 @@
     
     _agendaContentField.delegate = self;
     
+    CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
+    timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height, screenRect.size.width, 246)];
+
+    [self.view addSubview:timeChooseView];
+    [self.view bringSubviewToFront:timeChooseView];
+
+    _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _scrollView.contentSize.height+650);
+
 }
 
 - (void)callBack{
@@ -81,8 +96,8 @@
 }
 
 - (void)saveEnterData{
-    _agendaStartDate.text = @"2012-03-04 10:00:00";
-    _agendaEndDate.text = @"2012-03-05 10:00:00";
+//    _agendaStartDate.text = @"2012-03-04 10:00:00";
+//    _agendaEndDate.text = @"2012-03-05 10:00:00";
 
     if (![self isVereistEmpty]) {
         [self showCreateNotFinish];
@@ -126,6 +141,9 @@
     [_agendaEndDate resignFirstResponder];
     [_agendaTelField resignFirstResponder];
     [_agendaContentField resignFirstResponder];
+    
+    [timeChooseView showPicker:NO withField:nil];
+    
 }
 
 
@@ -135,17 +153,25 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
     NSLog(@"ShouldBeginEditing:%@",textField.text);
-    
+    [_agendaContentField resignFirstResponder];
+
     if ([textField isEqual:_agendaStartDate] || [textField isEqual:_agendaEndDate]) {
-        [(My97DatePicker *)textField selectDate];
+        if (textField.text.length>0){
+            [timeChooseView.datePicker setDate:[[NSDate alloc]init]];
+
+        }
+            [timeChooseView showPicker:YES withField:textField];
+        
         return NO;
     }
+    [timeChooseView showPicker:NO withField:nil];
+
     return YES;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
-    NSLog(@"%@",textField.text);
+//    NSLog(@"%@",textField.text);
     if ([textField isEqual:_agendaStartDate] || [textField isEqual:_agendaEndDate]) {
         NSLog(@"处理时间格式");
         
@@ -159,6 +185,8 @@
         [self resignKeyboard:textView];
         return NO;
     }
+    [timeChooseView showPicker:NO withField:nil];
+
     return YES;
 }
 

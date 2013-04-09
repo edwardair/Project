@@ -91,7 +91,7 @@
 }
 #pragma mark Picker Delegate
 - (void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr{
-    NSLog(@"%@",selectedEntriesArr);
+//    NSLog(@"%@",selectedEntriesArr);
     for (NSString *idStr in selectedEntriesArr) {
         [SBJsonResolveData addPointMeetingGroupMemberWithMeetingIndex:_meetingIndex GroupIndex:_groupIndex MemberIndex:idStr];
     }

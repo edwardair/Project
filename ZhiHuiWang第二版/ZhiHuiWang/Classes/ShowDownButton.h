@@ -13,8 +13,8 @@
 @property (strong,nonatomic) UIScrollView *downScrollView;
 @property (nonatomic) int meetingId;
 @property (strong,nonatomic) NSMutableArray *downMenus;
-@property (nonatomic) id delegate;
-@property (nonatomic) SEL selector;
+@property (nonatomic,assign) id delegate;
+@property (nonatomic,assign) SEL selector;
 @property (strong,nonatomic) NSMutableArray *showDataArray;
 - (void)initializeButton;
 @end

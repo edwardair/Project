@@ -10,12 +10,13 @@
 
 @interface TimeChooseView : UIView
 
-@property (strong, nonatomic) IBOutlet UILabel *year;
+@property (strong, nonatomic) UILabel *year;
 
-@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) UIDatePicker *datePicker;
 
 @property (strong,nonatomic) UITextField *timeField;
+//@property (nonatomic) float deviatorY;
 
-+(TimeChooseView *)timeChooseView:(id)parent;
-- (void)showNowDate;
+- (void)dateChanged:(UIDatePicker *)p;
+- (void)showPicker:(BOOL)show withField:(UITextField *)field;
 @end

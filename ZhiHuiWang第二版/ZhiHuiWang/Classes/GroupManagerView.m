@@ -56,7 +56,7 @@
         [SBJsonResolveData getPointMeetingOfGroupsWithIndex:tag];
         
         _GM_TableData = [[SBJsonResolveData shareMeeting] pointMeetingGroups];
-        NSLog(@"%@",_GM_TableData);
+//        NSLog(@"%@",_GM_TableData);
     }
     
     [_GM_TableView reloadData];

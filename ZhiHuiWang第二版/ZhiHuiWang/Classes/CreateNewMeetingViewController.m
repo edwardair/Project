@@ -7,7 +7,6 @@
 //
 
 #import "CreateNewMeetingViewController.h"
-#import "My97DatePicker.h"
 #import "ShowDownButton.h"
 #import "UAndDLoad.h"
 #import "SBJsonResolveData.h"
@@ -17,12 +16,13 @@
 #import "MeetingManagerView.h"
 #import "TimeChooseView.h"
 
-#define Title @"新建会议"
+//#define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
     UIView *curPresentUIView;
 }
 @property (strong,nonatomic) id textKeyBoard;
+@property (strong,nonatomic) TimeChooseView *timeChooseView;
 @end
 
 @implementation CreateNewMeetingViewController
@@ -32,7 +32,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
     }
     return self;
 }
@@ -42,13 +41,8 @@
     
     [super viewDidLoad];
 
-   TimeChooseView *view = [TimeChooseView timeChooseView:self];
-    [view showNowDate];
     // Do any additional setup after loading the view from its nib.
 
-    self.parentViewController.navigationItem.title = Title;
-    
-    
     //-------------------------新建会议
     _meetingName.delegate = self;
     _meetingStartDate.delegate = self;
@@ -95,8 +89,7 @@
     //-------------------------议程管理
 
     
-    
-    
+
     UIGestureRecognizer *emptyAreaTouched = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignKeyboardInOtherArea)];
     [emptyAreaTouched setCancelsTouchesInView:NO];
 
@@ -104,6 +97,15 @@
     
     [self CreateNewMeeting:nil];
     
+    
+    CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
+    
+    _timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height, screenRect.size.width, 246)];
+//    _timeChooseView.frame = CGRectMake(0, screenRect.size.height, _timeChooseView.frame.size.width, _timeChooseView.frame.size.height+64);
+
+    [self.parentViewController.view addSubview:_timeChooseView];
+    [self.parentViewController.view bringSubviewToFront:_timeChooseView];
+
 }
 
 - (void)reloadMemberList{
@@ -339,6 +341,8 @@ enum{
         [self.textKeyBoard resignFirstResponder];
         self.textKeyBoard = nil;
     }
+    [_timeChooseView showPicker:NO withField:nil];
+
 //    [self hideMeetingTypeButton];
 }
 //- (void)hideMeetingTypeButton
@@ -353,18 +357,26 @@ enum{
 //    [self hideMeetingTypeButton];
 
     NSLog(@"ShouldBeginEditing:%@",textField.text);
-    self.textKeyBoard = textField;
     
+
     if ([textField isEqual:_meetingStartDate] || [textField isEqual:_meetingEndDate]) {
-        [(My97DatePicker *)textField selectDate];
+        [_timeChooseView showPicker:YES withField:textField];
+        if (self.textKeyBoard) {
+            [self.textKeyBoard resignFirstResponder];
+            self.textKeyBoard = nil;
+        }
         return NO;
     }
+    self.textKeyBoard = textField;
+
+    [_timeChooseView showPicker:NO withField:nil];
+
     return YES;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
 
-    NSLog(@"%@",textField.text);
+//    NSLog(@"%@",textField.text);
     if ([textField isEqual:_meetingStartDate] || [textField isEqual:_meetingEndDate]) {
         NSLog(@"处理时间格式");
         
@@ -378,6 +390,8 @@ enum{
 //    [self hideMeetingTypeButton];
 
     self.textKeyBoard = textView;
+    
+    [_timeChooseView showPicker:NO withField:nil];
 
     return YES;
 }
@@ -405,7 +419,8 @@ enum{
     }
     
     NSUInteger row = [indexPath row];
-    cell.textLabel.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
+    NSString *text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
+    cell.textLabel.text = ![text isEqual:[NSNull null]]?text:@"";
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

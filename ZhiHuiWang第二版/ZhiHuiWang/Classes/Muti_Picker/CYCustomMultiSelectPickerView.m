@@ -35,17 +35,6 @@
 
 - (void)pickerShow
 {
-  //  entries = [[NSArray alloc] initWithObjects:@"Row 1", @"Row 2", @"Row 3", @"Row 4", @"Row 5", nil];
-
-//	for (NSString *key in self.entriesArray){
-//        BOOL isSelected = NO;
-//        for (NSString *keyed in self.entriesSelectedArray) {
-//            if ([key isEqualToString:keyed]) {
-//                isSelected = YES;
-//            }
-//        }
-//        [self.selectionStatesDic setObject:[NSNumber numberWithBool:isSelected] forKey:key];
-//    }
     
     for (NSDictionary *dicEntry in self.entriesArray) {
         //dicEntry 只存在一个 值

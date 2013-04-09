@@ -9,10 +9,10 @@
 #import "AddGroupMembersView.h"
 #import "SBJsonResolveData.h"
 #import "OneMemberCell.h"
+
 #define TableHeader @"编号     名称    创建时间            备注"
 
 @interface AddGroupMembersView(){
-    
 }
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @end
@@ -25,9 +25,6 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor grayColor];
-        
-        
-        
     }
     return self;
 }
@@ -41,6 +38,7 @@
     
     _dataSource = [[SBJsonResolveData shareMeeting] thisMeetingMembers];
     
+
 }
 
 #pragma mark UITableView Delegate
@@ -97,7 +95,7 @@
     for (NSString *obj in dic) {
         [self setLabelText:cell.code withText:[dic objectForKey:CHDBCode]];
         [self setLabelText:cell.name withText:[dic objectForKey:DBFZName]];
-        [self setLabelText:cell.post withText:[dic objectForKey:@"chdbzw"]];
+        [self setLabelText:cell.post withText:[dic objectForKey:CHDBZw]];
         [self setLabelText:cell.tel withText:[dic objectForKey:CHDBLxdh]];
         
     }
@@ -105,17 +103,17 @@
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
-}
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    int row = [indexPath row];
-    
-    //tableView 删除数据操作 同时上传服务器删除数据
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-    }
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return YES;
+//}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    int row = [indexPath row];
+//    
+//    //tableView 删除数据操作 同时上传服务器删除数据
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        
+//    }
+//}
 
 /*
 // Only override drawRect: if you perform custom drawing.
