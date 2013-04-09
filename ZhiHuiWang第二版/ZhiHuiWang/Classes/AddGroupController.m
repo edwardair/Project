@@ -33,6 +33,7 @@
     _userDefinedBar.topItem.leftBarButtonItem = back;
     _userDefinedBar.topItem.rightBarButtonItem = done;
     _userDefinedBar.topItem.title = @"添加分组";
+
 }
 #pragma mark 注销键盘
 - (IBAction)resignKeyboard:(id)sender {

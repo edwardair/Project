@@ -14,4 +14,5 @@
                   delegate:(id )delegate
          cancelButtonTitle:(NSString *)cancle
           otherButtonTitle:(NSString *)other;
++ (void)chooseCover:(UIImageView *)cover MoveTo:(CGPoint )center;
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ModifyPointGroupViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "CYCustomMultiSelectPickerView.h"
+@interface ModifyPointGroupViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,CYCustomMultiSelectPickerViewDelegate>
 @property (strong,nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) int groupIndex;
+@property (nonatomic) int meetingIndex;
 @end

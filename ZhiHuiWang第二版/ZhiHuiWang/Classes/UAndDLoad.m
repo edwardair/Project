@@ -143,5 +143,85 @@
    NSData *data = [UAndDLoad upLoad:params withURL:Url_AddMeetingGroup];
     return data;
 }
++(NSData *)deletePointMeetingGroupWithId:(NSString *)idStr{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:idStr forKey:@"fenzuId"];
 
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_DeleteMeetingGroup];
+    return data;
+}
++(NSData *)getPointGroupMembersWithId:(NSString *)FenZuId{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:FenZuId forKey:@"fzcy.dbfzid"];
+
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_GetGroupMembers];
+    return data;
+}
+
++(NSData *)addPointGroupWithHyId:(NSString *)hyId
+                         groupId:(NSString *)groupId
+                        memberId:(NSString *)memberId{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+
+    [params setObject:hyId forKey:@"fzcy.hyid"];
+    [params setObject:groupId forKey:@"fzcy.dbfzid"];
+    [params setObject:memberId forKey:@"chdbString"];
+    
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_AddGroupMember];
+    return data;
+
+}
++(NSData *)deletePointGroupMemberWithFZCYString:(NSString *)idStr{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:idStr forKey:@"fzcyString"];
+    
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_DeleteGroupMember];
+    
+    return data;
+}
+
++(NSData *)getPointMeetingAllMeetingsWithIndex:(NSString *)idStr{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:idStr forKey:@"hy.id"];
+
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_GetMeetingAllMeetings];
+    
+    return data;
+
+}
++(NSData *)addPointMeetingOneAgendaWithHyID:(NSString *)idStr
+                                       YCXX:(NSString *)ycxx{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:idStr forKey:@"hy.id"];
+    [params setObject:ycxx forKey:@"ycxx"];
+
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_AddMeetingOneAgenda];
+    
+    return data;
+    
+}
++(NSData *)modifyPointMeetingOneAgendaWithHyID:(NSString *)idStr
+                                       YCXX:(NSString *)ycxx{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:idStr forKey:@"hy.id"];
+    [params setObject:ycxx forKey:@"ycxx"];
+    
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_ModifyMeetingAgenda];
+    
+    return data;
+    
+}
++(NSData *)deletePointMeetingOneAgendaWithHyId:(NSString *)hyid
+                                      AgendaId:(NSString *)agendaid{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:hyid forKey:@"hy.id"];
+    [params setObject:agendaid forKey:@"idlist"];
+    
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_DeleteMeetingAgenda];
+    
+    return data;
+
+}
 @end

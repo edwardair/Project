@@ -18,6 +18,23 @@
 		F106596F170AB83E00C191D0 /* TableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F1065966170AB83E00C191D0 /* TableAlert.m */; };
 		F106597A170AD53100C191D0 /* GroupManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1065979170AD53100C191D0 /* GroupManagerView.m */; };
 		F106597D170AD5CE00C191D0 /* GroupManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F106597C170AD5CE00C191D0 /* GroupManagerView.xib */; };
+		F10B9AAE17110C8600DA30A7 /* AddGroupMembersView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10B9AAD17110C8500DA30A7 /* AddGroupMembersView.m */; };
+		F10B9ABA17112FB700DA30A7 /* ALPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10B9AB517112FB700DA30A7 /* ALPickerView.m */; };
+		F10B9ABB17112FB700DA30A7 /* ALPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F10B9AB717112FB700DA30A7 /* ALPickerViewCell.m */; };
+		F10B9ABC17112FB700DA30A7 /* CYCustomMultiSelectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10B9AB917112FB700DA30A7 /* CYCustomMultiSelectPickerView.m */; };
+		F10B9ACD171138A200DA30A7 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F10B9AC6171138A200DA30A7 /* check@2x.png */; };
+		F10B9ACE171138A200DA30A7 /* check_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F10B9AC7171138A200DA30A7 /* check_selected@2x.png */; };
+		F10B9ACF171138A200DA30A7 /* frame_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F10B9AC8171138A200DA30A7 /* frame_left@2x.png */; };
+		F10B9AD0171138A200DA30A7 /* frame_middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F10B9AC9171138A200DA30A7 /* frame_middle@2x.png */; };
+		F10B9AD1171138A200DA30A7 /* frame_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F10B9ACA171138A200DA30A7 /* frame_right@2x.png */; };
+		F10B9AD2171138A200DA30A7 /* wheel_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F10B9ACB171138A200DA30A7 /* wheel_bg@2x.png */; };
+		F10B9AD3171138A200DA30A7 /* wheel_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F10B9ACC171138A200DA30A7 /* wheel_shadow@2x.png */; };
+		F10B9ADB1711546900DA30A7 /* MeetingManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F10B9ADA1711546900DA30A7 /* MeetingManagerView.m */; };
+		F10B9ADD1711553500DA30A7 /* MeetingManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10B9ADC1711553500DA30A7 /* MeetingManagerView.xib */; };
+		F10B9AE017116A7800DA30A7 /* AgendaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F10B9ADF17116A7800DA30A7 /* AgendaCell.m */; };
+		F10B9AE217116A9F00DA30A7 /* AgendaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10B9AE117116A9F00DA30A7 /* AgendaCell.xib */; };
+		F10B9AE617116F9500DA30A7 /* AddAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10B9AE417116F9400DA30A7 /* AddAgendaViewController.m */; };
+		F10B9AE717116F9500DA30A7 /* AddAgendaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10B9AE517116F9400DA30A7 /* AddAgendaViewController.xib */; };
 		F125F20D170194480069BDAE /* ShowDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F125F20C170194480069BDAE /* ShowDownButton.m */; };
 		F12A569F16FFD7CE00ECDD04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A569E16FFD7CE00ECDD04 /* UIKit.framework */; };
 		F12A56A116FFD7CE00ECDD04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12A56A016FFD7CE00ECDD04 /* Foundation.framework */; };
@@ -60,6 +77,9 @@
 		F16AC86817055B9F00D6308E /* MeetingMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F16AC86717055B9E00D6308E /* MeetingMemberCell.m */; };
 		F16AC88317057F8F00D6308E /* CellPushedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16AC88117057F8F00D6308E /* CellPushedViewController.m */; };
 		F16AC88417057F8F00D6308E /* CellPushedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16AC88217057F8F00D6308E /* CellPushedViewController.xib */; };
+		F18113801712A8010064D2D2 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F181137F1712A8000064D2D2 /* CKCalendarView.m */; };
+		F18113CA1712BABB0064D2D2 /* TimeChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F18113C91712BABB0064D2D2 /* TimeChooseView.m */; };
+		F18113D01712BC0F0064D2D2 /* TimeChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18113CF1712BC0F0064D2D2 /* TimeChooseView.xib */; };
 		F1868ED817012EF100A44D80 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED417012EF100A44D80 /* GTMBase64.m */; };
 		F1868ED917012EF100A44D80 /* My97DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F1868ED717012EF100A44D80 /* My97DatePicker.m */; };
 		F1868EDB17012F2700A44D80 /* My97DatePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1868EDA17012F2700A44D80 /* My97DatePicker.bundle */; };
@@ -88,6 +108,30 @@
 		F1065978170AD53000C191D0 /* GroupManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupManagerView.h; path = Classes/GroupManagerView.h; sourceTree = "<group>"; };
 		F1065979170AD53100C191D0 /* GroupManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupManagerView.m; path = Classes/GroupManagerView.m; sourceTree = "<group>"; };
 		F106597C170AD5CE00C191D0 /* GroupManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupManagerView.xib; sourceTree = "<group>"; };
+		F10B9AAC17110C8500DA30A7 /* AddGroupMembersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupMembersView.h; path = Classes/AddGroupMembersView.h; sourceTree = "<group>"; };
+		F10B9AAD17110C8500DA30A7 /* AddGroupMembersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddGroupMembersView.m; path = Classes/AddGroupMembersView.m; sourceTree = "<group>"; };
+		F10B9AB417112FB700DA30A7 /* ALPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerView.h; sourceTree = "<group>"; };
+		F10B9AB517112FB700DA30A7 /* ALPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerView.m; sourceTree = "<group>"; };
+		F10B9AB617112FB700DA30A7 /* ALPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerViewCell.h; sourceTree = "<group>"; };
+		F10B9AB717112FB700DA30A7 /* ALPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerViewCell.m; sourceTree = "<group>"; };
+		F10B9AB817112FB700DA30A7 /* CYCustomMultiSelectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCustomMultiSelectPickerView.h; sourceTree = "<group>"; };
+		F10B9AB917112FB700DA30A7 /* CYCustomMultiSelectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCustomMultiSelectPickerView.m; sourceTree = "<group>"; };
+		F10B9AC6171138A200DA30A7 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		F10B9AC7171138A200DA30A7 /* check_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_selected@2x.png"; sourceTree = "<group>"; };
+		F10B9AC8171138A200DA30A7 /* frame_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_left@2x.png"; sourceTree = "<group>"; };
+		F10B9AC9171138A200DA30A7 /* frame_middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_middle@2x.png"; sourceTree = "<group>"; };
+		F10B9ACA171138A200DA30A7 /* frame_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_right@2x.png"; sourceTree = "<group>"; };
+		F10B9ACB171138A200DA30A7 /* wheel_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_bg@2x.png"; sourceTree = "<group>"; };
+		F10B9ACC171138A200DA30A7 /* wheel_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_shadow@2x.png"; sourceTree = "<group>"; };
+		F10B9AD91711546900DA30A7 /* MeetingManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingManagerView.h; path = Classes/MeetingManagerView.h; sourceTree = "<group>"; };
+		F10B9ADA1711546900DA30A7 /* MeetingManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingManagerView.m; path = Classes/MeetingManagerView.m; sourceTree = "<group>"; };
+		F10B9ADC1711553500DA30A7 /* MeetingManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingManagerView.xib; sourceTree = "<group>"; };
+		F10B9ADE17116A7700DA30A7 /* AgendaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AgendaCell.h; path = Classes/AgendaCell.h; sourceTree = "<group>"; };
+		F10B9ADF17116A7800DA30A7 /* AgendaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AgendaCell.m; path = Classes/AgendaCell.m; sourceTree = "<group>"; };
+		F10B9AE117116A9F00DA30A7 /* AgendaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaCell.xib; sourceTree = "<group>"; };
+		F10B9AE317116F9300DA30A7 /* AddAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddAgendaViewController.h; path = Classes/AddAgendaViewController.h; sourceTree = "<group>"; };
+		F10B9AE417116F9400DA30A7 /* AddAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddAgendaViewController.m; path = Classes/AddAgendaViewController.m; sourceTree = "<group>"; };
+		F10B9AE517116F9400DA30A7 /* AddAgendaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddAgendaViewController.xib; path = ../Classes/AddAgendaViewController.xib; sourceTree = "<group>"; };
 		F125F20B170194480069BDAE /* ShowDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowDownButton.h; path = Classes/ShowDownButton.h; sourceTree = "<group>"; };
 		F125F20C170194480069BDAE /* ShowDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowDownButton.m; path = Classes/ShowDownButton.m; sourceTree = "<group>"; };
 		F12A569A16FFD7CE00ECDD04 /* ZhiHuiWang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiHuiWang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +198,11 @@
 		F16AC88017057F8F00D6308E /* CellPushedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellPushedViewController.h; path = Classes/CellPushedViewController.h; sourceTree = "<group>"; };
 		F16AC88117057F8F00D6308E /* CellPushedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellPushedViewController.m; path = Classes/CellPushedViewController.m; sourceTree = "<group>"; };
 		F16AC88217057F8F00D6308E /* CellPushedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CellPushedViewController.xib; path = ../Classes/CellPushedViewController.xib; sourceTree = "<group>"; };
+		F181137E1712A7FF0064D2D2 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKCalendarView.h; path = Classes/CKCalendarView.h; sourceTree = "<group>"; };
+		F181137F1712A8000064D2D2 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKCalendarView.m; path = Classes/CKCalendarView.m; sourceTree = "<group>"; };
+		F18113C81712BABB0064D2D2 /* TimeChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeChooseView.h; path = Classes/TimeChooseView.h; sourceTree = "<group>"; };
+		F18113C91712BABB0064D2D2 /* TimeChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeChooseView.m; path = Classes/TimeChooseView.m; sourceTree = "<group>"; };
+		F18113CF1712BC0F0064D2D2 /* TimeChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeChooseView.xib; sourceTree = "<group>"; };
 		F1868ED317012EF100A44D80 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		F1868ED417012EF100A44D80 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		F1868ED517012EF100A44D80 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -209,6 +258,52 @@
 			);
 			name = AlertShow;
 			path = Classes/AlertShow;
+			sourceTree = "<group>";
+		};
+		F10B9AB317112FB600DA30A7 /* Multi_Picker */ = {
+			isa = PBXGroup;
+			children = (
+				F10B9AC5171138A200DA30A7 /* PickerResources */,
+				F10B9AB417112FB700DA30A7 /* ALPickerView.h */,
+				F10B9AB517112FB700DA30A7 /* ALPickerView.m */,
+				F10B9AB617112FB700DA30A7 /* ALPickerViewCell.h */,
+				F10B9AB717112FB700DA30A7 /* ALPickerViewCell.m */,
+				F10B9AB817112FB700DA30A7 /* CYCustomMultiSelectPickerView.h */,
+				F10B9AB917112FB700DA30A7 /* CYCustomMultiSelectPickerView.m */,
+			);
+			name = Multi_Picker;
+			path = Classes/Muti_Picker;
+			sourceTree = "<group>";
+		};
+		F10B9AC5171138A200DA30A7 /* PickerResources */ = {
+			isa = PBXGroup;
+			children = (
+				F10B9AC6171138A200DA30A7 /* check@2x.png */,
+				F10B9AC7171138A200DA30A7 /* check_selected@2x.png */,
+				F10B9AC8171138A200DA30A7 /* frame_left@2x.png */,
+				F10B9AC9171138A200DA30A7 /* frame_middle@2x.png */,
+				F10B9ACA171138A200DA30A7 /* frame_right@2x.png */,
+				F10B9ACB171138A200DA30A7 /* wheel_bg@2x.png */,
+				F10B9ACC171138A200DA30A7 /* wheel_shadow@2x.png */,
+			);
+			path = PickerResources;
+			sourceTree = "<group>";
+		};
+		F10B9AD81711544200DA30A7 /* GroupManager */ = {
+			isa = PBXGroup;
+			children = (
+				F1065978170AD53000C191D0 /* GroupManagerView.h */,
+				F1065979170AD53100C191D0 /* GroupManagerView.m */,
+				F1B635E0170BEA0800A5B957 /* AddGroupController.h */,
+				F1B635E1170BEA0800A5B957 /* AddGroupController.m */,
+				F1BE6CBA170C076900DDF92E /* ModifyPointGroupViewController.h */,
+				F1BE6CBB170C076900DDF92E /* ModifyPointGroupViewController.m */,
+				F1BE6CC0170C193100DDF92E /* OneMemberCell.h */,
+				F1BE6CC1170C193100DDF92E /* OneMemberCell.m */,
+				F10B9AAC17110C8500DA30A7 /* AddGroupMembersView.h */,
+				F10B9AAD17110C8500DA30A7 /* AddGroupMembersView.m */,
+			);
+			name = GroupManager;
 			sourceTree = "<group>";
 		};
 		F12A568F16FFD7CE00ECDD04 = {
@@ -273,9 +368,15 @@
 		F12A56BC16FFD7EC00ECDD04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F10B9AB317112FB600DA30A7 /* Multi_Picker */,
 				F106595C170AB83E00C191D0 /* AlertShow */,
 				F13CF17F17092873008ED3F8 /* StaticManager.h */,
 				F13CF18017092873008ED3F8 /* StaticManager.m */,
+				F181137E1712A7FF0064D2D2 /* CKCalendarView.h */,
+				F181137F1712A8000064D2D2 /* CKCalendarView.m */,
+				F18113C81712BABB0064D2D2 /* TimeChooseView.h */,
+				F18113C91712BABB0064D2D2 /* TimeChooseView.m */,
+				F18113CF1712BC0F0064D2D2 /* TimeChooseView.xib */,
 				F125F20B170194480069BDAE /* ShowDownButton.h */,
 				F125F20C170194480069BDAE /* ShowDownButton.m */,
 				F16AC85817051C0D00D6308E /* SBJsonResolveData.h */,
@@ -288,14 +389,13 @@
 				F16AC88117057F8F00D6308E /* CellPushedViewController.m */,
 				F12A570816FFEBA700ECDD04 /* CreateNewMeetingViewController.h */,
 				F12A570916FFEBA700ECDD04 /* CreateNewMeetingViewController.m */,
-				F1065978170AD53000C191D0 /* GroupManagerView.h */,
-				F1065979170AD53100C191D0 /* GroupManagerView.m */,
-				F1B635E0170BEA0800A5B957 /* AddGroupController.h */,
-				F1B635E1170BEA0800A5B957 /* AddGroupController.m */,
-				F1BE6CBA170C076900DDF92E /* ModifyPointGroupViewController.h */,
-				F1BE6CBB170C076900DDF92E /* ModifyPointGroupViewController.m */,
-				F1BE6CC0170C193100DDF92E /* OneMemberCell.h */,
-				F1BE6CC1170C193100DDF92E /* OneMemberCell.m */,
+				F10B9AD81711544200DA30A7 /* GroupManager */,
+				F10B9AD91711546900DA30A7 /* MeetingManagerView.h */,
+				F10B9ADA1711546900DA30A7 /* MeetingManagerView.m */,
+				F10B9ADE17116A7700DA30A7 /* AgendaCell.h */,
+				F10B9ADF17116A7800DA30A7 /* AgendaCell.m */,
+				F10B9AE317116F9300DA30A7 /* AddAgendaViewController.h */,
+				F10B9AE417116F9400DA30A7 /* AddAgendaViewController.m */,
 				F1EE99961700375800253625 /* Create */,
 			);
 			name = Classes;
@@ -398,6 +498,9 @@
 				F1B635E2170BEA0800A5B957 /* AddGroupController.xib */,
 				F1BE6CBC170C076900DDF92E /* ModifyPointGroupViewController.xib */,
 				F1BE6CC3170C19FB00DDF92E /* OneMemberCell.xib */,
+				F10B9ADC1711553500DA30A7 /* MeetingManagerView.xib */,
+				F10B9AE117116A9F00DA30A7 /* AgendaCell.xib */,
+				F10B9AE517116F9400DA30A7 /* AddAgendaViewController.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -482,6 +585,17 @@
 				F1B635E4170BEA0800A5B957 /* AddGroupController.xib in Resources */,
 				F1BE6CBE170C076900DDF92E /* ModifyPointGroupViewController.xib in Resources */,
 				F1BE6CC4170C19FB00DDF92E /* OneMemberCell.xib in Resources */,
+				F10B9ACD171138A200DA30A7 /* check@2x.png in Resources */,
+				F10B9ACE171138A200DA30A7 /* check_selected@2x.png in Resources */,
+				F10B9ACF171138A200DA30A7 /* frame_left@2x.png in Resources */,
+				F10B9AD0171138A200DA30A7 /* frame_middle@2x.png in Resources */,
+				F10B9AD1171138A200DA30A7 /* frame_right@2x.png in Resources */,
+				F10B9AD2171138A200DA30A7 /* wheel_bg@2x.png in Resources */,
+				F10B9AD3171138A200DA30A7 /* wheel_shadow@2x.png in Resources */,
+				F10B9ADD1711553500DA30A7 /* MeetingManagerView.xib in Resources */,
+				F10B9AE217116A9F00DA30A7 /* AgendaCell.xib in Resources */,
+				F10B9AE717116F9500DA30A7 /* AddAgendaViewController.xib in Resources */,
+				F18113D01712BC0F0064D2D2 /* TimeChooseView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +634,15 @@
 				F1B635E3170BEA0800A5B957 /* AddGroupController.m in Sources */,
 				F1BE6CBD170C076900DDF92E /* ModifyPointGroupViewController.m in Sources */,
 				F1BE6CC2170C193100DDF92E /* OneMemberCell.m in Sources */,
+				F10B9AAE17110C8600DA30A7 /* AddGroupMembersView.m in Sources */,
+				F10B9ABA17112FB700DA30A7 /* ALPickerView.m in Sources */,
+				F10B9ABB17112FB700DA30A7 /* ALPickerViewCell.m in Sources */,
+				F10B9ABC17112FB700DA30A7 /* CYCustomMultiSelectPickerView.m in Sources */,
+				F10B9ADB1711546900DA30A7 /* MeetingManagerView.m in Sources */,
+				F10B9AE017116A7800DA30A7 /* AgendaCell.m in Sources */,
+				F10B9AE617116F9500DA30A7 /* AddAgendaViewController.m in Sources */,
+				F18113801712A8010064D2D2 /* CKCalendarView.m in Sources */,
+				F18113CA1712BABB0064D2D2 /* TimeChooseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

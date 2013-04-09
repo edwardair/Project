@@ -60,6 +60,18 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     }
     return _pointMeetingGroups;
 }
+- (NSMutableArray *)pointGroupMembers{
+    if (!_pointGroupMembers) {
+        _pointGroupMembers = [[NSMutableArray alloc]init];
+    }
+    return _pointGroupMembers;
+}
+- (NSMutableArray *)agenda{
+    if (!_agenda) {
+        _agenda = [[NSMutableArray alloc]init];
+    }
+    return _agenda;
+}
 #pragma mark SBJson解析 会议名称
 + (void )getMeetingData:(NSData *)data{
     [staticSBJsonResolveData.meetingNameList removeAllObjects];
@@ -95,7 +107,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSMutableDictionary *orgDic = [jsonObject objectWithString:str];
 
     NSArray *firstArray = [orgDic objectForKey:@"chdbList"];
-//    NSLog(@"%@",firstArray);
+    NSLog(@"%@",firstArray);
 
     for (NSDictionary *subDic in firstArray) {
         NSMutableDictionary *arrayWithDics_SubDic =
@@ -104,7 +116,8 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
                                      Post:[subDic objectForKey:CHDBZw]
                                       Sex:[subDic objectForKey:CHDBXb]
                                    ChdbId:[subDic objectForKey:CHDBId]
-                                     Hyid:[subDic objectForKey:CHDBHyid]];
+                                     Hyid:[subDic objectForKey:CHDBHyid]
+                                     Code:[subDic objectForKey:CHDBCode]];
         
         [staticSBJsonResolveData.thisMeetingMembers addObject:arrayWithDics_SubDic];
 
@@ -116,7 +129,8 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
                                    Post:(NSString *)post
                                     Sex:(NSString *)sex
                                  ChdbId:(NSString *)chdbid
-                                   Hyid:(NSString *)hyid{
+                                   Hyid:(NSString *)hyid
+                                   Code:(NSString *)code{
     NSMutableDictionary *arrayWithDics_SubDic = [NSMutableDictionary dictionary];
     
     [arrayWithDics_SubDic setObject:name forKey:CHDBName];//名称
@@ -125,6 +139,8 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     [arrayWithDics_SubDic setObject:[NSNumber numberWithInt:[sex intValue]] forKey:CHDBXb];//性别  1为男  0为女
     [arrayWithDics_SubDic setObject:chdbid forKey:CHDBId];//id
     [arrayWithDics_SubDic setObject:hyid forKey:CHDBHyid];//hyid
+    [arrayWithDics_SubDic setObject:code forKey:CHDBCode];//hyid
+
     return arrayWithDics_SubDic;
 }
 #pragma mark 删除 指定会议中 单个成员
@@ -171,7 +187,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
                               tel:tel
                              post:post];
 
-    NSMutableDictionary *member = [SBJsonResolveData memberWithName:name Tel:tel Post:post Sex:[NSString stringWithFormat:@"%d",sex] ChdbId:idStr Hyid:hyidStr];
+    NSMutableDictionary *member = [SBJsonResolveData memberWithName:name Tel:tel Post:post Sex:[NSString stringWithFormat:@"%d",sex] ChdbId:idStr Hyid:hyidStr Code:@"code"];
     
     [staticSBJsonResolveData.thisMeetingMembers replaceObjectAtIndex:index withObject:member];
 
@@ -184,6 +200,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
                            CreateTime:(NSString *)time
                                  Mark:(NSString *)mark{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:idStr forKey:@"id"];
     [dic setObject:code forKey:DBFZCode];
     [dic setObject:name forKey:DBFZName];
     [dic setObject:time forKey:DBFZCreatetime];
@@ -198,11 +215,10 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
     NSMutableDictionary *orgDic = [jsonObject objectWithString:dataString];
-
     NSArray *dbfzList = [orgDic objectForKey:DBFZList];
-    
+    NSLog(@"%@",dbfzList);
     for (NSDictionary *dic in dbfzList) {
-        NSMutableDictionary *mutableDic = [SBJsonResolveData groupWithId:[dic objectForKey:@"id"]
+        NSMutableDictionary *mutableDic = [SBJsonResolveData groupWithId:[dic objectForKey:CHDBId]
                                                                     Code:[dic objectForKey:DBFZCode]
                                                                     Name:[dic objectForKey:DBFZName]
                                                               CreateTime:[dic objectForKey:DBFZCreatetime]
@@ -221,6 +237,161 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
                                                     GroupCode:code
                                                     GroupName:name
                                                     GroupMark:mark];
+//    data = nil;
+    
+}
+#pragma mark 制定会议 删除一个分组
++ (void)deletePointMeetingGroupWithIndex:(int )index{
+    NSString *idStr = [[staticSBJsonResolveData.pointMeetingGroups objectAtIndex:index] objectForKey:@"id"];
+   NSData *data = [UAndDLoad deletePointMeetingGroupWithId:idStr];
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    
+    [staticSBJsonResolveData.pointMeetingGroups removeObjectAtIndex:index];
+}
+#pragma mark 指定会议中  指定分组  获取分组成员
++(NSMutableDictionary *)memberWithId:(NSString *)idStr
+                               Code:(NSString *)code
+                               Name:(NSString *)name
+                         Post:(NSString *)post
+                               tel:(NSString *)tel
+                        memberCHDBId:(NSString *)chdbId{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:idStr forKey:@"id"];
+    [dic setObject:code forKey:CHDBCode];
+    [dic setObject:name forKey:CHDBName];
+    [dic setObject:post forKey:CHDBZw];
+    [dic setObject:tel forKey:CHDBLxdh];
+    [dic setObject:chdbId forKey:@"chdbid"];
+
+    return dic;
+}
+
++ (void )GetPointMeetingGroupMemberWithIndex:(int )index{
+    
+    [staticSBJsonResolveData.pointGroupMembers removeAllObjects];
+    
+    NSString *idStr = [[staticSBJsonResolveData.pointMeetingGroups objectAtIndex:index] objectForKey:@"id"];
+    NSData *data = [UAndDLoad getPointGroupMembersWithId:idStr];
+
+    NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
+    NSMutableDictionary *orgDic = [jsonObject objectWithString:dataString];
+    NSArray *fzcyList = [orgDic objectForKey:@"fzcyList"];
+    NSLog(@"%@",fzcyList);
+
+    for (NSDictionary *dic in fzcyList) {
+        NSMutableDictionary *mutableDic = [SBJsonResolveData memberWithId:[dic objectForKey:CHDBId]
+                                                                     Code:[dic objectForKey:CHDBCode]
+                                                                     Name:[dic objectForKey:CHDBName]
+                                                                     Post:[dic objectForKey:CHDBZw]
+                                                                      tel:[dic objectForKey:CHDBLxdh]
+                                                             memberCHDBId:[dic objectForKey:@"chdbid"]];
+        [staticSBJsonResolveData.pointGroupMembers addObject:mutableDic];
+    }
+}
+#pragma mark 指定会议中  指定分组  添加分组成员
++ (void)addPointMeetingGroupMemberWithMeetingIndex:(int )MI
+                                        GroupIndex:(int )GI
+                                       MemberIndex:(NSString *)MeI{
+    NSData *data = [UAndDLoad addPointGroupWithHyId:staticSBJsonResolveData.meetingId[MI]
+                                            groupId:[staticSBJsonResolveData.pointMeetingGroups[GI] objectForKey:CHDBId]
+                                           memberId:MeI];
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+}
+#pragma mark 指定会议中 指定分组 删除分组成员
++ (void)deletePointMeetingGroupMemberWithIndex:(int )index{
+    NSString *idStr = [[staticSBJsonResolveData.pointGroupMembers objectAtIndex:index] objectForKey:CHDBId];
+    NSData *data = [UAndDLoad deletePointGroupMemberWithFZCYString:idStr];
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+}
+
+#pragma mark 指定会议中 获取所有议程
++ (void)getMeetingAllMeetingsWithIndex:(int )index{
+    [staticSBJsonResolveData.agenda removeAllObjects];
+    
+    NSString *idStr = [staticSBJsonResolveData.meetingId objectAtIndex:index];
+    NSData *data = [UAndDLoad getPointMeetingAllMeetingsWithIndex:idStr];
+    
+    NSString *dataString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+
+    SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
+    NSMutableDictionary *orgDic = [jsonObject objectWithString:dataString];
+
+    NSArray *ycList = [orgDic objectForKey:@"yclist"];
+
+    for (NSDictionary *dic in ycList) {
+        NSMutableDictionary *temp = [NSMutableDictionary dictionary];
+        
+        NSString *ycName = [dic objectForKey:YCName];
+        NSString *yclxrsj = [dic objectForKey:YCFZR];
+        NSString *content = [dic objectForKey:YCContent];
+        NSString *tel = [dic objectForKey:YCTel];
+        NSString *start = [dic objectForKey:YCStartTime];
+        NSString *end = [dic objectForKey:YCEndTime];
+        NSString *agendaId = [dic objectForKey:@"id"];
+        NSString *contactedGroup = [dic objectForKey:@"dbfzid"];
+
+        [temp setObject:ycName forKey:YCName];
+        [temp setObject:yclxrsj forKey:YCFZR];
+        [temp setObject:content forKey:YCContent];
+        [temp setObject:tel forKey:YCTel];
+        [temp setObject:start forKey:YCStartTime];
+        [temp setObject:end forKey:YCEndTime];
+        [temp setObject:agendaId forKey:@"id"];
+        [temp setObject:contactedGroup forKey:@"dbfzid"];
+
+        [staticSBJsonResolveData.agenda addObject:temp];
+    }
+}
+
+#pragma mark 指定会议添加  一个议程
++ (void)addPointMeetingOneAgendaWithHyIndex:(int )index
+                                     ycName:(NSString *)name
+                                       hcJJ:(NSString *)jj
+                                       info:(NSString *)info
+                                        msg:(NSString *)msg
+                                      ycLXR:(NSString *)lxr
+                                      ycTel:(NSString *)tel
+                                     bdfzId:(int )bdfzIndex{
+    NSString *hyId = staticSBJsonResolveData.meetingId[index];
+    NSString *groupId = [staticSBJsonResolveData.pointMeetingGroups[bdfzIndex] objectForKey:CHDBId];
+    NSString *idStr = [NSString stringWithFormat:@"%@;%@;;;%@;%@;%@;%@;%@;%@",hyId,name,jj,info,msg,lxr,tel,groupId];
+//    NSLog(@"%@",idStr);
+    NSData *data = [UAndDLoad addPointMeetingOneAgendaWithHyID:hyId YCXX:idStr];
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+}
+
+#pragma mark 指定会议添加  一个议程
++ (void)modifyPointMeetingOneAgendaWithHyIndex:(int )index
+                                   agendaIndex:(int )agendaIndex
+                                     ycName:(NSString *)name
+                                       hcJJ:(NSString *)jj
+                                       info:(NSString *)info
+                                        msg:(NSString *)msg
+                                      ycLXR:(NSString *)lxr
+                                      ycTel:(NSString *)tel
+                                     bdfzId:(int )bdfzIndex{
+    
+    NSString *hyId = staticSBJsonResolveData.meetingId[index];
+    NSString *groupId = [staticSBJsonResolveData.pointMeetingGroups[bdfzIndex] objectForKey:CHDBId];
+    NSString *agendaId = [staticSBJsonResolveData.agenda[agendaIndex] objectForKey:@"id"];
+    
+    NSString *idStr = [NSString stringWithFormat:@"%@;%@;%@;;;%@;%@;%@;%@;%@;%@",agendaId,hyId,name,jj,info,msg,lxr,tel,groupId];
+
+    NSData *data = [UAndDLoad modifyPointMeetingOneAgendaWithHyID:hyId YCXX:idStr];
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+}
+
+#pragma mark 指定会议 删除  一个议程
++(void)deletePointMeetingOneAgendaWithHyIndex:(int )hyIndex
+                                  AgendaIndex:(int )agendaIndex{
+    NSString *hyId = staticSBJsonResolveData.meetingId[hyIndex];
+    NSString *agendaId = [staticSBJsonResolveData.agenda[agendaIndex] objectForKey:@"id"];
+
+    NSData *data = [UAndDLoad deletePointMeetingOneAgendaWithHyId:hyId AgendaId:agendaId];
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+
+    [SBJsonResolveData getMeetingAllMeetingsWithIndex:hyIndex];
     
 }
 @end

@@ -18,5 +18,11 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:title message:msg delegate:delegate cancelButtonTitle:cancle otherButtonTitles:other, nil];
     [alert show];
 }
-
++ (void)chooseCover:(UIImageView *)cover MoveTo:(CGPoint )center{
+    [UIView beginAnimations:@"Cover" context:nil];
+    [UIView setAnimationDuration:.5f];
+    cover.center = center;
+    
+    [UIView commitAnimations];
+}
 @end

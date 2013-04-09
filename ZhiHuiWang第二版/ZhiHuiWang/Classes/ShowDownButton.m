@@ -100,7 +100,8 @@
     // create the alert
 	TableAlert *alert = [TableAlert tableAlertWithTitle:@"选择会议" cancelButtonTitle:@"取消" numberOfRows:^NSInteger (NSInteger section)
                          {
-                             return [[SBJsonResolveData shareMeeting] meetingNameList].count;
+                             NSLog(@"%d",_showDataArray.count);
+                             return _showDataArray.count;
                          }
                                                andCells:^UITableViewCell* (TableAlert *anAlert, NSIndexPath *indexPath)
                          {
@@ -109,7 +110,7 @@
                              if (cell == nil)
                                  cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                              
-                             cell.textLabel.text = [[[SBJsonResolveData shareMeeting] meetingNameList] objectAtIndex:indexPath.row];
+                             cell.textLabel.text = [_showDataArray objectAtIndex:indexPath.row];
                              
                              return cell;
                          }];

@@ -8,8 +8,12 @@
 
 #import "ModifyPointGroupViewController.h"
 #import "OneMemberCell.h"
-#define TableHeader @"编号     姓名      职位     联系电话"
-@interface ModifyPointGroupViewController ()
+#import "SBJsonResolveData.h"
+//#import "CYCustomMultiSelectPickerView.h"
+#define TableHeader @"编号     姓名       职位            联系电话"
+@interface ModifyPointGroupViewController (){
+    CYCustomMultiSelectPickerView *multiPickerView;
+}
 @property (strong,nonatomic) NSMutableArray *membersData;
 @end
 
@@ -37,12 +41,9 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
 
-    _membersData = [[NSMutableArray alloc]init];
-    [_membersData addObject:@"001"];
-    [_membersData addObject:@"王虎"];
-    [_membersData addObject:@"老大"];
-    [_membersData addObject:@"13800001598"];
-
+    [SBJsonResolveData GetPointMeetingGroupMemberWithIndex:self.groupIndex];
+    
+   _membersData = [[SBJsonResolveData shareMeeting] pointGroupMembers];
 }
 - (void)callBack{
     [self.navigationController popViewControllerAnimated:YES];
@@ -50,9 +51,55 @@
 //添加分组成员
 
 - (void)addMembers{
+    [SBJsonResolveData getMeetingMembers:self.meetingIndex];
     
+    [self  getData];
 }
 
+-(void)getData
+{
+    //点击后删除之前的PickerView
+    for (UIView *view in self.view.subviews) {
+        if ([view isKindOfClass:[CYCustomMultiSelectPickerView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    multiPickerView = [[CYCustomMultiSelectPickerView alloc] initWithFrame:CGRectMake(0,[UIScreen mainScreen].bounds.size.height - 260-20, 320, 260+44)];
+    multiPickerView.multiPickerDelegate = self;
+
+    //  multiPickerView.backgroundColor = [UIColor redColor];
+    
+    NSMutableArray *a1 = [NSMutableArray array];
+    NSMutableArray *a2 = [NSMutableArray array];
+    NSLog(@"%@,%@",[[SBJsonResolveData shareMeeting] thisMeetingMembers],[[SBJsonResolveData shareMeeting] pointGroupMembers]);
+    for (NSDictionary *dic in [[SBJsonResolveData shareMeeting] thisMeetingMembers]) {
+        [a1 addObject:[NSDictionary dictionaryWithObject:[dic objectForKey:CHDBName] forKey:[dic objectForKey:CHDBId]]];
+    }
+    for (NSDictionary *dic in [[SBJsonResolveData shareMeeting] pointGroupMembers]) {
+        [a2 addObject:[NSDictionary dictionaryWithObject:[dic objectForKey:CHDBName] forKey:[dic objectForKey:@"chdbid"]]];
+    }
+    NSLog(@"%@\n%@",a1,a2);
+    
+    multiPickerView.entriesArray = a1;
+    multiPickerView.entriesSelectedArray = a2;
+    
+    [self.view addSubview:multiPickerView];
+    
+    [multiPickerView pickerShow];
+    
+}
+#pragma mark Picker Delegate
+- (void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr{
+    NSLog(@"%@",selectedEntriesArr);
+    for (NSString *idStr in selectedEntriesArr) {
+        [SBJsonResolveData addPointMeetingGroupMemberWithMeetingIndex:_meetingIndex GroupIndex:_groupIndex MemberIndex:idStr];
+    }
+    
+    [SBJsonResolveData GetPointMeetingGroupMemberWithIndex:self.groupIndex];
+    
+    [_tableView reloadData];
+}
 
 #pragma mark UITableView Delegate
 
@@ -86,24 +133,33 @@
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _membersData.count;
 }
-
+- (void)setLabelText:(UILabel *)label withText:(NSString *)str{
+    if ([str isEqual:[NSNull null]]) {
+        str = @"";
+    }
+    label.text = str;
+    label.textAlignment = UITextAlignmentCenter;
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSUInteger row = [indexPath row];
+    NSDictionary *dic = [_membersData objectAtIndex:row];
+
     NSString *title = @"Member";
     
     OneMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:title];
     if (!cell) {
         cell = (OneMemberCell *)[[[NSBundle mainBundle] loadNibNamed:@"OneMemberCell" owner:self options:nil] objectAtIndex:0];
-        cell.code.text = [_membersData objectAtIndex:0];
-        cell.name.text = [_membersData objectAtIndex:1];
-        cell.post.text = [_membersData objectAtIndex:2];
-        cell.tel.text = [_membersData objectAtIndex:3];
 
     }
-    
-    NSUInteger row = [indexPath row];
-    
-    NSDictionary *dic = [_membersData objectAtIndex:row];
-    
+//    for (NSString *obj in dic) {
+        [self setLabelText:cell.code withText:[dic objectForKey:CHDBCode]];
+        [self setLabelText:cell.name withText:[dic objectForKey:DBFZName]];
+        [self setLabelText:cell.post withText:[dic objectForKey:CHDBZw]];
+        [self setLabelText:cell.tel withText:[dic objectForKey:CHDBLxdh]];
+
+//    }
+
     return cell;
 }
 
@@ -115,7 +171,9 @@
     
     //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
+        [SBJsonResolveData deletePointMeetingGroupMemberWithIndex:row];
+        [SBJsonResolveData GetPointMeetingGroupMemberWithIndex:_groupIndex];
+        [_tableView reloadData];
     }
 }
 

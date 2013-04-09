@@ -12,6 +12,7 @@
 #import "CellPushedViewController.h"
 @class ShowDownButton;
 @class GroupManagerView;
+@class MeetingManagerView;
 @interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,CellPushedViewControllerDelegate>
 
 @property (strong,nonatomic) IBOutlet UIScrollView *bottomScrollView;
@@ -50,5 +51,6 @@
 @property (strong,nonatomic) GroupManagerView *groupManageView;
 
 #pragma mark 议程管理
+@property (strong,nonatomic) MeetingManagerView *meetingManageView;
 
 @end

@@ -40,6 +40,7 @@
     [_GM_MeetingList initializeButton];
     _GM_MeetingList.delegate = self;
     _GM_MeetingList.selector = @selector(GM_MeetingListButtonClicked);
+    _GM_MeetingList.showDataArray = [[SBJsonResolveData shareMeeting] meetingNameList];
     
     _GM_TableView.delegate = self;
     _GM_TableView.dataSource = self;
@@ -125,15 +126,22 @@
 }
 - (void)appendLabelWithString:(NSString *)content
                         Frame:(CGRect )frame
-                    SuperView:(UITableViewCell *)cell{
+                    SuperView:(UITableViewCell *)cell
+                     TagIndex:(int )tag{
     
-    UILabel *code = [[UILabel alloc]init];
-    code.numberOfLines = 2;
-    code.lineBreakMode = UILineBreakModeCharacterWrap;
+    UILabel *code = (UILabel *)[cell viewWithTag:tag];
+
+    if (!code) {
+        code = [[UILabel alloc]init];
+        code.numberOfLines = 2;
+        code.lineBreakMode = UILineBreakModeCharacterWrap;
+        code.frame = frame;
+        code.textAlignment = UITextAlignmentCenter;
+        code.tag = tag;
+        [cell addSubview:code];
+
+    }
     code.text = content;
-    code.frame = frame;
-    code.textAlignment = UITextAlignmentCenter;
-    [cell addSubview:code];
 }
 - (void)appendCellString:(NSDictionary *)dic object:(UITableViewCell *)cell{
     
@@ -149,7 +157,7 @@
         }
         CGRect frame = CGRectMake(orginX[i], 0, width[i], cell.frame.size.height);
         
-        [self appendLabelWithString:s Frame:frame SuperView:cell];
+        [self appendLabelWithString:s Frame:frame SuperView:cell TagIndex:i];
         
     }
     
@@ -175,6 +183,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     int row = indexPath.row;
     ModifyPointGroupViewController *groupMembers = [[ModifyPointGroupViewController alloc]initWithNibName:@"ModifyPointGroupViewController" bundle:nil];
+    groupMembers.groupIndex = row;
+    groupMembers.meetingIndex = _GM_MeetingList.meetingId;
     groupMembers.navigationItem.title = [[_GM_TableData objectAtIndex:row] objectForKey:DBFZName];
     [self.superViewController.parentViewController.navigationController pushViewController:groupMembers animated:YES];
 }
@@ -188,10 +198,9 @@
     //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [SBJsonResolveData deletePoitMeetingWithIndex:row];
+        [SBJsonResolveData deletePointMeetingGroupWithIndex:row];
         
-        // Delete the row from the data source.
-//        [_MM_MemberList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [_GM_TableView reloadData];
         
     }
 }

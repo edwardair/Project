@@ -14,6 +14,9 @@
 #import "MeetingMemberCell.h"
 #import "StaticManager.h"
 #import "GroupManagerView.h"
+#import "MeetingManagerView.h"
+#import "TimeChooseView.h"
+
 #define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
@@ -39,6 +42,8 @@
     
     [super viewDidLoad];
 
+   TimeChooseView *view = [TimeChooseView timeChooseView:self];
+    [view showNowDate];
     // Do any additional setup after loading the view from its nib.
 
     self.parentViewController.navigationItem.title = Title;
@@ -74,6 +79,7 @@
     [_MM_MeetingName initializeButton];
     _MM_MeetingName.delegate = self;
     _MM_MeetingName.selector = @selector(MM_MeetingNameButton);
+    _MM_MeetingName.showDataArray = [[SBJsonResolveData shareMeeting] meetingNameList];
 
     [[SBJsonResolveData shareMeeting] setMeetingNameList:nil];
 //    _MM_MeetingName.downMenus = [SBJsonResolveData shareMeeting].meetingNameList;
@@ -118,7 +124,8 @@ enum{
 
     //选中框
     if (sender) {
-        _coverImage.center = sender.center;
+//        _coverImage.center = sender.center;
+        [StaticManager chooseCover:_coverImage MoveTo:sender.center];
     }
 
     UIView *temp = nil;
@@ -141,7 +148,15 @@ enum{
             temp = (UIView *)_groupManageView;
             break;
         case CNM_S:
-            temp = nil;
+        {
+            if (!_meetingManageView) {
+                NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"MeetingManagerView" owner:self options:nil];
+                _meetingManageView = (MeetingManagerView *)[nibs objectAtIndex:0];
+                _meetingManageView.superViewController = self;
+                
+            }
+        }
+            temp = (UIView *)_meetingManageView;
             break;
         default:
             break;
@@ -324,18 +339,18 @@ enum{
         [self.textKeyBoard resignFirstResponder];
         self.textKeyBoard = nil;
     }
-    [self hideMeetingTypeButton];
+//    [self hideMeetingTypeButton];
 }
-- (void)hideMeetingTypeButton
-{
-    if (!_meetingType.downScrollView.hidden) {
-        _meetingType.downScrollView.hidden = YES;
-    }
-}
+//- (void)hideMeetingTypeButton
+//{
+//    if (!_meetingType.downScrollView.hidden) {
+//        _meetingType.downScrollView.hidden = YES;
+//    }
+//}
 #pragma mark UITextField Delegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    [self hideMeetingTypeButton];
+//    [self hideMeetingTypeButton];
 
     NSLog(@"ShouldBeginEditing:%@",textField.text);
     self.textKeyBoard = textField;
@@ -360,7 +375,7 @@ enum{
 
 #pragma mark UITextView Delegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    [self hideMeetingTypeButton];
+//    [self hideMeetingTypeButton];
 
     self.textKeyBoard = textView;
 

@@ -15,5 +15,6 @@
 @property (strong,nonatomic) NSMutableArray *downMenus;
 @property (nonatomic) id delegate;
 @property (nonatomic) SEL selector;
+@property (strong,nonatomic) NSMutableArray *showDataArray;
 - (void)initializeButton;
 @end

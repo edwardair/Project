@@ -35,6 +35,23 @@
 #define Url_GetMeetingGroups(idStr) [NSString stringWithFormat:@"%@%@%@",HTTP,@"dbfz_findDbfz?dbfz.hyid=",idStr]
 //添加此会议一个分组
 #define Url_AddMeetingGroup [NSString stringWithFormat:@"%@%@",HTTP,@"dbfz_dbfzAdd"]
+//删除此会议一个分组
+#define Url_DeleteMeetingGroup [NSString stringWithFormat:@"%@%@",HTTP,@"dbfz_dbfzDelBatch"]
+//指定分组中获取分组成员
+#define Url_GetGroupMembers [NSString stringWithFormat:@"%@%@",HTTP,@"dbfzcy_findFzcyByFenzuId"]
+//指定分组中添加分组成员
+#define Url_AddGroupMember [NSString stringWithFormat:@"%@%@",HTTP,@"dbfzcy_fzcyAdd"]
+//指定分组中删除成员
+#define Url_DeleteGroupMember [NSString stringWithFormat:@"%@%@",HTTP,@"dbfzcy_fzcyDel"]
+
+//获取指定会议中所有议程
+#define Url_GetMeetingAllMeetings [NSString stringWithFormat:@"%@%@",HTTP,@"yc_findYclistByHyid"]
+//指定会议中添加 议程
+#define Url_AddMeetingOneAgenda [NSString stringWithFormat:@"%@%@",HTTP,@"yc_addYc"]
+//指定会议中 编辑指定议程 
+#define Url_ModifyMeetingAgenda [NSString stringWithFormat:@"%@%@",HTTP,@"yc_updateYc"]
+//指定会议中 删除指定议程
+#define Url_DeleteMeetingAgenda [NSString stringWithFormat:@"%@%@",HTTP,@"yc_deleteYc"]
 
 @interface UAndDLoad : NSObject
 +(NSData *)upLoad:(NSMutableDictionary *)params withURL:(NSString *)url;
@@ -60,4 +77,17 @@
                                  GroupCode:(NSString *)code
                                  GroupName:(NSString *)name
                                  GroupMark:(NSString *)mark;
++(NSData *)deletePointMeetingGroupWithId:(NSString *)idStr;
++(NSData *)getPointGroupMembersWithId:(NSString *)FenZuId;
++(NSData *)addPointGroupWithHyId:(NSString *)hyId
+                         groupId:(NSString *)groupId
+                        memberId:(NSString *)memberId;
++(NSData *)deletePointGroupMemberWithFZCYString:(NSString *)idStr;
++(NSData *)getPointMeetingAllMeetingsWithIndex:(NSString *)idStr;
++(NSData *)addPointMeetingOneAgendaWithHyID:(NSString *)idStr
+                                       YCXX:(NSString *)ycxx;
++(NSData *)modifyPointMeetingOneAgendaWithHyID:(NSString *)idStr
+                                       YCXX:(NSString *)ycxx;
++(NSData *)deletePointMeetingOneAgendaWithHyId:(NSString *)hyid
+                                      AgendaId:(NSString *)agendaid;
 @end
