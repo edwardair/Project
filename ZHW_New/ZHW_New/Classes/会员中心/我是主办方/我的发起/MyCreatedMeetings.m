@@ -8,6 +8,11 @@
 
 #import "MyCreatedMeetings.h"
 #import "CommonMethod.h"
+#import "SBJsonResolveData.h"
+@interface MyCreatedMeetings(){
+    CommonTableView *tableView;
+}
+@end
 @implementation MyCreatedMeetings
 +(id)initilaize{
     return [[[self class]alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)];
@@ -17,7 +22,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor yellowColor];
+        tableView = [[CommonTableView alloc]initWithFrame:CGRectMake(0, 0, 320, 500)];
+        [self addSubview:tableView];
+        tableView.commonTableViewDelegate = self;
+        tableView.cellTitle = @"MyCreatedMeetings";
+        
     }
     return self;
 }
@@ -30,5 +39,19 @@
     // Drawing code
 }
 */
-
+- (void)updateTableViewDataSource{
+//    for (<#initialization#>; <#condition#>; <#increment#>) {
+//        <#statements#>
+//    }
+}
+- (void)setCellLabelsFrams:(CommonTableViewCell *)cell{
+//    [cell setLabelsFrame:
+//     CGRectMake(190, 0, 50, 30),
+//     CGRectMake(90, 0, 50, 30),
+//     CGRectMake(140, 0, 50, 30),
+//     CGRectNull];
+}
+- (void)cellClickedAtIndexPath:(NSIndexPath *)path{
+    
+}
 @end

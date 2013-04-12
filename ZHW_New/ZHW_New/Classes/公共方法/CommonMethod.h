@@ -11,7 +11,7 @@
 @interface CommonMethod : NSObject
 CGRect applicationFrame();
 CGSize screenSize();
-
+NSString *writeEnable(NSString *text);
 //打印
 void NSLogFrame(CGRect frame);
 void NSLogCGPoint(CGPoint point);
@@ -21,5 +21,7 @@ void NSLogInt(int i);
 
 
 @interface TapResignKeyBoard : UITapGestureRecognizer
-
++(TapResignKeyBoard *)shareTapResignKeyBoard;
+- (void)addTarget:(id)target action:(SEL)action parentView:(id )view;
+- (void)removeGestureRecognizer;
 @end

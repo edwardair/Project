@@ -19,7 +19,10 @@ CGSize screenSize(){
     CGSize size = [[UIScreen mainScreen] bounds].size;
     return size;
 }
-
+//检测NSString是否为空 空返回空字符串
+NSString *writeEnable(NSString *text){
+    return (text&&![text isEqual:[NSNull null]])?text:@"";
+}
 #pragma mark  NSLog 
 void NSLogFrame(CGRect frame){
     NSLog(@"%f,%f,%f,%f",frame.origin.x,frame.origin.y,frame.size.width,frame.size.height);
@@ -42,38 +45,39 @@ static TapResignKeyBoard *tapResignKeyBoard = nil;
 @interface TapResignKeyBoard()
 @property (strong,nonatomic) id target;
 @property (nonatomic) SEL selector;
+@property (strong,nonatomic) id parentView;
 
 @end
 @implementation TapResignKeyBoard
 +(TapResignKeyBoard *)shareTapResignKeyBoard{
     if (!tapResignKeyBoard) {
         tapResignKeyBoard = [[TapResignKeyBoard alloc]init];
+        [tapResignKeyBoard addTarget:tapResignKeyBoard action:@selector(removeGestureRecognizer)];
     }
     return tapResignKeyBoard;
 }
-- (void)addTarget:(id)target action:(SEL)action{
-    if (target) {
-        [self removeTarget:_target action:_selector];
+- (void)addTarget:(id)target action:(SEL)action parentView:(id )view{
+    if (_parentView) {
+        [_parentView removeGestureRecognizer:self];
     }
+    [view addGestureRecognizer:self];
+    
+    _parentView = view;
     _target = target;
     _selector = action;
     
-    [super addTarget:self action:@selector(defaultAction)];
 }
-- (void)defaultAction{
+- (void)removeGestureRecognizer{
+    
+    [_parentView removeGestureRecognizer:self];
+    _parentView = nil;
+    
     [StaticManager resignParentView];
     if ([_target respondsToSelector:_selector]) {
         [_target performSelector:_selector];
     }
+    
 }
-//+ (UITapGestureRecognizer *)createATapGestureWithTarget:(id )target
-//                                                 action:(SEL)selector
-//                                                 parent:(UIView *)view{
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:target action:selector];
-//    
-//    [view addGestureRecognizer:tap];
-//    return tap;
-//}
 
 @end
 

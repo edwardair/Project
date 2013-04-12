@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonTableView.h"
 
-@interface MyCreatedMeetings : UIView
+@interface MyCreatedMeetings : UIView<UITableViewDelegate,UITableViewDataSource,CommonTableViewDelegate>
 +(id)initilaize;
 @end

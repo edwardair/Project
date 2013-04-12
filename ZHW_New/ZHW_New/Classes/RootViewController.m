@@ -179,7 +179,7 @@
         _memberCenterMenu.delegate = self;
         _memberCenterMenu.dataSource = self;
         
-        NSMutableDictionary *dic = self.menuDataSource;
+        _menuDataSource = self.menuDataSource;
         [_memberCenterMenu reloadData];
         
     }
@@ -349,7 +349,7 @@
     MemberMenuClickCell *cell = (MemberMenuClickCell *)[tableView dequeueReusableCellWithIdentifier:title];
     if (!cell) {
         cell =  [[MemberMenuClickCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
-        cell.userInteractionEnabled = YES;
+//        cell.userInteractionEnabled = YES;
     }
     NSString *key = [self getCellTitleWithIndexOfGroup:indexPath.section];
     NSLogString(key);

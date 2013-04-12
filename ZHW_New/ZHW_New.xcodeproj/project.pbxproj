@@ -65,6 +65,38 @@
 		F1B4BEA81717918E001E314E /* TimeChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B4BE8D1717918E001E314E /* TimeChooseView.m */; };
 		F1B4BEA91717918E001E314E /* UAndDLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B4BE8F1717918E001E314E /* UAndDLoad.m */; };
 		F1B4BEAC171794C5001E314E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B4BEAB171794C5001E314E /* QuartzCore.framework */; };
+		F1FD47991717CD24004FAF95 /* AddAgendaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47901717CD24004FAF95 /* AddAgendaViewController.xib */; };
+		F1FD479A1717CD24004FAF95 /* AddGroupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47911717CD24004FAF95 /* AddGroupController.xib */; };
+		F1FD479B1717CD24004FAF95 /* AgendaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47921717CD24004FAF95 /* AgendaCell.xib */; };
+		F1FD479C1717CD24004FAF95 /* CellPushedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47931717CD24004FAF95 /* CellPushedViewController.xib */; };
+		F1FD479D1717CD24004FAF95 /* CreateNewMeetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47941717CD24004FAF95 /* CreateNewMeetingViewController.xib */; };
+		F1FD479E1717CD24004FAF95 /* GroupManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47951717CD24004FAF95 /* GroupManagerView.xib */; };
+		F1FD479F1717CD24004FAF95 /* MeetingManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47961717CD24004FAF95 /* MeetingManagerView.xib */; };
+		F1FD47A01717CD24004FAF95 /* ModifyPointGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47971717CD24004FAF95 /* ModifyPointGroupViewController.xib */; };
+		F1FD47A11717CD24004FAF95 /* OneMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47981717CD24004FAF95 /* OneMemberCell.xib */; };
+		F1FD47B81717CD42004FAF95 /* AddAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47A31717CD42004FAF95 /* AddAgendaViewController.m */; };
+		F1FD47B91717CD42004FAF95 /* AddGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47A51717CD42004FAF95 /* AddGroupController.m */; };
+		F1FD47BA1717CD42004FAF95 /* AddGroupMembersView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47A71717CD42004FAF95 /* AddGroupMembersView.m */; };
+		F1FD47BB1717CD42004FAF95 /* AgendaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47A91717CD42004FAF95 /* AgendaCell.m */; };
+		F1FD47BC1717CD42004FAF95 /* CellPushedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47AB1717CD42004FAF95 /* CellPushedViewController.m */; };
+		F1FD47BD1717CD42004FAF95 /* CreateNewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47AD1717CD42004FAF95 /* CreateNewMeetingViewController.m */; };
+		F1FD47BE1717CD42004FAF95 /* GroupManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47AF1717CD42004FAF95 /* GroupManagerView.m */; };
+		F1FD47BF1717CD42004FAF95 /* MeetingManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47B11717CD42004FAF95 /* MeetingManagerView.m */; };
+		F1FD47C01717CD42004FAF95 /* MeetingMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47B31717CD42004FAF95 /* MeetingMemberCell.m */; };
+		F1FD47C21717CD42004FAF95 /* OneMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47B71717CD42004FAF95 /* OneMemberCell.m */; };
+		F1FD47D21717CE68004FAF95 /* ALPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47C51717CE68004FAF95 /* ALPickerView.m */; };
+		F1FD47D31717CE68004FAF95 /* ALPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47C71717CE68004FAF95 /* ALPickerViewCell.m */; };
+		F1FD47D41717CE68004FAF95 /* CYCustomMultiSelectPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47C91717CE68004FAF95 /* CYCustomMultiSelectPickerView.m */; };
+		F1FD47D51717CE68004FAF95 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47CB1717CE68004FAF95 /* check@2x.png */; };
+		F1FD47D61717CE68004FAF95 /* check_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47CC1717CE68004FAF95 /* check_selected@2x.png */; };
+		F1FD47D71717CE68004FAF95 /* frame_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47CD1717CE68004FAF95 /* frame_left@2x.png */; };
+		F1FD47D81717CE68004FAF95 /* frame_middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47CE1717CE68004FAF95 /* frame_middle@2x.png */; };
+		F1FD47D91717CE68004FAF95 /* frame_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47CF1717CE68004FAF95 /* frame_right@2x.png */; };
+		F1FD47DA1717CE68004FAF95 /* wheel_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47D01717CE68004FAF95 /* wheel_bg@2x.png */; };
+		F1FD47DB1717CE68004FAF95 /* wheel_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47D11717CE68004FAF95 /* wheel_shadow@2x.png */; };
+		F1FD47DD1717CEFF004FAF95 /* ModifyPointGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47DC1717CEFF004FAF95 /* ModifyPointGroupViewController.m */; };
+		F1FD47E01717CFC3004FAF95 /* CommonTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47DF1717CFC2004FAF95 /* CommonTableView.m */; };
+		F1FD47E31717D5D7004FAF95 /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FD47E21717D5D7004FAF95 /* CommonTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +195,55 @@
 		F1B4BE8E1717918E001E314E /* UAndDLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAndDLoad.h; sourceTree = "<group>"; };
 		F1B4BE8F1717918E001E314E /* UAndDLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAndDLoad.m; sourceTree = "<group>"; };
 		F1B4BEAB171794C5001E314E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F1FD47901717CD24004FAF95 /* AddAgendaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAgendaViewController.xib; sourceTree = "<group>"; };
+		F1FD47911717CD24004FAF95 /* AddGroupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGroupController.xib; sourceTree = "<group>"; };
+		F1FD47921717CD24004FAF95 /* AgendaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaCell.xib; sourceTree = "<group>"; };
+		F1FD47931717CD24004FAF95 /* CellPushedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellPushedViewController.xib; sourceTree = "<group>"; };
+		F1FD47941717CD24004FAF95 /* CreateNewMeetingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewMeetingViewController.xib; sourceTree = "<group>"; };
+		F1FD47951717CD24004FAF95 /* GroupManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupManagerView.xib; sourceTree = "<group>"; };
+		F1FD47961717CD24004FAF95 /* MeetingManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingManagerView.xib; sourceTree = "<group>"; };
+		F1FD47971717CD24004FAF95 /* ModifyPointGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPointGroupViewController.xib; sourceTree = "<group>"; };
+		F1FD47981717CD24004FAF95 /* OneMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneMemberCell.xib; sourceTree = "<group>"; };
+		F1FD47A21717CD42004FAF95 /* AddAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAgendaViewController.h; sourceTree = "<group>"; };
+		F1FD47A31717CD42004FAF95 /* AddAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAgendaViewController.m; sourceTree = "<group>"; };
+		F1FD47A41717CD42004FAF95 /* AddGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupController.h; sourceTree = "<group>"; };
+		F1FD47A51717CD42004FAF95 /* AddGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupController.m; sourceTree = "<group>"; };
+		F1FD47A61717CD42004FAF95 /* AddGroupMembersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupMembersView.h; sourceTree = "<group>"; };
+		F1FD47A71717CD42004FAF95 /* AddGroupMembersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupMembersView.m; sourceTree = "<group>"; };
+		F1FD47A81717CD42004FAF95 /* AgendaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgendaCell.h; sourceTree = "<group>"; };
+		F1FD47A91717CD42004FAF95 /* AgendaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgendaCell.m; sourceTree = "<group>"; };
+		F1FD47AA1717CD42004FAF95 /* CellPushedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPushedViewController.h; sourceTree = "<group>"; };
+		F1FD47AB1717CD42004FAF95 /* CellPushedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPushedViewController.m; sourceTree = "<group>"; };
+		F1FD47AC1717CD42004FAF95 /* CreateNewMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateNewMeetingViewController.h; sourceTree = "<group>"; };
+		F1FD47AD1717CD42004FAF95 /* CreateNewMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewMeetingViewController.m; sourceTree = "<group>"; };
+		F1FD47AE1717CD42004FAF95 /* GroupManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupManagerView.h; sourceTree = "<group>"; };
+		F1FD47AF1717CD42004FAF95 /* GroupManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupManagerView.m; sourceTree = "<group>"; };
+		F1FD47B01717CD42004FAF95 /* MeetingManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingManagerView.h; sourceTree = "<group>"; };
+		F1FD47B11717CD42004FAF95 /* MeetingManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingManagerView.m; sourceTree = "<group>"; };
+		F1FD47B21717CD42004FAF95 /* MeetingMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingMemberCell.h; sourceTree = "<group>"; };
+		F1FD47B31717CD42004FAF95 /* MeetingMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingMemberCell.m; sourceTree = "<group>"; };
+		F1FD47B41717CD42004FAF95 /* ModifyPointGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPointGroupViewController.h; sourceTree = "<group>"; };
+		F1FD47B61717CD42004FAF95 /* OneMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneMemberCell.h; sourceTree = "<group>"; };
+		F1FD47B71717CD42004FAF95 /* OneMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneMemberCell.m; sourceTree = "<group>"; };
+		F1FD47C41717CE68004FAF95 /* ALPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerView.h; sourceTree = "<group>"; };
+		F1FD47C51717CE68004FAF95 /* ALPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerView.m; sourceTree = "<group>"; };
+		F1FD47C61717CE68004FAF95 /* ALPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerViewCell.h; sourceTree = "<group>"; };
+		F1FD47C71717CE68004FAF95 /* ALPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerViewCell.m; sourceTree = "<group>"; };
+		F1FD47C81717CE68004FAF95 /* CYCustomMultiSelectPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCustomMultiSelectPickerView.h; sourceTree = "<group>"; };
+		F1FD47C91717CE68004FAF95 /* CYCustomMultiSelectPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCustomMultiSelectPickerView.m; sourceTree = "<group>"; };
+		F1FD47CB1717CE68004FAF95 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		F1FD47CC1717CE68004FAF95 /* check_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_selected@2x.png"; sourceTree = "<group>"; };
+		F1FD47CD1717CE68004FAF95 /* frame_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_left@2x.png"; sourceTree = "<group>"; };
+		F1FD47CE1717CE68004FAF95 /* frame_middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_middle@2x.png"; sourceTree = "<group>"; };
+		F1FD47CF1717CE68004FAF95 /* frame_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame_right@2x.png"; sourceTree = "<group>"; };
+		F1FD47D01717CE68004FAF95 /* wheel_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_bg@2x.png"; sourceTree = "<group>"; };
+		F1FD47D11717CE68004FAF95 /* wheel_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel_shadow@2x.png"; sourceTree = "<group>"; };
+		F1FD47DC1717CEFF004FAF95 /* ModifyPointGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPointGroupViewController.m; sourceTree = "<group>"; };
+		F1FD47DE1717CFC2004FAF95 /* CommonTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableView.h; sourceTree = "<group>"; };
+		F1FD47DF1717CFC2004FAF95 /* CommonTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableView.m; sourceTree = "<group>"; };
+		F1FD47E11717D5D7004FAF95 /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCell.h; sourceTree = "<group>"; };
+		F1FD47E21717D5D7004FAF95 /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCell.m; sourceTree = "<group>"; };
+		F1FD47EB17180B3B004FAF95 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,8 +339,31 @@
 		F13329551716A9ED0042303A /* 我的发起 */ = {
 			isa = PBXGroup;
 			children = (
+				F1FD478F1717CD24004FAF95 /* Xib */,
 				F13329591716ABE40042303A /* MyCreatedMeetings.h */,
 				F133295A1716ABE40042303A /* MyCreatedMeetings.m */,
+				F1FD47AC1717CD42004FAF95 /* CreateNewMeetingViewController.h */,
+				F1FD47AD1717CD42004FAF95 /* CreateNewMeetingViewController.m */,
+				F1FD47A21717CD42004FAF95 /* AddAgendaViewController.h */,
+				F1FD47A31717CD42004FAF95 /* AddAgendaViewController.m */,
+				F1FD47A81717CD42004FAF95 /* AgendaCell.h */,
+				F1FD47A91717CD42004FAF95 /* AgendaCell.m */,
+				F1FD47A41717CD42004FAF95 /* AddGroupController.h */,
+				F1FD47A51717CD42004FAF95 /* AddGroupController.m */,
+				F1FD47A61717CD42004FAF95 /* AddGroupMembersView.h */,
+				F1FD47A71717CD42004FAF95 /* AddGroupMembersView.m */,
+				F1FD47AA1717CD42004FAF95 /* CellPushedViewController.h */,
+				F1FD47AB1717CD42004FAF95 /* CellPushedViewController.m */,
+				F1FD47AE1717CD42004FAF95 /* GroupManagerView.h */,
+				F1FD47AF1717CD42004FAF95 /* GroupManagerView.m */,
+				F1FD47B01717CD42004FAF95 /* MeetingManagerView.h */,
+				F1FD47B11717CD42004FAF95 /* MeetingManagerView.m */,
+				F1FD47B21717CD42004FAF95 /* MeetingMemberCell.h */,
+				F1FD47B31717CD42004FAF95 /* MeetingMemberCell.m */,
+				F1FD47B41717CD42004FAF95 /* ModifyPointGroupViewController.h */,
+				F1FD47DC1717CEFF004FAF95 /* ModifyPointGroupViewController.m */,
+				F1FD47B61717CD42004FAF95 /* OneMemberCell.h */,
+				F1FD47B71717CD42004FAF95 /* OneMemberCell.m */,
 			);
 			path = "我的发起";
 			sourceTree = "<group>";
@@ -422,6 +526,8 @@
 		F15CCDC5171561FE000EDDCD /* 公共方法 */ = {
 			isa = PBXGroup;
 			children = (
+				F1FD47EB17180B3B004FAF95 /* Define.h */,
+				F1FD47C31717CE68004FAF95 /* Muti_Picker */,
 				F1B4BE611717918E001E314E /* AlertShow */,
 				F1B4BE6C1717918E001E314E /* SBJson */,
 				F1B4BE861717918E001E314E /* SBJsonResolveData.h */,
@@ -436,6 +542,10 @@
 				F1B4BE8D1717918E001E314E /* TimeChooseView.m */,
 				F15CCDC617156239000EDDCD /* CommonMethod.h */,
 				F15CCDC717156239000EDDCD /* CommonMethod.m */,
+				F1FD47DE1717CFC2004FAF95 /* CommonTableView.h */,
+				F1FD47DF1717CFC2004FAF95 /* CommonTableView.m */,
+				F1FD47E11717D5D7004FAF95 /* CommonTableViewCell.h */,
+				F1FD47E21717D5D7004FAF95 /* CommonTableViewCell.m */,
 			);
 			path = "公共方法";
 			sourceTree = "<group>";
@@ -487,6 +597,50 @@
 				F1B4BE851717918E001E314E /* SBJsonWriter.m */,
 			);
 			path = SBJson;
+			sourceTree = "<group>";
+		};
+		F1FD478F1717CD24004FAF95 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD47901717CD24004FAF95 /* AddAgendaViewController.xib */,
+				F1FD47911717CD24004FAF95 /* AddGroupController.xib */,
+				F1FD47921717CD24004FAF95 /* AgendaCell.xib */,
+				F1FD47931717CD24004FAF95 /* CellPushedViewController.xib */,
+				F1FD47941717CD24004FAF95 /* CreateNewMeetingViewController.xib */,
+				F1FD47951717CD24004FAF95 /* GroupManagerView.xib */,
+				F1FD47961717CD24004FAF95 /* MeetingManagerView.xib */,
+				F1FD47971717CD24004FAF95 /* ModifyPointGroupViewController.xib */,
+				F1FD47981717CD24004FAF95 /* OneMemberCell.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		F1FD47C31717CE68004FAF95 /* Muti_Picker */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD47C41717CE68004FAF95 /* ALPickerView.h */,
+				F1FD47C51717CE68004FAF95 /* ALPickerView.m */,
+				F1FD47C61717CE68004FAF95 /* ALPickerViewCell.h */,
+				F1FD47C71717CE68004FAF95 /* ALPickerViewCell.m */,
+				F1FD47C81717CE68004FAF95 /* CYCustomMultiSelectPickerView.h */,
+				F1FD47C91717CE68004FAF95 /* CYCustomMultiSelectPickerView.m */,
+				F1FD47CA1717CE68004FAF95 /* PickerResources */,
+			);
+			path = Muti_Picker;
+			sourceTree = "<group>";
+		};
+		F1FD47CA1717CE68004FAF95 /* PickerResources */ = {
+			isa = PBXGroup;
+			children = (
+				F1FD47CB1717CE68004FAF95 /* check@2x.png */,
+				F1FD47CC1717CE68004FAF95 /* check_selected@2x.png */,
+				F1FD47CD1717CE68004FAF95 /* frame_left@2x.png */,
+				F1FD47CE1717CE68004FAF95 /* frame_middle@2x.png */,
+				F1FD47CF1717CE68004FAF95 /* frame_right@2x.png */,
+				F1FD47D01717CE68004FAF95 /* wheel_bg@2x.png */,
+				F1FD47D11717CE68004FAF95 /* wheel_shadow@2x.png */,
+			);
+			path = PickerResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,6 +714,22 @@
 				F1B4BE951717918E001E314E /* MLTableAlertButtonPressed@2x.png in Resources */,
 				F1B4BE961717918E001E314E /* MLTableAlertShadowMask.png in Resources */,
 				F1B4BE971717918E001E314E /* MLTableAlertShadowMask@2x.png in Resources */,
+				F1FD47991717CD24004FAF95 /* AddAgendaViewController.xib in Resources */,
+				F1FD479A1717CD24004FAF95 /* AddGroupController.xib in Resources */,
+				F1FD479B1717CD24004FAF95 /* AgendaCell.xib in Resources */,
+				F1FD479C1717CD24004FAF95 /* CellPushedViewController.xib in Resources */,
+				F1FD479D1717CD24004FAF95 /* CreateNewMeetingViewController.xib in Resources */,
+				F1FD479E1717CD24004FAF95 /* GroupManagerView.xib in Resources */,
+				F1FD479F1717CD24004FAF95 /* MeetingManagerView.xib in Resources */,
+				F1FD47A01717CD24004FAF95 /* ModifyPointGroupViewController.xib in Resources */,
+				F1FD47A11717CD24004FAF95 /* OneMemberCell.xib in Resources */,
+				F1FD47D51717CE68004FAF95 /* check@2x.png in Resources */,
+				F1FD47D61717CE68004FAF95 /* check_selected@2x.png in Resources */,
+				F1FD47D71717CE68004FAF95 /* frame_left@2x.png in Resources */,
+				F1FD47D81717CE68004FAF95 /* frame_middle@2x.png in Resources */,
+				F1FD47D91717CE68004FAF95 /* frame_right@2x.png in Resources */,
+				F1FD47DA1717CE68004FAF95 /* wheel_bg@2x.png in Resources */,
+				F1FD47DB1717CE68004FAF95 /* wheel_shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +774,22 @@
 				F1B4BEA71717918E001E314E /* StaticManager.m in Sources */,
 				F1B4BEA81717918E001E314E /* TimeChooseView.m in Sources */,
 				F1B4BEA91717918E001E314E /* UAndDLoad.m in Sources */,
+				F1FD47B81717CD42004FAF95 /* AddAgendaViewController.m in Sources */,
+				F1FD47B91717CD42004FAF95 /* AddGroupController.m in Sources */,
+				F1FD47BA1717CD42004FAF95 /* AddGroupMembersView.m in Sources */,
+				F1FD47BB1717CD42004FAF95 /* AgendaCell.m in Sources */,
+				F1FD47BC1717CD42004FAF95 /* CellPushedViewController.m in Sources */,
+				F1FD47BD1717CD42004FAF95 /* CreateNewMeetingViewController.m in Sources */,
+				F1FD47BE1717CD42004FAF95 /* GroupManagerView.m in Sources */,
+				F1FD47BF1717CD42004FAF95 /* MeetingManagerView.m in Sources */,
+				F1FD47C01717CD42004FAF95 /* MeetingMemberCell.m in Sources */,
+				F1FD47C21717CD42004FAF95 /* OneMemberCell.m in Sources */,
+				F1FD47D21717CE68004FAF95 /* ALPickerView.m in Sources */,
+				F1FD47D31717CE68004FAF95 /* ALPickerViewCell.m in Sources */,
+				F1FD47D41717CE68004FAF95 /* CYCustomMultiSelectPickerView.m in Sources */,
+				F1FD47DD1717CEFF004FAF95 /* ModifyPointGroupViewController.m in Sources */,
+				F1FD47E01717CFC3004FAF95 /* CommonTableView.m in Sources */,
+				F1FD47E31717D5D7004FAF95 /* CommonTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

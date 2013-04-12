@@ -89,7 +89,7 @@
     NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingList];
     return data;
 }
-+ (NSData *)updateThisMeetingMembers:(int )idIndex{
++ (NSData *)updateThisMeetingMembers:(NSString *)idIndex{
     NSData *data = [UAndDLoad downLoadWithUrl:Url_GetMeetingMembers(idIndex)];
 
     return data;

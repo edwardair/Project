@@ -27,7 +27,7 @@
 //获取所有会议名称
 #define Url_GetMeetingList [NSString stringWithFormat:@"%@%@",HTTP,@"sms_resetSms"]
 //获取此会议所有成员
-#define Url_GetMeetingMembers(id) 	[NSString stringWithFormat:@"%@%@%d",HTTP,@"chdb_findChdbByHyId?chdb.hyid=",id]
+#define Url_GetMeetingMembers(id) 	[NSString stringWithFormat:@"%@%@%@",HTTP,@"chdb_findChdbByHyId?chdb.hyid=",id]
 //删除此会议中的成员
 #define Url_DeleteMeetingMember [NSString stringWithFormat:@"%@%@",HTTP,@"chdb_chdbDelById.action"]
 //修改此会议中的成员
@@ -64,7 +64,7 @@
 
 +(NSData *)logInWithAccount:(NSString *)a secret:(NSString *)s;
 +(NSData *)updateAllMeetingNames;
-+ (NSData *)updateThisMeetingMembers:(int )index;
++ (NSData *)updateThisMeetingMembers:(NSString *)index;
 + (void)deleteMemberWithId:(NSString *)idStr;
 + (void)addMemberWithHyid:(NSString *)idStr
                      Name:(NSString *)name

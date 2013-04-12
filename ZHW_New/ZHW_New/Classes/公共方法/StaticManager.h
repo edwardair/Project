@@ -17,8 +17,5 @@
 + (void)chooseCover:(UIImageView *)cover MoveTo:(CGPoint )center;
 +(void)TextInputAnimationWithParentView:(UIView *)view textView:(UIView *)textView;
 +(void)resignParentView;
-+ (UITapGestureRecognizer *)createATapGestureWithTarget:(id )target
-                                                 action:(SEL)selector
-                                                 parent:(UIView *)view;
 
 @end

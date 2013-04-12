@@ -30,7 +30,7 @@
 
 @interface SBJsonResolveData : NSObject
 @property (strong,nonatomic) NSMutableArray *meetingNameList;
-@property (strong,nonatomic) NSMutableArray *meetingId;
+//@property (strong,nonatomic) NSMutableArray *meetingId;
 
 @property (strong,nonatomic) NSMutableArray *thisMeetingMembers;
 
