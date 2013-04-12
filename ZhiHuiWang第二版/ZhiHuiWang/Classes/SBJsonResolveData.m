@@ -83,7 +83,8 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSMutableDictionary *dic = [jsonObject objectWithString:str];
     
     NSArray *listDic = [dic objectForKey:@"hylist"];
-    
+    NSLog(@"%@",listDic);
+
     for (NSDictionary *objDic in listDic) {
         NSString *meetingName = [objDic objectForKey:@"hyname"];
         NSNumber *meetingId = [NSNumber numberWithInt:[[objDic objectForKey:@"id"] intValue]];
