@@ -19,9 +19,10 @@ CGSize screenSize(){
     CGSize size = [[UIScreen mainScreen] bounds].size;
     return size;
 }
-//检测NSString是否为空 空返回空字符串
+//检测NSString是否为空 如果空返回空字符串
 NSString *writeEnable(NSString *text){
-    return (text&&![text isEqual:[NSNull null]])?text:@"";
+    NSString *s = [text isKindOfClass:[NSNumber class]]?[NSString stringWithFormat:@"%@",text]:text;
+    return (s&&![s isEqualToString:@"<null>"])?s:@"";
 }
 #pragma mark  NSLog 
 void NSLogFrame(CGRect frame){

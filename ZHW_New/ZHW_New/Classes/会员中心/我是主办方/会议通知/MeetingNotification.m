@@ -10,7 +10,7 @@
 #import "CommonMethod.h"
 @implementation MeetingNotification
 +(id)initilaize{
-    return [[[self class]alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)];
+    return [[[[self class]alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)] autorelease];
 }
 
 - (id)initWithFrame:(CGRect)frame

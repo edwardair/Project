@@ -8,11 +8,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ZHW_New/Classes/&#20844;&#20849;&#26041;&#27861;/CommonTableView.m"
-         timestampString = "387451085.87284"
+         timestampString = "387683049.46611"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "107"
-         endingLineNumber = "107"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "-dealloc"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ZHW_New/Classes/&#20250;&#21592;&#20013;&#24515;/&#25105;&#26159;&#20027;&#21150;&#26041;/&#25105;&#30340;&#21457;&#36215;/MyCreatedMeetings.m"
+         timestampString = "387702619.545294"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>

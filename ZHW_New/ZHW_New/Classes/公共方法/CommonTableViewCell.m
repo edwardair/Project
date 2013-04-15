@@ -20,6 +20,7 @@
     if (self) {
         // Initialization code
         nextTag = 1;
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     return self;
 }
@@ -32,15 +33,22 @@
 }
 
 
-- (void)addLabelsWithMutableArray:(NSMutableArray *)array{
+- (BOOL )addLabelsWithMutableArray:(NSMutableArray *)array{
+    BOOL resetFrame = NO;
     for (int i = 0; i < array.count; i++) {
-        UILabel *label = [[UILabel alloc]init];
-        [self addSubview:label];
+        UILabel *label = (UILabel *)[self viewWithTag:i+1];
+        if (!label) {
+            resetFrame = YES;
+            label = [[UILabel alloc]init];
+            [self addSubview:label];
+            label.tag = i+1;
+            [label setTextColor:[UIColor blackColor]];
+            label.textAlignment = UITextAlignmentLeft;
+            [label release];
+        }
         label.text = writeEnable(array[i]);
-        label.tag = i+1;
-        [label setTextColor:[UIColor blackColor]];
-        label.textAlignment = UITextAlignmentCenter;
     }
+    return resetFrame;
 }
 
 

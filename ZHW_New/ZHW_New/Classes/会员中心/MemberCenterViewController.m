@@ -92,6 +92,10 @@
             _curPresentView = nil;
         }
         [self.view addSubview:tempView];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"superView" object:nil];
+        if (tempView.superview) {
+            NSLog(@"yes");
+        }
         self.curPresentView = tempView;
         self.parentViewController.navigationItem.leftBarButtonItem.title = title;    
     }

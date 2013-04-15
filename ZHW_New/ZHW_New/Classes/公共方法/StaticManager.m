@@ -7,6 +7,7 @@
 //
 
 #import "StaticManager.h"
+#import "CommonMethod.h"    
 static UIView *parentView;
 static float parentViewCenterY;
 #define KeyBoardHeight 300.0
@@ -29,12 +30,17 @@ static float parentViewCenterY;
 }
 #pragma mark 点击TextField TextView时 是屏幕内容自适应键盘高度
 +(void)TextInputAnimationWithParentView:(UIView *)view textView:(UIView *)textView{
-    parentView = view;
-    parentViewCenterY = view.center.y;
     
     float textCenterY = textView.center.y;
     float textWillCenterY = KeyBoardHeight+textView.frame.size.height/2;
     float sub = textWillCenterY-textCenterY;
+    
+    if (sub<0) {
+        parentView = view;
+        parentViewCenterY = view.center.y;
+    }else
+        return;
+
     
     [UIView beginAnimations:@"MoveUp" context:nil];
     [UIView setAnimationDuration:.2f];
@@ -45,14 +51,37 @@ static float parentViewCenterY;
 }
 #pragma mark 注销键盘时 是屏幕内容返回初始位置
 +(void)resignParentView{
-    [UIView beginAnimations:@"MoveDown" context:nil];
-    [UIView setAnimationDuration:.2f];
     if (parentView) {
+        [UIView beginAnimations:@"MoveDown" context:nil];
+        [UIView setAnimationDuration:.2f];
         NSLog(@"下移 ");
         parentView.transform = CGAffineTransformMakeTranslation(0, parentViewCenterY-parentView.center.y);
+        [UIView commitAnimations];
+        parentView = nil;
     }
-    [UIView commitAnimations];
 }
 
-
+#pragma mark  通过UIView 获取此View的superView的UIViewController
+UIViewController *UIViewControllerOfSuperView(UIView *view){
+    if (view.superview) {
+        NSLog(@"yes");
+    }
+    for (UIView* next = [view superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
+}
+#pragma mark 处理时间格式 2012-12-12T00：00：00  将“T”替换为“ ”
++ (NSString *)formateTimeString:(NSString *)s{
+    s = writeEnable(s);
+    if (![s isEqualToString:@""]) {
+        NSMutableString *m_Start = [NSMutableString stringWithString:s];
+        [m_Start replaceCharactersInRange:[m_Start rangeOfString:@"T"] withString:@" "];
+        return (NSString *)m_Start;
+    }else
+        return s;
+}
 @end

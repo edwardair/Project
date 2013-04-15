@@ -178,7 +178,7 @@
         _memberCenterMenu = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height) style:UITableViewStylePlain];
         _memberCenterMenu.delegate = self;
         _memberCenterMenu.dataSource = self;
-        
+        _memberCenterMenu.backgroundColor = [UIColor lightGrayColor];
         _menuDataSource = self.menuDataSource;
         [_memberCenterMenu reloadData];
         
@@ -213,6 +213,7 @@
     [scrollView addSubview:c.rootNavigationController.view];
     
     c.rootNavigationController.view.transform = CGAffineTransformMakeTranslation(applicationFrame().size.width*2.0/4, 0);
+    c.rootNavigationController.view.opaque = YES;
         
     [c.view addSubview:c.memberCenterMenu];
     [c.view sendSubviewToBack:c.memberCenterMenu];

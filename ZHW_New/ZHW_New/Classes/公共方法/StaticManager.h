@@ -17,5 +17,6 @@
 + (void)chooseCover:(UIImageView *)cover MoveTo:(CGPoint )center;
 +(void)TextInputAnimationWithParentView:(UIView *)view textView:(UIView *)textView;
 +(void)resignParentView;
-
+UIViewController *UIViewControllerOfSuperView(UIView *view);
++ (NSString *)formateTimeString:(NSString *)s;
 @end

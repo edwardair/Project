@@ -86,10 +86,19 @@
     
     [self setTitle:@"--请选择--" forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+//    [self set]
     [self setBackgroundColor:[UIColor grayColor]];
     
     [self addTarget:self action:@selector(superButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 
+    
+    UIImage *daoSanJiao = [UIImage imageNamed:@"DaoSanJiao.png"];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:daoSanJiao];
+    [imageView setFrame:CGRectMake(self.frame.size.width-daoSanJiao.size.width, (self.frame.size.height-daoSanJiao.size.height)/2, daoSanJiao.size.width, daoSanJiao.size.height)];
+    [imageView setUserInteractionEnabled:NO];
+    [self addSubview:imageView];
+    [self bringSubviewToFront:imageView];
+    [imageView release];
 }
 
 //UIButton 点击方法
@@ -100,7 +109,7 @@
     // create the alert
 	TableAlert *alert = [TableAlert tableAlertWithTitle:@"选择会议" cancelButtonTitle:@"取消" numberOfRows:^NSInteger (NSInteger section)
                          {
-                             NSLog(@"%d",_showDataArray.count);
+//                             NSLog(@"%d",_showDataArray.count);
                              return _showDataArray.count;
                          }
                                                andCells:^UITableViewCell* (TableAlert *anAlert, NSIndexPath *indexPath)
@@ -110,7 +119,7 @@
                              if (cell == nil)
                                  cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                              
-                             cell.textLabel.text = [_showDataArray objectAtIndex:indexPath.row];
+                             cell.textLabel.text = [_showDataArray objectAtIndex:indexPath.row][1];
                              
                              return cell;
                          }];

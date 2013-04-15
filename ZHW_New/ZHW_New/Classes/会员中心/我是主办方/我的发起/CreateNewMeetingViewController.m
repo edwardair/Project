@@ -15,7 +15,7 @@
 #import "GroupManagerView.h"
 #import "MeetingManagerView.h"
 #import "TimeChooseView.h"
-
+#import "CommonMethod.h"
 //#define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
@@ -56,9 +56,12 @@
     _meetingTheme.editable = YES;
     _meetingRequriements.editable = YES;
 
-    _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, _bottomScrollView.contentSize.height+700);
+    CGRect frame = _bottomScrollView.frame;
+    frame.origin.y = 15;
+    frame.size.height = applicationFrame().size.height-15;
+    _bottomScrollView.frame = frame;
 
-    _bottomScrollView.delegate = self;
+//    _bottomScrollView.delegate = self;
 
     [_meetingType initializeButton];
     [[SBJsonResolveData shareMeeting] setMeetingNameList:nil];
@@ -134,9 +137,14 @@ enum{
     switch (sender.tag) {
         case CNM_C:
             temp = _createNewMeetingView;
+            self.navigationItem.title = @"新建会议";
+            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 630);
             break;
         case CNM_M:
             temp = _memberManageView;
+            self.navigationItem.title = @"人员管理";
+            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 0);
+
             break;
         case CNM_G:
         {
@@ -148,6 +156,9 @@ enum{
             }
         }
             temp = (UIView *)_groupManageView;
+            self.navigationItem.title = @"群组管理";
+            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 0);
+
             break;
         case CNM_S:
         {
@@ -159,6 +170,8 @@ enum{
             }
         }
             temp = (UIView *)_meetingManageView;
+            self.navigationItem.title = @"议程管理";
+            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 0);
             break;
         default:
             break;
@@ -171,7 +184,7 @@ enum{
             }
         }else{
             [_bottomScrollView addSubview:temp];
-            [temp setTransform:CGAffineTransformMakeTranslation(0, 65)];
+//            [temp setTransform:CGAffineTransformMakeTranslation(0, 0)];
         }
         if (curPresentUIView && ![curPresentUIView isEqual:temp]) {
             curPresentUIView.hidden = YES;
@@ -181,7 +194,7 @@ enum{
 
 }
 #pragma mark --------------------新建会议  子菜单
-#pragma mark 新建会议 中 "确定"按钮
+#pragma mark 新建会议 中 "确"按钮
 - (BOOL)checkPostEnable:(UIView *)curPresentView{
     if (_meetingType.meetingId<=1) {
         NSLog(@"会议类型 为空");

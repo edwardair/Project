@@ -55,7 +55,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
 }
 - (void)setThisMeetingMembers:(NSMutableArray *)thisMeetingMembers{
     [staticSBJsonResolveData.thisMeetingMembers removeAllObjects];
-    int index = [[thisMeetingMembers objectAtIndex:0] intValue];
+    int index = [thisMeetingMembers[0] intValue];
     [SBJsonResolveData getMeetingMembers:index];
 }
 - (NSMutableArray *)pointMeetingGroups{
@@ -78,7 +78,6 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
 }
 #pragma mark SBJson解析 会议名称
 
-
 + (void )getMeetingData:(NSData *)data{
     [staticSBJsonResolveData.meetingNameList removeAllObjects];
 
@@ -88,11 +87,11 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSMutableDictionary *dic = [jsonObject objectWithString:str];
     
     NSArray *listDic = [dic objectForKey:@"hylist"];
-    NSLog(@"%@",listDic);
+//    NSLog(@"%@",listDic);
 
     for (NSDictionary *objDic in listDic) {
         NSString *meetingName = [objDic objectForKey:G_HYName];
-        NSNumber *meetingId = [objDic objectForKey:G_HYId];
+        NSString *meetingId = [objDic objectForKey:G_HYId];
         NSString *meetingStartTime = [objDic objectForKey:G_HYStartTime];
         NSString *meetingEndTime = [objDic objectForKey:G_HYEndTime];
         NSString *meetingAddress = [objDic objectForKey:G_HYDz];
@@ -105,11 +104,13 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
         [temp addObject:meetingEndTime];
         [temp addObject:meetingAddress];
         [temp addObject:meetingTheme];
+//        NSLog(@"%@",temp);
 
         [staticSBJsonResolveData.meetingNameList addObject:temp];
-//        [staticSBJsonResolveData.meetingId addObject:meetingId];
+//        NSLog(@"%@",staticSBJsonResolveData.meetingNameList);
 
     }
+//NSLog(@"%@",staticSBJsonResolveData.meetingNameList);
 }
 #pragma mark  SBJson解析 会议人员
 + (void)updateThisMeetingMembersWithIndex:(int )index{
@@ -119,7 +120,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
 + (void )getMeetingMembers:(int )index{
     [staticSBJsonResolveData.thisMeetingMembers removeAllObjects];
     
-    NSData *data = [UAndDLoad updateThisMeetingMembers:[[staticSBJsonResolveData.meetingNameList objectAtIndex:index] objectForKey:@"id"]];
+    NSData *data = [UAndDLoad updateThisMeetingMembers:[[staticSBJsonResolveData.meetingNameList objectAtIndex:index][1] objectForKey:@"id"]];
     NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 
     SBJsonParser *jsonObject = [[SBJsonParser alloc]init];

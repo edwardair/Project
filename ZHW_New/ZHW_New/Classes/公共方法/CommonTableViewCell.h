@@ -10,7 +10,7 @@
 
 @interface CommonTableViewCell : UITableViewCell
 //@property (assign,nonatomic) int labelCount;
-- (void)addLabelsWithMutableArray:(NSMutableArray *)array;
+- (BOOL )addLabelsWithMutableArray:(NSMutableArray *)array;
 - (void)setLabelsFrame:(CGRect )rect, ...;
 @end
 

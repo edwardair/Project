@@ -86,16 +86,17 @@
     CommonTableViewCell *cell = (CommonTableViewCell *)[tableView dequeueReusableCellWithIdentifier:title];
     if (!cell) {
         cell =  [[CommonTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
-    }
-    
+    }    
     NSMutableArray *data = [[_rowSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-
+//    NSLog(@"%@",data);
     if (![data isKindOfClass:[NSMutableArray class]]) {
         cell.textLabel.text = writeEnable((NSString *)data);
         cell.textLabel.textColor = [UIColor blackColor];
     }else{
-        [cell addLabelsWithMutableArray:data];
-        [commonTableViewDelegate setCellLabelsFrams:cell];
+        BOOL resetFrame = [cell addLabelsWithMutableArray:data];
+        if (resetFrame) {
+            [commonTableViewDelegate setCellLabelsFrams:cell];
+        }
     }
     
     return cell;

@@ -123,7 +123,7 @@ enum{
 };
 - (IBAction)CreateNewMeeting:(UIButton *)sender{
     //sender为nil是 tag默认为0
-
+    return;
     //选中框
     if (sender) {
 //        _coverImage.center = sender.center;
@@ -171,13 +171,20 @@ enum{
             }
         }else{
             [_bottomScrollView addSubview:temp];
-            [temp setTransform:CGAffineTransformMakeTranslation(0, 65)];
+            CGRect frame = _bottomScrollView.frame;
+            frame.origin.y = 65;
+            _bottomScrollView.frame = frame;
+            [temp setTransform:CGAffineTransformMakeTranslation(0, 0)];
         }
         if (curPresentUIView && ![curPresentUIView isEqual:temp]) {
             curPresentUIView.hidden = YES;
         }
         curPresentUIView = temp;
     }
+
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"%f,%f,%f,%f",_bottomScrollView.frame.origin.x,_bottomScrollView.frame.origin.y,_bottomScrollView.frame.size.width,_bottomScrollView.frame.size.height);
 
 }
 #pragma mark --------------------新建会议  子菜单
