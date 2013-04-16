@@ -15,12 +15,12 @@
 @class MeetingManagerView;
 @interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,CellPushedViewControllerDelegate>
 
-@property (strong,nonatomic) IBOutlet UIScrollView *bottomScrollView;
+@property (strong,nonatomic)  UIScrollView *bottomScrollView;
 @property (strong,nonatomic) IBOutlet UIImageView *coverImage;
 
 #pragma mark 新建会议
 - (IBAction)CreateNewMeeting:(id )sender;
-- (IBAction)CreateNewMeeting_OK;
+- (void)CreateNewMeeting_OK;
 - (IBAction)CreateNewMeeting_ResetAll;
 - (IBAction)resignKeyboard:(id)sender;
 
@@ -35,7 +35,6 @@
 @property (strong,nonatomic) IBOutlet ShowDownButton *meetingType;//会议类型
 @property (strong,nonatomic) IBOutlet UITextView *meetingTheme;//会议主题
 @property (strong,nonatomic) IBOutlet UITextView *meetingRequriements;//会议需求
-@property (strong,nonatomic) IBOutlet UIButton *finished;
 @property (strong,nonatomic) IBOutlet UIButton *reset;
 
 #pragma mark 人员管理
@@ -45,7 +44,6 @@
 
 @property (strong,nonatomic) NSMutableArray *MemberListOfAMeeting;//选中会议的所有成员及属性
 
-- (IBAction)MM_AddMember:(id)sender;//添加
 - (void)MM_MeetingNameButton;
 #pragma mark 群组管理
 @property (strong,nonatomic) GroupManagerView *groupManageView;

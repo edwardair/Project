@@ -33,12 +33,12 @@
 }
 */
 - (void)setRowSource:(NSMutableArray *)rowSource{
-    [_rowSource release];
+//    [_rowSource release];
     _rowSource = [rowSource retain];
     [self reloadData];
 }
 - (void)setSectionSource:(NSMutableArray *)sectionSource{
-    [_sectionSource release];
+//    [_sectionSource release];
     _sectionSource = [_sectionSource retain];
     [self reloadData];
 }
@@ -104,9 +104,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [commonTableViewDelegate cellClickedAtIndexPath:indexPath];
 }
-- (void)dealloc{
-    self.rowSource = nil;
-    self.sectionSource = nil;
-    [super dealloc];
-}
+//- (void)dealloc{
+////    self.rowSource = nil;
+////    self.sectionSource = nil;
+//    [super dealloc];
+//}
 @end

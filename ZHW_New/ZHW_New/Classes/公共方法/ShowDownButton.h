@@ -11,10 +11,11 @@
 @interface ShowDownButton : UIButton
 //-(void) buttonWithNames: (NSString *) name, ...;
 @property (strong,nonatomic) UIScrollView *downScrollView;
-@property (nonatomic) int meetingId;
+@property (nonatomic,assign) int meetingId;
 @property (strong,nonatomic) NSMutableArray *downMenus;
 @property (nonatomic,assign) id delegate;
 @property (nonatomic,assign) SEL selector;
 @property (strong,nonatomic) NSMutableArray *showDataArray;
+
 - (void)initializeButton;
 @end

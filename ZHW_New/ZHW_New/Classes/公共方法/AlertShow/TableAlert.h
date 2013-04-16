@@ -29,7 +29,7 @@ typedef void (^MLTableAlertCompletionBlock)(void);
 
 @property (nonatomic, strong) MLTableAlertCompletionBlock completionBlock;	// Called when Cancel button pressed
 @property (nonatomic, strong) MLTableAlertRowSelectionBlock selectionBlock;	// Called when a row in table view is pressed
-
+@property (nonatomic, assign) int count;
 
 // Classe method; rowsBlock and cellsBlock MUST NOT be nil 
 +(TableAlert *)tableAlertWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelBtnTitle numberOfRows:(MLTableAlertNumberOfRowsBlock)rowsBlock andCells:(MLTableAlertTableCellsBlock)cellsBlock;

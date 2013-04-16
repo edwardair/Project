@@ -64,8 +64,9 @@
 	self = [super init];
 	if (self)
 	{
-		_numberOfRows = rowsBlock;
-		_cells = cellsBlock;
+		_numberOfRows = [rowsBlock copy];
+        _count = _numberOfRows(0);
+		_cells = [cellsBlock copy];
 		_title = title;
 		_cancelButtonTitle = cancelButtonTitle;
 		_height = kMinAlertHeight;	// Defining default (and minimum) alert height
@@ -254,8 +255,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	// according to the numberOfRows block code
-	return self.numberOfRows(section);
+	return _count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

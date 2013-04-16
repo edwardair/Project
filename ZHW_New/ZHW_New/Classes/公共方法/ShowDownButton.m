@@ -9,10 +9,11 @@
 #import "ShowDownButton.h"
 #import "TableAlert.h"
 #import "SBJsonResolveData.h"
+#import "CommonMethod.h"
 #define BtnWidth 15
 
 @interface ShowDownButton(){
-    
+
 }
 @end
 
@@ -98,9 +99,9 @@
     [imageView setUserInteractionEnabled:NO];
     [self addSubview:imageView];
     [self bringSubviewToFront:imageView];
-    [imageView release];
-}
+//    [imageView release];
 
+}
 //UIButton 点击方法
 - (void)superButtonClicked{
 //    if (_downScrollView.hidden) {
@@ -109,8 +110,7 @@
     // create the alert
 	TableAlert *alert = [TableAlert tableAlertWithTitle:@"选择会议" cancelButtonTitle:@"取消" numberOfRows:^NSInteger (NSInteger section)
                          {
-//                             NSLog(@"%d",_showDataArray.count);
-                             return _showDataArray.count;
+                         return _showDataArray.count+1;
                          }
                                                andCells:^UITableViewCell* (TableAlert *anAlert, NSIndexPath *indexPath)
                          {
@@ -118,12 +118,14 @@
                              UITableViewCell *cell = [anAlert.table dequeueReusableCellWithIdentifier:CellIdentifier];
                              if (cell == nil)
                                  cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                             
-                             cell.textLabel.text = [_showDataArray objectAtIndex:indexPath.row][1];
+                             if (indexPath.row==0) {
+                                 cell.textLabel.text  = @"--请选择--";
+                             }else
+                                 cell.textLabel.text = writeEnable([_showDataArray objectAtIndex:indexPath.row][0]);
                              
                              return cell;
-                         }];
-	
+                         }] ;
+
 	// Setting custom alert height
 	alert.height = 350;
 	
@@ -131,13 +133,13 @@
 	[alert configureSelectionBlock:^(NSIndexPath *selectedIndex){
         UITableViewCell *cell = [alert.table cellForRowAtIndexPath:selectedIndex];
         [self setTitle:cell.textLabel.text forState:UIControlStateNormal];
-        self.meetingId = selectedIndex.row;
+        self.meetingId = selectedIndex.row-1;
         if (_delegate && [_delegate respondsToSelector:_selector]) {
             [_delegate performSelector:_selector];
         }
-
+        
 	} andCompletionBlock:^{
-//        NSLog(@"%@",@"Cancel Button Pressed\nNo Cells Selected");
+        //        NSLog(@"%@",@"Cancel Button Pressed\nNo Cells Selected");
 	}];
 	
 	// show the alert
@@ -147,7 +149,6 @@
 - (void)subviewsButtonClicked:(UIButton *)b{
     //加入  meetingId 为 0 或 1 时 会议必填项为空 创建不成功
     self.meetingId = b.tag;
-    NSLog(@"%d",b.tag);
 
     [self spreadAndStrictionAction:NO];
 

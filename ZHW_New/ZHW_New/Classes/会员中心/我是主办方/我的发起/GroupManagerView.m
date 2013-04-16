@@ -64,7 +64,7 @@
 }
 
 //添加 分组
-- (IBAction)addOneGroup{
+- (void)addOneGroup{
     if (_GM_MeetingList.meetingId==-1) {
         [StaticManager showAlertWithTitle:nil message:@"请选择一个会议" delegate:self cancelButtonTitle:@"OK" otherButtonTitle:nil];
         return;
@@ -186,7 +186,7 @@
     groupMembers.groupIndex = row;
     groupMembers.meetingIndex = _GM_MeetingList.meetingId;
     groupMembers.navigationItem.title = [[_GM_TableData objectAtIndex:row] objectForKey:DBFZName];
-    [self.superViewController.parentViewController.navigationController pushViewController:groupMembers animated:YES];
+    [self.superViewController.navigationController pushViewController:groupMembers animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{

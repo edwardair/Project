@@ -53,6 +53,8 @@
     NSLog(@"kaishi");
     _editText = textField;
     [StaticManager TextInputAnimationWithParentView:self.view textView:textField];
+//    [StaticManager TextInputAnimationWithParentView:self.view textViewFrame:textField.frame];
+
     [[TapResignKeyBoard shareTapResignKeyBoard] addTarget:self action:@selector(resignKeyBoard) parentView:self.view];
 
     return YES;
@@ -62,7 +64,7 @@
 #ifdef DEBUG 
     RootViewController *root = [RootViewController rootController];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.window.rootViewController release];
+//    [appDelegate.window.rootViewController release];
     appDelegate.window.rootViewController = root;
     return;
 #endif

@@ -19,7 +19,7 @@
 @end
 @implementation MyCreatedMeetings
 +(id)initilaize{
-    return [[[[self class]alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)] autorelease];
+    return [[[self class]alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)] ;
 }
 - (id)initWithFrame:(CGRect)frame
 {
@@ -98,7 +98,7 @@
     frame.size.height = s.height;
     [l setFrame:frame];
 
-    return [l autorelease];
+    return l;//[l autorelease];
 }
 - (void)autoFitSizeOf:(UILabel *)curLabel preLabel:(UILabel *)preLabel{
     CGRect preFrame = preLabel.frame;
@@ -168,9 +168,9 @@
     
     
 }
-- (void)dealloc{
-    NSLog(@"我的发起   释放");
-    self.add = nil;
-    [super dealloc];
-}
+//- (void)dealloc{
+//    NSLog(@"我的发起   释放");
+////    self.add = nil;
+//    [super dealloc];
+//}
 @end

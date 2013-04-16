@@ -371,6 +371,10 @@
 				F1EDDDC4171BC80200DB1039 /* ShowThisMeeting.xib */,
 				F1FD47AC1717CD42004FAF95 /* CreateNewMeetingViewController.h */,
 				F1FD47AD1717CD42004FAF95 /* CreateNewMeetingViewController.m */,
+				F1FD47AE1717CD42004FAF95 /* GroupManagerView.h */,
+				F1FD47AF1717CD42004FAF95 /* GroupManagerView.m */,
+				F1FD47B01717CD42004FAF95 /* MeetingManagerView.h */,
+				F1FD47B11717CD42004FAF95 /* MeetingManagerView.m */,
 				F1FD47A21717CD42004FAF95 /* AddAgendaViewController.h */,
 				F1FD47A31717CD42004FAF95 /* AddAgendaViewController.m */,
 				F1FD47A81717CD42004FAF95 /* AgendaCell.h */,
@@ -381,10 +385,6 @@
 				F1FD47A71717CD42004FAF95 /* AddGroupMembersView.m */,
 				F1FD47AA1717CD42004FAF95 /* CellPushedViewController.h */,
 				F1FD47AB1717CD42004FAF95 /* CellPushedViewController.m */,
-				F1FD47AE1717CD42004FAF95 /* GroupManagerView.h */,
-				F1FD47AF1717CD42004FAF95 /* GroupManagerView.m */,
-				F1FD47B01717CD42004FAF95 /* MeetingManagerView.h */,
-				F1FD47B11717CD42004FAF95 /* MeetingManagerView.m */,
 				F1FD47B21717CD42004FAF95 /* MeetingMemberCell.h */,
 				F1FD47B31717CD42004FAF95 /* MeetingMemberCell.m */,
 				F1FD47B41717CD42004FAF95 /* ModifyPointGroupViewController.h */,
@@ -915,6 +915,8 @@
 		F15CCD9C17155214000EDDCD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_SUFFIX = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZHW_New/ZHW_New-Prefix.pch";
 				INFOPLIST_FILE = "ZHW_New/ZHW_New-Info.plist";
@@ -927,6 +929,8 @@
 		F15CCD9D17155214000EDDCD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_SUFFIX = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZHW_New/ZHW_New-Prefix.pch";
 				INFOPLIST_FILE = "ZHW_New/ZHW_New-Info.plist";

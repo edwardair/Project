@@ -63,7 +63,7 @@
 - (id)init{
     self = [super init];
     if (self) {
-        
+                
         WGPlayBGMusic(@"I Loved You.mp3");
         
 ////        //初始化  网格上的obj类型

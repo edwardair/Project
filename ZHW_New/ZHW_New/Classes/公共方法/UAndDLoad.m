@@ -44,8 +44,8 @@
         NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
         [params setObject:@"会议名字" forKey:@"hy.hyname"];
         [params setObject:@"CodeTest1" forKey:@"hy.hydz"];
-//        [params setObject:@"2013-03-05" forKey:@"hy.hystarttime"];
-//        [params setObject:@"2013-10-11" forKey:@"hy.hyendtime"];
+        [params setObject:@"2013-03-05" forKey:@"hy.hystarttime"];
+        [params setObject:@"2013-10-11" forKey:@"hy.hyendtime"];
         [params setObject:@"CodeTest2" forKey:@"hy.hyzbf"];
         [params setObject:@"CodeTest3" forKey:@"hy.hyxbf"];
         [params setObject:@"CodeTest4" forKey:@"hy.hyzt"];

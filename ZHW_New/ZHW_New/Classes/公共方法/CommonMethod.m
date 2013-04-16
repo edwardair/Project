@@ -22,7 +22,7 @@ CGSize screenSize(){
 //检测NSString是否为空 如果空返回空字符串
 NSString *writeEnable(NSString *text){
     NSString *s = [text isKindOfClass:[NSNumber class]]?[NSString stringWithFormat:@"%@",text]:text;
-    return (s&&![s isEqualToString:@"<null>"])?s:@"";
+    return (s&&![s isEqualToString:@"<null>"])?s:@"无";//[s isEqualToString:@"<null>"]
 }
 #pragma mark  NSLog 
 void NSLogFrame(CGRect frame){

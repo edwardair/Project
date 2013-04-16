@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DragScrollView.h"
 @interface RootViewController : UIViewController<UITabBarControllerDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@property (strong,nonatomic) DragScrollView *rootScrollView;
+
++(RootViewController *)shareRootViewController;
 + (RootViewController *)rootController;
 @end

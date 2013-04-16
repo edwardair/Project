@@ -16,7 +16,7 @@
 @property (strong,nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) IBOutlet ShowDownButton *meetingList;
 
-- (IBAction)addButton;
+- (void)addButton;
 
 @end
 

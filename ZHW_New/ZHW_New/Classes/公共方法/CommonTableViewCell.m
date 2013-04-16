@@ -44,7 +44,7 @@
             label.tag = i+1;
             [label setTextColor:[UIColor blackColor]];
             label.textAlignment = UITextAlignmentLeft;
-            [label release];
+//            [label release];
         }
         label.text = writeEnable(array[i]);
     }
@@ -74,10 +74,10 @@
     }
 }
 
-- (void)dealloc{
-    for (UIView *s in self.subviews) {
-        [s removeFromSuperview];
-    }
-    [super dealloc];
-}
+//- (void)dealloc{
+////    for (UIView *s in self.subviews) {
+////        [s removeFromSuperview];
+////    }
+//    [super dealloc];
+//}
 @end

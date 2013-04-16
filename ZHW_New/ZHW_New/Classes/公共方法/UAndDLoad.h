@@ -13,7 +13,7 @@
 #define HYEndTime @"hy.hyendtime"//会议结束时间
 #define HYZBF @"hy.hyzbf"//会议名称
 #define HYXBF @"hy.hyxbf"//会议名称
-//#define HYType @"hy.hyzt"//会议类型
+#define HYType @"hy.bqid"//会议类型
 #define HYTheme @"hy.hyzt"//会议名称
 #define HYRequirments @"hy.hyxq"//会议名称
 

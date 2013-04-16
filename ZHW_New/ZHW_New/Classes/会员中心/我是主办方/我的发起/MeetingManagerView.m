@@ -43,7 +43,7 @@
     _tableView.dataSource = self;
 
 }
-- (IBAction)addButton{
+- (void)addButton{
     AddAgendaViewController *c = [[AddAgendaViewController alloc]initWithNibName:@"AddAgendaViewController" bundle:nil];
     c.delegate = self;
 
@@ -147,7 +147,7 @@ NSString *textContent(NSString *str){
     NSDictionary *dic = [_dataSource objectAtIndex:row];
     AddAgendaViewController *c = [[AddAgendaViewController alloc]initWithNibName:@"AddAgendaViewController" bundle:nil];
     c.delegate = self;
-    [self.superViewController.parentViewController.navigationController pushViewController:c animated:YES];
+    [self.superViewController.navigationController pushViewController:c animated:YES];
     
     c.agendaIndex = row;
     c.agendaNameField.text = textContent([dic objectForKey:YCName]);

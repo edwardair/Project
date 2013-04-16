@@ -10,7 +10,7 @@
 #import "CommonMethod.h"    
 static UIView *parentView;
 static float parentViewCenterY;
-#define KeyBoardHeight 300.0
+#define KeyBoardHeight 216.0
 @implementation StaticManager
 #pragma mark 弹出警告
 + (void)showAlertWithTitle:(NSString *)title
@@ -29,10 +29,22 @@ static float parentViewCenterY;
     [UIView commitAnimations];
 }
 #pragma mark 点击TextField TextView时 是屏幕内容自适应键盘高度
++(float )isParentView:(UIView *)parent sub:(UIView *)sub center:(float )posY{
+//    float textCenterY = sub.center.y;
+    if (![sub.superview isEqual:parent]) {
+        posY += sub.frame.origin.y-sub.superview.frame.origin.y;
+        NSLog(@"%f",posY);
+
+        posY = [StaticManager isParentView:parent sub:sub.superview center:posY];
+    }
+    return posY;
+}
 +(void)TextInputAnimationWithParentView:(UIView *)view textView:(UIView *)textView{
-    
-    float textCenterY = textView.center.y;
-    float textWillCenterY = KeyBoardHeight+textView.frame.size.height/2;
+    float posY = 0;
+    posY = [StaticManager isParentView:view sub:textView center:posY];
+    NSLog(@"%f",posY);
+    float textCenterY = textView.center.y+posY;
+    float textWillCenterY = applicationFrame().size.height - KeyBoardHeight - textView.frame.size.height/2;
     float sub = textWillCenterY-textCenterY;
     
     if (sub<0) {
@@ -49,6 +61,26 @@ static float parentViewCenterY;
     [UIView commitAnimations];
 
 }
+//+(void)TextInputAnimationWithParentView:(UIView *)view textViewFrame:(CGRect )subFrame{
+//    float textCenterY = subFrame.origin.y+subFrame.size.height/2;
+//
+//    float textWillCenterY = applicationFrame().size.height - KeyBoardHeight - subFrame.size.height/2;
+//
+//    float sub = textWillCenterY-textCenterY;
+//    NSLog(@"%f",sub);
+//    if (sub<0) {
+//        parentView = view;
+//        parentViewCenterY = view.center.y;
+//    }else
+//        return;
+//    
+//    [UIView beginAnimations:@"MoveUp" context:nil];
+//    [UIView setAnimationDuration:.2f];
+//    NSLog(@"上移 ");
+//    view.transform = CGAffineTransformMakeTranslation(0, sub);
+//    [UIView commitAnimations];
+//
+//}
 #pragma mark 注销键盘时 是屏幕内容返回初始位置
 +(void)resignParentView{
     if (parentView) {

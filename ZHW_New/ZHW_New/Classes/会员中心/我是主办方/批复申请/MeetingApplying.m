@@ -11,7 +11,7 @@
 
 @implementation MeetingApplying
 +(id)initilaize{
-    return [[[[self class]alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)] autorelease];
+    return [[[self class]alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)] ;
 }
 
 - (id)initWithFrame:(CGRect)frame

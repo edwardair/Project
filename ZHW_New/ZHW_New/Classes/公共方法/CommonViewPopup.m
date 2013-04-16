@@ -59,12 +59,12 @@
     // Drawing code
 }
 */
-- (void)dealloc{
-    for (UIView *s in self.subviews) {
-        [s removeFromSuperview];
-        [s release];
-        s = nil;
-    }
-    [super dealloc];
-}
+//- (void)dealloc{
+////    for (UIView *s in self.subviews) {
+////        [s removeFromSuperview];
+////        [s release];
+////        s = nil;
+////    }
+//    [super dealloc];
+//}
 @end

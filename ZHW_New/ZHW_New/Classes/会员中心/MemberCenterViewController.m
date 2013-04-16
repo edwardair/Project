@@ -89,6 +89,7 @@
         //切换界面
         if (_curPresentView) {
             [_curPresentView removeFromSuperview];
+//            [_curPresentView release];
             _curPresentView = nil;
         }
         [self.view addSubview:tempView];

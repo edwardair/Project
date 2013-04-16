@@ -16,7 +16,6 @@
 #import "ClientServeViewController.h"
 
 #import "MemberMenuClickCell.h"
-#import "DragScrollView.h"
 
 @interface RootViewController (){
         
@@ -30,7 +29,6 @@
 
 @property (strong,nonatomic) UITabBarController *rootTabBarController;
 @property (strong,nonatomic) UINavigationController *rootNavigationController;
-@property (strong,nonatomic) DragScrollView *rootScrollView;
 @property (strong,nonatomic) UITapGestureRecognizer *rootTapGesture;
 
 @property (strong,nonatomic) UITableView *memberCenterMenu;
@@ -187,38 +185,41 @@
 }
 
 #pragma mark  setter
-
+static RootViewController *rootViewController = nil;
++(RootViewController *)shareRootViewController{
+    return rootViewController;
+}
 //codes
 + (RootViewController *)rootController{
-    RootViewController *c = [[RootViewController alloc]init];
-    [c.view setFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)];
-    c.view.backgroundColor = [UIColor lightGrayColor];
+    rootViewController = [[RootViewController alloc]init];
+    [rootViewController.view setFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)];
+    rootViewController.view.backgroundColor = [UIColor lightGrayColor];
     
     DragScrollView *scrollView = [[DragScrollView alloc]initWithFrame:CGRectMake(0, 0, applicationFrame().size.width, applicationFrame().size.height)];
-    [c.view addSubview:scrollView];
+    [rootViewController.view addSubview:scrollView];
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width*6.0/4,scrollView.frame.size.height);
     scrollView.bounces = YES;
-    scrollView.delegate = c;
+    scrollView.delegate = rootViewController;
     scrollView.scrollEnabled = NO;
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.delaysContentTouches = YES;
 //    [scrollView scrollRectToVisible:CGRectMake(applicationFrame().size.width*4.0/4, 0, applicationFrame().size.width, applicationFrame().size.height) animated:NO];
     scrollView.contentOffset = CGPointMake(applicationFrame().size.width*2.0/4, 0);
-    scrollView.passthroughViews = @[c.memberCenterMenu];
+    scrollView.passthroughViews = @[rootViewController.memberCenterMenu];
 
-    c.rootScrollView = scrollView;
+    rootViewController.rootScrollView = scrollView;
 //    [scrollView release];
     
-    [scrollView addSubview:c.rootNavigationController.view];
+    [scrollView addSubview:rootViewController.rootNavigationController.view];
     
-    c.rootNavigationController.view.transform = CGAffineTransformMakeTranslation(applicationFrame().size.width*2.0/4, 0);
-    c.rootNavigationController.view.opaque = YES;
+    rootViewController.rootNavigationController.view.transform = CGAffineTransformMakeTranslation(applicationFrame().size.width*2.0/4, 0);
+    rootViewController.rootNavigationController.view.opaque = YES;
         
-    [c.view addSubview:c.memberCenterMenu];
-    [c.view sendSubviewToBack:c.memberCenterMenu];
+    [rootViewController.view addSubview:rootViewController.memberCenterMenu];
+    [rootViewController.view sendSubviewToBack:rootViewController.memberCenterMenu];
 
-    return c;
+    return rootViewController;
 }
 
 #pragma mark scrollView Delegate
