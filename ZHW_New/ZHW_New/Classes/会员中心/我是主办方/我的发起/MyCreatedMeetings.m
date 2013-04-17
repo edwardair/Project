@@ -118,7 +118,7 @@
     if (!popView) {
         popView = (CommonViewPopup *)[[NSBundle mainBundle] loadNibNamed:@"ShowThisMeeting" owner:self options:nil][0];
         [popView initializeView];
-        [self addSubview:popView];
+//        [self addSubview:popView];
     }
     
     int row = path.row;
@@ -164,8 +164,12 @@
     _rectB.size.height = _theme.frame.size.height;
     _themeTitle.frame = _rectB;
 
-    [popView showAction];
+//    [popView showAction];
+    UIViewController *c = [[UIViewController alloc]init];
+    [c setView:popView];
+    UINavigationController *nav = (UINavigationController *)UIViewControllerOfSuperView(self.superview);
     
+    NSLogString(nav);
     
 }
 //- (void)dealloc{

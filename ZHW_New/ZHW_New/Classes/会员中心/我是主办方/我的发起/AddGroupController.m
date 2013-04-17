@@ -44,11 +44,13 @@
 - (void)saveEnterData{
     if (_Code.text.length>0 && _Name.text.length>0) {
         [self.delegate delegateSaveGroup:self];
-        [self dismissModalViewControllerAnimated:YES];
     }else{
-        [StaticManager showAlertWithTitle:nil message:@"必填项目不能为空" delegate:self cancelButtonTitle:@"OK" otherButtonTitle:nil];
+        [StaticManager showAlertWithTitle:nil message:@"必填项目不能为空" delegate:self cancelButtonTitle:@"确定" otherButtonTitle:nil];
     }
     
+}
+- (void)editFail{
+    [StaticManager showAlertWithTitle:nil message:@"创建失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
 }
 - (void)callBack{
     [self dismissModalViewControllerAnimated:YES];

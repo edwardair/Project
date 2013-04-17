@@ -108,6 +108,7 @@
 //        [self spreadAndStrictionAction:YES];
 //    }
     // create the alert
+    NSLogString(_showDataArray);
 	TableAlert *alert = [TableAlert tableAlertWithTitle:@"选择会议" cancelButtonTitle:@"取消" numberOfRows:^NSInteger (NSInteger section)
                          {
                          return _showDataArray.count+1;
@@ -120,8 +121,8 @@
                                  cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                              if (indexPath.row==0) {
                                  cell.textLabel.text  = @"--请选择--";
-                             }else
-                                 cell.textLabel.text = writeEnable([_showDataArray objectAtIndex:indexPath.row][0]);
+                             }else  
+                                 cell.textLabel.text = writeEnable([_showDataArray objectAtIndex:indexPath.row-1][0]);
                              
                              return cell;
                          }] ;

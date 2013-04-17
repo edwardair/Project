@@ -36,7 +36,11 @@
         _userDefineNavBar.hidden = YES;
         self.navigationItem.rightBarButtonItem = done;
         self.navigationItem.leftBarButtonItem = back;
-
+        
+        for (UIView *sub in self.view.subviews) {
+            sub.transform = CGAffineTransformMakeTranslation(0, -45);
+        }
+        
     }else{
         _userDefineNavBar.topItem.leftBarButtonItem = back;
         _userDefineNavBar.topItem.rightBarButtonItem = done;
@@ -66,7 +70,7 @@
 
 - (void)saveEnterData{
     if (![self isVereistEmpty]) {
-        [StaticManager showAlertWithTitle:nil message:@"必填项目不能为空" delegate:self cancelButtonTitle:@"OK" otherButtonTitle:nil];
+        [StaticManager showAlertWithTitle:nil message:@"必填项目不能为空" delegate:self cancelButtonTitle:@"确定" otherButtonTitle:nil];
         return;
     }
     BOOL type = 0;//0   代表 添加操作  1为编辑操作
@@ -75,7 +79,14 @@
     }
     [self.delegate saveCell:self addType:type];
 
-    [self callBack];
+//    [self callBack];
+}
+- (void)editFail{
+    NSString *msg = @"创建失败";
+    if (self.navigationController) {
+        msg = @"修改失败";
+    }
+    [StaticManager showAlertWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
 }
 - (void)callBack{
     if (self.navigationController) {

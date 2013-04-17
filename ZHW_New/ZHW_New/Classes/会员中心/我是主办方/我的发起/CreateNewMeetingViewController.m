@@ -205,8 +205,27 @@ enum{
                 temp.hidden = NO;
             }
         }else{
-            [_bottomScrollView addSubview:temp];
-//            [temp setTransform:CGAffineTransformMakeTranslation(0, 0)];
+            if (sender.tag == CNM_C) {
+                [_bottomScrollView addSubview:temp];
+            }else{
+                [self.view addSubview:temp];
+                CGRect frame = temp.frame;
+                frame.origin.y += 65;
+                frame.size.height = applicationFrame().size.height-65;
+                temp.frame = frame;
+                
+                UITableView *table = nil;
+                if (sender.tag == CNM_M) {
+                    table = _MM_MemberList;
+                }else if (sender.tag == CNM_G)
+                    table = _groupManageView.GM_TableView;
+                else
+                    table = _meetingManageView.tableView;
+                
+                CGRect tableFrame = table.frame;
+                tableFrame.size.height = temp.frame.size.height-[temp convertRect:tableFrame toView:self.view].origin.y;
+                table.frame = tableFrame;
+            }
         }
         if (curPresentUIView && ![curPresentUIView isEqual:temp]) {
             curPresentUIView.hidden = YES;
@@ -261,9 +280,9 @@ enum{
     [params setObject:_meetingRequriements.text forKey:HYRequirments];
     
     //上传数据
-   [UAndDLoad upLoad:params withURL:Url_ModifyData];
-
+    [SBJsonResolveData createOneNewMeetingWithParams:params];
 }
+
 #pragma mark 新建会议 中 "全部重置"按钮
 - (IBAction)CreateNewMeeting_ResetAll{
     for (UIView *subView in _createNewMeetingView.subviews) {
@@ -295,11 +314,18 @@ enum{
 }
 
 - (void)MM_AddMember{
+    if (_MM_MeetingName.meetingId==-1) {
+        [StaticManager showAlertWithTitle:nil message:@"请选择一个会议" delegate:self cancelButtonTitle:@"确定" otherButtonTitle:nil];
+        return;
+    }
     CellPushedViewController *c = [[CellPushedViewController alloc]initWithNibName:@"CellPushedViewController" bundle:nil];
     c.delegate = self;
 
     [self presentModalViewController:c animated:YES];
     c.userDefineNavBar.topItem.title = @"添加参会代表";
+
+    [c.sex setTitle:@"男" forState:UIControlStateNormal];
+    [c.sex setTitle:@"男" forState:UIControlStateHighlighted];
 
 }//添加
 - (void)saveCell:(CellPushedViewController *)cellViewController addType:(int )type{
@@ -318,13 +344,15 @@ enum{
     [dic setObject:tel forKey:CHDBLxdh];
     [dic setObject:post forKey:CHDBZw];
 
+    BOOL scuess = NO;
+    
     switch (type) {
         case 0:
             //add
         {
             int index = _MM_MeetingName.meetingId;
             
-            [SBJsonResolveData addPointMeetingWithIndex:index
+          scuess = [SBJsonResolveData addPointMeetingWithIndex:index
                                                    Name:name
                                                     Sex:sex
                                                     Tel:tel
@@ -337,22 +365,26 @@ enum{
         {
             int index = cellViewController.index;
             
-            [SBJsonResolveData modifyPointMeetingWithIndex:index
+           scuess = [SBJsonResolveData modifyPointMeetingWithIndex:index
                                                       Name:name
                                                        Sex:sex
                                                        Tel:tel
                                                       Post:post];
-            
         }
             break;
-  
         default:
             break;
     }
     
-//    NSLog(@"%d,%d",[[SBJsonResolveData shareMeeting] thisMeetingMembers])
+    if (scuess) {
+        [cellViewController callBack];
+        
+        [_MM_MemberList reloadData];
+
+    }else{
+        [cellViewController editFail];
+    }
     
-    [_MM_MemberList reloadData];
 
 }
 
@@ -508,11 +540,14 @@ enum{
     //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [SBJsonResolveData deletePoitMeetingWithIndex:row];
+       BOOL scuess = [SBJsonResolveData deletePoitMeetingWithIndex:row];
         
         // Delete the row from the data source.
-        [_MM_MemberList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
+        if (scuess) {
+            [_MM_MemberList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }else
+            [StaticManager showAlertWithTitle:nil message:@"删除参会代表失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+    
     }
 }
 - (void)didReceiveMemoryWarning

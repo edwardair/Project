@@ -95,13 +95,13 @@
     return data;
 }
 #pragma mark 删除会议中成员
-+ (void)deleteMemberWithId:(NSString *)idStr{
++ (NSData *)deleteMemberWithId:(NSString *)idStr{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:idStr forKey:@"chdbString"];
     
-    [UAndDLoad upLoad:params withURL:Url_DeleteMeetingMember];
+   return [UAndDLoad upLoad:params withURL:Url_DeleteMeetingMember];
 }
-+ (void)addMemberWithHyid:(NSString *)idStr
++ (NSData *)addMemberWithHyid:(NSString *)idStr
                      Name:(NSString *)name
                       sex:(int )man
                       tel:(NSString *)tel
@@ -115,10 +115,10 @@
         [params setObject:post forKey:@"chdb.chdbzw"];
     }
    
-    [UAndDLoad upLoad:params withURL:Url_AddMeetingMember];
+   return [UAndDLoad upLoad:params withURL:Url_AddMeetingMember];
     
 }
-+ (void)modifyMemberWithId:(NSString *)idStr
++ (NSData *)modifyMemberWithId:(NSString *)idStr
                    name:(NSString *)name
                       sex:(int )man
                       tel:(NSString *)tel
@@ -132,7 +132,7 @@
         [params setObject:post forKey:@"chdb.chdbzw"];
     }
     
-    [UAndDLoad upLoad:params withURL:Url_ModifyMeetingMember];
+   return [UAndDLoad upLoad:params withURL:Url_ModifyMeetingMember];
 
 }
 
@@ -171,7 +171,7 @@
                         memberId:(NSString *)memberId{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
 
-    [params setObject:hyId forKey:@"fzcy.hyid"];
+    [params setObject:hyId forKey:@"fzcy.hyi"];
     [params setObject:groupId forKey:@"fzcy.dbfzid"];
     [params setObject:memberId forKey:@"chdbString"];
     

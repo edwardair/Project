@@ -12,7 +12,7 @@
 #import "SBJsonResolveData.h"
 #import "AgendaCell.h"
 #import "AddAgendaViewController.h"
-
+#import "StaticManager.h"
 #define TableHeader @"    议程名            负责人"
 @interface MeetingManagerView()
 @property (strong,nonatomic) NSMutableArray *dataSource;
@@ -44,6 +44,12 @@
 
 }
 - (void)addButton{
+    
+    if (_meetingList.meetingId==-1) {
+        [StaticManager showAlertWithTitle:nil message:@"请选择一个会议" delegate:self cancelButtonTitle:@"确定" otherButtonTitle:nil];
+        return;
+    }
+    
     AddAgendaViewController *c = [[AddAgendaViewController alloc]initWithNibName:@"AddAgendaViewController" bundle:nil];
     c.delegate = self;
 
@@ -135,11 +141,13 @@ NSString *textContent(NSString *str){
 - (void)initlizeBtnData:(AddAgendaViewController *)c{
     c.meetingIndex = _meetingList.meetingId;
     [SBJsonResolveData getPointMeetingOfGroupsWithIndex:c.meetingIndex];
-    NSMutableArray *ar = [[NSMutableArray alloc]init];
+    NSMutableArray *ar0 = [NSMutableArray array];
+
     for (NSDictionary *dic in [[SBJsonResolveData shareMeeting] pointMeetingGroups]) {
-        [ar addObject:[dic objectForKey:DBFZName]];
+        NSMutableArray *ar1 = [NSMutableArray arrayWithObject:[dic objectForKey:DBFZName]];
+        [ar0 addObject:ar1];
     }
-    c.Participants.showDataArray = ar;
+    c.Participants.showDataArray = ar0;
 
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -194,10 +202,13 @@ NSString *textContent(NSString *str){
     //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [SBJsonResolveData deletePointMeetingOneAgendaWithHyIndex:_meetingList.meetingId AgendaIndex:row];
-        
-        [_tableView reloadData];
-        
+       BOOL scuess = [SBJsonResolveData deletePointMeetingOneAgendaWithHyIndex:_meetingList.meetingId AgendaIndex:row];
+        if (scuess) {
+            [_tableView reloadData];
+        }else{
+            [StaticManager showAlertWithTitle:nil message:@"删除议程失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+        }
+    
     }
 }
 

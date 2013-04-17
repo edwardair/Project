@@ -10,6 +10,8 @@
 #import "SBJson.h"
 #import "UAndDLoad.h"
 #import "Define.h"
+#import "StaticManager.h"
+#import "CommonMethod.h"
 static SBJsonResolveData *staticSBJsonResolveData = nil;
 @implementation SBJsonResolveData
 @synthesize meetingNameList = _meetingNameList;
@@ -20,6 +22,14 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     }
     
     return staticSBJsonResolveData;
+}
+#pragma mark 解析data数据 返回NSMutableDictionary
++ (NSMutableDictionary *)analyzeData:(NSData *)data{
+    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
+    NSMutableDictionary *dic = [jsonObject objectWithString:str];
+    return dic;
 }
 //登入
 +(NSString *)logInWithAccount:(NSString *)a secret:(NSString *)s{
@@ -75,6 +85,19 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
         _agenda = [[NSMutableArray alloc]init];
     }
     return _agenda;
+}
+#pragma mark 创建一个会议 
++ (void)createOneNewMeetingWithParams:(NSMutableDictionary *)params{
+    NSData *data = [UAndDLoad upLoad:params withURL:Url_ModifyData];
+    NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    
+    SBJsonParser *jsonObject = [[SBJsonParser alloc]init];
+    NSMutableDictionary *dic = [jsonObject objectWithString:str];
+    if ([[dic objectForKey:@"returnMsg"] intValue]==1) {
+        [StaticManager showAlertWithTitle:nil message:@"创建成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+    }else{
+        [StaticManager showAlertWithTitle:nil message:@"创建失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+    }
 }
 #pragma mark SBJson解析 会议名称
 
@@ -164,15 +187,20 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     return arrayWithDics_SubDic;
 }
 #pragma mark 删除 指定会议中 单个成员
-+(void)deletePoitMeetingWithIndex:(int )index{
++(BOOL )deletePoitMeetingWithIndex:(int )index{
     NSString *idStr = [[staticSBJsonResolveData.thisMeetingMembers objectAtIndex:index] objectForKey:CHDBId];
-    [UAndDLoad deleteMemberWithId:idStr];
+   NSData *data = [UAndDLoad deleteMemberWithId:idStr];
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"删除参会代表成功"]) {
+        [staticSBJsonResolveData.thisMeetingMembers removeObjectAtIndex:index];
 
-    [staticSBJsonResolveData.thisMeetingMembers removeObjectAtIndex:index];
+        return YES;
+    }else
+        return NO;
     
 }
 #pragma mark 增加 指定会议中 单个成员
-+(void)addPointMeetingWithIndex:(int )index
++(BOOL )addPointMeetingWithIndex:(int )index
                            Name:(NSString *)name
                             Sex:(int )sex
                             Tel:(NSString *)tel
@@ -181,17 +209,21 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     
     NSString *idStr = [NSString stringWithFormat:@"%d",hyid];
     
-    [UAndDLoad addMemberWithHyid:idStr
+   NSData *data = [UAndDLoad addMemberWithHyid:idStr
                             Name:name
                              sex:sex
                              tel:tel
                             post:post];
-    
-    [SBJsonResolveData updateThisMeetingMembersWithIndex:index];
-    
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"添加参会代表成功"]) {
+        [SBJsonResolveData updateThisMeetingMembersWithIndex:index];
+        return YES;
+    }else
+        return NO;
+
 }
 #pragma mark 编辑 指定会议中 单个成员
-+(void)modifyPointMeetingWithIndex:(int )index
++(BOOL )modifyPointMeetingWithIndex:(int )index
                               Name:(NSString *)name
                                Sex:(int )sex
                                Tel:(NSString *)tel
@@ -201,15 +233,21 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSString *hyidStr = [[staticSBJsonResolveData.thisMeetingMembers objectAtIndex:index] objectForKey:CHDBHyid];
 
     
-    [UAndDLoad modifyMemberWithId:idStr
+    NSData *data = [UAndDLoad modifyMemberWithId:idStr
                              name:name
                               sex:sex
                               tel:tel
                              post:post];
 
-    NSMutableDictionary *member = [SBJsonResolveData memberWithName:name Tel:tel Post:post Sex:[NSString stringWithFormat:@"%d",sex] ChdbId:idStr Hyid:hyidStr Code:@"code"];
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
     
-    [staticSBJsonResolveData.thisMeetingMembers replaceObjectAtIndex:index withObject:member];
+    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"编辑参会代表成功"]) {
+        NSMutableDictionary *member = [SBJsonResolveData memberWithName:name Tel:tel Post:post Sex:[NSString stringWithFormat:@"%d",sex] ChdbId:idStr Hyid:hyidStr Code:@"code"];
+        [staticSBJsonResolveData.thisMeetingMembers replaceObjectAtIndex:index withObject:member];
+        return YES;
+    }else{
+        return NO;
+    }
 
 }
 
@@ -248,25 +286,34 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     
 }
 #pragma mark 在指定会议中添加一个分组
-+ (void)addPointMeetingWithIndex:(int)index
++ (BOOL )addPointMeetingWithIndex:(int)index
                             Code:(NSString *)code
                             Name:(NSString *)name
                             Mark:(NSString *)mark{
     NSString *idStr = [staticSBJsonResolveData.meetingNameList objectAtIndex:index][1];
-    [UAndDLoad addPointMeetingOneGroupWithHyid:idStr
+   NSData *data = [UAndDLoad addPointMeetingOneGroupWithHyid:idStr
                                                     GroupCode:code
                                                     GroupName:name
                                                     GroupMark:mark];
-//    data = nil;
-    
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+    NSLogString([dic objectForKey:@"returnMsg"]);
+    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"添加分组成功"]) {
+        return YES;
+    }
+    else
+        return NO;
 }
 #pragma mark 制定会议 删除一个分组
-+ (void)deletePointMeetingGroupWithIndex:(int )index{
++ (BOOL )deletePointMeetingGroupWithIndex:(int )index{
     NSString *idStr = [[staticSBJsonResolveData.pointMeetingGroups objectAtIndex:index] objectForKey:@"id"];
-  [UAndDLoad deletePointMeetingGroupWithId:idStr];
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-    
-    [staticSBJsonResolveData.pointMeetingGroups removeObjectAtIndex:index];
+   NSData *data = [UAndDLoad deletePointMeetingGroupWithId:idStr];
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+    NSLogString([dic objectForKey:@"returnMsg"]);
+    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"删除分组成功"]) {
+        return YES;
+        [staticSBJsonResolveData.pointMeetingGroups removeObjectAtIndex:index];
+    }else
+        return NO;
 }
 #pragma mark 指定会议中  指定分组  获取分组成员
 +(NSMutableDictionary *)memberWithId:(NSString *)idStr
@@ -310,19 +357,28 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     }
 }
 #pragma mark 指定会议中  指定分组  添加分组成员
-+ (void)addPointMeetingGroupMemberWithMeetingIndex:(int )MI
++ (BOOL )addPointMeetingGroupMemberWithMeetingIndex:(int )MI
                                         GroupIndex:(int )GI
                                        MemberIndex:(NSString *)MeI{
-    [UAndDLoad addPointGroupWithHyId:staticSBJsonResolveData.meetingNameList[MI][1]
+   NSData *data = [UAndDLoad addPointGroupWithHyId:staticSBJsonResolveData.meetingNameList[MI][1]
                                             groupId:[staticSBJsonResolveData.pointMeetingGroups[GI] objectForKey:CHDBId]
                                            memberId:MeI];
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"添加分组成员成功"]) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
 #pragma mark 指定会议中 指定分组 删除分组成员
-+ (void)deletePointMeetingGroupMemberWithIndex:(int )index{
++ (BOOL )deletePointMeetingGroupMemberWithIndex:(int )index{
     NSString *idStr = [[staticSBJsonResolveData.pointGroupMembers objectAtIndex:index] objectForKey:CHDBId];
-    [UAndDLoad deletePointGroupMemberWithFZCYString:idStr];
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+   NSData *data = [UAndDLoad deletePointGroupMemberWithFZCYString:idStr];
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"删除分组成员成功"]) {
+        return YES;
+    }else
+        return NO;
 }
 
 #pragma mark 指定会议中 获取所有议程
@@ -365,7 +421,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
 }
 
 #pragma mark 指定会议添加  一个议程
-+ (void)addPointMeetingOneAgendaWithHyIndex:(int )index
++ (BOOL)addPointMeetingOneAgendaWithHyIndex:(int )index
                                      ycName:(NSString *)name
                                        hcJJ:(NSString *)jj
                                        info:(NSString *)info
@@ -376,13 +432,22 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSString *hyId = staticSBJsonResolveData.meetingNameList[index][1];
     NSString *groupId = [staticSBJsonResolveData.pointMeetingGroups[bdfzIndex] objectForKey:CHDBId];
     NSString *idStr = [NSString stringWithFormat:@"%@;%@;;;%@;%@;%@;%@;%@;%@",hyId,name,jj,info,msg,lxr,tel,groupId];
-//    NSLog(@"%@",idStr);
-    [UAndDLoad addPointMeetingOneAgendaWithHyID:hyId YCXX:idStr];
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+
+    NSData *data = [UAndDLoad addPointMeetingOneAgendaWithHyID:hyId YCXX:idStr];
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+
+    if ([[dic objectForKey:@"msgForajax"] isEqualToString:@"议程新建成功！"]) {
+        return YES;
+    }else{
+        return NO;
+    }
+//    if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"删除分组成员成功"]) {
+//        <#statements#>
+//    }
 }
 
 #pragma mark 指定会议添加  一个议程
-+ (void)modifyPointMeetingOneAgendaWithHyIndex:(int )index
++ (BOOL )modifyPointMeetingOneAgendaWithHyIndex:(int )index
                                    agendaIndex:(int )agendaIndex
                                      ycName:(NSString *)name
                                        hcJJ:(NSString *)jj
@@ -398,21 +463,35 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     
     NSString *idStr = [NSString stringWithFormat:@"%@;%@;%@;;;%@;%@;%@;%@;%@;%@",agendaId,hyId,name,jj,info,msg,lxr,tel,groupId];
 
-    [UAndDLoad modifyPointMeetingOneAgendaWithHyID:hyId YCXX:idStr];
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+   NSData *data = [UAndDLoad modifyPointMeetingOneAgendaWithHyID:hyId YCXX:idStr];
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
+    if ([[dic objectForKey:@"msgForajax"] isEqualToString:@"议程修改成功！"]) {
+        return YES;
+    }else{
+        return NO;
+    }
+
 }
 
 #pragma mark 指定会议 删除  一个议程
-+(void)deletePointMeetingOneAgendaWithHyIndex:(int )hyIndex
++(BOOL)deletePointMeetingOneAgendaWithHyIndex:(int )hyIndex
                                   AgendaIndex:(int )agendaIndex{
     NSString *hyId = staticSBJsonResolveData.meetingNameList[hyIndex][1];
     NSString *agendaId = [staticSBJsonResolveData.agenda[agendaIndex] objectForKey:@"id"];
 
-    [UAndDLoad deletePointMeetingOneAgendaWithHyId:hyId AgendaId:agendaId];
-//    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+   NSData *data =  [UAndDLoad deletePointMeetingOneAgendaWithHyId:hyId AgendaId:agendaId];
+    NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
 
-    [SBJsonResolveData getMeetingAllMeetingsWithIndex:hyIndex];
+    if ([[dic objectForKey:@"msgForajax"] isEqualToString:@"议程删除成功！"]) {
+        [SBJsonResolveData getMeetingAllMeetingsWithIndex:hyIndex];
+        return YES;
+    }else{
+        return NO;
+    }
+
     
+    
+
 }
 
 

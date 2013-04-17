@@ -80,14 +80,20 @@
     NSString *code = group.Code.text;
     NSString *name = group.Name.text;
     NSString *mark = group.Mark.text;
-    [SBJsonResolveData addPointMeetingWithIndex:_GM_MeetingList.meetingId
-                                           Code:code
-                                           Name:name
-                                           Mark:mark];
+    BOOL scuess = NO;
+    scuess = [SBJsonResolveData addPointMeetingWithIndex:_GM_MeetingList.meetingId
+                                                    Code:code
+                                                    Name:name
+                                                    Mark:mark];
     
-    [SBJsonResolveData getPointMeetingOfGroupsWithIndex:_GM_MeetingList.meetingId];
-    _GM_TableData = [[SBJsonResolveData shareMeeting] pointMeetingGroups];
-    [_GM_TableView reloadData];
+    if (scuess) {
+        [SBJsonResolveData getPointMeetingOfGroupsWithIndex:_GM_MeetingList.meetingId];
+        _GM_TableData = [[SBJsonResolveData shareMeeting] pointMeetingGroups];
+        [_GM_TableView reloadData];
+        [group callBack];
+    }
+    else
+        [group editFail];
 
 }
 #pragma mark UITableView Delegate
@@ -198,10 +204,13 @@
     //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [SBJsonResolveData deletePointMeetingGroupWithIndex:row];
-        
-        [_GM_TableView reloadData];
-        
+       BOOL scuess = [SBJsonResolveData deletePointMeetingGroupWithIndex:row];
+        if (scuess) {
+            [_GM_TableView reloadData];
+        }else{
+            [StaticManager showAlertWithTitle:nil message:@"删除分组失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+        }
+    
     }
 }
 

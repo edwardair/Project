@@ -23,7 +23,8 @@
 
 - (IBAction)sexButton:(id)sender;
 - (IBAction)textFieldDone:(id)sender;
-
+- (void)callBack;
+- (void)editFail;
 @end
 
 @protocol CellPushedViewControllerDelegate <NSObject>

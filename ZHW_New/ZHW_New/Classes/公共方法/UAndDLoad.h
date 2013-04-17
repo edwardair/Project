@@ -65,13 +65,13 @@
 +(NSData *)logInWithAccount:(NSString *)a secret:(NSString *)s;
 +(NSData *)updateAllMeetingNames;
 + (NSData *)updateThisMeetingMembers:(NSString *)index;
-+ (void)deleteMemberWithId:(NSString *)idStr;
-+ (void)addMemberWithHyid:(NSString *)idStr
++ (NSData *)deleteMemberWithId:(NSString *)idStr;
++ (NSData *)addMemberWithHyid:(NSString *)idStr
                      Name:(NSString *)name
                       sex:(int )man
                       tel:(NSString *)tel
                      post:(NSString *)post;
-+ (void)modifyMemberWithId:(NSString *)idStr
++ (NSData *)modifyMemberWithId:(NSString *)idStr
                       name:(NSString *)name
                        sex:(int )man
                        tel:(NSString *)tel

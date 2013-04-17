@@ -32,7 +32,13 @@ static float parentViewCenterY;
 +(float )isParentView:(UIView *)parent sub:(UIView *)sub center:(float )posY{
 //    float textCenterY = sub.center.y;
     if (![sub.superview isEqual:parent]) {
-        posY += sub.frame.origin.y-sub.superview.frame.origin.y;
+        NSLog(@"%f",posY);
+        CGRect subFrame = sub.frame;
+        subFrame = [sub.superview convertRect:subFrame toView:sub.superview.superview];
+        CGRect parFrame = sub.superview.frame;
+        NSLog(@"%f,%f",sub.frame.origin.y,parFrame.origin.y);
+
+        posY += subFrame.origin.y-parFrame.origin.y;
         NSLog(@"%f",posY);
 
         posY = [StaticManager isParentView:parent sub:sub.superview center:posY];
@@ -43,7 +49,7 @@ static float parentViewCenterY;
     float posY = 0;
     posY = [StaticManager isParentView:view sub:textView center:posY];
     NSLog(@"%f",posY);
-    float textCenterY = textView.center.y+posY;
+    float textCenterY = posY+textView.frame.size.height/2;
     float textWillCenterY = applicationFrame().size.height - KeyBoardHeight - textView.frame.size.height/2;
     float sub = textWillCenterY-textCenterY;
     
@@ -95,9 +101,9 @@ static float parentViewCenterY;
 
 #pragma mark  通过UIView 获取此View的superView的UIViewController
 UIViewController *UIViewControllerOfSuperView(UIView *view){
-    if (view.superview) {
-        NSLog(@"yes");
-    }
+//    if (view.superview) {
+//        NSLog(@"yes");
+//    }
     for (UIView* next = [view superview]; next; next = next.superview) {
         UIResponder* nextResponder = [next nextResponder];
         if ([nextResponder isKindOfClass:[UIViewController class]]) {
@@ -109,6 +115,7 @@ UIViewController *UIViewControllerOfSuperView(UIView *view){
 #pragma mark 处理时间格式 2012-12-12T00：00：00  将“T”替换为“ ”
 + (NSString *)formateTimeString:(NSString *)s{
     s = writeEnable(s);
+    //TODO: 4.17号  检测时间 s 是否为空
     if (![s isEqualToString:@""]) {
         NSMutableString *m_Start = [NSMutableString stringWithString:s];
         [m_Start replaceCharactersInRange:[m_Start rangeOfString:@"T"] withString:@" "];

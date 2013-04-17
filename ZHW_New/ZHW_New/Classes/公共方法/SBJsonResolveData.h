@@ -42,33 +42,34 @@
 
 +(SBJsonResolveData *)shareMeeting;
 +(NSString *)logInWithAccount:(NSString *)a secret:(NSString *)s;
++ (void)createOneNewMeetingWithParams:(NSMutableDictionary *)params;
 +(void )updateAllMeetingNames;
 + (void)updateThisMeetingMembersWithIndex:(int )index;
 + (void )getMeetingMembers:(int )index;
-+(void)deletePoitMeetingWithIndex:(int )index;
-+(void)addPointMeetingWithIndex:(int )index
++(BOOL )deletePoitMeetingWithIndex:(int )index;
++(BOOL )addPointMeetingWithIndex:(int )index
                            Name:(NSString *)name
                             Sex:(int )sex
                             Tel:(NSString *)tel
                            Post:(NSString *)post;
-+(void)modifyPointMeetingWithIndex:(int )index
++(BOOL)modifyPointMeetingWithIndex:(int )index
                               Name:(NSString *)name
                                Sex:(int )sex
                                Tel:(NSString *)tel
                               Post:(NSString *)post;
 +(void)getPointMeetingOfGroupsWithIndex:(int )index;
-+ (void)addPointMeetingWithIndex:(int)index
++ (BOOL )addPointMeetingWithIndex:(int)index
                             Code:(NSString *)code
                             Name:(NSString *)name
                             Mark:(NSString *)mark;
-+ (void)deletePointMeetingGroupWithIndex:(int )index;
++ (BOOL )deletePointMeetingGroupWithIndex:(int )index;
 + (void )GetPointMeetingGroupMemberWithIndex:(int )index;
-+ (void)addPointMeetingGroupMemberWithMeetingIndex:(int )MI
++ (BOOL )addPointMeetingGroupMemberWithMeetingIndex:(int )MI
                                         GroupIndex:(int )GI
                                        MemberIndex:(NSString *)MeI;
-+ (void)deletePointMeetingGroupMemberWithIndex:(int )index;
++ (BOOL )deletePointMeetingGroupMemberWithIndex:(int )index;
 + (void)getMeetingAllMeetingsWithIndex:(int )index;
-+ (void)addPointMeetingOneAgendaWithHyIndex:(int )index
++ (BOOL)addPointMeetingOneAgendaWithHyIndex:(int )index
                                      ycName:(NSString *)name
                                        hcJJ:(NSString *)jj
                                        info:(NSString *)info
@@ -76,7 +77,7 @@
                                       ycLXR:(NSString *)lxr
                                       ycTel:(NSString *)tel
                                      bdfzId:(int )bdfzIndex;
-+ (void)modifyPointMeetingOneAgendaWithHyIndex:(int )index
++ (BOOL)modifyPointMeetingOneAgendaWithHyIndex:(int )index
                                    agendaIndex:(int )agendaIndex
                                      ycName:(NSString *)name
                                        hcJJ:(NSString *)jj
@@ -85,6 +86,6 @@
                                       ycLXR:(NSString *)lxr
                                       ycTel:(NSString *)tel
                                      bdfzId:(int )bdfzIndex;
-+(void)deletePointMeetingOneAgendaWithHyIndex:(int )hyIndex
++(BOOL)deletePointMeetingOneAgendaWithHyIndex:(int )hyIndex
                                   AgendaIndex:(int )agendaIndex;
 @end

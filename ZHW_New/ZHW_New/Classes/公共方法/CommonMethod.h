@@ -15,7 +15,7 @@ NSString *writeEnable(NSString *text);
 //打印
 void NSLogFrame(CGRect frame);
 void NSLogCGPoint(CGPoint point);
-void NSLogString(NSString *str);
+void NSLogString(id obj);
 void NSLogInt(int i);
 @end
 

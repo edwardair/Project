@@ -15,7 +15,7 @@
     TimeChooseView *timeChooseView;
 
 }
-
+@property (nonatomic,retain) id textEditor;
 @end
 
 @implementation AddAgendaViewController
@@ -55,21 +55,26 @@
     
     [self.view addGestureRecognizer:emptyAreaTouched];
 
+    _agendaNameField.delegate = self;
+    _agendaFZRField.delegate = self;
+    _agendaTelField.delegate = self;
     _agendaStartDate.delegate = self;
     _agendaEndDate.delegate = self;
-    
+    _agendaContentField.delegate = self;
+
     [_Participants initializeButton];
     _Participants.delegate = self;
     
     _agendaContentField.delegate = self;
     
     CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
-    timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height, screenRect.size.width, 246)];
+    timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height+self.view.frame.origin.y, screenRect.size.width, 246)];
 
     [self.view addSubview:timeChooseView];
     [self.view bringSubviewToFront:timeChooseView];
 
-    _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _scrollView.contentSize.height+650);
+    _scrollView.scrollEnabled = NO;
+//    _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _scrollView.contentSize.height+650);
 
 }
 
@@ -104,9 +109,9 @@
         return;
     }
     
-
+    BOOL scuess = NO;
     if (self.navigationController)
-        [SBJsonResolveData modifyPointMeetingOneAgendaWithHyIndex:_meetingIndex
+       scuess = [SBJsonResolveData modifyPointMeetingOneAgendaWithHyIndex:_meetingIndex
                                                       agendaIndex:_agendaIndex
                                                         ycName:_agendaNameField.text
                                                           hcJJ:_agendaContentField.text
@@ -117,7 +122,7 @@
                                                         bdfzId:_Participants.meetingId];
     
     else
-        [SBJsonResolveData addPointMeetingOneAgendaWithHyIndex:_meetingIndex
+       scuess = [SBJsonResolveData addPointMeetingOneAgendaWithHyIndex:_meetingIndex
                                                         ycName:_agendaNameField.text
                                                           hcJJ:_agendaContentField.text
                                                           info:_agendaStartDate.text
@@ -126,21 +131,21 @@
                                                          ycTel:_agendaTelField.text
                                                         bdfzId:_Participants.meetingId];
     
-    [delegate updateAgendas];
-    
-    [self callBack];
+    if (scuess) {
+        [delegate updateAgendas];
+        
+        [self callBack];
+    }else{
+        [StaticManager showAlertWithTitle:nil message:self.navigationController?@"修改失败":@"创建成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+    }
 }
 - (IBAction)resignKeyboard:(id)sender {
     [sender resignFirstResponder];    
 }
 
 - (void)resignKeyboardInOtherArea{
-    [_agendaNameField resignFirstResponder];
-    [_agendaFZRField resignFirstResponder];
-    [_agendaStartDate resignFirstResponder];
-    [_agendaEndDate resignFirstResponder];
-    [_agendaTelField resignFirstResponder];
-    [_agendaContentField resignFirstResponder];
+    
+    [_textEditor resignFirstResponder];
     
     [timeChooseView showPicker:NO withField:nil];
     
@@ -153,17 +158,24 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
     NSLog(@"ShouldBeginEditing:%@",textField.text);
-    [_agendaContentField resignFirstResponder];
+//    [_agendaContentField resignFirstResponder];
 
     if ([textField isEqual:_agendaStartDate] || [textField isEqual:_agendaEndDate]) {
-        if (textField.text.length>0){
-            [timeChooseView.datePicker setDate:[[NSDate alloc]init]];
+        if (textField.text.length==0){
+            [timeChooseView.datePicker setDate:[NSDate date]];
 
         }
-            [timeChooseView showPicker:YES withField:textField];
+        if (_textEditor) {
+            [_textEditor resignFirstResponder];
+            _textEditor = nil;
+        }
+
+        [timeChooseView showPicker:YES withField:textField];
         
         return NO;
     }
+    _textEditor = textField;
+
     [timeChooseView showPicker:NO withField:nil];
 
     return YES;
@@ -180,6 +192,10 @@
     return YES;
 }
 #pragma mark UITextView Delegate
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    _textEditor = textView;
+    return YES;
+}
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]) {
         [self resignKeyboard:textView];

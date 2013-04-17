@@ -31,12 +31,13 @@ void NSLogFrame(CGRect frame){
 void NSLogCGPoint(CGPoint point){
     NSLog(@"%f,%f",point.x,point.y);
 }
-void NSLogString(NSString *str){
-    NSLog(@"%@",str);
+void NSLogString(id obj){
+    NSLog(@"%@",obj);
 }
 void NSLogInt(int i){
     NSLog(@"%d",i);
 }
+
 
 #pragma mark ----------------------
 

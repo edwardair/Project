@@ -18,6 +18,8 @@
 @property (strong,nonatomic) IBOutlet UITextField *Name;
 @property (strong,nonatomic) IBOutlet UITextField *Mark;
 - (IBAction)resignKeyboard:(id)sender;
+- (void)callBack;
+- (void)editFail;
 @end
 
 @protocol AddGroupControllerDelegate <NSObject>

@@ -9,6 +9,7 @@
 #import "ModifyPointGroupViewController.h"
 #import "OneMemberCell.h"
 #import "SBJsonResolveData.h"
+#import "StaticManager.h"
 //#import "CYCustomMultiSelectPickerView.h"
 #define TableHeader @"编号     姓名       职位            联系电话"
 @interface ModifyPointGroupViewController (){
@@ -91,9 +92,13 @@
 }
 #pragma mark Picker Delegate
 - (void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr{
-//    NSLog(@"%@",selectedEntriesArr);
+
     for (NSString *idStr in selectedEntriesArr) {
-        [SBJsonResolveData addPointMeetingGroupMemberWithMeetingIndex:_meetingIndex GroupIndex:_groupIndex MemberIndex:idStr];
+       BOOL allScuess = [SBJsonResolveData addPointMeetingGroupMemberWithMeetingIndex:_meetingIndex GroupIndex:_groupIndex MemberIndex:idStr];
+        if (!allScuess) {
+            [StaticManager showAlertWithTitle:nil message:@"添加分组成员失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+            break;
+        }
     }
     
     [SBJsonResolveData GetPointMeetingGroupMemberWithIndex:self.groupIndex];
@@ -171,9 +176,13 @@
     
     //tableView 删除数据操作 同时上传服务器删除数据
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [SBJsonResolveData deletePointMeetingGroupMemberWithIndex:row];
-        [SBJsonResolveData GetPointMeetingGroupMemberWithIndex:_groupIndex];
-        [_tableView reloadData];
+       BOOL scuess = [SBJsonResolveData deletePointMeetingGroupMemberWithIndex:row];
+        if (scuess) {
+            [SBJsonResolveData GetPointMeetingGroupMemberWithIndex:_groupIndex];
+            [_tableView reloadData];
+        }else{
+            [StaticManager showAlertWithTitle:nil message:@"删除分组成员失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
+        }
     }
 }
 

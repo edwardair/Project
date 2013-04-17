@@ -150,6 +150,7 @@
     [_rootNavigationController.view addGestureRecognizer:_rootTapGesture];
     [_rootTapGesture addTarget:self action:@selector(tap)];
     _rootTapGesture.delaysTouchesBegan = YES;
+//    _rootTapGesture.cancelsTouchesInView = YES;
     _rootTapGesture.enabled = NO;
 }
 
@@ -224,12 +225,14 @@ static RootViewController *rootViewController = nil;
 
 #pragma mark scrollView Delegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    NSLogString(@"停止拖动");
+//    NSLogString(@"停止拖动");
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     CGPoint offset = scrollView.contentOffset;
     if (offset.x<80) {
-        _rootTapGesture.enabled = YES;
+        [self showMenu];
+    }else{
+        [self hideMenu];
     }
 }
 
@@ -240,7 +243,8 @@ static RootViewController *rootViewController = nil;
 }
 
 #pragma mark tabBarController Delegate
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+- (void)tabBarController:(UITabBarController *)tabBarController
+ didSelectViewController:(UIViewController *)viewController{
     int index = tabBarController.selectedIndex;
     NSString *title = nil;
     switch (index) {
@@ -280,13 +284,19 @@ static RootViewController *rootViewController = nil;
 //显示 隐藏 底部菜单
 - (void)showMenu{
     _rootTapGesture.enabled = YES;
-
-    if (_rootScrollView) 
+    NSLogString(_rootTabBarController.selectedViewController.description);
+    for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
+        sub.userInteractionEnabled = NO;
+    }
+    if (_rootScrollView)
         [_rootScrollView scrollRectToVisible:CGRectMake(applicationFrame().size.width*(-.1), 0, applicationFrame().size.width, applicationFrame().size.height) animated:YES];
 }
 - (void)hideMenu{
     _rootTapGesture.enabled = NO;
-    
+    for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
+        sub.userInteractionEnabled = YES;
+    }
+
     if (_rootScrollView)
         [_rootScrollView scrollRectToVisible:CGRectMake(applicationFrame().size.width*1, 0, applicationFrame().size.width, applicationFrame().size.height) animated:YES];
 }
