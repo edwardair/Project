@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18F83297171ED77D00AB84B7 /* TapBeganGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83296171ED77D00AB84B7 /* TapBeganGestureRecognizer.m */; };
 		F103FBFC171E967900F22201 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F103FBFA171E967900F22201 /* RegisterViewController.xib */; };
 		F103FC01171E969200F22201 /* BDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F103FBFF171E969200F22201 /* BDMapViewController.m */; };
 		F103FC02171E969200F22201 /* BDMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F103FC00171E969200F22201 /* BDMapViewController.xib */; };
@@ -33,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18F83295171ED77D00AB84B7 /* TapBeganGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapBeganGestureRecognizer.h; sourceTree = "<group>"; };
+		18F83296171ED77D00AB84B7 /* TapBeganGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapBeganGestureRecognizer.m; sourceTree = "<group>"; };
 		F103FBF8171E967900F22201 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		F103FBFA171E967900F22201 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterViewController.xib; path = ../RegisterViewController.xib; sourceTree = "<group>"; };
 		F103FBFE171E969200F22201 /* BDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDMapViewController.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				F17F9166171EA1BC004BD3C2 /* RegisterViewController.m */,
 				F103FBFE171E969200F22201 /* BDMapViewController.h */,
 				F103FBFF171E969200F22201 /* BDMapViewController.m */,
+				18F83295171ED77D00AB84B7 /* TapBeganGestureRecognizer.h */,
+				18F83296171ED77D00AB84B7 /* TapBeganGestureRecognizer.m */,
 				F10624C1171E780700275FDB /* Supporting Files */,
 			);
 			path = WorkPlace;
@@ -314,6 +319,7 @@
 				F10624E6171E7CCC00275FDB /* CommonTextField.m in Sources */,
 				F103FC01171E969200F22201 /* BDMapViewController.m in Sources */,
 				F17F9168171EA1BC004BD3C2 /* RegisterViewController.m in Sources */,
+				18F83297171ED77D00AB84B7 /* TapBeganGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

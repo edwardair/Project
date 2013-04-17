@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
-@interface BDMapViewController : UIViewController
+@interface BDMapViewController : UIViewController<BMKMapViewDelegate,UIGestureRecognizerDelegate>
 
 @end
