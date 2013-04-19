@@ -8,7 +8,7 @@
 
 #import "CommonTextField.h"
 
-static CommonTextField *staticFirstResponder;
+//static CommonTextField *staticFirstResponder;
 
 @implementation CommonTextField
 @synthesize commonDelegate;

@@ -13,7 +13,7 @@
 }
 @property (assign,nonatomic) id<CommonTextFieldDelegate> commonDelegate;
 
-+ (CommonTextField *)firstResponder;
+//+ (CommonTextField *)firstResponder;
 
 @end
 

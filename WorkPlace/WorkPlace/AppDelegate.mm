@@ -28,15 +28,17 @@
         NSLog(@"start failed!");
     }
     
-//    LogInViewController *login = [[LogInViewController alloc]initWithNibName:@"LogInViewController" bundle:nil];
-    BDMapViewController *login = [[BDMapViewController alloc]initWithNibName:@"BDMapViewController" bundle:nil];
+    LogInViewController *login = [[LogInViewController alloc]initWithNibName:@"LogInViewController" bundle:nil];
+//    BDMapViewController *login = [[BDMapViewController alloc]initWithNibName:@"BDMapViewController" bundle:nil];
 
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:login];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:login];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.window.rootViewController = nav;
+    self.window.rootViewController = login;
+    [login release];
+    
     return YES;
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18F83297171ED77D00AB84B7 /* TapBeganGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F83296171ED77D00AB84B7 /* TapBeganGestureRecognizer.m */; };
-		F103FBFC171E967900F22201 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F103FBFA171E967900F22201 /* RegisterViewController.xib */; };
 		F103FC01171E969200F22201 /* BDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F103FBFF171E969200F22201 /* BDMapViewController.m */; };
 		F103FC02171E969200F22201 /* BDMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F103FC00171E969200F22201 /* BDMapViewController.xib */; };
 		F103FC25171E979C00F22201 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F103FC23171E979C00F22201 /* mapapi.bundle */; };
@@ -27,17 +26,31 @@
 		F10624E2171E789F00275FDB /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10624E0171E789F00275FDB /* LogInViewController.xib */; };
 		F10624E6171E7CCC00275FDB /* CommonTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F10624E5171E7CCC00275FDB /* CommonTextField.m */; };
 		F16BBD8A171E8B1D00D10E6B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16BBD89171E8B1D00D10E6B /* QuartzCore.framework */; };
-		F17F9168171EA1BC004BD3C2 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F9166171EA1BC004BD3C2 /* RegisterViewController.m */; };
 		F17F9169171EA1DD004BD3C2 /* CommonMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F17F9165171EA1BC004BD3C2 /* CommonMethod.m */; };
-		F17F916C171EA2A8004BD3C2 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F17F916A171EA2A8004BD3C2 /* libbaidumapapi.a */; };
-		F17F916D171EA2A8004BD3C2 /* libbaidumapapiR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F17F916B171EA2A8004BD3C2 /* libbaidumapapiR.a */; };
+		F17F916C171EA2A8004BD3C2 /* libbaidumapapi_D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F17F916A171EA2A8004BD3C2 /* libbaidumapapi_D.a */; };
+		F17F916D171EA2A8004BD3C2 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F17F916B171EA2A8004BD3C2 /* libbaidumapapi.a */; };
+		F18517E01720D21A0051F548 /* PDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18517DE1720D21A0051F548 /* PDViewController.m */; };
+		F18517E11720D21A0051F548 /* PDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18517DF1720D21A0051F548 /* PDViewController.xib */; };
+		F18517E61720D5EE0051F548 /* IWRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F18517E41720D5EE0051F548 /* IWRViewController.m */; };
+		F18517E71720D5EE0051F548 /* IWRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18517E51720D5EE0051F548 /* IWRViewController.xib */; };
+		F18517EE1720EC560051F548 /* DefaultTypePNG_UnSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F18517EC1720EC560051F548 /* DefaultTypePNG_UnSelected.png */; };
+		F18517EF1720EC560051F548 /* DefaultTypePNG_Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = F18517ED1720EC560051F548 /* DefaultTypePNG_Selected.png */; };
+		F18517F21720EC7F0051F548 /* CheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = F18517F11720EC7F0051F548 /* CheckBoxView.m */; };
+		F18517FA172114D60051F548 /* Detail.png in Resources */ = {isa = PBXBuildFile; fileRef = F18517F7172114D60051F548 /* Detail.png */; };
+		F18517FC172114D60051F548 /* Repair.png in Resources */ = {isa = PBXBuildFile; fileRef = F18517F9172114D60051F548 /* Repair.png */; };
+		F18517FE172121000051F548 /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = F18517FD172120FF0051F548 /* Logout.png */; };
+		F1851800172121D60051F548 /* ZhiShi.png in Resources */ = {isa = PBXBuildFile; fileRef = F18517FF172121D50051F548 /* ZhiShi.png */; };
+		F1F6BB21171F870B002781C8 /* RightDir.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F6BB20171F870B002781C8 /* RightDir.png */; };
+		F1F6BB28171F93E0002781C8 /* MoviePlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F6BB26171F93DF002781C8 /* MoviePlayController.m */; };
+		F1F6BB29171F93E0002781C8 /* MoviePlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F6BB27171F93E0002781C8 /* MoviePlayController.xib */; };
+		F1F6BB2D171F969A002781C8 /* Middle.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F6BB2C171F9699002781C8 /* Middle.png */; };
+		F1F6BB43171F9F8F002781C8 /* UIPopoverListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F6BB42171F9F8E002781C8 /* UIPopoverListView.m */; };
+		F1F6BB57171FECBB002781C8 /* RepairPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F6BB56171FECBB002781C8 /* RepairPopoverView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18F83295171ED77D00AB84B7 /* TapBeganGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapBeganGestureRecognizer.h; sourceTree = "<group>"; };
 		18F83296171ED77D00AB84B7 /* TapBeganGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapBeganGestureRecognizer.m; sourceTree = "<group>"; };
-		F103FBF8171E967900F22201 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		F103FBFA171E967900F22201 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterViewController.xib; path = ../RegisterViewController.xib; sourceTree = "<group>"; };
 		F103FBFE171E969200F22201 /* BDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDMapViewController.h; sourceTree = "<group>"; };
 		F103FBFF171E969200F22201 /* BDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDMapViewController.m; sourceTree = "<group>"; };
 		F103FC00171E969200F22201 /* BDMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BDMapViewController.xib; path = ../BDMapViewController.xib; sourceTree = "<group>"; };
@@ -94,9 +107,31 @@
 		F10624E5171E7CCC00275FDB /* CommonTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTextField.m; sourceTree = "<group>"; };
 		F16BBD89171E8B1D00D10E6B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F17F9165171EA1BC004BD3C2 /* CommonMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethod.m; sourceTree = "<group>"; };
-		F17F9166171EA1BC004BD3C2 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		F17F916A171EA2A8004BD3C2 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
-		F17F916B171EA2A8004BD3C2 /* libbaidumapapiR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapiR.a; sourceTree = "<group>"; };
+		F17F916A171EA2A8004BD3C2 /* libbaidumapapi_D.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi_D.a; sourceTree = "<group>"; };
+		F17F916B171EA2A8004BD3C2 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
+		F18517DD1720D21A0051F548 /* PDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDViewController.h; sourceTree = "<group>"; };
+		F18517DE1720D21A0051F548 /* PDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDViewController.m; sourceTree = "<group>"; };
+		F18517DF1720D21A0051F548 /* PDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PDViewController.xib; path = ../PDViewController.xib; sourceTree = "<group>"; };
+		F18517E31720D5EE0051F548 /* IWRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWRViewController.h; sourceTree = "<group>"; };
+		F18517E41720D5EE0051F548 /* IWRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWRViewController.m; sourceTree = "<group>"; };
+		F18517E51720D5EE0051F548 /* IWRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IWRViewController.xib; path = ../IWRViewController.xib; sourceTree = "<group>"; };
+		F18517EC1720EC560051F548 /* DefaultTypePNG_UnSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultTypePNG_UnSelected.png; sourceTree = "<group>"; };
+		F18517ED1720EC560051F548 /* DefaultTypePNG_Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultTypePNG_Selected.png; sourceTree = "<group>"; };
+		F18517F01720EC7F0051F548 /* CheckBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxView.h; sourceTree = "<group>"; };
+		F18517F11720EC7F0051F548 /* CheckBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxView.m; sourceTree = "<group>"; };
+		F18517F7172114D60051F548 /* Detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Detail.png; sourceTree = "<group>"; };
+		F18517F9172114D60051F548 /* Repair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Repair.png; sourceTree = "<group>"; };
+		F18517FD172120FF0051F548 /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
+		F18517FF172121D50051F548 /* ZhiShi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZhiShi.png; sourceTree = "<group>"; };
+		F1F6BB20171F870B002781C8 /* RightDir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RightDir.png; sourceTree = "<group>"; };
+		F1F6BB25171F93DF002781C8 /* MoviePlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayController.h; sourceTree = "<group>"; };
+		F1F6BB26171F93DF002781C8 /* MoviePlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayController.m; sourceTree = "<group>"; };
+		F1F6BB27171F93E0002781C8 /* MoviePlayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoviePlayController.xib; path = ../MoviePlayController.xib; sourceTree = "<group>"; };
+		F1F6BB2C171F9699002781C8 /* Middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Middle.png; sourceTree = "<group>"; };
+		F1F6BB41171F9F8E002781C8 /* UIPopoverListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPopoverListView.h; sourceTree = "<group>"; };
+		F1F6BB42171F9F8E002781C8 /* UIPopoverListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPopoverListView.m; sourceTree = "<group>"; };
+		F1F6BB55171FECBB002781C8 /* RepairPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepairPopoverView.h; sourceTree = "<group>"; };
+		F1F6BB56171FECBB002781C8 /* RepairPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepairPopoverView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +145,8 @@
 				F10624BB171E780700275FDB /* UIKit.framework in Frameworks */,
 				F10624BD171E780700275FDB /* Foundation.framework in Frameworks */,
 				F10624BF171E780700275FDB /* CoreGraphics.framework in Frameworks */,
-				F17F916C171EA2A8004BD3C2 /* libbaidumapapi.a in Frameworks */,
-				F17F916D171EA2A8004BD3C2 /* libbaidumapapiR.a in Frameworks */,
+				F17F916C171EA2A8004BD3C2 /* libbaidumapapi_D.a in Frameworks */,
+				F17F916D171EA2A8004BD3C2 /* libbaidumapapi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +156,8 @@
 		F103FC03171E979C00F22201 /* BDMap */ = {
 			isa = PBXGroup;
 			children = (
-				F17F916A171EA2A8004BD3C2 /* libbaidumapapi.a */,
-				F17F916B171EA2A8004BD3C2 /* libbaidumapapiR.a */,
+				F17F916A171EA2A8004BD3C2 /* libbaidumapapi_D.a */,
+				F17F916B171EA2A8004BD3C2 /* libbaidumapapi.a */,
 				F103FC23171E979C00F22201 /* mapapi.bundle */,
 				F103FC04171E979C00F22201 /* inc */,
 			);
@@ -207,12 +242,22 @@
 				F10624E5171E7CCC00275FDB /* CommonTextField.m */,
 				F10624DE171E789F00275FDB /* LogInViewController.h */,
 				F10624DF171E789F00275FDB /* LogInViewController.m */,
-				F103FBF8171E967900F22201 /* RegisterViewController.h */,
-				F17F9166171EA1BC004BD3C2 /* RegisterViewController.m */,
 				F103FBFE171E969200F22201 /* BDMapViewController.h */,
 				F103FBFF171E969200F22201 /* BDMapViewController.m */,
+				F1F6BB25171F93DF002781C8 /* MoviePlayController.h */,
+				F1F6BB26171F93DF002781C8 /* MoviePlayController.m */,
+				F18517DD1720D21A0051F548 /* PDViewController.h */,
+				F18517DE1720D21A0051F548 /* PDViewController.m */,
+				F18517E31720D5EE0051F548 /* IWRViewController.h */,
+				F18517E41720D5EE0051F548 /* IWRViewController.m */,
+				F1F6BB55171FECBB002781C8 /* RepairPopoverView.h */,
+				F1F6BB56171FECBB002781C8 /* RepairPopoverView.m */,
+				F18517F01720EC7F0051F548 /* CheckBoxView.h */,
+				F18517F11720EC7F0051F548 /* CheckBoxView.m */,
 				18F83295171ED77D00AB84B7 /* TapBeganGestureRecognizer.h */,
 				18F83296171ED77D00AB84B7 /* TapBeganGestureRecognizer.m */,
+				F1F6BB41171F9F8E002781C8 /* UIPopoverListView.h */,
+				F1F6BB42171F9F8E002781C8 /* UIPopoverListView.m */,
 				F10624C1171E780700275FDB /* Supporting Files */,
 			);
 			path = WorkPlace;
@@ -236,9 +281,19 @@
 		F10624E3171E78AF00275FDB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F18517FF172121D50051F548 /* ZhiShi.png */,
+				F18517F7172114D60051F548 /* Detail.png */,
+				F18517FD172120FF0051F548 /* Logout.png */,
+				F18517F9172114D60051F548 /* Repair.png */,
+				F18517EC1720EC560051F548 /* DefaultTypePNG_UnSelected.png */,
+				F18517ED1720EC560051F548 /* DefaultTypePNG_Selected.png */,
+				F1F6BB2C171F9699002781C8 /* Middle.png */,
+				F1F6BB20171F870B002781C8 /* RightDir.png */,
 				F10624E0171E789F00275FDB /* LogInViewController.xib */,
-				F103FBFA171E967900F22201 /* RegisterViewController.xib */,
 				F103FC00171E969200F22201 /* BDMapViewController.xib */,
+				F1F6BB27171F93E0002781C8 /* MoviePlayController.xib */,
+				F18517DF1720D21A0051F548 /* PDViewController.xib */,
+				F18517E51720D5EE0051F548 /* IWRViewController.xib */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -299,9 +354,19 @@
 				F10624CF171E780800275FDB /* Default@2x.png in Resources */,
 				F10624D1171E780800275FDB /* Default-568h@2x.png in Resources */,
 				F10624E2171E789F00275FDB /* LogInViewController.xib in Resources */,
-				F103FBFC171E967900F22201 /* RegisterViewController.xib in Resources */,
 				F103FC02171E969200F22201 /* BDMapViewController.xib in Resources */,
 				F103FC25171E979C00F22201 /* mapapi.bundle in Resources */,
+				F1F6BB21171F870B002781C8 /* RightDir.png in Resources */,
+				F1F6BB29171F93E0002781C8 /* MoviePlayController.xib in Resources */,
+				F1F6BB2D171F969A002781C8 /* Middle.png in Resources */,
+				F18517E11720D21A0051F548 /* PDViewController.xib in Resources */,
+				F18517E71720D5EE0051F548 /* IWRViewController.xib in Resources */,
+				F18517EE1720EC560051F548 /* DefaultTypePNG_UnSelected.png in Resources */,
+				F18517EF1720EC560051F548 /* DefaultTypePNG_Selected.png in Resources */,
+				F18517FA172114D60051F548 /* Detail.png in Resources */,
+				F18517FC172114D60051F548 /* Repair.png in Resources */,
+				F18517FE172121000051F548 /* Logout.png in Resources */,
+				F1851800172121D60051F548 /* ZhiShi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,8 +383,13 @@
 				F10624E1171E789F00275FDB /* LogInViewController.m in Sources */,
 				F10624E6171E7CCC00275FDB /* CommonTextField.m in Sources */,
 				F103FC01171E969200F22201 /* BDMapViewController.m in Sources */,
-				F17F9168171EA1BC004BD3C2 /* RegisterViewController.m in Sources */,
 				18F83297171ED77D00AB84B7 /* TapBeganGestureRecognizer.m in Sources */,
+				F1F6BB28171F93E0002781C8 /* MoviePlayController.m in Sources */,
+				F1F6BB43171F9F8F002781C8 /* UIPopoverListView.m in Sources */,
+				F1F6BB57171FECBB002781C8 /* RepairPopoverView.m in Sources */,
+				F18517E01720D21A0051F548 /* PDViewController.m in Sources */,
+				F18517E61720D5EE0051F548 /* IWRViewController.m in Sources */,
+				F18517F21720EC7F0051F548 /* CheckBoxView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

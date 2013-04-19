@@ -39,8 +39,10 @@ void NSLogInt(int i){
 
 #pragma mark UILabel 自适应 所包含的文字大小
 +(void)autoSizeLabel:(UILabel *)label{
+    label.font = [UIFont systemFontOfSize:18.0];
     CGSize size = [label.text sizeWithFont:label.font];
     [label setFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y, size.width, size.height)];
+    label.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark ----------------------

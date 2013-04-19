@@ -10,4 +10,6 @@
 #import "BMapKit.h"
 @interface BDMapViewController : UIViewController<BMKMapViewDelegate,UIGestureRecognizerDelegate>
 
+@property (retain,nonatomic) NSMutableDictionary *coordDic;
+
 @end
