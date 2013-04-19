@@ -40,7 +40,7 @@
         if ([label isKindOfClass:[UILabel class]]) {
             UILabel *temp = (UILabel *)label;
             temp.text = [NSString stringWithFormat:@"%@%@",temp.text,dic[temp.tag-1]];
-            [CommonMethod autoSizeLabel:temp];
+            [CommonMethod autoSizeLabel:temp withFont:systemFontSize(DefaultSystemFontSize)];
         }
     }
 }

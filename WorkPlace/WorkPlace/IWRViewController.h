@@ -17,8 +17,6 @@
 @property (strong,nonatomic) IBOutlet CheckBoxView *principalButton;
 
 - (IBAction)reasonButtonPressed;
-- (IBAction)installationUnitButtonPressed;
-- (IBAction)principalButtonPressed;
 
 - (IBAction)submitButtonPressed;
 - (IBAction)resetButtonPressed;

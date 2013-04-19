@@ -84,7 +84,7 @@
         return;
     }
     connected.text = @"连接中...";
-    [CommonMethod autoSizeLabel:connected];
+    [CommonMethod autoSizeLabel:connected withFont:systemFontSize(DefaultSystemFontSize)];
 }
 
 - (IBAction)BreakMovie:(id)sender {
@@ -92,7 +92,7 @@
         return;
     }
     connected.text = @"已断开";
-    [CommonMethod autoSizeLabel:connected];
+    [CommonMethod autoSizeLabel:connected withFont:systemFontSize(DefaultSystemFontSize)];
 }
 
 - (IBAction)DirectionController:(id)sender {
@@ -102,20 +102,10 @@
 - (IBAction)ProjectDetails:(id)sender {
     NSLog(@"项目详情");
     
-    PDViewController *pd = [[PDViewController alloc]initWithNibName:@"PDViewController" bundle:nil];
+    PDViewController *pd = [[PDViewController alloc]initWithNibName:@"PDViewController" bundle:nil] ;
     [self.navigationController pushViewController:pd animated:YES];
     [pd initLabelsTextWithDic:_dataSource];
-    
-//    CGFloat xWidth = self.view.bounds.size.width - 20.0f;
-//    CGFloat yHeight = 272.0f;
-//    CGFloat yOffset = (self.view.bounds.size.height - yHeight)/2.0f;
-//    UIPopoverListView *poplistview = [[UIPopoverListView alloc] initWithFrame:CGRectMake(10, yOffset, xWidth, yHeight)];
-//    poplistview.delegate = self;
-//    poplistview.datasource = self;
-//    poplistview.listView.scrollEnabled = FALSE;
-//    [poplistview setTitle:@"项目详情"];
-//    [poplistview show];
-//    [poplistview release];
+    [pd release];
 
 }
 
@@ -126,7 +116,7 @@
     
     IWRViewController *iwr = [[IWRViewController alloc]initWithNibName:@"IWRViewController" bundle:nil];
     [self.navigationController pushViewController:iwr animated:YES];
-
+    [iwr release];
 }
 
 

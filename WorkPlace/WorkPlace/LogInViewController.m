@@ -28,14 +28,14 @@
         UILabel *account = [[UILabel alloc]initWithFrame:CGRectMake(20, applicationFrame().origin.y+100, 0, 0)];
         [self.view addSubview:account];
         account.text = @"账号:";
-        [CommonMethod autoSizeLabel:account];
+        [CommonMethod autoSizeLabel:account withFont:systemFontSize(DefaultSystemFontSize)];
         [account release];
         
         //密码 
         UILabel *secret = [[UILabel alloc]initWithFrame:CGRectMake(20, applicationFrame().origin.y+150, 0, 0)];
         [self.view addSubview:secret];
         secret.text = @"密码:";
-        [CommonMethod autoSizeLabel:secret];
+        [CommonMethod autoSizeLabel:secret withFont:systemFontSize(DefaultSystemFontSize)];
         [secret release];
 
         //输入框
