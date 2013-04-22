@@ -20,7 +20,7 @@
 //#define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
-    UIView *curPresentUIView;
+    UIScrollView *curPresentSView;
 }
 @property (strong,nonatomic) id textKeyBoard;
 @property (strong,nonatomic) TimeChooseView *timeChooseView;
@@ -45,6 +45,7 @@
     [RootViewController shareRootViewController].rootScrollView.scrollEnabled = NO;
 
     // Do any additional setup after loading the view from its nib.
+    CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
 
     //-------------------------新建会议
     _meetingName.delegate = self;
@@ -58,10 +59,6 @@
     
     _meetingTheme.editable = YES;
     _meetingRequriements.editable = YES;
-
-    _bottomScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 65, 320, applicationFrame().size.height-65)];
-    _bottomScrollView.scrollEnabled = YES;
-    [self.view addSubview:_bottomScrollView];
 
     [_meetingType initializeButton];
     [[SBJsonResolveData shareMeeting] setMeetingNameList:nil];
@@ -104,9 +101,6 @@
     
     [self CreateNewMeeting:nil];
     
-    
-    CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
-    
     _timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height, screenRect.size.width, 216)];
 
     [self.parentViewController.view addSubview:_timeChooseView];
@@ -118,6 +112,11 @@
     self.navigationItem.leftBarButtonItem = back;
     self.navigationItem.rightBarButtonItem = add;
     
+    _bs1.delegate = self;
+    
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"%f",_bs1.contentOffset.y);
 }
 - (void)back{
     [self.navigationController popViewControllerAnimated:YES];
@@ -139,7 +138,7 @@ enum{
     CNM_S,
 };
 - (IBAction)CreateNewMeeting:(UIButton *)sender{
-    //sender为nil是 tag默认为0
+//sender为nil是 tag默认为0
 
     //选中框
     if (sender) {
@@ -148,18 +147,19 @@ enum{
     }
 
     UIView *temp = nil;
+    UIScrollView *tempScrollView = nil;
     switch (sender.tag) {
         case CNM_C:
             temp = _createNewMeetingView;
             self.navigationItem.title = @"新建会议";
-            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 630);
+            tempScrollView = _bs1;
             [self.navigationItem.rightBarButtonItem setTarget:self];
             [self.navigationItem.rightBarButtonItem setAction:@selector(CreateNewMeeting_OK)];
             break;
         case CNM_M:
             temp = _memberManageView;
             self.navigationItem.title = @"人员管理";
-            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 0);
+            tempScrollView = _bs2;
             [self.navigationItem.rightBarButtonItem setAction:@selector(MM_AddMember)];
             [self.navigationItem.rightBarButtonItem setTarget:self];
             break;
@@ -174,7 +174,7 @@ enum{
         }
             temp = (UIView *)_groupManageView;
             self.navigationItem.title = @"群组管理";
-            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 0);
+            tempScrollView = _bs3;
             [self.navigationItem.rightBarButtonItem setAction:@selector(addOneGroup)];
             [self.navigationItem.rightBarButtonItem setTarget:_groupManageView];
 
@@ -190,7 +190,7 @@ enum{
         }
             temp = (UIView *)_meetingManageView;
             self.navigationItem.title = @"议程管理";
-            _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, 0);
+            tempScrollView = _bs4;
             [self.navigationItem.rightBarButtonItem setAction:@selector(addButton)];
             [self.navigationItem.rightBarButtonItem setTarget:_meetingManageView];
 
@@ -199,39 +199,29 @@ enum{
             break;
     }
 
-    if (temp) {
-        if (temp.superview) {
-            if (temp.hidden) {
-                temp.hidden = NO;
-            }
-        }else{
-            if (sender.tag == CNM_C) {
-                [_bottomScrollView addSubview:temp];
-            }else{
-                [self.view addSubview:temp];
+    //如果底部scrollView隐藏状态 则显示
+    if (tempScrollView.hidden) {
+        if (!temp.superview) {
+            [tempScrollView addSubview:temp];
+            if (sender.tag != CNM_C) {
+                CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
                 CGRect frame = temp.frame;
-                frame.origin.y += 65;
-                frame.size.height = applicationFrame().size.height-65;
+                frame.size.height = screenRect.size.height==548?438:348;
                 temp.frame = frame;
-                
-                UITableView *table = nil;
-                if (sender.tag == CNM_M) {
-                    table = _MM_MemberList;
-                }else if (sender.tag == CNM_G)
-                    table = _groupManageView.GM_TableView;
-                else
-                    table = _meetingManageView.tableView;
-                
-                CGRect tableFrame = table.frame;
-                tableFrame.size.height = temp.frame.size.height-[temp convertRect:tableFrame toView:self.view].origin.y;
-                table.frame = tableFrame;
             }
+            tempScrollView.contentSize = CGSizeMake(temp.frame.size.width, temp.frame.size.height);
         }
-        if (curPresentUIView && ![curPresentUIView isEqual:temp]) {
-            curPresentUIView.hidden = YES;
+        tempScrollView.hidden = NO;
+        if (!curPresentSView) {
+            curPresentSView = tempScrollView;
+            curPresentSView.hidden = NO;
+        }else{
+            curPresentSView.hidden = YES;
+            curPresentSView = tempScrollView;
         }
-        curPresentUIView = temp;
+        
     }
+
 
 }
 #pragma mark --------------------新建会议  子菜单
@@ -437,7 +427,7 @@ enum{
         return NO;
     }
     
-    [StaticManager TextInputAnimationWithParentView:_bottomScrollView textView:textField];
+//    [StaticManager TextInputAnimationWithParentView:_bottomScrollView textView:textField];
 
     self.textKeyBoard = textField;
 
@@ -465,12 +455,10 @@ enum{
     
     [_timeChooseView showPicker:NO withField:nil];
         
-    NSLog(@"%f,%f,%f,",textView.center.y,textView.frame.origin.y,_bottomScrollView.contentOffset.y);
-    
-    CGRect f2 = textView.frame;
-    f2 = [_createNewMeetingView convertRect:f2 toView:_bottomScrollView];
-    f2 = [_bottomScrollView convertRect:f2 toView:self.view];
     [StaticManager TextInputAnimationWithParentView:self.view textView:textView];
+    //    [StaticManager TextInputAnimationWithParentView:self.view textViewFrame:textField.frame];
+    
+    [[TapResignKeyBoard shareTapResignKeyBoard] addTarget:self action:@selector(resignKeyBoard) parentView:self.view];
 
     return YES;
 }

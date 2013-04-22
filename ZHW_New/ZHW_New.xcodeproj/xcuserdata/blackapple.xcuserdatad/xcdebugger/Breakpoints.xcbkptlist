@@ -29,44 +29,5 @@
          landmarkName = "+deletePointMeetingGroupWithIndex:"
          landmarkType = "5">
       </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ZHW_New/Classes/&#20250;&#21592;&#20013;&#24515;/&#25105;&#26159;&#20027;&#21150;&#26041;/&#25105;&#30340;&#21457;&#36215;/MyCreatedMeetings.m"
-         timestampString = "387868608.369036"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
-         landmarkName = "-cellClickedAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ZHW_New/Classes/&#20250;&#21592;&#20013;&#24515;/&#25105;&#26159;&#20027;&#21150;&#26041;/&#25105;&#30340;&#21457;&#36215;/MyCreatedMeetings.m"
-         timestampString = "387868626.208893"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "168"
-         endingLineNumber = "168"
-         landmarkName = "-cellClickedAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ZHW_New/Classes/&#20250;&#21592;&#20013;&#24515;/&#25105;&#26159;&#20027;&#21150;&#26041;/&#25105;&#30340;&#21457;&#36215;/MyCreatedMeetings.m"
-         timestampString = "387868670.400475"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "118"
-         endingLineNumber = "118"
-         landmarkName = "-cellClickedAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

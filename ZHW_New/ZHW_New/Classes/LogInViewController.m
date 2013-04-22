@@ -52,8 +52,7 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSLog(@"kaishi");
     _editText = textField;
-    [StaticManager TextInputAnimationWithParentView:self.view textView:textField];
-//    [StaticManager TextInputAnimationWithParentView:self.view textViewFrame:textField.frame];
+    [StaticManager TextInputAnimationWithParentView:self.view textView:textField stateBar:YES navigationBar:NO];
 
     [[TapResignKeyBoard shareTapResignKeyBoard] addTarget:self action:@selector(resignKeyBoard) parentView:self.view];
 

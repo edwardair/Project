@@ -28,6 +28,11 @@
     }
     return self;
 }
+- (void)upMoveWithView:(UIView *)view{
+    for (UIView *sub in view.subviews) {
+        sub.transform = CGAffineTransformMakeTranslation(0, -48);
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -37,9 +42,8 @@
     UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(callBack)];
     
     if (self.navigationController) {
-//        CGRect rect = [[UIScreen mainScreen]applicationFrame];
         self.navigationItem.title = @"修改";
-        _scrollView.transform = CGAffineTransformMakeTranslation(0, -self.navigationController.navigationBar.frame.size.height);
+        [self upMoveWithView:self.view];
         
         _userDefineNavBar.hidden = YES;
         self.navigationItem.rightBarButtonItem = done;
@@ -69,7 +73,6 @@
     [self.view addSubview:timeChooseView];
     [self.view bringSubviewToFront:timeChooseView];
 
-    _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _scrollView.contentSize.height+650);
 
 }
 

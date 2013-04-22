@@ -167,9 +167,9 @@
 //    [popView showAction];
     UIViewController *c = [[UIViewController alloc]init];
     [c setView:popView];
-    UINavigationController *nav = (UINavigationController *)UIViewControllerOfSuperView(self.superview);
+//    UINavigationController *nav = (UINavigationController *)UIViewControllerOfSuperView(self.superview);
     
-    NSLogString(nav);
+//    NSLogString(nav);
     
 }
 //- (void)dealloc{

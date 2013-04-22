@@ -19,7 +19,7 @@
 //#define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
-    UIView *curPresentUIView;
+    UIScrollView *curPresentSView;
 }
 @property (strong,nonatomic) id textKeyBoard;
 @property (strong,nonatomic) TimeChooseView *timeChooseView;
@@ -43,6 +43,12 @@
 
     // Do any additional setup after loading the view from its nib.
 
+//    UIControl *touchController = [[UIControl alloc]initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+//    [self.view addSubview:touchController];
+    UIGestureRecognizer *emptyAreaTouched = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignKeyboardInOtherArea)];
+    [emptyAreaTouched setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:emptyAreaTouched];
+ 
     //-------------------------新建会议
     _meetingName.delegate = self;
     _meetingStartDate.delegate = self;
@@ -56,9 +62,7 @@
     _meetingTheme.editable = YES;
     _meetingRequriements.editable = YES;
 
-    _bottomScrollView.contentSize = CGSizeMake(_bottomScrollView.contentSize.width, _bottomScrollView.contentSize.height+700);
-
-    _bottomScrollView.delegate = self;
+    _bs1.contentSize = CGSizeMake(_bs1.contentSize.width, _bs1.contentSize.height+600);
 
     [_meetingType initializeButton];
     [[SBJsonResolveData shareMeeting] setMeetingNameList:nil];
@@ -89,11 +93,6 @@
     //-------------------------议程管理
 
     
-
-    UIGestureRecognizer *emptyAreaTouched = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignKeyboardInOtherArea)];
-    [emptyAreaTouched setCancelsTouchesInView:NO];
-
-    [_bottomScrollView addGestureRecognizer:emptyAreaTouched];
     
     [self CreateNewMeeting:nil];
     
@@ -122,8 +121,8 @@ enum{
     CNM_S,
 };
 - (IBAction)CreateNewMeeting:(UIButton *)sender{
-    //sender为nil是 tag默认为0
-    return;
+//sender为nil是 tag默认为0
+
     //选中框
     if (sender) {
 //        _coverImage.center = sender.center;
@@ -131,12 +130,15 @@ enum{
     }
 
     UIView *temp = nil;
+    UIScrollView *tempScrollView = nil;
     switch (sender.tag) {
         case CNM_C:
             temp = _createNewMeetingView;
+            tempScrollView = _bs1;
             break;
         case CNM_M:
             temp = _memberManageView;
+            tempScrollView = _bs2;
             break;
         case CNM_G:
         {
@@ -148,6 +150,7 @@ enum{
             }
         }
             temp = (UIView *)_groupManageView;
+            tempScrollView = _bs3;
             break;
         case CNM_S:
         {
@@ -159,34 +162,33 @@ enum{
             }
         }
             temp = (UIView *)_meetingManageView;
+            tempScrollView = _bs4;
             break;
         default:
             break;
     }
 
-    if (temp) {
-        if (temp.superview) {
-            if (temp.hidden) {
-                temp.hidden = NO;
-            }
+    //如果底部scrollView隐藏状态 则显示
+    if (tempScrollView.hidden) {
+        if (!temp.superview) {
+            [tempScrollView addSubview:temp];
+            CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
+            CGRect frame = temp.frame;
+            frame.size.height = screenRect.size.height==460.0?300:390;
+            temp.frame = frame;
+        }
+        tempScrollView.hidden = NO;
+        if (!curPresentSView) {
+            curPresentSView = tempScrollView;
+            curPresentSView.hidden = NO;
         }else{
-            [_bottomScrollView addSubview:temp];
-            CGRect frame = _bottomScrollView.frame;
-            frame.origin.y = 65;
-            _bottomScrollView.frame = frame;
-            [temp setTransform:CGAffineTransformMakeTranslation(0, 0)];
+            curPresentSView.hidden = YES;
+            curPresentSView = tempScrollView;
         }
-        if (curPresentUIView && ![curPresentUIView isEqual:temp]) {
-            curPresentUIView.hidden = YES;
-        }
-        curPresentUIView = temp;
+
     }
-
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"%f,%f,%f,%f",_bottomScrollView.frame.origin.x,_bottomScrollView.frame.origin.y,_bottomScrollView.frame.size.width,_bottomScrollView.frame.size.height);
 
-}
 #pragma mark --------------------新建会议  子菜单
 #pragma mark 新建会议 中 "确定"按钮
 - (BOOL)checkPostEnable:(UIView *)curPresentView{

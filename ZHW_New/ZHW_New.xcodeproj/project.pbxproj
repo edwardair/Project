@@ -76,7 +76,7 @@
 		F1EDDDDA171BDFB900DB1039 /* CreateNewMeeting.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDDDD1171BDFB900DB1039 /* CreateNewMeeting.png */; };
 		F1EDDDDB171BDFB900DB1039 /* GroupManage.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDDDD2171BDFB900DB1039 /* GroupManage.png */; };
 		F1EDDDDC171BDFB900DB1039 /* MemberManage.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDDDD3171BDFB900DB1039 /* MemberManage.png */; };
-		F1EDDDDE171BE32F00DB1039 /* DaoSanJiao.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDDDDD171BE32F00DB1039 /* DaoSanJiao.png */; };
+		F1F6FE6A1724FC85008443DE /* DaoSanJiao.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F6FE691724FC85008443DE /* DaoSanJiao.png */; };
 		F1FD47991717CD24004FAF95 /* AddAgendaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47901717CD24004FAF95 /* AddAgendaViewController.xib */; };
 		F1FD479A1717CD24004FAF95 /* AddGroupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47911717CD24004FAF95 /* AddGroupController.xib */; };
 		F1FD479B1717CD24004FAF95 /* AgendaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FD47921717CD24004FAF95 /* AgendaCell.xib */; };
@@ -219,7 +219,7 @@
 		F1EDDDD1171BDFB900DB1039 /* CreateNewMeeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateNewMeeting.png; sourceTree = "<group>"; };
 		F1EDDDD2171BDFB900DB1039 /* GroupManage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GroupManage.png; sourceTree = "<group>"; };
 		F1EDDDD3171BDFB900DB1039 /* MemberManage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MemberManage.png; sourceTree = "<group>"; };
-		F1EDDDDD171BE32F00DB1039 /* DaoSanJiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DaoSanJiao.png; sourceTree = "<group>"; };
+		F1F6FE691724FC85008443DE /* DaoSanJiao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DaoSanJiao.png; sourceTree = "<group>"; };
 		F1FD47901717CD24004FAF95 /* AddAgendaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAgendaViewController.xib; sourceTree = "<group>"; };
 		F1FD47911717CD24004FAF95 /* AddGroupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGroupController.xib; sourceTree = "<group>"; };
 		F1FD47921717CD24004FAF95 /* AgendaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaCell.xib; sourceTree = "<group>"; };
@@ -631,7 +631,7 @@
 		F1EDDDCA171BDFAB00DB1039 /* Png */ = {
 			isa = PBXGroup;
 			children = (
-				F1EDDDDD171BE32F00DB1039 /* DaoSanJiao.png */,
+				F1F6FE691724FC85008443DE /* DaoSanJiao.png */,
 				F1EDDDCB171BDFB900DB1039 /* ContentManage.png */,
 				F1EDDDCC171BDFB900DB1039 /* Cover.png */,
 				F1EDDDCD171BDFB900DB1039 /* Create.png */,
@@ -786,7 +786,7 @@
 				F1EDDDDA171BDFB900DB1039 /* CreateNewMeeting.png in Resources */,
 				F1EDDDDB171BDFB900DB1039 /* GroupManage.png in Resources */,
 				F1EDDDDC171BDFB900DB1039 /* MemberManage.png in Resources */,
-				F1EDDDDE171BE32F00DB1039 /* DaoSanJiao.png in Resources */,
+				F1F6FE6A1724FC85008443DE /* DaoSanJiao.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,11 @@
     }
     return self;
 }
-
+- (void)upMoveWithView:(UIView *)view{
+    for (UIView *sub in view.subviews) {
+        sub.transform = CGAffineTransformMakeTranslation(0, -45);
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,6 +39,7 @@
 
     if (self.navigationController) {
         _userDefineNavBar.hidden = YES;
+        [self upMoveWithView:self.view];
         self.navigationItem.rightBarButtonItem = done;
         self.navigationItem.leftBarButtonItem = back;
 

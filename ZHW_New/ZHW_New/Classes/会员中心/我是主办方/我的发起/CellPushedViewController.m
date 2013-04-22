@@ -24,6 +24,12 @@
     return self;
 }
 
+- (void)upMoveWithView:(UIView *)view{
+    for (UIView *sub in view.subviews) {
+        sub.transform = CGAffineTransformMakeTranslation(0, -45);
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,9 +43,7 @@
         self.navigationItem.rightBarButtonItem = done;
         self.navigationItem.leftBarButtonItem = back;
         
-        for (UIView *sub in self.view.subviews) {
-            sub.transform = CGAffineTransformMakeTranslation(0, -45);
-        }
+        [self upMoveWithView:self.view];
         
     }else{
         _userDefineNavBar.topItem.leftBarButtonItem = back;

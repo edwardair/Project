@@ -86,7 +86,7 @@
 //        [self becomeFirstResponder];
 //    }
     
-    float transformY = (show?-1:1)*(self.frame.size.height+44);
+    float transformY = (show?-1:1)*(self.frame.size.height);
     NSLog(@"%f",transformY);
     [UIView beginAnimations:nil context:nil];
     

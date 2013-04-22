@@ -128,7 +128,7 @@
 					<object class="IBUITextField" id="1058503044">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{88, 60}, {232, 30}}</string>
+						<string key="NSFrame">{{88, 60}, {212, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="204325196"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -166,7 +166,7 @@
 					<object class="IBUITextField" id="40539453">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{88, 110}, {232, 30}}</string>
+						<string key="NSFrame">{{88, 110}, {212, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="85802346"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -195,7 +195,7 @@
 					<object class="IBUITextField" id="268198877">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{88, 162}, {232, 30}}</string>
+						<string key="NSFrame">{{88, 162}, {212, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>

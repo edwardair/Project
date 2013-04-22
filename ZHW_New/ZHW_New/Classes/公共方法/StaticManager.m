@@ -45,20 +45,40 @@ static float parentViewCenterY;
     }
     return posY;
 }
-+(void)TextInputAnimationWithParentView:(UIView *)view textView:(UIView *)textView{
-    float posY = 0;
-    posY = [StaticManager isParentView:view sub:textView center:posY];
-    NSLog(@"%f",posY);
-    float textCenterY = posY+textView.frame.size.height/2;
-    float textWillCenterY = applicationFrame().size.height - KeyBoardHeight - textView.frame.size.height/2;
-    float sub = textWillCenterY-textCenterY;
++ (float )isSuperView:(UIView *)superView EqualToParentView:(UIView *)parentView{
+    float y = 0;
+    if (![superView isEqual:parentView]) {
+        y += superView.frame.origin.y;
+        if ([superView isKindOfClass:[UIScrollView class]]) {
+            UIScrollView *s = (UIScrollView *)superView;
+            y -= s.contentOffset.y;
+        }
+        y += [self isSuperView:superView.superview EqualToParentView:parentView];
+    }else{
+        return 0;
+    }
+    return y;
+}
+#pragma mark 使传递的View在键盘弹出时自适应高度  一般View为最底层的view
+
++(void)TextInputAnimationWithParentView:(UIView *)view
+                               textView:(UIView *)textView
+                               stateBar:(BOOL)state
+                          navigationBar:(BOOL)nav{
+    float originOffSetY = [StaticManager isSuperView:textView.superview EqualToParentView:view];
+    
+    float originY = originOffSetY + textView.frame.origin.y;
+    float textViewBottomY = originY + textView.frame.size.height;
+    //state 屏幕最上方状态栏 nav导航控制器（手动添加的不算） BOOL值为YES时修正textViewBottomY的值
+    textViewBottomY += state?20.f:0+nav?44.f:0;
+    float textWillBottomY = [[UIScreen mainScreen] bounds].size.height - KeyBoardHeight;
+    float sub = textWillBottomY-textViewBottomY;
     
     if (sub<0) {
         parentView = view;
         parentViewCenterY = view.center.y;
     }else
         return;
-
     
     [UIView beginAnimations:@"MoveUp" context:nil];
     [UIView setAnimationDuration:.2f];
@@ -67,26 +87,7 @@ static float parentViewCenterY;
     [UIView commitAnimations];
 
 }
-//+(void)TextInputAnimationWithParentView:(UIView *)view textViewFrame:(CGRect )subFrame{
-//    float textCenterY = subFrame.origin.y+subFrame.size.height/2;
-//
-//    float textWillCenterY = applicationFrame().size.height - KeyBoardHeight - subFrame.size.height/2;
-//
-//    float sub = textWillCenterY-textCenterY;
-//    NSLog(@"%f",sub);
-//    if (sub<0) {
-//        parentView = view;
-//        parentViewCenterY = view.center.y;
-//    }else
-//        return;
-//    
-//    [UIView beginAnimations:@"MoveUp" context:nil];
-//    [UIView setAnimationDuration:.2f];
-//    NSLog(@"上移 ");
-//    view.transform = CGAffineTransformMakeTranslation(0, sub);
-//    [UIView commitAnimations];
-//
-//}
+
 #pragma mark 注销键盘时 是屏幕内容返回初始位置
 +(void)resignParentView{
     if (parentView) {

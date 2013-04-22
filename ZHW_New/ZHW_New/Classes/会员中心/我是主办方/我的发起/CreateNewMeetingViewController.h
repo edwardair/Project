@@ -15,7 +15,11 @@
 @class MeetingManagerView;
 @interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,CellPushedViewControllerDelegate>
 
-@property (strong,nonatomic)  UIScrollView *bottomScrollView;
+@property (strong,nonatomic) IBOutlet UIScrollView *bs1;
+@property (strong,nonatomic) IBOutlet UIScrollView *bs2;
+@property (strong,nonatomic) IBOutlet UIScrollView *bs3;
+@property (strong,nonatomic) IBOutlet UIScrollView *bs4;
+
 @property (strong,nonatomic) IBOutlet UIImageView *coverImage;
 
 #pragma mark 新建会议

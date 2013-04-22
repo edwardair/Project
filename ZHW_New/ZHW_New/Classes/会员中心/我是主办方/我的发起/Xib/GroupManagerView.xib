@@ -40,7 +40,7 @@
 					<object class="IBUIButton" id="70033913">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{93, 5}, {222, 24}}</string>
+						<string key="NSFrame">{{84, 5}, {227, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="35881782"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -74,7 +74,7 @@
 					<object class="IBUILabel" id="473471053">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 6}, {85, 21}}</string>
+						<string key="NSFrame">{{0, 5}, {85, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="70033913"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -105,8 +105,9 @@
 					<object class="IBUITableView" id="35881782">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 56}, {320, 259}}</string>
+						<string key="NSFrame">{{0, 44}, {320, 256}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="128527469"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -120,8 +121,9 @@
 						<float key="IBUISectionFooterHeight">22</float>
 					</object>
 				</array>
-				<string key="NSFrame">{{0, 20}, {320, 406}}</string>
+				<string key="NSFrame">{{0, 20}, {320, 300}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSNextKeyView" ref="473471053"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -168,9 +170,9 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="70033913"/>
 							<reference ref="473471053"/>
 							<reference ref="35881782"/>
+							<reference ref="70033913"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

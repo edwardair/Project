@@ -15,7 +15,10 @@
          cancelButtonTitle:(NSString *)cancle
           otherButtonTitle:(NSString *)other;
 + (void)chooseCover:(UIImageView *)cover MoveTo:(CGPoint )center;
-+(void)TextInputAnimationWithParentView:(UIView *)view textView:(UIView *)textView;
++(void)TextInputAnimationWithParentView:(UIView *)view
+                               textView:(UIView *)textView
+                               stateBar:(BOOL)state
+                          navigationBar:(BOOL)nav;
 +(void)resignParentView;
 UIViewController *UIViewControllerOfSuperView(UIView *view);
 + (NSString *)formateTimeString:(NSString *)s;
