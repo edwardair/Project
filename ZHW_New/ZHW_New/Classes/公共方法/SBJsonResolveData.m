@@ -112,11 +112,11 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSArray *listDic = [dic objectForKey:@"hylist"];
 
     for (NSDictionary *objDic in listDic) {
-        NSLogString(objDic);
+//        NSLogString(objDic);
         NSString *meetingName = writeEnable([objDic objectForKey:G_HYName]);
         NSString *meetingId = writeEnable([objDic objectForKey:G_HYId]);
         NSString *meetingStartTime = writeEnable([objDic objectForKey:G_HYStartTime]);
-        NSLogString(meetingStartTime);
+//        NSLogString(meetingStartTime);
         NSMutableString *m_meetingStartTime = [NSMutableString stringWithString:meetingStartTime];
         if (m_meetingStartTime.length>0) {
             [m_meetingStartTime deleteCharactersInRange:[m_meetingStartTime rangeOfString:@".0"]];
@@ -301,7 +301,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
                                                     GroupName:name
                                                     GroupMark:mark];
     NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
-    NSLogString([dic objectForKey:@"returnMsg"]);
+//    NSLogString([dic objectForKey:@"returnMsg"]);
     if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"添加分组成功"]) {
         return YES;
     }
@@ -313,7 +313,7 @@ static SBJsonResolveData *staticSBJsonResolveData = nil;
     NSString *idStr = [[staticSBJsonResolveData.pointMeetingGroups objectAtIndex:index] objectForKey:@"id"];
    NSData *data = [UAndDLoad deletePointMeetingGroupWithId:idStr];
     NSMutableDictionary *dic = [SBJsonResolveData analyzeData:data];
-    NSLogString([dic objectForKey:@"returnMsg"]);
+//    NSLogString([dic objectForKey:@"returnMsg"]);
     if ([[dic objectForKey:@"returnMsg"] isEqualToString:@"删除分组成功"]) {
         [staticSBJsonResolveData.pointMeetingGroups removeObjectAtIndex:index];
 

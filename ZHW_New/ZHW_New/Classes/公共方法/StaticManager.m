@@ -32,14 +32,14 @@ static float parentViewCenterY;
 +(float )isParentView:(UIView *)parent sub:(UIView *)sub center:(float )posY{
 //    float textCenterY = sub.center.y;
     if (![sub.superview isEqual:parent]) {
-        NSLog(@"%f",posY);
+//        NSLog(@"%f",posY);
         CGRect subFrame = sub.frame;
         subFrame = [sub.superview convertRect:subFrame toView:sub.superview.superview];
         CGRect parFrame = sub.superview.frame;
-        NSLog(@"%f,%f",sub.frame.origin.y,parFrame.origin.y);
+//        NSLog(@"%f,%f",sub.frame.origin.y,parFrame.origin.y);
 
         posY += subFrame.origin.y-parFrame.origin.y;
-        NSLog(@"%f",posY);
+//        NSLog(@"%f",posY);
 
         posY = [StaticManager isParentView:parent sub:sub.superview center:posY];
     }
@@ -66,13 +66,13 @@ static float parentViewCenterY;
                                stateBar:(BOOL)state
                           navigationBar:(BOOL)nav{
     float originOffSetY = [StaticManager isSuperView:textView.superview EqualToParentView:view];
-    NSLog(@"%f",originOffSetY);
+//    NSLog(@"%f",originOffSetY);
     float originY = originOffSetY + textView.frame.origin.y;
     float textViewBottomY = originY + textView.frame.size.height;
     //state 屏幕最上方状态栏 nav导航控制器（手动添加的不算） BOOL值为YES时修正textViewBottomY的值
     textViewBottomY += (state?20.f:0)+(nav?44.f:0);
     float textWillBottomY = [[UIScreen mainScreen] bounds].size.height - KeyBoardHeight;
-    NSLog(@"%f",[[UIScreen mainScreen] bounds].size.height);
+//    NSLog(@"%f",[[UIScreen mainScreen] bounds].size.height);
     float sub = textWillBottomY-textViewBottomY;
     
     if (sub<0) {
@@ -83,7 +83,7 @@ static float parentViewCenterY;
     
     [UIView beginAnimations:@"MoveUp" context:nil];
     [UIView setAnimationDuration:.2f];
-    NSLog(@"上移 ");
+//    NSLog(@"上移 ");
     view.transform = CGAffineTransformMakeTranslation(0, sub);
     [UIView commitAnimations];
 
@@ -94,7 +94,7 @@ static float parentViewCenterY;
     if (parentView) {
         [UIView beginAnimations:@"MoveDown" context:nil];
         [UIView setAnimationDuration:.2f];
-        NSLog(@"下移 ");
+//        NSLog(@"下移 ");
         parentView.transform = CGAffineTransformMakeTranslation(0, parentViewCenterY-parentView.center.y);
         [UIView commitAnimations];
         parentView = nil;

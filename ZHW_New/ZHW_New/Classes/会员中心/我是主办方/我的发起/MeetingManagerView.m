@@ -14,7 +14,7 @@
 #import "AddAgendaViewController.h"
 #import "StaticManager.h"
 
-#define TableHeader @"    议程名            负责人"
+#define TableHeader @"    议程名             负责人"
 @interface MeetingManagerView()@property (strong,nonatomic) NSMutableArray *dataSource;
 @end
 @implementation MeetingManagerView
@@ -42,7 +42,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
 
-    
+    [_tableView reloadData];
 }
 - (void)addButton{
     
@@ -175,7 +175,7 @@ NSString *textContent(NSString *str){
     NSString *s = [[[SBJsonResolveData shareMeeting] agenda][row] objectForKey:@"dbfzid"];
     s = [NSString stringWithFormat:@"%@",s];
     
-    NSLog(@"%@,%@",s,[[SBJsonResolveData shareMeeting] pointMeetingGroups]);
+//    NSLog(@"%@,%@",s,[[SBJsonResolveData shareMeeting] pointMeetingGroups]);
     
     for (NSMutableDictionary *dic in [[SBJsonResolveData shareMeeting] pointMeetingGroups]) {
         NSString *idStr = [NSString stringWithFormat:@"%@",[dic objectForKey:CHDBId]];

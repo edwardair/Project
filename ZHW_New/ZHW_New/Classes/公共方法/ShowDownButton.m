@@ -108,7 +108,7 @@
 //        [self spreadAndStrictionAction:YES];
 //    }
     // create the alert
-    NSLogString(_showDataArray);
+//    NSLogString(_showDataArray);
 	TableAlert *alert = [TableAlert tableAlertWithTitle:@"选择会议" cancelButtonTitle:@"取消" numberOfRows:^NSInteger (NSInteger section)
                          {
                          return _showDataArray.count+1;

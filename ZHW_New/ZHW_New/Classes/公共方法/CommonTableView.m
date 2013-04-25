@@ -88,7 +88,7 @@
         cell =  [[CommonTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
     }    
     NSMutableArray *data = [[_rowSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-//    NSLog(@"%@",data);
+
     if (![data isKindOfClass:[NSMutableArray class]]) {
         cell.textLabel.text = writeEnable((NSString *)data);
         cell.textLabel.textColor = [UIColor blackColor];

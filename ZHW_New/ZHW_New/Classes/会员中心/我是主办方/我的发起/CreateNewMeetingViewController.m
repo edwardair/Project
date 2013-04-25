@@ -506,7 +506,7 @@ enum{
         tel = (UILabel *)[cell viewWithTag:4];
     }
     
-    code.text = @"001001001";
+    code.text = [NSString stringWithFormat:@"%03d",row+1];
     name.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
     int sexNumber = [[[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBXb] intValue];
     NSString *sex = sexNumber?@"男":@"女";
@@ -517,7 +517,7 @@ enum{
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"tableViewCell 选中 %d",[indexPath row]);
+//    NSLog(@"tableViewCell 选中 %d",[indexPath row]);
     
 //    MeetingMemberCell *cell = (MeetingMemberCell *)[tableView cellForRowAtIndexPath:indexPath];
     
@@ -559,6 +559,7 @@ enum{
         // Delete the row from the data source.
         if (scuess) {
             [_MM_MemberList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//            [_MM_MemberList reloadData];
         }else
             [StaticManager showAlertWithTitle:nil message:@"删除参会代表失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
     

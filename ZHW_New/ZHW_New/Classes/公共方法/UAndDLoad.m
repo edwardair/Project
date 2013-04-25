@@ -71,7 +71,7 @@
 		[alertView show];
 		return nil;
 	}else{
-        NSLog(@"获取数据成功");
+//        NSLog(@"获取数据成功");
 //        NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
     }
     return data;

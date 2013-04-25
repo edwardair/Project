@@ -179,7 +179,7 @@ static float orgCenterOfParentView = 0.f;
     [UIView commitAnimations];
     
 }
-#pragma mark 注销键盘时 屏幕内容返回初始位置
+#pragma mark 注销键盘时 屏幕返回初始位置
 -(void)resignParentView:(NSNotification *)notification{
     NSDictionary *userInfo = [notification userInfo];
 

@@ -32,7 +32,7 @@
     return self.view;
 }
 - (float )orgCenterYOfView{
-    NSLogFloat(centerY);
+//    NSLogFloat(centerY);
     return centerY;
 }
 - (UIView *)curClickedText{
@@ -87,9 +87,9 @@
 }
 #pragma mark textFieldDelegate
 - (BOOL )textFieldShouldBeginEditing:(UITextField *)textField{
-    if ([textField.superview isEqual:self.view]) {
-        NSLogString(textField.superview);
-    }
+//    if ([textField.superview isEqual:self.view]) {
+//        NSLogString(textField.superview);
+//    }
     textEditor = textField;
     return YES;
 }

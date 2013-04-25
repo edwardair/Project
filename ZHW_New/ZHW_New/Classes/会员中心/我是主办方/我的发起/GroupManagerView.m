@@ -13,7 +13,7 @@
 #import "AddGroupController.h"
 #import "StaticManager.h"
 #import "ModifyPointGroupViewController.h"
-#define TableHeader @"编号     名称    创建时间            备注"
+#define TableHeader @"  编号     名称      创建时间          备注"
 @implementation GroupManagerView
 
 - (NSMutableArray *)GM_TableData{
@@ -154,12 +154,12 @@
 - (void)appendCellString:(NSDictionary *)dic object:(UITableViewCell *)cell{
     
     NSArray *key = @[DBFZCode,DBFZName,DBFZCreatetime,DBFZRemark];
-    float orginX[4] = {0,50,100,200};
-    float width[4] = {50,50,90,120};
+    float orginX[4] = {0,40,120,210};
+    float width[4] = {40,80,90,110};
 
     for (int i = 0; i < 4; i++) {
         NSMutableString *s = [NSMutableString stringWithString:[dic objectForKey:[key objectAtIndex:i]]];
-        NSLogString(s);
+//        NSLogString(s);
         if (i==2 && s.length>0) {
             [s deleteCharactersInRange:[s rangeOfString:@"T"]];
         }

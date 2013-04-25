@@ -116,6 +116,9 @@
 }
 -(void)autoSizeLabel:(UILabel *)label{
     CGSize s = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(label.frame.size.width, NSIntegerMax) lineBreakMode:NSLineBreakByWordWrapping];
+    NSLogFloat(s.height);
+    NSLogFloat(s.width);
+
     if (s.height==0) {
         s.height = 21.0f;
     }
@@ -163,6 +166,14 @@
     [self autoSizeLabel:_theme];
     [self autoFitSizeOf:_theme preLabel:_address];
     
+    _scrollView.contentOffset = CGPointZero;
+    if ((_theme.frame.origin.y+_theme.frame.size.height)>_scrollView.frame.size.height) {
+        _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _theme.frame.origin.y+_theme.frame.size.height);
+    }else {
+        _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height);
+    }
+    
+    
     CGRect _rectB = _themeTitle.frame;
     _rectB.origin.y = _theme.frame.origin.y;
     _rectB.size.height = _theme.frame.size.height;
@@ -170,7 +181,7 @@
 
     UIViewController *c = [[UIViewController alloc]init];
     [c setView:popView];
-//    [popView showAction];
+
     [self.parentController.navigationController pushViewController:c animated:YES];
     
 }

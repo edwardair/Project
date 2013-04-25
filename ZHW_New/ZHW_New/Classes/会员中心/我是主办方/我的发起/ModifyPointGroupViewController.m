@@ -11,7 +11,7 @@
 #import "SBJsonResolveData.h"
 #import "StaticManager.h"
 //#import "CYCustomMultiSelectPickerView.h"
-#define TableHeader @"编号     姓名       职位            联系电话"
+#define TableHeader @"  编号     姓名       职位            联系电话"
 @interface ModifyPointGroupViewController (){
     CYCustomMultiSelectPickerView *multiPickerView;
 }
@@ -71,19 +71,36 @@
 
     //  multiPickerView.backgroundColor = [UIColor redColor];
     
-    NSMutableArray *a1 = [NSMutableArray array];
+    NSMutableDictionary *a1 = [NSMutableDictionary dictionary];
+    NSMutableDictionary *temp = [NSMutableDictionary dictionary];
     NSMutableArray *a2 = [NSMutableArray array];
-    NSLog(@"%@,%@",[[SBJsonResolveData shareMeeting] thisMeetingMembers],[[SBJsonResolveData shareMeeting] pointGroupMembers]);
+
     for (NSDictionary *dic in [[SBJsonResolveData shareMeeting] thisMeetingMembers]) {
-        [a1 addObject:[NSDictionary dictionaryWithObject:[dic objectForKey:CHDBName] forKey:[dic objectForKey:CHDBId]]];
+        NSString *key = [dic objectForKey:CHDBId];
+        NSString *obj = [dic objectForKey:CHDBName];
+        [a1 setObject:obj forKey:key];
     }
     for (NSDictionary *dic in [[SBJsonResolveData shareMeeting] pointGroupMembers]) {
-        [a2 addObject:[NSDictionary dictionaryWithObject:[dic objectForKey:CHDBName] forKey:[dic objectForKey:@"chdbid"]]];
+        NSString *key = [dic objectForKey:@"chdbid"];
+        NSString *obj = [dic objectForKey:CHDBName];
+        [temp setObject:obj forKey:key];
     }
-    NSLog(@"%@\n%@",a1,a2);
-    
-    multiPickerView.entriesArray = a1;
-    multiPickerView.entriesSelectedArray = a2;
+     //比较a1 和 temp  ，将相同的从a1中移除
+    for (NSString *key in a1.allKeys) {
+        NSString *obj_a1 = [a1 objectForKey:key];
+        NSString *obj_temp = [temp objectForKey:key];
+
+        if ([obj_a1 isEqualToString:obj_temp]) {
+            [a1 removeObjectForKey:key];
+        }
+    }
+    //把a1剩下的所有值赋给a2
+    for (NSString *key in a1.allKeys) {
+        [a2 addObject:[NSDictionary dictionaryWithObject:[a1 objectForKey:key] forKey:key]];
+    }
+        
+    multiPickerView.entriesArray = a2;
+    multiPickerView.entriesSelectedArray = nil;
     
     [self.view addSubview:multiPickerView];
     
@@ -94,7 +111,7 @@
 - (void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr{
 
     for (NSString *idStr in selectedEntriesArr) {
-        NSLog(@"%@",idStr);
+//        NSLog(@"%@",idStr);
        BOOL allScuess = [SBJsonResolveData addPointMeetingGroupMemberWithMeetingIndex:_meetingIndex GroupIndex:_groupIndex MemberIndex:idStr];
         if (!allScuess) {
             [StaticManager showAlertWithTitle:nil message:@"添加分组成员失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
@@ -140,12 +157,8 @@
     return _membersData.count;
 }
 - (void)setLabelText:(UILabel *)label withText:(NSString *)str{
-    if ([str isEqual:[NSNull null]]) {
-        str = @"";
-    }
     label.text = str;
     label.textAlignment = UITextAlignmentCenter;
-    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSUInteger row = [indexPath row];
@@ -156,16 +169,13 @@
     OneMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:title];
     if (!cell) {
         cell = (OneMemberCell *)[[[NSBundle mainBundle] loadNibNamed:@"OneMemberCell" owner:self options:nil] objectAtIndex:0];
-
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-//    NSLog(@"%@",[dic objectForKey:CHDBName]);
-//    for (NSString *obj in dic) {
-        [self setLabelText:cell.code withText:[dic objectForKey:CHDBCode]];
-        [self setLabelText:cell.name withText:[dic objectForKey:CHDBName]];
-        [self setLabelText:cell.post withText:[dic objectForKey:CHDBZw]];
-        [self setLabelText:cell.tel withText:[dic objectForKey:CHDBLxdh]];
 
-//    }
+    [self setLabelText:cell.code withText:[dic objectForKey:CHDBCode]];
+    [self setLabelText:cell.name withText:[dic objectForKey:CHDBName]];
+    [self setLabelText:cell.post withText:[dic objectForKey:CHDBZw]];
+    [self setLabelText:cell.tel withText:[dic objectForKey:CHDBLxdh]];
 
     return cell;
 }

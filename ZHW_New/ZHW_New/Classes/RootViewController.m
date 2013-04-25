@@ -224,19 +224,60 @@ static RootViewController *rootViewController = nil;
 }
 
 #pragma mark scrollView Delegate
+static BOOL didDragged = NO;
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    NSLogCGPoint(scrollView.contentOffset);
+//}
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+//    if (didDragged) {
+//        CGPoint offset = scrollView.contentOffset;
+////        if (offset.x<80) {
+////            [self showMenu];
+////        }else{
+////            [self hideMenu];
+////        }
+//        if (roundf(offset.x)==0) {
+//            _rootTapGesture.enabled = YES;
+//            for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
+//                sub.userInteractionEnabled = NO;
+//            }
+//        }else if (roundf(offset.x==160)){
+//            _rootTapGesture.enabled = NO;
+//            for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
+//                sub.userInteractionEnabled = YES;
+//            }
+//
+//        }
+//        didDragged = NO;
+//    }
+//}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    NSLogString(@"开始拖拽");
+}
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-//    NSLogString(@"停止拖动");
+    NSLogString(@"结束拖拽");
+}
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    _rootTapGesture.enabled = NO;
+    scrollView.userInteractionEnabled = NO;
+    _memberCenterMenu.userInteractionEnabled = NO;
+    for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
+        sub.userInteractionEnabled = NO;
+    }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    CGPoint offset = scrollView.contentOffset;
-    if (offset.x<80) {
-        [self showMenu];
-    }else{
-        [self hideMenu];
+    NSLogString(@"停止滑动");
+    _rootTapGesture.enabled = YES;
+    scrollView.userInteractionEnabled = YES;
+_memberCenterMenu.userInteractionEnabled = YES;
+    for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
+        sub.userInteractionEnabled = YES;
     }
+
 }
 
 - (void)tap{
+    NSLogString(@"手势点击");
     _rootTapGesture.enabled = NO;
 
     [_rootScrollView scrollRectToVisible:CGRectMake(applicationFrame().size.width*4.0/4, 0, applicationFrame().size.width, applicationFrame().size.height) animated:YES];
@@ -284,26 +325,21 @@ static RootViewController *rootViewController = nil;
 //显示 隐藏 底部菜单
 - (void)showMenu{
     _rootTapGesture.enabled = YES;
-    NSLogString(_rootTabBarController.selectedViewController.description);
-    for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
-        sub.userInteractionEnabled = NO;
-    }
+
     if (_rootScrollView)
-        [_rootScrollView scrollRectToVisible:CGRectMake(applicationFrame().size.width*(-.1), 0, applicationFrame().size.width, applicationFrame().size.height) animated:YES];
+        [_rootScrollView scrollRectToVisible:CGRectMake(applicationFrame().size.width*(-.1), 0, applicationFrame().size.width, applicationFrame().size.height) animated:YES ];
 }
 - (void)hideMenu{
     _rootTapGesture.enabled = NO;
-    for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
-        sub.userInteractionEnabled = YES;
-    }
+//    for (UIView *sub in _rootTabBarController.selectedViewController.view.subviews) {
+//        sub.userInteractionEnabled = YES;
+//    }
 
     if (_rootScrollView)
         [_rootScrollView scrollRectToVisible:CGRectMake(applicationFrame().size.width*1, 0, applicationFrame().size.width, applicationFrame().size.height) animated:YES];
 }
 #pragma mark UITablesView delegate
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    //  UILabel *result = nil;
     
     UIView *result = nil;
         
@@ -361,10 +397,8 @@ static RootViewController *rootViewController = nil;
     MemberMenuClickCell *cell = (MemberMenuClickCell *)[tableView dequeueReusableCellWithIdentifier:title];
     if (!cell) {
         cell =  [[MemberMenuClickCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
-//        cell.userInteractionEnabled = YES;
     }
     NSString *key = [self getCellTitleWithIndexOfGroup:indexPath.section];
-    NSLogString(key);
     cell.textLabel.text = [[_menuDataSource objectForKey:key] objectAtIndex:indexPath.row];
 
     return cell;

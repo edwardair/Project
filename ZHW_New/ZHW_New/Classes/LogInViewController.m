@@ -25,7 +25,7 @@
     return self.view;
 }
 - (float )orgCenterYOfView{
-    NSLogFloat(centerY);
+//    NSLogFloat(centerY);
     return centerY;
 }
 - (UIView *)curClickedText{
@@ -93,7 +93,7 @@
     }else{
         NSString *msg = [SBJsonResolveData logInWithAccount:_account.text secret:_secret.text];
         if ([msg isEqual:@"ok"]) {
-            NSLog(@"登入成功");
+//            NSLog(@"登入成功");
             RootViewController *root = [RootViewController rootController];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate.window.rootViewController release];

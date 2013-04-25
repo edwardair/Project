@@ -13,6 +13,7 @@
 @property (nonatomic,strong) UIBarButtonItem *add;
 +(id)initilaize;
 - (void)updateTableViewDataSource;
+@property (strong,nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong,nonatomic) IBOutlet UILabel *name;
 @property (strong,nonatomic) IBOutlet UILabel *start;
 @property (strong,nonatomic) IBOutlet UILabel *end;
