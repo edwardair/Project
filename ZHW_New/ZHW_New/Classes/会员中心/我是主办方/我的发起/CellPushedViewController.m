@@ -8,7 +8,10 @@
 
 #import "CellPushedViewController.h"
 #import "StaticManager.h"
-@interface CellPushedViewController ()
+@interface CellPushedViewController (){
+    UIView *textEditor;
+    float centerY;
+}
 
 @end
 
@@ -24,6 +27,26 @@
     return self;
 }
 
+#pragma mark TapDelegate
+- (UIView *)willFitPointOfView{
+    return self.view;
+}
+- (float )orgCenterYOfView{
+    NSLogFloat(centerY);
+    return centerY;
+}
+- (UIView *)curClickedText{
+    return textEditor;
+}
+- (BOOL)statusBarShow{
+    return YES;
+}
+- (BOOL)navigationBarShow{
+    return self.navigationController?YES:NO;
+}
+#pragma mark --------------------------
+
+
 - (void)upMoveWithView:(UIView *)view{
     for (UIView *sub in view.subviews) {
         sub.transform = CGAffineTransformMakeTranslation(0, -45);
@@ -34,7 +57,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-        
+    
+    [TapResignKeyBoard shareTapResignKeyBoard].preDelegate = [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate;
+    [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = self;
+    
     UIBarButtonItem *done = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(saveEnterData)];
     UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(callBack)];
 
@@ -55,6 +81,17 @@
     
     [self.view addGestureRecognizer:emptyAreaTouched];
 
+    _name.delegate = self;
+    _post.delegate = self;
+    _tel.delegate = self;
+}
+#pragma mark textFieldDelegate
+- (BOOL )textFieldShouldBeginEditing:(UITextField *)textField{
+    if ([textField.superview isEqual:self.view]) {
+        NSLogString(textField.superview);
+    }
+    textEditor = textField;
+    return YES;
 }
 - (void)resignKeyboardInOtherArea{
     [_name resignFirstResponder];
@@ -83,7 +120,6 @@
     }
     [self.delegate saveCell:self addType:type];
 
-//    [self callBack];
 }
 - (void)editFail{
     NSString *msg = @"创建失败";
@@ -93,6 +129,8 @@
     [StaticManager showAlertWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
 }
 - (void)callBack{
+    //取消此页面的通知  由于上一页面的delegate=nil，故直接用nil赋值;
+    [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = nil;
     if (self.navigationController) {
         [self popViewController];
     }else{

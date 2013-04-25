@@ -58,6 +58,8 @@
         {
             if (path.row==0){
                 tempView = [MyCreatedMeetings initilaize];
+                MyCreatedMeetings *c = (MyCreatedMeetings *)tempView;
+                c.parentController = self;
                 title = @"我的发起";
             }
             else if (path.row==1){
@@ -93,10 +95,11 @@
             _curPresentView = nil;
         }
         [self.view addSubview:tempView];
+        //发送通知   tempView已经加载上 tempView有superView
         [[NSNotificationCenter defaultCenter] postNotificationName:@"superView" object:nil];
-        if (tempView.superview) {
-            NSLog(@"yes");
-        }
+//        if (tempView.superview) {
+//            NSLog(@"yes");
+//        }
         self.curPresentView = tempView;
         self.parentViewController.navigationItem.leftBarButtonItem.title = title;    
     }

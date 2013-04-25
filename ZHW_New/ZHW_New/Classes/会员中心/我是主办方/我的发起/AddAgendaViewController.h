@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonMethod.h"
+
 @class ShowDownButton;
 
 @protocol AgendaDelegate;
 
-@interface AddAgendaViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>{
+@interface AddAgendaViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,TapResignKeyBoardDelegate>{
     id<AgendaDelegate> delegate;
 }
 @property (nonatomic,assign) id<AgendaDelegate> delegate;

@@ -94,6 +94,7 @@
 - (void)returnChoosedPickerString:(NSMutableArray *)selectedEntriesArr{
 
     for (NSString *idStr in selectedEntriesArr) {
+        NSLog(@"%@",idStr);
        BOOL allScuess = [SBJsonResolveData addPointMeetingGroupMemberWithMeetingIndex:_meetingIndex GroupIndex:_groupIndex MemberIndex:idStr];
         if (!allScuess) {
             [StaticManager showAlertWithTitle:nil message:@"添加分组成员失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitle:nil];
@@ -157,9 +158,10 @@
         cell = (OneMemberCell *)[[[NSBundle mainBundle] loadNibNamed:@"OneMemberCell" owner:self options:nil] objectAtIndex:0];
 
     }
+//    NSLog(@"%@",[dic objectForKey:CHDBName]);
 //    for (NSString *obj in dic) {
         [self setLabelText:cell.code withText:[dic objectForKey:CHDBCode]];
-        [self setLabelText:cell.name withText:[dic objectForKey:DBFZName]];
+        [self setLabelText:cell.name withText:[dic objectForKey:CHDBName]];
         [self setLabelText:cell.post withText:[dic objectForKey:CHDBZw]];
         [self setLabelText:cell.tel withText:[dic objectForKey:CHDBLxdh]];
 

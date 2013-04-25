@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonTableView.h"
-
+@class MemberCenterViewController;
 @interface MyCreatedMeetings : UIView<UITableViewDelegate,UITableViewDataSource,CommonTableViewDelegate>
 @property (nonatomic,strong) UIBarButtonItem *add;
 +(id)initilaize;
+- (void)updateTableViewDataSource;
 @property (strong,nonatomic) IBOutlet UILabel *name;
 @property (strong,nonatomic) IBOutlet UILabel *start;
 @property (strong,nonatomic) IBOutlet UILabel *end;
@@ -19,5 +20,7 @@
 @property (strong,nonatomic) IBOutlet UILabel *address;
 @property (strong,nonatomic) IBOutlet UILabel *themeTitle;
 @property (strong,nonatomic) IBOutlet UILabel *theme;
+
+@property (strong,nonatomic) MemberCenterViewController *parentController;
 
 @end

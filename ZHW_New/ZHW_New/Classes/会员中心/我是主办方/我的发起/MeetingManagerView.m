@@ -13,9 +13,9 @@
 #import "AgendaCell.h"
 #import "AddAgendaViewController.h"
 #import "StaticManager.h"
+
 #define TableHeader @"    议程名            负责人"
-@interface MeetingManagerView()
-@property (strong,nonatomic) NSMutableArray *dataSource;
+@interface MeetingManagerView()@property (strong,nonatomic) NSMutableArray *dataSource;
 @end
 @implementation MeetingManagerView
 
@@ -42,6 +42,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
 
+    
 }
 - (void)addButton{
     

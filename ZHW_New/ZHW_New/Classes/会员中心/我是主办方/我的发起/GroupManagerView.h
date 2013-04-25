@@ -15,6 +15,7 @@
 @property (strong,nonatomic) IBOutlet ShowDownButton *GM_MeetingList;
 @property (strong,nonatomic) NSMutableArray *GM_TableData;
 @property (strong,nonatomic) CreateNewMeetingViewController *superViewController;
+
 - (void)addOneGroup;
 
 @end

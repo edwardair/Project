@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonMethod.h"
+
 @protocol CellPushedViewControllerDelegate;
 
-@interface CellPushedViewController : UIViewController{
+@interface CellPushedViewController : UIViewController<TapResignKeyBoardDelegate,UITextFieldDelegate>{
     id<CellPushedViewControllerDelegate> delegate;
 }
 @property (nonatomic,assign) id<CellPushedViewControllerDelegate> delegate;

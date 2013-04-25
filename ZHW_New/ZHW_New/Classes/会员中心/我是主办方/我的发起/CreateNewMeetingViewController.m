@@ -15,14 +15,16 @@
 #import "GroupManagerView.h"
 #import "MeetingManagerView.h"
 #import "TimeChooseView.h"
-#import "CommonMethod.h"
+//#import "CommonMethod.h"
 #import "RootViewController.h"
+#import "MemberCenterViewController.h"
+#import "MyCreatedMeetings.h"
 //#define Title @"新建会议"
 
 @interface CreateNewMeetingViewController (){
     UIScrollView *curPresentSView;
 }
-@property (strong,nonatomic) id textKeyBoard;
+@property (strong,nonatomic) UIView *textEditor;
 @property (strong,nonatomic) TimeChooseView *timeChooseView;
 @end
 
@@ -41,8 +43,13 @@
 {
     
     [super viewDidLoad];
-    
+        
     [RootViewController shareRootViewController].rootScrollView.scrollEnabled = NO;
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(CreateNewMeeting_OK)];
+    self.navigationItem.leftBarButtonItem = back;
+    self.navigationItem.rightBarButtonItem = add;
 
     // Do any additional setup after loading the view from its nib.
     CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
@@ -80,8 +87,6 @@
 
     _MM_MeetingName.showDataArray = [[SBJsonResolveData shareMeeting] meetingNameList];
 
-
-    
     _MM_MemberList.dataSource = self;
     _MM_MemberList.delegate = self;
     
@@ -92,13 +97,6 @@
     
     //-------------------------议程管理
 
-    
-
-    UIGestureRecognizer *emptyAreaTouched = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignKeyboardInOtherArea)];
-    [emptyAreaTouched setCancelsTouchesInView:NO];
-
-    [self.view addGestureRecognizer:emptyAreaTouched];
-    
     [self CreateNewMeeting:nil];
     
     _timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height, screenRect.size.width, 216)];
@@ -106,28 +104,16 @@
     [self.parentViewController.view addSubview:_timeChooseView];
     [self.parentViewController.view bringSubviewToFront:_timeChooseView];
 
-    
-    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(CreateNewMeeting_OK)];
-    self.navigationItem.leftBarButtonItem = back;
-    self.navigationItem.rightBarButtonItem = add;
-    
     _bs1.delegate = self;
     
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"%f",_bs1.contentOffset.y);
-}
+
 - (void)back{
     [self.navigationController popViewControllerAnimated:YES];
     
     [RootViewController shareRootViewController].rootScrollView.scrollEnabled = YES;
 
-}
-- (void)reloadMemberList{
-    
-//    self.names = [UAndDLoad downLoadWithUrl:<#(NSString *)#>]
-    [_MM_MemberList reloadData];
+    [self.preView updateTableViewDataSource];
 }
 
 #pragma mark 新建会议  二级 按钮
@@ -155,6 +141,8 @@ enum{
             tempScrollView = _bs1;
             [self.navigationItem.rightBarButtonItem setTarget:self];
             [self.navigationItem.rightBarButtonItem setAction:@selector(CreateNewMeeting_OK)];
+            [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = self;
+
             break;
         case CNM_M:
             temp = _memberManageView;
@@ -162,6 +150,7 @@ enum{
             tempScrollView = _bs2;
             [self.navigationItem.rightBarButtonItem setAction:@selector(MM_AddMember)];
             [self.navigationItem.rightBarButtonItem setTarget:self];
+            [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = nil;
             break;
         case CNM_G:
         {
@@ -177,7 +166,7 @@ enum{
             tempScrollView = _bs3;
             [self.navigationItem.rightBarButtonItem setAction:@selector(addOneGroup)];
             [self.navigationItem.rightBarButtonItem setTarget:_groupManageView];
-
+            [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = nil;
             break;
         case CNM_S:
         {
@@ -193,23 +182,26 @@ enum{
             tempScrollView = _bs4;
             [self.navigationItem.rightBarButtonItem setAction:@selector(addButton)];
             [self.navigationItem.rightBarButtonItem setTarget:_meetingManageView];
-
+            [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = nil;
             break;
         default:
             break;
     }
 
+    
     //如果底部scrollView隐藏状态 则显示
     if (tempScrollView.hidden) {
         if (!temp.superview) {
             [tempScrollView addSubview:temp];
             if (sender.tag != CNM_C) {
-                CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
                 CGRect frame = temp.frame;
-                frame.size.height = screenRect.size.height==548?438:348;
+                frame.size.height = iPhone5?438:348;
                 temp.frame = frame;
+                tempScrollView.contentSize = CGSizeMake(temp.frame.size.width, temp.frame.size.height);
+
+            }else{
+                tempScrollView.contentSize = CGSizeMake(temp.frame.size.width, temp.frame.size.height+(iPhone5?0:75));
             }
-            tempScrollView.contentSize = CGSizeMake(temp.frame.size.width, temp.frame.size.height);
         }
         tempScrollView.hidden = NO;
         if (!curPresentSView) {
@@ -389,77 +381,56 @@ enum{
 #pragma mark 注销键盘
 - (IBAction)resignKeyboard:(id)sender {
     [sender resignFirstResponder];
-    self.textKeyBoard = nil;
-    [StaticManager resignParentView];
 }
 
-#pragma mark 点击空白区域 注销键盘  UIButton的下拉菜单
-- (void)resignKeyboardInOtherArea{
-    if (self.textKeyBoard) {
-        [self.textKeyBoard resignFirstResponder];
-        self.textKeyBoard = nil;
-        [StaticManager resignParentView];
 
-    }
-    [_timeChooseView showPicker:NO withField:nil];
-
-//    [self hideMeetingTypeButton];
-}
-//- (void)hideMeetingTypeButton
-//{
-//    if (!_meetingType.downScrollView.hidden) {
-//        _meetingType.downScrollView.hidden = YES;
-//    }
-//}
 #pragma mark UITextField Delegate
+#pragma mark TapDelegate
+
+- (UIView *)willFitPointOfView{
+    return self.view;
+}
+- (float )orgCenterYOfView{
+    return 208.f;
+}
+- (UIView *)curClickedText{
+    return _textEditor;
+}
+- (BOOL)statusBarShow{
+    return YES;
+}
+- (BOOL)navigationBarShow{
+    return YES;
+}
+- (void)keyBoardWillAppearDelegate{
+    //键盘显示时  把timeChooseView隐藏
+    [_timeChooseView showPicker:NO withField:nil];
+}
+- (void)keyBoardWillDisAppearDelegate{
+    self.textEditor = nil;
+}
+#pragma mark --------------------------
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-//    [self hideMeetingTypeButton];
-
-//    NSLog(@"ShouldBeginEditing:%@",textField.text);
-    NSLogFrame(textField.frame);
+//    NSLogCGPoint(self.view.center);
     if ([textField isEqual:_meetingStartDate] || [textField isEqual:_meetingEndDate]) {
-        [_timeChooseView showPicker:YES withField:textField];
-        if (self.textKeyBoard) {
-            [self.textKeyBoard resignFirstResponder];
-            self.textKeyBoard = nil;
+        if (self.textEditor) {
+            [self.textEditor resignFirstResponder];
         }
+        [_timeChooseView showPicker:YES withField:textField];
         return NO;
     }
     
-//    [StaticManager TextInputAnimationWithParentView:_bottomScrollView textView:textField];
+    self.textEditor = textField;
 
-    self.textKeyBoard = textField;
-
-    [_timeChooseView showPicker:NO withField:nil];
-
-    return YES;
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-
-//    NSLog(@"%@",textField.text);
-    if ([textField isEqual:_meetingStartDate] || [textField isEqual:_meetingEndDate]) {
-        NSLog(@"处理时间格式");
-        
-    }
-    
     return YES;
 }
 
 #pragma mark UITextView Delegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-//    [self hideMeetingTypeButton];
 
-    self.textKeyBoard = textView;
+    self.textEditor = textView;
     
-    [_timeChooseView showPicker:NO withField:nil];
-        
-    [StaticManager TextInputAnimationWithParentView:self.view textView:textView];
-    //    [StaticManager TextInputAnimationWithParentView:self.view textViewFrame:textField.frame];
-    
-    [[TapResignKeyBoard shareTapResignKeyBoard] addTarget:self action:@selector(resignKeyBoard) parentView:self.view];
-
     return YES;
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -471,23 +442,78 @@ enum{
 }
 
 #pragma mark UITableView Delegate
+- (float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return _tableTitleView.frame.size.height;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    //  UILabel *result = nil;
+    
+    UIView *result = nil;
+    
+    if([tableView isEqual:_MM_MemberList] && section == 0){
+        _tableTitleView.backgroundColor = [UIColor grayColor];
+        return _tableTitleView;
+    }
+    
+    return result;
+    
+}
+
 - (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _MemberListOfAMeeting.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    int row = indexPath.row;
+    
     NSString *title = @"Title";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:title];
+    UILabel *code;
+    UILabel *name;
+    UILabel *sexAndPost;
+    UILabel *tel;
     if (!cell) {
         cell = [[MeetingMemberCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
-//        NSLog(@"Cell:   %f,%f,%f,%f",cell.frame.origin.x,cell.frame.origin.y,cell.frame.size.width,cell.frame.size.height);
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
+        code = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 50, 44)];
+        name = [[UILabel alloc]initWithFrame:CGRectMake(50, 0, 120, 22)];
+        sexAndPost = [[UILabel alloc]initWithFrame:CGRectMake(50, 22, 120, 22)];
+        tel = [[UILabel alloc]initWithFrame:CGRectMake(170, 0, 120, 44)];
+        
+        code.textAlignment = UITextAlignmentCenter;
+        name.textAlignment = UITextAlignmentCenter;
+        sexAndPost.textAlignment = UITextAlignmentCenter;
+        tel.textAlignment = UITextAlignmentCenter;
+
+        code.tag = 1;
+        name.tag = 2;
+        sexAndPost.tag = 3;
+        tel.tag = 4;
+
+        [cell addSubview:code];
+        [cell addSubview:name];
+        [cell addSubview:sexAndPost];
+        [cell addSubview:tel];
+
+    }else{
+        code = (UILabel *)[cell viewWithTag:1];
+        name = (UILabel *)[cell viewWithTag:2];
+        sexAndPost = (UILabel *)[cell viewWithTag:3];
+        tel = (UILabel *)[cell viewWithTag:4];
     }
     
-    NSUInteger row = [indexPath row];
-    NSString *text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
-    cell.textLabel.text = ![text isEqual:[NSNull null]]?text:@"";
+    code.text = @"001001001";
+    name.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBName];
+    int sexNumber = [[[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBXb] intValue];
+    NSString *sex = sexNumber?@"男":@"女";
+    NSString *post = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBZw];
+    sexAndPost.text = [NSString stringWithFormat:@"%@/%@",sex,post];
+    tel.text = [[_MemberListOfAMeeting objectAtIndex:row] objectForKey:CHDBLxdh];
+
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

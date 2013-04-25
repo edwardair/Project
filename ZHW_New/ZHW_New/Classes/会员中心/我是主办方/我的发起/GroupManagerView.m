@@ -45,7 +45,8 @@
     _GM_TableView.delegate = self;
     _GM_TableView.dataSource = self;
     
-    
+    [_GM_TableView reloadData];
+
 }
 - (void)GM_MeetingListButtonClicked{
     int tag = _GM_MeetingList.meetingId;
@@ -97,6 +98,9 @@
 
 }
 #pragma mark UITableView Delegate
+//- (float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 22.f;
+//}
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
@@ -134,7 +138,6 @@
                         Frame:(CGRect )frame
                     SuperView:(UITableViewCell *)cell
                      TagIndex:(int )tag{
-    
     UILabel *code = (UILabel *)[cell viewWithTag:tag];
 
     if (!code) {
@@ -145,7 +148,6 @@
         code.textAlignment = UITextAlignmentCenter;
         code.tag = tag;
         [cell addSubview:code];
-
     }
     code.text = content;
 }
@@ -157,13 +159,13 @@
 
     for (int i = 0; i < 4; i++) {
         NSMutableString *s = [NSMutableString stringWithString:[dic objectForKey:[key objectAtIndex:i]]];
-        if (i==2) {
+        NSLogString(s);
+        if (i==2 && s.length>0) {
             [s deleteCharactersInRange:[s rangeOfString:@"T"]];
-//            [s replaceCharactersInRange:[s rangeOfString:@"T"] withString:@"  "];
         }
         CGRect frame = CGRectMake(orginX[i], 0, width[i], cell.frame.size.height);
         
-        [self appendLabelWithString:s Frame:frame SuperView:cell TagIndex:i];
+        [self appendLabelWithString:s Frame:frame SuperView:cell TagIndex:i+1];
         
     }
     

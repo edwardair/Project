@@ -13,9 +13,10 @@
 #import "TimeChooseView.h"
 @interface AddAgendaViewController (){
     TimeChooseView *timeChooseView;
+    float centerY;
 
 }
-@property (nonatomic,retain) id textEditor;
+@property (nonatomic,retain)  UIView * textEditor;
 @end
 
 @implementation AddAgendaViewController
@@ -68,17 +69,20 @@
     _agendaContentField.delegate = self;
     
     CGRect screenRect = [[UIScreen mainScreen]applicationFrame];
-    timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height+self.view.frame.origin.y, screenRect.size.width, 246)];
+    timeChooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, screenRect.size.height+self.view.frame.origin.y, screenRect.size.width, 216)];
 
     [self.view addSubview:timeChooseView];
     [self.view bringSubviewToFront:timeChooseView];
 
     _scrollView.scrollEnabled = NO;
-//    _scrollView.contentSize = CGSizeMake(_scrollView.contentSize.width, _scrollView.contentSize.height+650);
+
+    [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = self;
 
 }
 
 - (void)callBack{
+    [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = nil;
+
     if (self.navigationController) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{
@@ -101,8 +105,6 @@
 }
 
 - (void)saveEnterData{
-//    _agendaStartDate.text = @"2012-03-04 10:00:00";
-//    _agendaEndDate.text = @"2012-03-05 10:00:00";
 
     if (![self isVereistEmpty]) {
         [self showCreateNotFinish];
@@ -151,19 +153,31 @@
     
 }
 
-
+#pragma mark TapDelegate
+- (UIView *)willFitPointOfView{
+    return self.view;
+}
+- (float )orgCenterYOfView{
+    return centerY;
+}
+- (UIView *)curClickedText{
+    return _textEditor;
+}
+- (BOOL)statusBarShow{
+    return YES;
+}
+- (BOOL)navigationBarShow{
+    return self.navigationController?YES:NO;
+}
+#pragma mark --------------------------
 
 #pragma mark UITextField Delegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    
-    NSLog(@"ShouldBeginEditing:%@",textField.text);
-//    [_agendaContentField resignFirstResponder];
 
     if ([textField isEqual:_agendaStartDate] || [textField isEqual:_agendaEndDate]) {
         if (textField.text.length==0){
             [timeChooseView.datePicker setDate:[NSDate date]];
-
         }
         if (_textEditor) {
             [_textEditor resignFirstResponder];
@@ -176,21 +190,11 @@
     }
     _textEditor = textField;
 
-    [timeChooseView showPicker:NO withField:nil];
+//    [timeChooseView showPicker:NO withField:nil];
 
     return YES;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    
-//    NSLog(@"%@",textField.text);
-    if ([textField isEqual:_agendaStartDate] || [textField isEqual:_agendaEndDate]) {
-        NSLog(@"处理时间格式");
-        
-    }
-    
-    return YES;
-}
 #pragma mark UITextView Delegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     _textEditor = textView;
@@ -201,7 +205,7 @@
         [self resignKeyboard:textView];
         return NO;
     }
-    [timeChooseView showPicker:NO withField:nil];
+//    [timeChooseView showPicker:NO withField:nil];
 
     return YES;
 }

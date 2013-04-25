@@ -11,7 +11,7 @@
 #import "LogInViewController.h"
 
 #import "RootViewController.h"
-
+#import "CommonMethod.h"
 @interface AppDelegate()
 @end
 @implementation AppDelegate
@@ -30,9 +30,12 @@
     LogInViewController *log = [[LogInViewController alloc]initWithNibName:@"LogInViewController" bundle:nil];
     
     self.window.rootViewController = log;
-        
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[TapResignKeyBoard shareTapResignKeyBoard] addGestureToRootViewController];
+
     return YES;
 }
 

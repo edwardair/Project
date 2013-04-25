@@ -10,10 +10,14 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import "CellPushedViewController.h"
+#import "CommonMethod.h"
 @class ShowDownButton;
 @class GroupManagerView;
 @class MeetingManagerView;
-@interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,CellPushedViewControllerDelegate>
+@class MyCreatedMeetings;
+@interface CreateNewMeetingViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,CellPushedViewControllerDelegate,TapResignKeyBoardDelegate>
+
+@property (strong,nonatomic) MyCreatedMeetings *preView;
 
 @property (strong,nonatomic) IBOutlet UIScrollView *bs1;
 @property (strong,nonatomic) IBOutlet UIScrollView *bs2;
@@ -42,6 +46,7 @@
 @property (strong,nonatomic) IBOutlet UIButton *reset;
 
 #pragma mark 人员管理
+@property (strong,nonatomic) IBOutlet UIView *tableTitleView;
 @property (strong,nonatomic) IBOutlet UIView *memberManageView;//人员管理 view
 @property (strong,nonatomic) IBOutlet ShowDownButton *MM_MeetingName;//会议选择按钮
 @property (strong,nonatomic) IBOutlet UITableView *MM_MemberList;//会议名单

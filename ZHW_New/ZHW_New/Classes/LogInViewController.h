@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LogInViewController : UIViewController<UITextFieldDelegate>
+#import "CommonMethod.h"
+@interface LogInViewController : UIViewController<UITextFieldDelegate,TapResignKeyBoardDelegate>
 @property (strong,nonatomic) IBOutlet UITextField *account;
 @property (strong,nonatomic) IBOutlet UITextField *secret;
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddAgendaViewController.h"
+
 @class ShowDownButton;
 @class CreateNewMeetingViewController;
 @interface MeetingManagerView : UIView<UITableViewDataSource,UITableViewDelegate,AgendaDelegate>

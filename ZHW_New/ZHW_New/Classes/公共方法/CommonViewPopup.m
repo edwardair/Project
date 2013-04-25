@@ -12,10 +12,10 @@
 -(void )initializeView{
 //    CommonViewPopup *view = [[CommonViewPopup alloc]initWithFrame:applicationFrame()];
     [self setFrame:applicationFrame()];
-    self.backgroundColor = [UIColor blackColor];
-	self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-    self.transform = CGAffineTransformScale(self.transform, .1, .1);
-    self.alpha = 0;
+//    self.backgroundColor = [UIColor blackColor];
+//	self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+//    self.transform = CGAffineTransformScale(self.transform, .1, .1);
+//    self.alpha = 0;
 
 }
 - (id)initWithFrame:(CGRect)frame
@@ -33,15 +33,15 @@
     [UIView setAnimationDidStopSelector:@selector(hide)];
     self.transform = CGAffineTransformScale(self.transform, .1, .1);
 //    self.hidden = YES;
-    self.alpha = 0;
+//    self.alpha = 0;
     [UIView commitAnimations];
 }
 - (void)hide{
 //    self.hidden = YES;
 }
 - (void)showAction{
-    TapResignKeyBoard *tap = [TapResignKeyBoard shareTapResignKeyBoard];
-    [tap addTarget:self action:@selector(hideSelfView) parentView:self];
+//    TapResignKeyBoard *tap = [TapResignKeyBoard shareTapResignKeyBoard];
+//    [tap addTarget:self action:@selector(hideSelfView) parentView:self];
 
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.2f];

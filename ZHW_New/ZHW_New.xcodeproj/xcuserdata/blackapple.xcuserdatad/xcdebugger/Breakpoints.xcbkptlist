@@ -7,26 +7,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ZHW_New/Classes/&#20844;&#20849;&#26041;&#27861;/SBJsonResolveData.m"
-         timestampString = "387866260.990235"
+         filePath = "ZHW_New/Classes/&#20844;&#20849;&#26041;&#27861;/StaticManager.m"
+         timestampString = "388460176.414325"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "441"
-         endingLineNumber = "441"
-         landmarkName = "+addPointMeetingOneAgendaWithHyIndex:ycName:hcJJ:info:msg:ycLXR:ycTel:bdfzId:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ZHW_New/Classes/&#20844;&#20849;&#26041;&#27861;/SBJsonResolveData.m"
-         timestampString = "387866260.990235"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "313"
-         endingLineNumber = "313"
-         landmarkName = "+deletePointMeetingGroupWithIndex:"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
+         landmarkName = "+formateTimeString:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

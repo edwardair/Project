@@ -11,11 +11,33 @@
 #import "StaticManager.h"
 #import "RootViewController.h"
 #import "AppDelegate.h"
-#import "CommonMethod.h"
-@interface LogInViewController ()
-@property (strong,nonatomic) id editText;
+//#import "CommonMethod.h"
+@interface LogInViewController (){
+    UIView *textEditor;
+    float centerY;
+}
+//@property (strong,nonatomic) id editText;
 @end
 @implementation LogInViewController
+
+#pragma mark TapDelegate
+- (UIView *)willFitPointOfView{
+    return self.view;
+}
+- (float )orgCenterYOfView{
+    NSLogFloat(centerY);
+    return centerY;
+}
+- (UIView *)curClickedText{
+    return textEditor;
+}
+- (BOOL)statusBarShow{
+    return YES;
+}
+- (BOOL)navigationBarShow{
+    return NO;
+}
+#pragma mark --------------------------
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +54,11 @@
     // Do any additional setup after loading the view from its nib.
     _account.delegate = self;
     _secret.delegate = self;
+    
+    [TapResignKeyBoard shareTapResignKeyBoard].tapDelegate = self;
+    
+    centerY = self.view.center.y;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,22 +66,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)resignKeyBoard{
-    [_editText resignFirstResponder];
-}
+
 //delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
-    [StaticManager resignParentView];
-    [[TapResignKeyBoard shareTapResignKeyBoard] removeGestureRecognizer];
     return YES;
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    NSLog(@"kaishi");
-    _editText = textField;
-    [StaticManager TextInputAnimationWithParentView:self.view textView:textField stateBar:YES navigationBar:NO];
-
-    [[TapResignKeyBoard shareTapResignKeyBoard] addTarget:self action:@selector(resignKeyBoard) parentView:self.view];
+    textEditor = textField;
 
     return YES;
 }
@@ -63,8 +82,10 @@
 #ifdef DEBUG 
     RootViewController *root = [RootViewController rootController];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [appDelegate.window.rootViewController release];
+    
+    [[TapResignKeyBoard shareTapResignKeyBoard] removeGestureFromRootViewController];
     appDelegate.window.rootViewController = root;
+    [[TapResignKeyBoard shareTapResignKeyBoard] addGestureToRootViewController];
     return;
 #endif
     if (_account.text.length==0 || _secret.text.length==0) {

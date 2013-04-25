@@ -66,12 +66,13 @@ static float parentViewCenterY;
                                stateBar:(BOOL)state
                           navigationBar:(BOOL)nav{
     float originOffSetY = [StaticManager isSuperView:textView.superview EqualToParentView:view];
-    
+    NSLog(@"%f",originOffSetY);
     float originY = originOffSetY + textView.frame.origin.y;
     float textViewBottomY = originY + textView.frame.size.height;
     //state 屏幕最上方状态栏 nav导航控制器（手动添加的不算） BOOL值为YES时修正textViewBottomY的值
-    textViewBottomY += state?20.f:0+nav?44.f:0;
+    textViewBottomY += (state?20.f:0)+(nav?44.f:0);
     float textWillBottomY = [[UIScreen mainScreen] bounds].size.height - KeyBoardHeight;
+    NSLog(@"%f",[[UIScreen mainScreen] bounds].size.height);
     float sub = textWillBottomY-textViewBottomY;
     
     if (sub<0) {
@@ -115,7 +116,7 @@ UIViewController *UIViewControllerOfSuperView(UIView *view){
 }
 #pragma mark 处理时间格式 2012-12-12T00：00：00  将“T”替换为“ ”
 + (NSString *)formateTimeString:(NSString *)s{
-    s = writeEnable(s);
+//    s = writeEnable(s);
     //TODO: 4.17号  检测时间 s 是否为空
     if (![s isEqualToString:@""]) {
         NSMutableString *m_Start = [NSMutableString stringWithString:s];

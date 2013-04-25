@@ -12,6 +12,8 @@
 #import "StaticManager.h"
 #import "CommonViewPopup.h"
 #import "CreateNewMeetingViewController.h"
+#import "MemberCenterViewController.h"
+
 @interface MyCreatedMeetings(){
     CommonTableView *tableView;
     CommonViewPopup *popView;
@@ -34,6 +36,7 @@
         
         [self updateTableViewDataSource];
         
+        self.opaque = YES;
         
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didSelfHaveSuperView) name:@"superView" object:nil];
         
@@ -44,8 +47,9 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     _add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAMeeting)];
     UIViewControllerOfSuperView(self).parentViewController.navigationItem.rightBarButtonItem = _add;
-//    NSLog(@"yes");
+    
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -56,8 +60,12 @@
 */
 - (void)addAMeeting{
     CreateNewMeetingViewController *createNewMeeting = [[CreateNewMeetingViewController alloc]initWithNibName:@"CreateNewMeetingViewController" bundle:nil];
-    UINavigationController *nav = (UINavigationController *)UIViewControllerOfSuperView(self).parentViewController.parentViewController;
-    [nav pushViewController:createNewMeeting animated:YES];
+    createNewMeeting.preView = self;
+    [self.parentController.navigationController pushViewController:createNewMeeting animated:YES];
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"返回123" style:UIBarButtonItemStylePlain target:self action:@selector(backToRoot)];
+    self.parentController.navigationController.navigationItem.backBarButtonItem  = back;
+
 }
 - (void)updateTableViewDataSource{
     [SBJsonResolveData shareMeeting];
@@ -103,11 +111,14 @@
 - (void)autoFitSizeOf:(UILabel *)curLabel preLabel:(UILabel *)preLabel{
     CGRect preFrame = preLabel.frame;
     CGPoint curLabelCenter = curLabel.center;
-    curLabelCenter.y = preLabel.center.y+preFrame.size.height/2+curLabel.frame.size.height/2;
+    curLabelCenter.y = preLabel.center.y+preFrame.size.height/2+curLabel.frame.size.height/2+20;
     curLabel.center = curLabelCenter;
 }
 -(void)autoSizeLabel:(UILabel *)label{
     CGSize s = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(label.frame.size.width, NSIntegerMax) lineBreakMode:NSLineBreakByWordWrapping];
+    if (s.height==0) {
+        s.height = 21.0f;
+    }
     CGRect rect = label.frame;
     rect.size.height = s.height;
     label.frame = rect;
@@ -127,18 +138,11 @@
 //    NSString *number = [NSString stringWithFormat:@"%02d",row+1];
     NSString *name = [NSString stringWithFormat:@"%@",[meeting objectAtIndex:0]];
     NSString *start = [NSString stringWithFormat:@"%@",[meeting objectAtIndex:2]];
-    start = [StaticManager formateTimeString:start];
-    
     NSString *end = [NSString stringWithFormat:@"%@",[meeting objectAtIndex:3]];
-    end = [StaticManager formateTimeString:end];
-
     NSString *address = [NSString stringWithFormat:@"%@",[meeting objectAtIndex:4]];
     NSString *theme = [NSString stringWithFormat:@"%@",[meeting objectAtIndex:5]];
-    
-//    _code.text = [NSString stringWithFormat:@"%@%@",@"编号：",number];
-    
+        
     _name.text = [NSString stringWithFormat:@"%@%@",@"会议名称：",name];
-//    [self autoFitSizeOf:_name preLabel:_code];
 
     _start.text = [NSString stringWithFormat:@"%@%@",@"开始时间：",start];
     [self autoFitSizeOf:_start preLabel:_name];
@@ -164,12 +168,10 @@
     _rectB.size.height = _theme.frame.size.height;
     _themeTitle.frame = _rectB;
 
-//    [popView showAction];
     UIViewController *c = [[UIViewController alloc]init];
     [c setView:popView];
-//    UINavigationController *nav = (UINavigationController *)UIViewControllerOfSuperView(self.superview);
-    
-//    NSLogString(nav);
+//    [popView showAction];
+    [self.parentController.navigationController pushViewController:c animated:YES];
     
 }
 //- (void)dealloc{
