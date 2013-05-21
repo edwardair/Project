@@ -31,6 +31,7 @@
         
         _loadView = [[UIView alloc]initWithFrame:bootView.frame];
         [bootView addSubview:_loadView];
+        _loadView.frame = CGRectMake(_loadView.frame.origin.x+WinWidth, _loadView.frame.origin.y, _loadView.frame.size.width, _loadView.frame.size.height);
         
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, bootView.frame.size.height-130, 300, 40)];
         [_loadView addSubview:label];
@@ -54,9 +55,26 @@
         _answer.text = answer;
         _answer.backgroundColor = [UIColor clearColor];
         
+        [self moveToShow];
+        
     }
     return self;
 }
+- (void)moveToShow{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.55f];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    _loadView.transform = CGAffineTransformMakeTranslation(-WinWidth, 0);
+    [UIView commitAnimations];
+}
+- (void)moveToHide{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.5f];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    _loadView.transform = CGAffineTransformMakeTranslation(WinWidth, 0);
+    [UIView commitAnimations];
+}
+
 + (void)showAlertWithTitle:(NSString *)title
                    message:(NSString *)msg
                   delegate:(id )delegate
@@ -89,11 +107,17 @@
     return YES;
 }
 - (void)dealloc{
-    for (UIView *subView in bootView.subviews) {
+    
+    for (UIView *subView in _loadView.subviews) {
         [subView removeFromSuperview];
         subView = nil; 
     }
+    [_loadView removeFromSuperview];
+    [_loadView release];
+    _loadView = nil;
+    
     bootView = nil;
+    
     [super dealloc];
 }
 @end

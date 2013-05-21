@@ -64,8 +64,8 @@
 {
 //    CCScene *scene = [CCScene node];
 //    [scene addChild:[TheStaticGameLayer shareGameLayer]];
-    CCScene *scene = [CCScene node];
-    [scene addChild:[MainLayer shareStaticMainLayer]];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccWHITE]];
+//    CCScene *scene = [CCScene node];
+//    [scene addChild:[MainLayer shareStaticMainLayer]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainLayer node] withColor:ccWHITE]];
 }
 @end

@@ -16,9 +16,14 @@
                 plistName:(NSString *)plistName{
     NSString *error;
     
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                              NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *plistPath = [rootPath stringByAppendingPathComponent:plistName];
+//    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+//                                                              NSUserDomainMask, YES) objectAtIndex:0];
+
+//    NSString *rootPath = NSHomeDirectory();
+//
+//    NSString *plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"iPlayCrossWord.app/%@",plistName]];
+    NSString *plistPath = plistName;
+    NSLog(@"%@",plistName);
     NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:objArray
                                                           forKeys:keyArray];
     NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict

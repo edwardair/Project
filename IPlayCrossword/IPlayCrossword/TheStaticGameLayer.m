@@ -9,10 +9,10 @@
 #import "TheStaticGameLayer.h"
 #import "OneWord.h"
 
-#define QB(x) [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/Documents/QuestionBank_%d.plist",x]]   
+#define QB(x) [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/iPlayCrossWord.app/QuestionBank_%d.plist",x]]   
 
-static TheStaticGameLayer *theStaticGameLayer = nil;
-static MenuLayer *staticMenuLayer = nil;
+TheStaticGameLayer *theStaticGameLayer = nil;
+
 @interface TheStaticGameLayer(){
     NSMutableArray *selectedWords;
 }
@@ -22,51 +22,29 @@ static MenuLayer *staticMenuLayer = nil;
 @end
 @implementation TheStaticGameLayer
 +(id )sceneAddWithInde:(int)index{
-//    if (!theStaticGameLayer) {
-//        theStaticGameLayer = [[[TheStaticGameLayer alloc]init] autorelease];
-//        
-//        AnswerInterface *answerLayer = [AnswerInterface initizlizeWithQ:@"" AndA:@""];
-//        [theStaticGameLayer addChild:answerLayer];
-//        answerLayer.delegate = theStaticGameLayer;
-//        theStaticGameLayer.answerInterface = answerLayer;
-//    }else{
-//        theStaticGameLayer.answerInterface.loadView.hidden = NO;
-//    }
-//    
-//    staticMenuLayer = [MenuLayer initializeWithIndex:index];
-//    staticMenuLayer.delegate = theStaticGameLayer;
-//    [theStaticGameLayer addChild:staticMenuLayer];
-//
-//    [theStaticGameLayer resetWordsPropertyWithPlist:QB(index)];
-//    
-//    return theStaticGameLayer;
-
-//    if (theStaticGameLayer) {
-//        [theStaticGameLayer removeFromParentAndCleanup:NO];
-//    }
-    theStaticGameLayer = [[[TheStaticGameLayer alloc]init] autorelease];
+    theStaticGameLayer = [[TheStaticGameLayer alloc]init];
     
     AnswerInterface *answerLayer = [AnswerInterface initizlizeWithQ:@"" AndA:@""];
     [theStaticGameLayer addChild:answerLayer];
     answerLayer.delegate = theStaticGameLayer;
     theStaticGameLayer.answerInterface = answerLayer;
-    staticMenuLayer = [MenuLayer initializeWithIndex:index];
-    staticMenuLayer.delegate = theStaticGameLayer;
-    [theStaticGameLayer addChild:staticMenuLayer];
     
+    MenuLayer *curMenuLayer = [MenuLayer initializeWithIndex:index];
+    [theStaticGameLayer addChild:curMenuLayer];
+    curMenuLayer.delegate = theStaticGameLayer;
+
     [theStaticGameLayer resetWordsPropertyWithPlist:QB(index)];
     
     return theStaticGameLayer;
 
 }
 
-+(id )shareGameLayer{
-    return theStaticGameLayer;
-}
 +(void )unShareTheStaticGameLayer{
-    if (theStaticGameLayer) {
-        [theStaticGameLayer release];
-    }
+    
+    [theStaticGameLayer release];
+        theStaticGameLayer = nil;
+        NSLog(@"%d",theStaticGameLayer.retainCount);
+//    }
 }
 - (NSMutableArray *)contentWords{
     if (!_contentWords) {
@@ -87,7 +65,9 @@ static MenuLayer *staticMenuLayer = nil;
 - (id)init{
     if (self == [super init]) {
         
-        [WGDirector addTargetedDelegate:self priority:-1 swallowsTouches:YES];
+//        [self writePlist];
+        
+//        [WGDirector addTargetedDelegate:self priority:-1 swallowsTouches:YES];
         
         selectedWords = [[NSMutableArray alloc]init];
         
@@ -98,7 +78,7 @@ static MenuLayer *staticMenuLayer = nil;
         //从左上角开始第0位，到右下角结束
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                OneWord *word = [[OneWord alloc]init];
+                OneWord *word = [OneWord node];
                 [self addChild:word];
                 word.position = ccp(25 + j * 30, WinHeight - 50 - i * 30);
                 word.tag = i * 10 + j;
@@ -108,11 +88,7 @@ static MenuLayer *staticMenuLayer = nil;
                 [self.contentWords addObject:word];
             }
         }
-        
-//        [self ac];
-        
-//        [[Director touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-        
+                
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillAppear) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillDisAppear) name:UIKeyboardWillHideNotification object:nil];
 
@@ -139,7 +115,9 @@ static MenuLayer *staticMenuLayer = nil;
 
 //根据plist重置所有word的属性
 - (void)resetWordsPropertyWithPlist:(NSString *)plist{
-    
+
+//    NSLog(@"%@",plist);
+//    NSLog(@"%@",[[NSBundle mainBundle]pathForResource:@"QuestionBank_1" ofType:@"plist"]);
     [self.contentEditEnableWords removeAllObjects];
     
     self.plistAllWords = [WGWritePlist readPlist:plist];
@@ -149,14 +127,16 @@ static MenuLayer *staticMenuLayer = nil;
         id temp = [_plistAllWords objectForKey:placement];
         if ([temp isKindOfClass:[NSString class]]) {
             word.selectEnable = NO;
-            word.allowTouch = NO;
+//            word.allowTouch = NO;
         }else{
             word.selectEnable = YES;
-            word.allowTouch = YES;
+//            word.allowTouch = YES;
             word.whichQuestion = 0;
             word.selected = NO;
             NSMutableDictionary *tempArray = (NSMutableDictionary *)temp;
-            word.text = [tempArray objectForKey:@"TextRecord"];
+            if (tempArray[@"TextRecord"]) {
+                word.text = [tempArray objectForKey:@"TextRecord"];
+            }
             [word.questions removeAllObjects];
             [word.answers removeAllObjects];
             [word.questions addObject:[tempArray objectForKey:@"Q1"]];
@@ -178,7 +158,10 @@ static MenuLayer *staticMenuLayer = nil;
 }
 //word点击方法
 - (void)wordSelected:(OneWord *)word{
-    
+    if (!word.selectEnable) {
+        NSLog(@"禁止点击");
+        return;
+    }
     self.answerInterface.question.text = word.questions[word.whichQuestion];
     self.answerInterface.answerLength = [word.answers[word.whichQuestion] length];
     self.answerInterface.answer.text = @"";
@@ -217,6 +200,7 @@ static MenuLayer *staticMenuLayer = nil;
         NSRange range = {i,1};
         NSString *wordText = [self.answerInterface.answer.text substringWithRange:range];
         [(OneWord *)selectedWords[i] setText:wordText];
+        wordText = nil;
     }
 }
 //MenuLayerDelegate
@@ -252,7 +236,7 @@ static MenuLayer *staticMenuLayer = nil;
         }
     }
     
-    [WGWritePlist writePlistWithObj:_plistAllWords.allValues key:_plistAllWords.allKeys plistName:[NSString stringWithFormat:@"QuestionBank_%d.plist",index]];
+    [WGWritePlist writePlistWithObj:_plistAllWords.allValues key:_plistAllWords.allKeys plistName:QB(index)];
 }
 - (void)submitPuzzle{
     int count = _contentEditEnableWords.count;
@@ -416,11 +400,15 @@ static MenuLayer *staticMenuLayer = nil;
     
 }
 - (void)dealloc{
-    [_contentWords release];
-    [_contentEditEnableWords release];
+    self.answerInterface = nil;
+//    [_contentWords release];
+//    [_contentEditEnableWords release];
+//    _contentWords = nil;
+//    _contentEditEnableWords = nil;
     
     self.contentWords = nil;
     self.contentEditEnableWords = nil;
+    
     [super dealloc];
 }
 @end

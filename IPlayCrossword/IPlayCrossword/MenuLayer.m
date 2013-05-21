@@ -8,7 +8,7 @@
 
 #import "MenuLayer.h"
 #import "TheStaticGameLayer.h"
-
+#import "MainLayer.h"
 #define Small_Count(x) [[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"Small_%d",x]]
 #define Big_Count(x) [[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"Big_%d",x]]
 #define SubSmall(x) [[NSUserDefaults standardUserDefaults] setInteger:(Small_Count(x)-1) forKey:[NSString stringWithFormat:@"Small_%d",x]]
@@ -17,7 +17,7 @@
 @implementation MenuLayer
 @synthesize delegate;
 +(id )initializeWithIndex:(int )index{
-    return [[[self class] alloc]initWithNumber:index]  ;
+    return [[[[self class] alloc]initWithNumber:index] autorelease]  ;
 }
 - (id )initWithNumber:(int )index{
     if (self == [super init]) {
@@ -32,8 +32,10 @@
         
         {//加载在menuSprite上的menuFonts
             CCMenuItemFont *mainMenu = [CCMenuItemFont itemWithString:@"主菜单" block:^(id sender) {
-                [[[TheStaticGameLayer shareGameLayer] answerInterface] loadView].hidden = YES;
-                [Director popScene];
+//                [[[TheStaticGameLayer shareGameLayer] answerInterface] loadView].hidden = YES;
+                
+                [Director replaceScene:[CCTransitionMoveInL transitionWithDuration:.5f scene:[MainLayer node]]];
+                [TheStaticGameLayer unShareTheStaticGameLayer];
             }];
             mainMenu.position = ccp(menuSprite.contentSize.width/2, menuSprite.contentSize.height/2+30);
 
@@ -99,7 +101,16 @@
     }
     return self;
 }
-
+//- (void)popCurScene{
+////    [[[TheStaticGameLayer shareGameLayer] answerInterface] loadView].hidden = YES;
+//    for (UIView *subView in [[[TheStaticGameLayer shareGameLayer] answerInterface] loadView].subviews) {
+//        [subView removeFromSuperview];
+//        [subView release];
+//        subView = nil;
+//    }
+//    [Director popScene];
+//
+//}
 - (void)dealloc{
     
     [super dealloc];

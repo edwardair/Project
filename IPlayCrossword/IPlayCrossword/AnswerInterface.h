@@ -20,6 +20,7 @@
 @property (nonatomic,assign) int answerLength;
 @property (nonatomic,retain) UIView *loadView;
 + (id )initizlizeWithQ:(NSString *)question AndA:(NSString *)answer;
+- (void)moveToHide;
 @end
 
 @protocol AnswerDelegate <NSObject>

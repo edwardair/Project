@@ -16,6 +16,16 @@
 		181B6E8B17393A78006E326D /* MainMenuPNG.png in Resources */ = {isa = PBXBuildFile; fileRef = 181B6E8917393A78006E326D /* MainMenuPNG.png */; };
 		182CC7D01738E05900152ADA /* MenuSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 182CC7CF1738E05900152ADA /* MenuSprite.png */; };
 		1843CD8417378CA8008C5325 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1843CD8317378CA8008C5325 /* MenuLayer.m */; };
+		185B90E1174B5E8E00C68FEA /* QuestionBank_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90D7174B5E8E00C68FEA /* QuestionBank_1.plist */; };
+		185B90E2174B5E8E00C68FEA /* QuestionBank_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90D8174B5E8E00C68FEA /* QuestionBank_2.plist */; };
+		185B90E3174B5E8E00C68FEA /* QuestionBank_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90D9174B5E8E00C68FEA /* QuestionBank_3.plist */; };
+		185B90E4174B5E8E00C68FEA /* QuestionBank_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90DA174B5E8E00C68FEA /* QuestionBank_4.plist */; };
+		185B90E5174B5E8E00C68FEA /* QuestionBank_5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90DB174B5E8E00C68FEA /* QuestionBank_5.plist */; };
+		185B90E6174B5E8E00C68FEA /* QuestionBank_6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90DC174B5E8E00C68FEA /* QuestionBank_6.plist */; };
+		185B90E7174B5E8E00C68FEA /* QuestionBank_7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90DD174B5E8E00C68FEA /* QuestionBank_7.plist */; };
+		185B90E8174B5E8E00C68FEA /* QuestionBank_8.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90DE174B5E8E00C68FEA /* QuestionBank_8.plist */; };
+		185B90E9174B5E8E00C68FEA /* QuestionBank_9.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90DF174B5E8E00C68FEA /* QuestionBank_9.plist */; };
+		185B90EA174B5E8E00C68FEA /* QuestionBank_10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185B90E0174B5E8E00C68FEA /* QuestionBank_10.plist */; };
 		1873CD4B1739F643008AA3BB /* File1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1873CD481739F643008AA3BB /* File1.png */; };
 		1873CD4C1739F643008AA3BB /* File0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1873CD491739F643008AA3BB /* File0.png */; };
 		1873CD4D1739F643008AA3BB /* File2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1873CD4A1739F643008AA3BB /* File2.png */; };
@@ -181,6 +191,16 @@
 		182CC7CF1738E05900152ADA /* MenuSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuSprite.png; sourceTree = "<group>"; };
 		1843CD8217378CA8008C5325 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		1843CD8317378CA8008C5325 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		185B90D7174B5E8E00C68FEA /* QuestionBank_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_1.plist; sourceTree = "<group>"; };
+		185B90D8174B5E8E00C68FEA /* QuestionBank_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_2.plist; sourceTree = "<group>"; };
+		185B90D9174B5E8E00C68FEA /* QuestionBank_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_3.plist; sourceTree = "<group>"; };
+		185B90DA174B5E8E00C68FEA /* QuestionBank_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_4.plist; sourceTree = "<group>"; };
+		185B90DB174B5E8E00C68FEA /* QuestionBank_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_5.plist; sourceTree = "<group>"; };
+		185B90DC174B5E8E00C68FEA /* QuestionBank_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_6.plist; sourceTree = "<group>"; };
+		185B90DD174B5E8E00C68FEA /* QuestionBank_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_7.plist; sourceTree = "<group>"; };
+		185B90DE174B5E8E00C68FEA /* QuestionBank_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_8.plist; sourceTree = "<group>"; };
+		185B90DF174B5E8E00C68FEA /* QuestionBank_9.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_9.plist; sourceTree = "<group>"; };
+		185B90E0174B5E8E00C68FEA /* QuestionBank_10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuestionBank_10.plist; sourceTree = "<group>"; };
 		1873CD481739F643008AA3BB /* File1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = File1.png; sourceTree = "<group>"; };
 		1873CD491739F643008AA3BB /* File0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = File0.png; sourceTree = "<group>"; };
 		1873CD4A1739F643008AA3BB /* File2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = File2.png; sourceTree = "<group>"; };
@@ -513,6 +533,23 @@
 			path = PNG;
 			sourceTree = "<group>";
 		};
+		185B90D6174B5E8500C68FEA /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				185B90D7174B5E8E00C68FEA /* QuestionBank_1.plist */,
+				185B90D8174B5E8E00C68FEA /* QuestionBank_2.plist */,
+				185B90D9174B5E8E00C68FEA /* QuestionBank_3.plist */,
+				185B90DA174B5E8E00C68FEA /* QuestionBank_4.plist */,
+				185B90DB174B5E8E00C68FEA /* QuestionBank_5.plist */,
+				185B90DC174B5E8E00C68FEA /* QuestionBank_6.plist */,
+				185B90DD174B5E8E00C68FEA /* QuestionBank_7.plist */,
+				185B90DE174B5E8E00C68FEA /* QuestionBank_8.plist */,
+				185B90DF174B5E8E00C68FEA /* QuestionBank_9.plist */,
+				185B90E0174B5E8E00C68FEA /* QuestionBank_10.plist */,
+			);
+			name = Plist;
+			sourceTree = "<group>";
+		};
 		18C1E3AA172EAC6700F8FF89 = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +613,7 @@
 		18C1E3C9172EAC6700F8FF89 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				185B90D6174B5E8500C68FEA /* Plist */,
 				1873CD54173A0527008AA3BB /* Title.png */,
 				1873CD491739F643008AA3BB /* File0.png */,
 				1873CD481739F643008AA3BB /* File1.png */,
@@ -1008,7 +1046,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = 18C1E3AE172EAC6700F8FF89 /* Build configuration list for PBXProject "iPlayCrossWord" */;
+			buildConfigurationList = 18C1E3AE172EAC6700F8FF89 /* Build configuration list for PBXProject "IPlayCrossword" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1059,6 +1097,16 @@
 				1873CD521739F67C008AA3BB /* File1_.png in Resources */,
 				1873CD531739F67C008AA3BB /* File2_.png in Resources */,
 				1873CD55173A0527008AA3BB /* Title.png in Resources */,
+				185B90E1174B5E8E00C68FEA /* QuestionBank_1.plist in Resources */,
+				185B90E2174B5E8E00C68FEA /* QuestionBank_2.plist in Resources */,
+				185B90E3174B5E8E00C68FEA /* QuestionBank_3.plist in Resources */,
+				185B90E4174B5E8E00C68FEA /* QuestionBank_4.plist in Resources */,
+				185B90E5174B5E8E00C68FEA /* QuestionBank_5.plist in Resources */,
+				185B90E6174B5E8E00C68FEA /* QuestionBank_6.plist in Resources */,
+				185B90E7174B5E8E00C68FEA /* QuestionBank_7.plist in Resources */,
+				185B90E8174B5E8E00C68FEA /* QuestionBank_8.plist in Resources */,
+				185B90E9174B5E8E00C68FEA /* QuestionBank_9.plist in Resources */,
+				185B90EA174B5E8E00C68FEA /* QuestionBank_10.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,7 +1248,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu  Zhongka  Educational  Science and   Technology  Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiangsu  Zhongka  Educational  Science and   Technology  Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huirong Wu (9AEW2AW338)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1213,7 +1261,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0AFD228B-A57A-4E67-9AB0-7877F2E8EA1A";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1281,7 +1329,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		18C1E3AE172EAC6700F8FF89 /* Build configuration list for PBXProject "iPlayCrossWord" */ = {
+		18C1E3AE172EAC6700F8FF89 /* Build configuration list for PBXProject "IPlayCrossword" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18C1E549172EAC6900F8FF89 /* Debug */,

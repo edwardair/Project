@@ -17,5 +17,5 @@
 @property (nonatomic,retain) NSMutableDictionary *plistAllWords;
 @property (nonatomic,retain) AnswerInterface *answerInterface;
 +(id )sceneAddWithInde:(int )index;
-+(id )shareGameLayer;
++(void )unShareTheStaticGameLayer;
 @end

@@ -31,12 +31,13 @@
 
 //- (void)onExit
 //{
-//	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-//	[super onExit];
+//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+//        [super onExit];
 //}
 
 - (BOOL)containsTouchLocation:(UITouch *)touch
 {
+    NSLog(@"%@;self.rect:%f,%f,%f,%f;touchPoint:(%f,%f)",self.description,self.rect.origin.x,self.rect.origin.y,self.rect.size.width,self.rect.size.height,[self convertTouchToNodeSpaceAR:touch].x,[self convertTouchToNodeSpaceAR:touch].y);
 	return CGRectContainsPoint(self.rect, [self convertTouchToNodeSpaceAR:touch]);
 }
 
@@ -45,9 +46,10 @@
     
     _lastPosition = self.position;
 
-	if ( ![self containsTouchLocation:touch] || !_allowTouch)
+	if ( ![self containsTouchLocation:touch])
         return NO;
-    
+    else if (!_allowTouch)
+        return NO;
 	return YES;
 }
 

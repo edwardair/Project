@@ -29,16 +29,16 @@ static MainLayer *staticMainLayer = nil;
     if (self == [super init]) {
         self.backGroundImage = [CCSprite spriteWithFile:@"B1.png"];
         
-        SetFile(0,1);
-        SetFile(0,2);
-        SetFile(0,3);
-        SetFile(0,4);
-        SetFile(0,5);
-        SetFile(0,6);
-        SetFile(0,7);
-        SetFile(0,8);
-        SetFile(0,9);
-        SetFile(0,10);
+//        SetFile(0,1);
+//        SetFile(0,2);
+//        SetFile(0,3);
+//        SetFile(0,4);
+//        SetFile(0,5);
+//        SetFile(0,6);
+//        SetFile(0,7);
+//        SetFile(0,8);
+//        SetFile(0,9);
+//        SetFile(0,10);
         
         CCSprite *title = [CCSprite spriteWithFile:@"Title.png"];
         [self addChild:title];
@@ -61,7 +61,7 @@ static MainLayer *staticMainLayer = nil;
 - (void)filePressed:(WGSprite *)file{
     CCScene *scene = [CCScene node];
     [scene addChild:[TheStaticGameLayer sceneAddWithInde:file.tag]];
-    [Director pushScene:[CCTransitionMoveInR transitionWithDuration:.5f scene:scene]];
+    [Director replaceScene:[CCTransitionMoveInR transitionWithDuration:.5f scene:scene]];
 }
 
 //重置file所显示的样式  未做过、及格、不及格

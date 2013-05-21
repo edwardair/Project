@@ -74,6 +74,7 @@
     if (self == [super initWithFile:@"Black.png"]) {
 
         [self setContentSize:CGSizeMake(30, 30)];
+
         [[Director touchDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:YES];
 
 //        //默认可点击
@@ -93,7 +94,14 @@
     
     
 }
+
 - (void)dealloc{
+    self.questions = nil;
+    self.answers = nil;
+    self.wordPlacement = nil;
+//    self.text = nil;
+    self.textTTF = nil;
+    self.layerColor = nil;
     [super dealloc];
 }
 
