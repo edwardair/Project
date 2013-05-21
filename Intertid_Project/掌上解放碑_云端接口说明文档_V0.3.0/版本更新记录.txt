@@ -1,0 +1,22 @@
+Version 0.2.0
+-------------
+更新时间：2012年5月30日
+文档更新人员：罗小松
+更新内容：
+1.根据Version0.1.1创建新文档模板
+2.增加Json示例
+3.根据需求变更consumptionlevel定义为商铺平均消费情况
+
+
+Version 0.3.0
+-------------
+更新时间：2013年1月29日
+文档更新人员：李力
+更新内容：
+1.根据Version0.2.0创建新文档模板；
+2.增加Json示例；
+3.store_update将原版本的Get请教方式改为Post,并加入userid,password,status参数项；
+4.增加user_registration用户注册接口文档；
+5.增加user_auth用户登录授权接口文档；
+6.增加user_authbyweibo微博用户登录授权接口文档；
+7.增加store_commentslist店铺评论列表接口文档。
