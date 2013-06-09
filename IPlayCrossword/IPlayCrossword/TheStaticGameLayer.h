@@ -10,12 +10,12 @@
 #import "WGClasses/WGCocos2d.h"
 #import "AnswerInterface.h"
 #import "MenuLayer.h"
-
 @interface TheStaticGameLayer : WGLayer<AnswerDelegate,menuLayerDelegate> {
     
 }
 @property (nonatomic,retain) NSMutableDictionary *plistAllWords;
 @property (nonatomic,retain) AnswerInterface *answerInterface;
-+(id )sceneAddWithInde:(int )index;
-+(void )unShareTheStaticGameLayer;
+//+(id )sceneAddWithInde:(int )index;
++(id )initWithIndex:(int )index;
+//+(void )unShareTheStaticGameLayer;
 @end

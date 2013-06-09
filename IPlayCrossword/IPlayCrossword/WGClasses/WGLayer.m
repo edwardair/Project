@@ -92,7 +92,6 @@ CCAnimate *handAnimation(NSString *name,int a[],int length,int fps){
     return animate;
 }
 
-
 #pragma mark 算法类
 
 #pragma mark *****************************
@@ -168,10 +167,6 @@ CCAnimate *handAnimation(NSString *name,int a[],int length,int fps){
     NSLog(@"%d,%d",(int )node_.position.x,(int )node_.position.y);
 }
 #pragma mark *****************************
-
-
-
-
 
 #pragma mark dealloc
 - (void)dealloc{

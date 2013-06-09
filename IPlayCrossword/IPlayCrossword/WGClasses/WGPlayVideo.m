@@ -253,7 +253,7 @@ static NSString *soundName = nil;
            kuang:(NSString *)coverFileName_
             text:(NSString *)textFileName_
        animation:(NSString *)aniFileName_{
-    [[[self alloc] init] playMovie:mp4FileName_ kuang:coverFileName_ text:textFileName_ animation:aniFileName_];
+    [[[[self alloc] init] autorelease] playMovie:mp4FileName_ kuang:coverFileName_ text:textFileName_ animation:aniFileName_];
 }
 - (void)playMovie:(NSString *)mp4FileName_
             kuang:(NSString *)coverFileName_

@@ -21,31 +21,31 @@ TheStaticGameLayer *theStaticGameLayer = nil;
 
 @end
 @implementation TheStaticGameLayer
-+(id )sceneAddWithInde:(int)index{
-    theStaticGameLayer = [[TheStaticGameLayer alloc]init];
-    
-    AnswerInterface *answerLayer = [AnswerInterface initizlizeWithQ:@"" AndA:@""];
-    [theStaticGameLayer addChild:answerLayer];
-    answerLayer.delegate = theStaticGameLayer;
-    theStaticGameLayer.answerInterface = answerLayer;
-    
-    MenuLayer *curMenuLayer = [MenuLayer initializeWithIndex:index];
-    [theStaticGameLayer addChild:curMenuLayer];
-    curMenuLayer.delegate = theStaticGameLayer;
+//+(id )sceneAddWithInde:(int)index{
+//    theStaticGameLayer = [[TheStaticGameLayer alloc]init];
+//    
+//    AnswerInterface *answerLayer = [AnswerInterface initizlizeWithQ:@"" AndA:@""];
+//    [theStaticGameLayer addChild:answerLayer];
+//    answerLayer.delegate = theStaticGameLayer;
+//    theStaticGameLayer.answerInterface = answerLayer;
+//    
+//    MenuLayer *curMenuLayer = [MenuLayer initializeWithIndex:index];
+//    [theStaticGameLayer addChild:curMenuLayer];
+//    curMenuLayer.delegate = theStaticGameLayer;
+//
+//    [theStaticGameLayer resetWordsPropertyWithPlist:QB(index)];
+//    
+//    return theStaticGameLayer;
+//
+//}
 
-    [theStaticGameLayer resetWordsPropertyWithPlist:QB(index)];
-    
-    return theStaticGameLayer;
-
-}
-
-+(void )unShareTheStaticGameLayer{
-    
-    [theStaticGameLayer release];
-        theStaticGameLayer = nil;
-        NSLog(@"%d",theStaticGameLayer.retainCount);
-//    }
-}
+//+(void )unShareTheStaticGameLayer{
+//    
+//    [theStaticGameLayer release];
+//        theStaticGameLayer = nil;
+//        NSLog(@"%d",theStaticGameLayer.retainCount);
+////    }
+//}
 - (NSMutableArray *)contentWords{
     if (!_contentWords) {
         _contentWords = [[NSMutableArray alloc]initWithCapacity:100];
@@ -62,8 +62,11 @@ TheStaticGameLayer *theStaticGameLayer = nil;
     [_plistAllWords release];
     _plistAllWords = [plistAllWords retain];
 }
-- (id)init{
-    if (self == [super init]) {
++(id )initWithIndex:(int )index{
+    return [[[[self class]alloc]initWithIndex:index] autorelease];
+}
+- (id)initWithIndex:(int )index{
+    if ((self = [super init])) {
         
 //        [self writePlist];
         
@@ -88,7 +91,19 @@ TheStaticGameLayer *theStaticGameLayer = nil;
                 [self.contentWords addObject:word];
             }
         }
-                
+        AnswerInterface *answerLayer = [AnswerInterface initizlizeWithQ:@"" AndA:@""];
+        [self addChild:answerLayer];
+        answerLayer.delegate = self;
+        self.answerInterface = answerLayer;
+        
+        MenuLayer *curMenuLayer = [MenuLayer initializeWithIndex:index];
+        [self addChild:curMenuLayer];
+        curMenuLayer.delegate = self;
+        
+        [self resetWordsPropertyWithPlist:QB(index)];
+
+        
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillAppear) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillDisAppear) name:UIKeyboardWillHideNotification object:nil];
 
@@ -400,15 +415,21 @@ TheStaticGameLayer *theStaticGameLayer = nil;
     
 }
 - (void)dealloc{
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+
     self.answerInterface = nil;
-//    [_contentWords release];
-//    [_contentEditEnableWords release];
+    [_contentWords release];
+    [_contentEditEnableWords release];
 //    _contentWords = nil;
 //    _contentEditEnableWords = nil;
+    [selectedWords release];
     
-    self.contentWords = nil;
-    self.contentEditEnableWords = nil;
+//    self.contentWords = nil;
+//    self.contentEditEnableWords = nil;
     
+    self.plistAllWords = nil;
     [super dealloc];
 }
 @end

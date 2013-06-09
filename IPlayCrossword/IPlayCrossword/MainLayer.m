@@ -7,7 +7,6 @@
 //
 
 #import "MainLayer.h"
-
 #import "TheStaticGameLayer.h"
 
 #define File(x) [NSString stringWithFormat:@"File%d.png",[[NSUserDefaults standardUserDefaults] integerForKey:[NSString stringWithFormat:@"File%d",x]]]
@@ -28,7 +27,7 @@ static MainLayer *staticMainLayer = nil;
 - (id )init{
     if (self == [super init]) {
         self.backGroundImage = [CCSprite spriteWithFile:@"B1.png"];
-        
+                
 //        SetFile(0,1);
 //        SetFile(0,2);
 //        SetFile(0,3);
@@ -50,18 +49,15 @@ static MainLayer *staticMainLayer = nil;
             file.tag = i;
             file.position = ccp( WinWidth/2 + 100*(i%3-1) , WinHeight/2 + (WinHeight>480?160:110) - (100*(i-1)/3) );
             file.scale = .6f;
-            [WGDirector addTargetedDelegate:file priority:0 swallowsTouches:YES];
+//            [WGDirector addTarg/etedDelegate:file priority:0 swallowsTouches:YES];
             [file addTarget:self selector:@selector(filePressed:) withObject:file];
         }
-        
-    
+                
     }
     return self;
 }
 - (void)filePressed:(WGSprite *)file{
-    CCScene *scene = [CCScene node];
-    [scene addChild:[TheStaticGameLayer sceneAddWithInde:file.tag]];
-    [Director replaceScene:[CCTransitionMoveInR transitionWithDuration:.5f scene:scene]];
+    [Director replaceScene:[CCTransitionMoveInR transitionWithDuration:.5f scene:[TheStaticGameLayer initWithIndex:file.tag]]];
 }
 
 //重置file所显示的样式  未做过、及格、不及格

@@ -183,8 +183,11 @@ static NSUInteger globalOrderOfArrival = 1;
 
 	// children
 	CCNode *child;
-	CCARRAY_FOREACH(children_, child)
-		child.parent = nil;
+	CCARRAY_FOREACH(children_, child){
+        NSLog(@"%@",child.description);
+        child.parent = nil;
+
+    }
 
 	[children_ release];
 

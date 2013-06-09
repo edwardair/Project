@@ -26,6 +26,7 @@ typedef enum kType_Touch:NSUInteger{
 @property (nonatomic,assign) SEL selector;
 @property (nonatomic,retain) id selectorObj;
 @property (nonatomic,retain) id target;
+@property (nonatomic,assign) int priority;
 
 - (void)addTarget:(id )target selector:(SEL)selector;
 - (void)addTarget:(id )target selector:(SEL)selector withObject:(id )object;

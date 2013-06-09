@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-
 //两点式方程：(x-x1)*(y2-y1)=(y-y1)*(x2-x1)
 //返回1 为三点共线 否则不共线
 #define isThreePointCollineation(p1,p2,p3) (p3.x-p1.x)*(p2.y-p1.y)==(p3.y-p1.y)*(p2.x-p1.x) ? 1 : 0

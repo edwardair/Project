@@ -29,11 +29,16 @@
 	return CGRectMake(-rect_.size.width / 2, -rect_.size.height / 2, rect_.size.width, rect_.size.height);
 }
 
-//- (void)onExit
-//{
-//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-//        [super onExit];
-//}
+- (void)onEnter{
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:_priority swallowsTouches:YES];
+    [super onEnter];
+}
+- (void)onExit
+{
+    NSLog(@"%@",self.description);
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        [super onExit];
+}
 
 - (BOOL)containsTouchLocation:(UITouch *)touch
 {
@@ -68,9 +73,12 @@
     }
 }
 - (void)dealloc{
-    self.selectorObj = nil;
-    self.target = nil;
-    [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+
+    if (self.target) {
+//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        self.target = nil;
+        self.selectorObj = nil;
+    }
     [super dealloc];
 }
 @end

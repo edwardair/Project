@@ -35,7 +35,7 @@
 //                [[[TheStaticGameLayer shareGameLayer] answerInterface] loadView].hidden = YES;
                 
                 [Director replaceScene:[CCTransitionMoveInL transitionWithDuration:.5f scene:[MainLayer node]]];
-                [TheStaticGameLayer unShareTheStaticGameLayer];
+//                [TheStaticGameLayer unShareTheStaticGameLayer];
             }];
             mainMenu.position = ccp(menuSprite.contentSize.width/2, menuSprite.contentSize.height/2+30);
 

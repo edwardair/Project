@@ -71,11 +71,11 @@
     }
 }
 - (id)init{
-    if (self == [super initWithFile:@"Black.png"]) {
+    if ((self = [super initWithFile:@"Black.png"])) {
 
         [self setContentSize:CGSizeMake(30, 30)];
 
-        [[Director touchDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:YES];
+//        [[Director touchDispatcher] addTargetedDelegate:self priority:-1 swallowsTouches:YES];
 
 //        //默认可点击
 //        self.selectEnable = YES;
@@ -96,12 +96,12 @@
 }
 
 - (void)dealloc{
-    self.questions = nil;
-    self.answers = nil;
-    self.wordPlacement = nil;
-//    self.text = nil;
-    self.textTTF = nil;
-    self.layerColor = nil;
+
+    [_answers release];
+    [_questions release];
+    _answers = nil;
+    _questions = nil;
+
     [super dealloc];
 }
 
